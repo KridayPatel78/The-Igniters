@@ -80,7 +80,9 @@
     "type": "text",
     "used_in": [
       "earth_spinoffs"
-    ]
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article."
   },
   {
     "id": "spinoff-fire-detector",
@@ -89,7 +91,9 @@
     "type": "text",
     "used_in": [
       "earth_spinoffs"
-    ]
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article."
   },
   {
     "id": "spinoff-fire-attire",
@@ -98,6 +102,8 @@
     "type": "text",
     "used_in": [
       "earth_spinoffs"
-    ]
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article."
   }
 ]

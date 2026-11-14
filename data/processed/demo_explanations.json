@@ -1,0 +1,94 @@
+{
+  "moon_base/all": {
+    "scenario": "moon_base",
+    "focus": "all",
+    "explanation": "First-ranked SAFFIRE-II [PSI-99] (84.8/100) and second-ranked SAFFIRE-I [PSI-98] (84.3/100) top the scenario because both match the ventilated airflow (15/15), test habitat solid fuels (20/20), cover the prevention pillar (14/20), and earn maximum richness scores (10/10). Third-ranked FLEX-2 [PSI-68] (77.0/100) achieves a perfect 35/35 oxygen score by testing within the scenario's 30% O₂ range and matches the ventilated airflow (15/15), but ranks lower overall because it tested liquid droplet fuels with no habitat materials named (4/20 material score).",
+    "mode": "llm",
+    "top3": [
+      {
+        "psi_id": "PSI-99",
+        "acronym": "SAFFIRE-II",
+        "total": 84.8
+      },
+      {
+        "psi_id": "PSI-98",
+        "acronym": "SAFFIRE-I",
+        "total": 84.3
+      },
+      {
+        "psi_id": "PSI-68",
+        "acronym": "FLEX-2",
+        "total": 77.0
+      }
+    ]
+  },
+  "iss_cabin/all": {
+    "scenario": "iss_cabin",
+    "focus": "all",
+    "explanation": "SAFFIRE-I [PSI-98] and SAFFIRE-II [PSI-99] rank highest with equal total scores of 93.4/100 because both tested oxygen levels very close to the 21% scenario, perfectly matched the ventilated airflow at 20 cm/s, evaluated solid habitat materials, and earned full richness points. BASS-II [PSI-25] ranks third with a score of 82.0/100 because its tested oxygen range fully included 21% and it covered two pillars (prevention and suppression), though its score was lowered because its airflow was not reported. Overall, all three investigations excelled by testing solid habitat fuels and achieving full 10/10 scores for richness.",
+    "mode": "llm",
+    "top3": [
+      {
+        "psi_id": "PSI-98",
+        "acronym": "SAFFIRE-I",
+        "total": 93.4
+      },
+      {
+        "psi_id": "PSI-99",
+        "acronym": "SAFFIRE-II",
+        "total": 93.4
+      },
+      {
+        "psi_id": "PSI-25",
+        "acronym": "BASS-II",
+        "total": 82.0
+      }
+    ]
+  },
+  "spacesuit/all": {
+    "scenario": "spacesuit",
+    "focus": "all",
+    "explanation": "[PSI-98] SAFFIRE-I ranks first with a total score of 49.0/100 by earning full points for material (20/20) and richness (10/10), along with 14/20 for covering the prevention pillar and 5/15 for flow, despite scoring 0/35 on oxygen. \n\n[PSI-99] SAFFIRE-II ties for the top rank with a 49.0/100 total score by receiving the exact same sub-scores in material, richness, pillars, and flow while testing solid habitat fuels like cotton, Nomex, PMMA, silicone, and SIBAL. \n\nFinally, [PSI-100] SAFFIRE-III also earned a total score of 49/100 by securing identical marks in material (20/20), richness (10/10), pillars (14/20), and flow (5/15), even though its oxygen level was not reported in the PSI tables.",
+    "mode": "llm",
+    "top3": [
+      {
+        "psi_id": "PSI-98",
+        "acronym": "SAFFIRE-I",
+        "total": 49.0
+      },
+      {
+        "psi_id": "PSI-99",
+        "acronym": "SAFFIRE-II",
+        "total": 49.0
+      },
+      {
+        "psi_id": "PSI-100",
+        "acronym": "SAFFIRE-III",
+        "total": 49
+      }
+    ]
+  },
+  "moon_base/detection": {
+    "scenario": "moon_base",
+    "focus": "detection",
+    "explanation": "[PSI-102] ranks highest with a total score of 64/100 because it covers the detection focus, matches the ventilated scenario's airflow, uses solid habitat materials including silicone and Kapton, and provides high data richness. [PSI-101] ranks second with a total score of 50/100 as it also covers the detection focus, uses solid habitat materials such as foam and Kapton, and achieves high data richness despite missing airflow data. [PSI-60] ranks third with a total score of 28/100 because, while it covers the detection focus, it relies on gaseous fuels without habitat materials and offers lower data richness without an experimental table.",
+    "mode": "llm",
+    "top3": [
+      {
+        "psi_id": "PSI-102",
+        "acronym": "SAME",
+        "total": 64
+      },
+      {
+        "psi_id": "PSI-101",
+        "acronym": "SAME-R",
+        "total": 50
+      },
+      {
+        "psi_id": "PSI-60",
+        "acronym": "not reported",
+        "total": 28
+      }
+    ]
+  }
+}
