@@ -1,0 +1,2 @@
+# PSI IDs a person has verified field-by-field against the PSI page (see extract/REVIEW.md).
+# One ID per line. Only humans add IDs here; it sets extraction_confidence = "checked".

@@ -1,0 +1,64 @@
+{
+  "psi_id": "PSI-101",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"
+    },
+    "pillars": [
+      {
+        "value": "detection",
+        "quote": "Along with the results from the original SAME investigation, the results from SAME-R can lead to technology for an advanced fire detector for future spacecraft that will be used for long duration missions."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "Pyrell intumescent fire-retardant foam",
+        "quote": "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"
+      },
+      {
+        "value": "DBP",
+        "quote": "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"
+      },
+      {
+        "value": "Kapton",
+        "quote": "Kapton, 51, B.L. new formula, 21-Jul, 8.1, 1.38, 60, 11, 8, 38"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "thermal precipitators",
+        "quote": "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles."
+      },
+      {
+        "value": "TEM grids",
+        "quote": "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles."
+      },
+      {
+        "value": "M-pass",
+        "quote": "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."
+      },
+      {
+        "value": "DustTrak",
+        "quote": "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."
+      },
+      {
+        "value": "ionization detector",
+        "quote": "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."
+      }
+    ],
+    "objective_summary": {
+      "value": "The primary objective of the SAME-R investigation was to quantify liquid smoke particulate sizes in low gravity and relate the droplet size distribution to smoke generation and transport conditions.",
+      "quote": "Similar to the original SAME investigation, the primary objective of the SAME-R investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Smoke detectors developed from this research can be applied in extreme environments on Earth such as submarines or underwater laboratories to improve fire safety.",
+      "quote": "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories."
+    }
+  }
+}

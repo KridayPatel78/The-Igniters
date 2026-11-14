@@ -1,0 +1,56 @@
+{
+  "psi_id": "PSI-98",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "The sample material for Saffire-I is a composite fabric called Sibal consisting of cotton on a fiberglass substrate (75% cotton, 25% fiberglass by weight)."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "SIBAL fabric, 0.94 m x 0.4 m, 0.37 cm thick",
+        "quote": "Material: SIBAL Fabric"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "cameras",
+        "quote": "Once the sample was ignited flame images were captured using two cameras."
+      },
+      {
+        "value": "thermocouples",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures"
+      },
+      {
+        "value": "radiometers",
+        "quote": "two radiometers recorded flame radiation"
+      },
+      {
+        "value": "solid state sensors",
+        "quote": "solid state sensors were used to measure pressure, CO2 and O2 mole faction"
+      },
+      {
+        "value": "anemometer",
+        "quote": "two anemometer tracked flow velocity."
+      }
+    ],
+    "objective_summary": {
+      "value": "The SAFFIRE-I experiment aims to evaluate how quickly large-scale fires spread in low gravity. It also investigates microgravity flammability limits compared to normal-gravity material screening standards.",
+      "quote": "(1) determine how rapidly a large scale fire grows in low-gravity"
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Understanding fire behavior in small, enclosed spacecraft environments aids fire safety and prevention strategies on Earth, particularly within confined spaces like mines, airplanes, and submarines.",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    }
+  }
+}

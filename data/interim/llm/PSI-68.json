@@ -1,0 +1,84 @@
+{
+  "psi_id": "PSI-68",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "liquid_droplet",
+      "quote": "Investigate the role of liquid-phase mixing on the burning characteristics of bi-component fuel droplets."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "Determine the influence of droplet interactions on the flammability limits and extinction behavior of droplet arrays."
+      },
+      {
+        "value": "suppression",
+        "quote": "Study flame extinction mechanisms and their boundaries."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "IsoOctane (pure)",
+        "quote": "Sample (Fuel Type): IsoOctane (pure)"
+      },
+      {
+        "value": "n-Octane (pure)",
+        "quote": "Sample (Fuel Type): n-Octane (pure)"
+      },
+      {
+        "value": "Heptane (pure)",
+        "quote": "Sample (Fuel Type): Heptane (pure)"
+      },
+      {
+        "value": "Decane (pure)",
+        "quote": "Sample (Fuel Type): Decane (pure)"
+      },
+      {
+        "value": "Ethanol (pure)",
+        "quote": "Sample (Fuel Type): Ethanol (pure)"
+      },
+      {
+        "value": "Propanol (95%) Glycerol (5%) (mixture)",
+        "quote": "Sample (Fuel Type): Propanol (95%) Glycerol (5%) (mixture)"
+      },
+      {
+        "value": "Heptane (50%) IsoOctane (50%) (mixture)",
+        "quote": "Sample (Fuel Type): Heptane (50%) IsoOctane (50%) (mixture)"
+      },
+      {
+        "value": "Propanol (80%) Glycerol (20%) (mixture)",
+        "quote": "Sample (Fuel Type): Propanol (80%) Glycerol (20%) (mixture)"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "color camera video",
+        "quote": "A near real-time download of the color camera video was employed in order to verify successful droplet deployment, ignition, and overall progress of the experiment."
+      },
+      {
+        "value": "pressure data",
+        "quote": "Pressure and temperature data of the chamber environment was also recorded in near real time."
+      },
+      {
+        "value": "temperature data",
+        "quote": "Pressure and temperature data of the chamber environment was also recorded in near real time."
+      },
+      {
+        "value": "high speed photography",
+        "quote": "6. Monitor combustions and track flame evolution using high speed photography."
+      }
+    ],
+    "objective_summary": {
+      "value": "The primary goal of the FLEX-2 flight experiments is to extend FLEX-1 results to conditions mimicking real combustor environments and provide benchmark data on bi-component droplet combustion to validate numerical simulations and theoretical models.",
+      "quote": "The primary goal of the FLEX-2 flight experiments is to extend the results of FLEX-1 to fuels and environmental conditions that mimic real combustor conditions, as well as, provide benchmark experimental data on bi-component droplet combustion over a wide range of initial conditions in order to validate numerical simulations and to develop new theoretical models."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Insights gained from these studies can lead to more efficient and cleaner combustion technologies, reducing pollution and greenhouse gas emissions while supporting sustainable energy production and improved combustor designs.",
+      "quote": "Insights gained from these studies can lead to more efficient and cleaner combustion technologies which are crucial for reducing pollution and greenhouse gas emissions."
+    }
+  }
+}

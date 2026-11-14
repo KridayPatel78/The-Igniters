@@ -1,0 +1,64 @@
+{
+  "psi_id": "PSI-69",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "liquid_droplet",
+      "quote": "The FLEX experiments involve igniting and observing the burning behavior of relatively large droplets."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "The FLEX (Flame Extinguishment Experiment) investigation aims to map the flammability limits of liquid fuels in microgravity environments, measure the effectiveness of various gaseous fire suppressants such as CO2, He, and SF6, and develop reliable predictive models for combustion limits under reduced gravity conditions."
+      },
+      {
+        "value": "suppression",
+        "quote": "measure the effectiveness of various gaseous fire suppressants such as CO2, He, and SF6,"
+      }
+    ],
+    "fuels": [
+      {
+        "value": "Methanol",
+        "quote": "Fuel: Methanol"
+      },
+      {
+        "value": "Heptane",
+        "quote": "Fuel: Heptane"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "droplet burning rates",
+        "quote": "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      },
+      {
+        "value": "flame extinction behavior",
+        "quote": "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      },
+      {
+        "value": "heat radiation",
+        "quote": "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      },
+      {
+        "value": "soot levels",
+        "quote": "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      },
+      {
+        "value": "temperature profiles",
+        "quote": "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      }
+    ],
+    "objective_summary": {
+      "value": "The FLEX investigation aims to map the flammability limits of liquid fuels in microgravity, evaluate the effectiveness of gaseous suppressants, and develop predictive combustion models. It also seeks to obtain high-resolution measurements of droplet burning rates, flame extinction, heat radiation, soot levels, and temperature profiles.",
+      "quote": "The FLEX (Flame Extinguishment Experiment) investigation aims to map the flammability limits of liquid fuels in microgravity environments, measure the effectiveness of various gaseous fire suppressants such as CO2, He, and SF6, and develop reliable predictive models for combustion limits under reduced gravity conditions."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Insights from FLEX can advance fire safety in terrestrial confined environments like submarines or high-altitude aircraft, improve fire suppression systems, and inform advanced combustion engine design to reduce emissions.",
+      "quote": "On Earth, the insights gained from these experiments have the potential to advance fire safety in confined and reduced-gravity environments, such as submarines or high-altitude aircraft."
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "psi_id": "PSI-23",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "gas",
+      "quote": "Flames of gaseous fuels"
+    },
+    "pillars": [
+      {
+        "value": "suppression",
+        "quote": "Determine the quasi-steady convective/chemical-kinetic extinction limits (low system Damköhler numbers) and radiative/chemical-kinetic extinction limits (high system Damköhler numbers) for mixtures of different H2/CH4/diluent ratios (soot-free) and different C2H4/diluent ratios (sooty)."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "50% C2H4 with N2",
+        "quote": "Fuel Bottle: 50% C2H4 with N2"
+      },
+      {
+        "value": "50% C2H4 with N3",
+        "quote": "Fuel Bottle: 50% C2H4 with N3"
+      },
+      {
+        "value": "45% CH4 with N2",
+        "quote": "Fuel Bottle: 45% CH4 with N2"
+      },
+      {
+        "value": "45% CH4 with N3",
+        "quote": "Fuel Bottle: 45% CH4 with N3"
+      },
+      {
+        "value": "100% H2",
+        "quote": "Fuel Bottle: 100% H2"
+      },
+      {
+        "value": "44.4% H2 with CH4",
+        "quote": "Fuel Bottle: 44.4% H2 with CH4"
+      },
+      {
+        "value": "66.7% H2 with CH4",
+        "quote": "Fuel Bottle: 66.7% H2 with CH4"
+      },
+      {
+        "value": "25% H2, 20% CH4, with He",
+        "quote": "Fuel Bottle: 25% H2, 20% CH4, with He"
+      },
+      {
+        "value": "20% H2, 25% CH4, with He",
+        "quote": "Fuel Bottle: 20% H2, 25% CH4, with He"
+      },
+      {
+        "value": "30% H2, 15% CH4, with He",
+        "quote": "Fuel Bottle: 30% H2, 15% CH4, with He"
+      },
+      {
+        "value": "45% H2 with He",
+        "quote": "Fuel Bottle: 45% H2 with He"
+      },
+      {
+        "value": "45% CH4 with He",
+        "quote": "Fuel Bottle: 45% CH4 with He"
+      },
+      {
+        "value": "20% C2H4 with He",
+        "quote": "Fuel Bottle: 20% C2H4 with He"
+      },
+      {
+        "value": "25% C2H4 with He",
+        "quote": "Fuel Bottle: 25% C2H4 with He"
+      },
+      {
+        "value": "30% C2H4 with He",
+        "quote": "Fuel Bottle: 30% C2H4 with He"
+      },
+      {
+        "value": "35% H2 with He",
+        "quote": "Fuel Bottle: 35% H2 with He"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "spectrally resolved images",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "flame and burner temperatures",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "radiative flux measurements",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "reactant flow rates",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "ambient temperatures",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "pressures",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "acceleration levels",
+        "quote": "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.)."
+      },
+      {
+        "value": "temperature and species distribution",
+        "quote": "Measure and characterize the transient structure (such as temperature and species distribution) of diffusion flames established at initially non-steady, spherical flame structures for mixtures of different H2/CH4/diluent ratios   (soot-free) and different C2H4/diluent ratios (sooty), for different flow rates."
+      }
+    ],
+    "objective_summary": {
+      "value": "The investigation aims to study spherical diffusion flames of soot-free and sooty gaseous fuel mixtures in microgravity to measure flame structure, extinction limits, and pulsating instabilities. These experimental data are used to compare with and validate detailed computational chemical kinetics and transport models.",
+      "quote": "A series of experiments is proposed with the following specific objectives, in both soot-free and sooty flames, to compare with detailed computational simulation to assess transport properties and detailed chemical kinetics (including chemiluminescence):"
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Understanding diffusion flame dynamics and chemistry supports improving the performance, power, efficiency, reliability, and pollutant emissions of combustion engines and devices on Earth.",
+      "quote": "Practically, with diffusion flame burning as the basis in many combustion engines and devices, understanding the underlying dynamics and chemistry of diffusion flames is important in improving performance in terms of power, efficiency, pollutant emissions, and reliability."
+    }
+  }
+}

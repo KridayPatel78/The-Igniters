@@ -1,0 +1,39 @@
+{
+  "psi_id": "PSI-47",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "pillars": [
+      {
+        "value": "detection",
+        "quote": "This research will impact the development of novel fire and smoke detection systems for the International Space Station and future spacecrafts."
+      }
+    ],
+    "fuels": [],
+    "measurements": [
+      {
+        "value": "modified P-Trak particulate counter",
+        "quote": "DAFT / DAFT-2 tests that a modified P-Trak particulate counter would be accurate in microgravity."
+      },
+      {
+        "value": "DustTrak CNC",
+        "quote": "The modified P-Trak gathered data from counting aerosol particles and these data were compared to the DustTrak CNC specifically designed to work in microgravity."
+      }
+    ],
+    "objective_summary": {
+      "value": "The DAFT / DAFT-2 investigation aimed to verify that a modified TSI P-Trak particulate counter functions accurately in microgravity for quantifying smoke aerosols. It also sought to compare the modified P-Trak against a DustTrak control and analyze aerosol standards in microgravity.",
+      "quote": "DAFT / DAFT-2 tests that a modified P-Trak particulate counter would be accurate in microgravity."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "The successful adaptation of the TSI P-Trak for microgravity can guide the design of accurate smoke detection instruments for challenging Earth environments, such as submarines or underwater laboratories.",
+      "quote": "Additionally, the successful adaptation of the TSI P-Trak for microgravity can inform the design of instruments for use in other challenging Earth environments, such as submarines or underwater laboratories where accurate detection of smoke can save lives."
+    }
+  }
+}

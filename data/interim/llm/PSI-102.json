@@ -1,0 +1,68 @@
+{
+  "psi_id": "PSI-102",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "pillars": [
+      {
+        "value": "detection",
+        "quote": "The SAME experiment will provide technology for an advanced fire detector for future spacecraft that will be used for long duration missions."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "Teflon",
+        "quote": "Sample Material: Teflon"
+      },
+      {
+        "value": "Kapton",
+        "quote": "Sample Material: Kapton: same conditions as 1-4"
+      },
+      {
+        "value": "Silicone Rubber",
+        "quote": "Sample Material: Silicone Rubber: same conditions as 1-4"
+      },
+      {
+        "value": "Lampwick",
+        "quote": "Sample Material: Lampwick: same conditions as 1-4"
+      },
+      {
+        "value": "Dibutyl Phthalate",
+        "quote": "Sample Material: Dibutyl Phthalate: same conditions as 1-4"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "smoke detectors",
+        "quote": "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke."
+      },
+      {
+        "value": "video cameras",
+        "quote": "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke."
+      },
+      {
+        "value": "thermophoretic soot samplers",
+        "quote": "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke."
+      },
+      {
+        "value": "Transmission Electron microscope (TEM)",
+        "quote": "After flight, the particulate collected on the thermophoretic probes were analyzed using a Transmission Electron microscope (TEM) to determine primary and aggregate particle dimensions."
+      }
+    ],
+    "objective_summary": {
+      "value": "The investigation aimed to quantify liquid smoke droplet sizes in microgravity and relate droplet size distribution to smoke generation and transport conditions. It also sought to develop a numerical model predicting smoke droplet growth based on pyrolysis rate, vapor properties, and flow environment.",
+      "quote": "One of the major goals of this investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Smoke detectors developed from the results can be used in extreme environments on Earth, such as submarines or underwater laboratories, saving lives through accurate smoke detection.",
+      "quote": "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories."
+    }
+  }
+}

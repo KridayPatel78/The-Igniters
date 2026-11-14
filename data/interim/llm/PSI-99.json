@@ -1,0 +1,68 @@
+{
+  "psi_id": "PSI-99",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "As a follow on to the Saffire-I investigation, the Saffire-II investigation added more samples including SIBAL, silicone, structure PMMA, flat PMMA, and PMMA with Nomex."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "Silicone",
+        "quote": "Material: Silicone"
+      },
+      {
+        "value": "Cotton-Fiberglass (SIBAL)",
+        "quote": "Material: Cotton-Fiberglass (SIBAL)"
+      },
+      {
+        "value": "PMMA & Nomex",
+        "quote": "Material: PMMA & Nomex"
+      },
+      {
+        "value": "PMMA",
+        "quote": "Material: PMMA"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "cameras",
+        "quote": "Once the sample was ignited flame images were captured using two cameras."
+      },
+      {
+        "value": "thermocouples",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "radiometers",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "solid state sensors",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "anemometer",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      }
+    ],
+    "objective_summary": {
+      "value": " The SAFFIRE-II investigation aims to determine how rapidly a large-scale fire grows in low gravity and to evaluate low-g flammability limits relative to NASA's terrestrial screening tests.",
+      "quote": "The objectives of SAFFIRE-II are to determine how rapidly a large scale fire grows in low-gravity and to investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test."
+    },
+    "key_findings": {
+      "value": "Cotton-Fiberglass (SIBAL) burned for 145 seconds in low gravity with a 29 cm burn length and 2.1 mm/s spread rate, whereas silicone samples had insignificant burn times and near-zero microgravity burn lengths.",
+      "quote": "2-5, Cotton-Fiberglass (SIBAL), 037 mm, 29 cm, 5 cm, 20 cm/s, ~ 22.1, 80 W, 9.2 s, 145 s, Concurrent, 29 cm, 2.1 mm/s, Complete, Acceleratory, S5C1, S5C2"
+    },
+    "earth_applications": {
+      "value": "Fire studies in small, sealed environments like Cygnus benefit terrestrial fire safety and prevention efforts in confined spaces such as mines, airplanes, or submarines.",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    }
+  }
+}
