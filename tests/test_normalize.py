@@ -211,3 +211,10 @@ def test_llm_input_lists_every_fuel():
     tables = normalize.load_tables("PSI-69")
     text = llm.build_input({"title": "FLEX"}, tables)
     assert "Fuel: Methanol" in text and "Fuel: Heptane" in text
+
+
+def test_unknown_fuel_phase_marked_placeholder():
+    prov = json.loads((normalize.OUT_DIR / "provenance.json").read_text(encoding="utf-8"))
+    placeholders = {pid for pid, p in prov.items() if normalize.is_placeholder(p["fuel_phase"])}
+    assert placeholders == {"PSI-47", "PSI-115"}
+    assert prov["PSI-60"]["fuel_phase"]["source"] == "override"

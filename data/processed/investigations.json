@@ -29607,7 +29607,7 @@
     "doi": "10.60555/gd4k-8h62",
     "platform": "International Space Station (ISS)",
     "hardware": "Comparitive Soot Diagnostic Hardware",
-    "fuel_phase": "mixed",
+    "fuel_phase": "solid",
     "fuels": [
       "Teflon",
       "Kapton",
@@ -31093,7 +31093,7 @@
     "doi": "10.60555/mzjm-yv57",
     "platform": "Ground Investigation",
     "hardware": "not reported",
-    "fuel_phase": "mixed",
+    "fuel_phase": "gas",
     "fuels": [],
     "o2_percent_range": null,
     "pressure_psi_range": null,

@@ -58,6 +58,11 @@ GRAVITY_SEEDS = {"PSI-22": "partial_mimic"}  # E-FIELD Flames mimic partial grav
 FUEL_PHASE_FALLBACK = "mixed"
 
 
+def is_placeholder(field_provenance) -> bool:
+    """True when a value only exists to satisfy the contract (scoring must treat it as unknown)."""
+    return isinstance(field_provenance, dict) and field_provenance.get("placeholder") is True
+
+
 def text_or_nr(value) -> str:
     value = (value or "").strip() if isinstance(value, str) else value
     return value if value else NOT_REPORTED
@@ -171,14 +176,17 @@ def build_record(psi_id: str, use_llm: bool = True, refresh_llm: bool = False,
     if psi_id in PILLAR_SEEDS:
         rec["pillars"], prov["pillars"] = list(PILLAR_SEEDS[psi_id]), "rule:pillar_seed"
     if rec["fuel_phase"] == NOT_REPORTED:
-        rec["fuel_phase"], prov["fuel_phase"] = FUEL_PHASE_FALLBACK, "fallback:not_reported (contract needs an enum value)"
-        notes.append("fuel_phase: not supported by PSI text - placeholder 'mixed', needs a human override")
+        rec["fuel_phase"] = FUEL_PHASE_FALLBACK
+        prov["fuel_phase"] = {"source": "placeholder", "placeholder": True,
+                              "reason": "not supported by PSI text; contract needs an enum value - treat as unknown"}
 
     override = load_override(psi_id, overrides_dir)
     for field, value in override.items():
         if not field.startswith("_"):
             rec[field] = value
             prov[field] = {"source": "override", "quote": override["_source"]} if "_source" in override else "override"
+    if is_placeholder(prov["fuel_phase"]):
+        notes.append("fuel_phase: PLACEHOLDER 'mixed' (unknown) - scoring treats it as unknown; needs a human override")
 
     checked = read_checked() if checked is None else checked
     rec["extraction_confidence"] = "checked" if psi_id in checked else "llm_unchecked"
