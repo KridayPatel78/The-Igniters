@@ -218,3 +218,9 @@ def test_unknown_fuel_phase_marked_placeholder():
     placeholders = {pid for pid, p in prov.items() if normalize.is_placeholder(p["fuel_phase"])}
     assert placeholders == {"PSI-47", "PSI-115"}
     assert prov["PSI-60"]["fuel_phase"]["source"] == "override"
+
+
+@pytest.mark.parametrize("psi_id", ["PSI-10", "PSI-20", "PSI-21", "PSI-22", "PSI-23", "PSI-159"])
+def test_acme_pillars_seeded_prevention(psi_id):
+    rec, prov = normalize.build_record(psi_id, use_llm=False, checked=set())
+    assert rec["pillars"] == ["prevention"] and prov["pillars"] == "rule:pillar_seed"

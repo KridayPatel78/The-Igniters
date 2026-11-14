@@ -51,7 +51,7 @@ def test_oxygen_not_reported_zero():
 @pytest.mark.parametrize("airflow, ventilation, expected", [
     ([20, 20], "ventilated", 15), ([0, 0], "quiescent", 15),
     ([20, 20], "quiescent", 5), ([0, 0], "ventilated", 5),
-    (None, "ventilated", 7.5), (None, "quiescent", 7.5),
+    (None, "ventilated", 0), (None, "quiescent", 0),
 ])
 def test_flow(airflow, ventilation, expected):
     assert S.score_flow(airflow, ventilation)["points"] == expected
@@ -176,3 +176,49 @@ def test_real_data_loads_and_ranks():
     assert len(records) == 24 and ("PSI-47", "fuel_phase") in placeholders
     ranked = S.rank(records, "moon_base")
     assert len(ranked) == 24 and ranked[0]["total"] >= ranked[-1]["total"]
+
+
+# --- Step 4: evidence-only flow, focus grouping, callouts -------------------------------------
+
+def test_flow_unknown_scores_zero_with_reason():
+    item = S.score_flow(None, "ventilated")
+    assert item["points"] == 0 and "no points without evidence" in item["reason"]
+    assert S.score_flow([20, 20], "quiescent")["points"] > item["points"]  # a known mismatch beats no data
+
+
+def test_focus_groups_ranking_without_changing_scores():
+    det = make(psi_id="PSI-2", pillars=["detection"], o2_percent_range=None, tests=[], measurements=[])
+    prev = make(psi_id="PSI-1", pillars=["prevention"], o2_percent_range=[30, 30])
+    ranked = S.rank([prev, det], "moon_base", focus="detection")
+    assert [r["psi_id"] for r in ranked] == ["PSI-2", "PSI-1"]
+    assert ranked[0]["total"] < ranked[1]["total"]  # grouped first despite the lower score
+    assert [r["matches_focus"] for r in ranked] == [True, False]
+    assert ranked[0]["total"] == S.score_investigation(det, "moon_base", focus="detection")["total"]
+
+
+def test_focus_all_sorts_by_total_and_everything_matches():
+    det = make(psi_id="PSI-2", pillars=["detection"], o2_percent_range=None)
+    prev = make(psi_id="PSI-1", pillars=["prevention"], o2_percent_range=[30, 30])
+    ranked = S.rank([det, prev], "moon_base")
+    assert [r["psi_id"] for r in ranked] == ["PSI-1", "PSI-2"] and all(r["matches_focus"] for r in ranked)
+
+
+@pytest.mark.parametrize("scenario, expected", [("moon_base", ["closest_to_partial_gravity"]),
+                                                ("mars_habitat", ["closest_to_partial_gravity"]),
+                                                ("iss_cabin", []), ("spacesuit", [])])
+def test_partial_gravity_callout(scenario, expected):
+    assert S.score_investigation(make(gravity="partial_mimic"), scenario)["callouts"] == expected
+    assert S.score_investigation(make(), scenario)["callouts"] == []
+
+
+def test_real_data_focus_groups():
+    records, placeholders = S.load_inputs()
+    det = S.rank(records, "moon_base", focus="detection", placeholders=placeholders)
+    top = {r["psi_id"] for r in det if r["matches_focus"]}
+    assert {"PSI-102", "PSI-101", "PSI-47"} <= top
+    sup = S.rank(records, "moon_base", focus="suppression", placeholders=placeholders)
+    top = {r["psi_id"] for r in sup if r["matches_focus"]}
+    assert {"PSI-69", "PSI-68"} <= top
+    assert not top & {"PSI-10", "PSI-20", "PSI-21", "PSI-22", "PSI-23", "PSI-159"}
+    efield = next(r for r in S.rank(records, "moon_base") if r["psi_id"] == "PSI-22")
+    assert efield["callouts"] == ["closest_to_partial_gravity"]

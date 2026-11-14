@@ -64,11 +64,12 @@ def flow_regime(airflow_range) -> str:
 
 
 def score_flow(airflow_range, ventilation: str) -> dict:
-    """B. Match 15, mismatch 5, unknown 7.5."""
+    """B. Match 15, mismatch 5, not reported 0 (evidence only)."""
     regime = flow_regime(airflow_range)
     if regime == "unknown":
         return _item("flow", C.FLOW_UNKNOWN, C.FLOW_MAX,
-                     f"Airflow not reported — neutral score → {_fmt(C.FLOW_UNKNOWN)}/{C.FLOW_MAX}",
+                     f"Airflow not reported in PSI tables — no points without evidence → "
+                     f"{_fmt(C.FLOW_UNKNOWN)}/{C.FLOW_MAX}",
                      airflow_cm_s_range=None, regime=regime, scenario_ventilation=ventilation)
     points = C.FLOW_MATCH if regime == ventilation else C.FLOW_MISMATCH
     verdict = "matches" if regime == ventilation else "differs from"
@@ -144,6 +145,13 @@ def notes_for(record: dict, scenario_key: str) -> list[str]:
     return notes
 
 
+def callouts_for(record: dict, scenario_key: str) -> list[str]:
+    """Pinned-card flags for the app (never scored)."""
+    if record.get("gravity") == "partial_mimic" and scenario_key in C.PARTIAL_GRAVITY_SCENARIOS:
+        return [C.PARTIAL_GRAVITY_MIMIC_CALLOUT]
+    return []
+
+
 def score_investigation(record: dict, scenario_key: str, focus: str = "all", ventilation: str | None = None,
                         placeholders: frozenset = frozenset()) -> dict:
     _validate(scenario_key, focus, ventilation)
@@ -159,7 +167,8 @@ def score_investigation(record: dict, scenario_key: str, focus: str = "all", ven
     ]
     return {"psi_id": pid, "acronym": record.get("acronym"), "title": record.get("title"),
             "total": round(sum(b["points"] for b in breakdown), 1), "breakdown": breakdown,
-            "notes": notes_for(record, scenario_key)}
+            "matches_focus": focus == "all" or focus in (record.get("pillars") or []),
+            "notes": notes_for(record, scenario_key), "callouts": callouts_for(record, scenario_key)}
 
 
 def _psi_number(psi_id: str) -> tuple:
@@ -169,9 +178,11 @@ def _psi_number(psi_id: str) -> tuple:
 
 def rank(records: list[dict], scenario_key: str, focus: str = "all", ventilation: str | None = None,
          placeholders: frozenset = frozenset()) -> list[dict]:
-    """Scored records, best first. Ties: higher data richness, then PSI ID (numeric order)."""
+    """Scored records, best first: (single-pillar focus) investigations covering it first, then
+    total, then data richness, then PSI ID (numeric order). Scores themselves are never changed."""
     scored = [score_investigation(r, scenario_key, focus, ventilation, placeholders) for r in records]
-    return sorted(scored, key=lambda s: (-s["total"], -s["breakdown"][4]["points"], _psi_number(s["psi_id"])))
+    return sorted(scored, key=lambda s: (not s["matches_focus"], -s["total"], -s["breakdown"][4]["points"],
+                                         _psi_number(s["psi_id"])))
 
 
 def load_inputs(processed_dir: Path = PROCESSED) -> tuple[list[dict], frozenset]:
@@ -185,11 +196,12 @@ def load_inputs(processed_dir: Path = PROCESSED) -> tuple[list[dict], frozenset]
 
 
 def format_table(ranked: list[dict], top: int | None = None) -> str:
-    lines = ["| rank | PSI ID | acronym | total | A O2 | B flow | C material | D pillars | E data |",
-             "|---|---|---|---|---|---|---|---|---|"]
+    lines = ["| rank | PSI ID | acronym | total | A O2 | B flow | C material | D pillars | E data | focus |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
     for i, s in enumerate(ranked[:top], 1):
         pts = " | ".join(_fmt(b["points"]) for b in s["breakdown"])
-        lines.append(f"| {i} | {s['psi_id']} | {s['acronym']} | {_fmt(s['total'])} | {pts} |")
+        group = "✓" if s["matches_focus"] else "other"
+        lines.append(f"| {i} | {s['psi_id']} | {s['acronym']} | {_fmt(s['total'])} | {pts} | {group} |")
     return "\n".join(lines)
 
 

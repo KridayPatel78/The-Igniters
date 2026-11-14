@@ -41,7 +41,9 @@ PILLAR_SEEDS = {
     "PSI-69": ["suppression"], "PSI-68": ["suppression"],                           # FLEX, FLEX-2
     "PSI-26": ["prevention", "suppression"], "PSI-25": ["prevention", "suppression"],  # BASS, BASS-II
     "PSI-98": ["prevention"], "PSI-99": ["prevention"], "PSI-100": ["prevention"],  # SAFFIRE-I/II/III
-    "PSI-20": ["prevention"],                                                       # ACME BRE
+    # All ACME (Flame Design, BRE, CLD Flame, E-FIELD, s-Flame, CFI-G): extinction/flammability
+    # limits of gas flames inform prevention; suppression is FLEX-style CO2/He dilution.
+    **dict.fromkeys(["PSI-10", "PSI-20", "PSI-21", "PSI-22", "PSI-23", "PSI-159"], ["prevention"]),
 }
 FUEL_PHASE_SEEDS = {
     **dict.fromkeys(["PSI-10", "PSI-20", "PSI-21", "PSI-22", "PSI-23", "PSI-159"], "gas"),  # ACME

@@ -17,6 +17,9 @@ ranked = rank(records, "moon_base", focus="all", ventilation=None, placeholders=
 
 All constants live in `rank/config.py`.
 
+**Principle: we only award points for evidence in NASA's data. "Not reported" scores 0, and
+the reason says so.**
+
 ## Scenarios (from the challenge brief)
 
 | key | scenario | target O₂ | pressure (shown, not scored) | default airflow |
@@ -41,7 +44,8 @@ All constants live in `rank/config.py`.
 **B. Flow regime match — up to 15**
 - Regime from airflow: highest airflow > 0 → *ventilated*; `[0, 0]` → *quiescent*;
   not reported → *unknown*.
-- Same as the scenario → 15. Different → 5 (still informative). Unknown → 7.5 (neutral).
+- Same as the scenario → 15. Different → 5 (still informative). Not reported → **0**
+  ("Airflow not reported in PSI tables — no points without evidence").
 
 **C. Material relevance — up to 20**
 - Base by fuel phase: solid 14, mixed 10, gas 6, liquid droplet 4, unknown 0.
@@ -62,7 +66,13 @@ All constants live in `rank/config.py`.
 - +1 per measurement type, up to +5.
 
 **Total** = A + B + C + D + E. Each criterion is rounded to 1 decimal.
-**Ranking**: highest total first. Ties go to higher data richness, then to the lower PSI number.
+**Ranking**
+- Focus `all`: highest total first. Ties go to higher data richness, then to the lower PSI
+  number.
+- Focus on one pillar (e.g. `detection`): investigations covering that pillar come first as
+  one group, then all the others. Each group is sorted as above.
+- Grouping never changes a score. Each result has `matches_focus: true/false`, so the app can
+  draw a divider ("Detection experiments" / "Other experiments").
 
 ## Notes shown with every score (never scored)
 - Pressure: "Tested at X psi; scenario is Y psi", or "Pressure not reported".
@@ -72,6 +82,10 @@ All constants live in `rank/config.py`.
   planned)".
 - `extraction_confidence = llm_unchecked`: "Some fields AI-extracted, not yet hand-checked".
 
+## Callouts (pinned cards, never scored)
+- `callouts: ["closest_to_partial_gravity"]` on E-FIELD Flames (`gravity = partial_mimic`) in the
+  `moon_base` and `mars_habitat` scenarios.
+
 ## What each result looks like
 ```json
 {"psi_id": "PSI-98", "acronym": "SAFFIRE-I", "title": "...", "total": 84.3,
@@ -79,5 +93,7 @@ All constants live in `rank/config.py`.
                 "reason": "Tested at 21.5–21.7% O₂; scenario is 30% → 8.3 points away → 25.3/35",
                 "inputs": {"o2_percent_range": [21.5, 21.7], "target": 30, "distance": 8.3}},
                "... flow, material, pillars, richness ..."],
- "notes": ["Pressure not reported", "..."]}
+ "matches_focus": true,
+ "notes": ["Pressure not reported", "..."],
+ "callouts": []}
 ```

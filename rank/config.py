@@ -12,6 +12,8 @@ SCENARIOS = {
     "spacesuit": {"label": "Spacesuit", "o2_percent": 100, "pressure_psi": 4.3, "ventilation": "quiescent"},
 }
 PARTIAL_GRAVITY_SCENARIOS = {"moon_base", "mars_habitat"}
+# Investigations pinned as callouts per scenario group (shown, never scored).
+PARTIAL_GRAVITY_MIMIC_CALLOUT = "closest_to_partial_gravity"
 
 FOCUSES = ("all", "prevention", "detection", "suppression")
 VENTILATIONS = ("ventilated", "quiescent")
@@ -22,7 +24,7 @@ O2_WINDOW = 30
 
 # B. Flow regime match (0-15)
 FLOW_MAX = 15
-FLOW_MATCH, FLOW_MISMATCH, FLOW_UNKNOWN = 15, 5, 7.5
+FLOW_MATCH, FLOW_MISMATCH, FLOW_UNKNOWN = 15, 5, 0  # evidence-only: not reported -> 0
 
 # C. Material relevance (0-20)
 MATERIAL_MAX = 20

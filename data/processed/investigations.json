@@ -23,8 +23,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "prevention",
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "cameras",
@@ -6041,7 +6040,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "flame chemiluminescence",
@@ -6397,7 +6396,9 @@
     "pressure_psi_range": null,
     "airflow_cm_s_range": null,
     "gravity": "partial_mimic",
-    "pillars": [],
+    "pillars": [
+      "prevention"
+    ],
     "measurements": [
       "ion current",
       "flame response time",
@@ -6831,7 +6832,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "spectrally resolved images",
@@ -7080,8 +7081,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "prevention",
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "cameras",
