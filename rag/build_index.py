@@ -111,6 +111,32 @@ def comparison_table(records: list[dict], field: str, name: str, unit: str) -> s
     return "\n".join(lines)
 
 
+PSI_SEARCH_URL = "https://psi.nasa.gov/physci/repo/search?q=combustion"
+GRAVITY_TEXT = {"microgravity": "microgravity", "normal": "normal (1 g) gravity",
+                "partial_mimic": "an electric field used to mimic partial gravity"}
+
+
+def coverage_text(records: list[dict]) -> str:
+    """What gravity conditions PSI's combustion investigations cover - all counts computed from
+    the records, so the librarian can state the partial-gravity gap from the data itself."""
+    by_gravity: dict[str, list[dict]] = {}
+    for r in records:
+        by_gravity.setdefault(r["gravity"], []).append(r)
+    n = len(records)
+    lines = [f"PSI Combustion Science coverage: gravity conditions of all {n} investigations in the "
+             f"NASA PSI Data Repository (from investigations.json)."]
+    for gravity in ("microgravity", "partial_mimic", "normal"):
+        group = by_gravity.get(gravity, [])
+        names = ", ".join(r["psi_id"] if r["acronym"] == NOT_REPORTED else f"{r['psi_id']} {r['acronym']}"
+                          for r in group) or "none"
+        lines.append(f"- {len(group)} of {n}: {GRAVITY_TEXT[gravity]} ({names})")
+    real = [r for r in records if r["gravity"] not in GRAVITY_TEXT]
+    lines.append(f"- {len(real)} of {n} were run in real Moon (lunar) or Mars (Martian) gravity. "
+                 f"PSI contains no real partial-gravity combustion data from these investigations."
+                 if not real else f"- Other gravity values: {', '.join(r['psi_id'] for r in real)}")
+    return "\n".join(lines)
+
+
 def _psi_meta(record: dict, field: str) -> dict:
     return {"source_type": "psi", "psi_id": record["psi_id"], "acronym": record["acronym"],
             "title": record["title"], "doi": record["doi"], "field": field,
@@ -130,8 +156,12 @@ def psi_documents(records: list[dict], raw_dir: Path = config.RAW_DIR) -> list[t
     for field, name, unit in COMPARISONS:
         meta = {"source_type": "psi", "psi_id": "PSI (all)", "acronym": f"{name} comparison",
                 "title": f"PSI comparison table: {name}", "doi": "per row", "field": f"comparison_{name}",
-                "url": "https://psi.nasa.gov/physci/repo/search?q=combustion"}
+                "url": PSI_SEARCH_URL}
         docs.append((f"compare:{name}", comparison_table(records, field, name, unit), meta))
+    docs.append(("coverage:gravity", coverage_text(records),
+                 {"source_type": "psi", "psi_id": "PSI (all)", "acronym": "coverage",
+                  "title": f"PSI Combustion Science coverage ({len(records)} investigations)",
+                  "doi": "per investigation", "field": "coverage", "url": PSI_SEARCH_URL}))
     return docs
 
 

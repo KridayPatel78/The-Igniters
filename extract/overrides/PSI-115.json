@@ -1,0 +1,8 @@
+{
+  "_source": {
+    "pillars": "json:researchImpacts - \"This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life.\". Prevention dropped: \"prevent fires\" is a generic benefit of better smoke detection, not ignition control or flammability limits."
+  },
+  "pillars": [
+    "detection"
+  ]
+}

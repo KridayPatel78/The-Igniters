@@ -183,10 +183,12 @@ def build_record(psi_id: str, use_llm: bool = True, refresh_llm: bool = False,
                               "reason": "not supported by PSI text; contract needs an enum value - treat as unknown"}
 
     override = load_override(psi_id, overrides_dir)
+    source = override.get("_source")  # one note for every field, or {field: note}
     for field, value in override.items():
         if not field.startswith("_"):
             rec[field] = value
-            prov[field] = {"source": "override", "quote": override["_source"]} if "_source" in override else "override"
+            note = source.get(field) if isinstance(source, dict) else source
+            prov[field] = {"source": "override", "quote": note} if note else "override"
     if is_placeholder(prov["fuel_phase"]):
         notes.append("fuel_phase: PLACEHOLDER 'mixed' (unknown) - scoring treats it as unknown; needs a human override")
 

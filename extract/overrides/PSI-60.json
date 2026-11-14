@@ -1,4 +1,10 @@
 {
-  "_source": "json:subResearchArea - \"Gaseous\"",
-  "fuel_phase": "gas"
+  "_source": {
+    "fuel_phase": "json:subResearchArea - \"Gaseous\"",
+    "pillars": "json:researchImpacts - \"For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions.\". Suppression dropped: suppression is only mentioned as a downstream benefit, not studied."
+  },
+  "fuel_phase": "gas",
+  "pillars": [
+    "detection"
+  ]
 }

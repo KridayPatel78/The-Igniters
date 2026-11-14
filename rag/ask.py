@@ -32,6 +32,8 @@ SOURCES below. Rules:
   sources marked "PSI". Other sources can give history, context and Earth uses.
 - If the sources cover only part of the question, answer that part and say plainly which part
   our sources do not cover.
+- Experiments described as planned, proposed, future or "to be performed" are NOT data. Say they
+  are planned; never present them as results.
 - If the sources contain nothing relevant to the question, reply with exactly: NOT_COVERED
 - Plain English for students and engineers, plain text only (no LaTeX). At most {max_words} words.
 
@@ -129,6 +131,8 @@ def label(meta: dict) -> str:
     """Citation label: 'PSI-98 · doi:10.60555/...' or 'Apollo 1 · sma.nasa.gov/...'."""
     if meta.get("field", "").startswith("comparison"):
         return f"{meta['title']} · DOIs per row"
+    if meta.get("field") == "coverage":
+        return f"{meta['title']} · {re.sub(r'^https?://(www\.)?', '', meta['url'])}"
     if meta.get("source_type") == "psi":
         return f"{meta['psi_id']} · doi:{meta['doi']}"
     return f"{meta['title']} · {re.sub(r'^https?://(www\.)?', '', meta.get('url', '')).rstrip('/')}"
