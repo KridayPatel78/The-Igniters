@@ -8,8 +8,6 @@ __pycache__/
 .env
 
 # Cached / generated data (re-create with the ingest + index scripts)
-data/raw/*
-!data/raw/.gitkeep
 data/chroma/
 
 # Editors / OS
