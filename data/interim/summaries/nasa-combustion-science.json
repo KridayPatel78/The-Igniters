@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "Fire poses a catastrophic hazard for manned spaceflight, leading NASA to strictly evaluate and select materials to prevent flammability risks. To better address these hazards, researchers use the International Space Station to study combustion fundamentals, material flammability, and fire suppression methods in microgravity.",
+    "quote": "Fire can be a catastrophic hazard for manned spacecraft."
+  }
+}

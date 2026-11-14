@@ -2,7 +2,7 @@
   "moon_base/all": {
     "scenario": "moon_base",
     "focus": "all",
-    "explanation": "The top-ranked investigation [PSI-99] SAFFIRE-II (84.8/100) and second-ranked [PSI-98] SAFFIRE-I (84.3/100) lead because both match the ventilated airflow scenario, earn top scores for testing solid habitat materials and data richness, and receive high oxygen scores. Third-ranked [PSI-68] FLEX-2 (77.0/100) achieves a maximum score for oxygen by testing within the scenario's 30% O₂ range and matches the ventilated airflow, but receives a lower overall score because it evaluated liquid droplet fuels rather than habitat materials.",
+    "explanation": "[PSI-99] SAFFIRE-II ranks first (84.8/100) and [PSI-98] SAFFIRE-I ranks second (84.3/100) because both match the scenario's ventilated airflow (15/15), score top marks for testing solid habitat materials (20/20), and achieve maximum richness scores (10/10). Third-ranked [PSI-68] FLEX-2 (77.0/100) earns a perfect 35/35 oxygen score by testing in the 17–30% O₂ range that includes the 30% scenario level, while also matching the ventilated airflow condition. Together, all three top investigations successfully match the ventilated airflow requirements and cover key fire safety pillars of prevention or suppression.",
     "mode": "llm",
     "top3": [
       {
@@ -25,7 +25,7 @@
   "iss_cabin/all": {
     "scenario": "iss_cabin",
     "focus": "all",
-    "explanation": "SAFFIRE-I [PSI-98] and SAFFIRE-II [PSI-99] rank highest with matching scores of 93.4/100 because both perfectly match the ventilated airflow scenario, test solid habitat materials, score 10/10 for richness, and test oxygen levels just 0.5 points away from the 21% scenario. BASS-II [PSI-25] ranks third with a score of 82.0/100 because its tested oxygen range fully includes the 21% target and it covers two pillars (prevention and suppression), though it received 0/15 points for airflow because the data was not reported.",
+    "explanation": "SAFFIRE-I [PSI-98] and SAFFIRE-II [PSI-99] tied for the highest rank with total scores of 93.4/100 because both tested oxygen levels extremely close to the 21% scenario, matched the ventilated scenario with 20 cm/s airflow, used solid habitat materials, and earned maximum richness points. BASS-II [PSI-25] ranks third with an 82.0/100 score because its tested oxygen range fully includes the 21% scenario and it covers two pillars (prevention and suppression), though it received 0/15 points for airflow due to unreported data.",
     "mode": "llm",
     "top3": [
       {
@@ -48,7 +48,7 @@
   "spacesuit/all": {
     "scenario": "spacesuit",
     "focus": "all",
-    "explanation": "The highest-ranking investigation, [PSI-98] SAFFIRE-I (total score 49.0/100), earned maximum points for material (20/20) and richness (10/10), alongside 14/20 for covering the prevention pillar and 5/15 for flow, despite scoring 0/35 on oxygen. Ranked second, [PSI-99] SAFFIRE-II also achieved a 49.0/100 total score with identical category point breakdowns, testing solid fuels including cotton, Nomex, PMMA, silicone, and SIBAL across 15 test rows. Ranking third, [PSI-100] SAFFIRE-III also scored 49/100 with the same point allocations for material, pillars, richness, and flow, though its oxygen level was not reported.",
+    "explanation": "SAFFIRE-I [PSI-98] (total 49.0/100), SAFFIRE-II [PSI-99] (total 49.0/100), and SAFFIRE-III [PSI-100] (total 49/100) rank highest because they all achieved maximum sub-scores for material (20/20) and richness (10/10). Each investigation tested solid fuels including habitat materials, provided an experimental table with test rows, and recorded 5 measurement types. Additionally, all three investigations earned 14/20 for covering the prevention pillar and 5/15 for ventilated airflow.",
     "mode": "llm",
     "top3": [
       {
@@ -71,7 +71,7 @@
   "moon_base/detection": {
     "scenario": "moon_base",
     "focus": "detection",
-    "explanation": "[PSI-102] ranks highest with a total score of 64/100 because it covers the detection focus, matches the ventilated scenario's airflow, tests solid habitat materials like silicone and Kapton, and includes an experimental table with four measurement types. [PSI-101] ranks second with 50/100 by also covering the detection focus and testing solid habitat materials like foam and Kapton with high data richness, though its airflow is not reported in the tables. [PSI-60] ranks third with 28/100 because while it covers the detection focus, it tests gaseous fuels without named habitat materials, has no reported airflow, and offers lower richness with only two measurement types and no experimental table.",
+    "explanation": "[PSI-102] ranks highest with a total score of 64/100 because it covers the detection focus, matches the ventilated airflow scenario, and tests solid habitat materials like silicone and Kapton. [PSI-101] ranks second with 50/100 by also covering the detection focus and testing solid habitat materials like foam and Kapton with high data richness, despite leaving airflow unreported. Finally, [PSI-60] ranks third with 28/100 because while it covers the detection focus, it only uses gaseous fuels without habitat materials, has unreported airflow, and scores low on data richness.",
     "mode": "llm",
     "top3": [
       {

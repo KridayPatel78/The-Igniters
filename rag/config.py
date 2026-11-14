@@ -1,54 +1,54 @@
-"""Settings for the AI librarian (rag/). Tune here, not in the modules."""
+"""Settings for the AI librarian. Tunable values live in rag/config.json and the answer prompt in
+rag/prompt.md - both are shared with the website's TypeScript (/api/ask), so edit them there,
+not here. This module only adds local paths."""
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG_FILE = ROOT / "rag" / "config.json"
+PROMPT_FILE = ROOT / "rag" / "prompt.md"
 SOURCES_FILE = ROOT / "rag" / "sources.json"
 RESOURCES_DIR = ROOT / "data" / "raw" / "resources"
 RAW_DIR = ROOT / "data" / "raw"
 PROCESSED_DIR = ROOT / "data" / "processed"
-CHROMA_DIR = ROOT / "data" / "chroma"
-COLLECTION = "nasa_fire_safety"
+INDEX_FILE = PROCESSED_DIR / "rag_index.json"
+EVAL_FILE = PROCESSED_DIR / "rag_eval.json"
+EMBED_CACHE_DIR = ROOT / "data" / "interim" / "embeddings"
 
 PSI_PAGE = "https://psi.nasa.gov/physci/repo/data/investigations/{psi_id}"
 PSI_TEXT_FIELDS = ("objective", "approach", "hypothesis", "researchImpacts", "description")
 
-# Chunking
-CHUNK_CHARS = 1000
-CHUNK_OVERLAP = 150
+SHARED = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+PROMPT_TEMPLATE = PROMPT_FILE.read_text(encoding="utf-8")
 
-# Embeddings (local, CPU-friendly; downloaded once to the Hugging Face cache)
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING = SHARED["embedding"]
+EMBEDDING_MODEL = EMBEDDING["model"]
+EMBEDDING_DIMS = EMBEDDING["output_dimensionality"]
+DEFAULT_MODEL = SHARED["answer_model_default"]
 
-# Retrieval: cosine similarity of the best chunk below this -> "Not covered by our NASA sources"
-# without calling Gemini. Calibrated on rag/demo_questions.json (see rag/README.md).
-MIN_SIMILARITY = 0.30
+_R = SHARED["retrieval"]
+K = _R["k"]
+MIN_SIMILARITY = _R["min_similarity"]
+FUSION_DEPTH = _R["fusion_depth"]
+RRF_K = _R["rrf_k"]
+MAX_PER_SOURCE = _R["max_per_source"]
+BM25_K1, BM25_B = _R["bm25"]["k1"], _R["bm25"]["b"]
+TOKEN_PATTERN = _R["token_pattern"]
+MIN_TOKEN_LENGTH = _R["min_token_length"]
+STOPWORDS = frozenset(_R["stopwords"])
+SYNONYMS = _R["synonyms"]
 
-# Hybrid retrieval: embedding ranking + BM25 keyword ranking, reciprocal-rank fused (RRF), then at
-# most MAX_PER_SOURCE chunks per investigation / resource so one long document (the 50-page
-# Researcher's Guide) can't crowd out the PSI investigations.
-FUSION_DEPTH = 50
-RRF_K = 60
-MAX_PER_SOURCE = 3
-# Fire-safety vocabulary for the keyword side: a question word also searches these terms.
-SYNONYMS = {
-    "put out": "extinguish extinguishment suppress suppressant suppressants suppression",
-    "extinguish": "extinguishment suppress suppressant suppression",
-    "suppress": "suppressant suppressants suppression extinguish extinguishment",
-    "gas": "gases gaseous", "gases": "gas gaseous",
-    "fabric": "fabrics textile cotton sibal nomex",
-    "spread": "spreading propagation",
-    "smoke": "aerosol aerosols particulate",
-    "detection": "detector detectors detect", "detect": "detector detectors detection",
-    "moon": "lunar", "mars": "martian", "gravity": "microgravity reduced-gravity partial",
-    "oxygen": "o2", "risk": "hazard hazards danger safety",
-}
+CHUNK_CHARS = SHARED["chunking"]["chars"]
+CHUNK_OVERLAP = SHARED["chunking"]["overlap"]
 
-# Answering
-DEFAULT_MODEL = "gemini-3.6-flash"
-MAX_ANSWER_WORDS = 150
-FALLBACK_PASSAGES = 3
-NOT_COVERED = "Not covered by our NASA sources."
-OFFLINE_NOTE = "AI summary unavailable — here are the most relevant NASA passages."
+_A = SHARED["answer"]
+MAX_ANSWER_WORDS = _A["max_words"]
+MAX_QUESTION_CHARS = _A["max_question_chars"]
+FALLBACK_PASSAGES = _A["fallback_passages"]
+FALLBACK_PASSAGE_CHARS = _A["fallback_passage_chars"]
+NOT_COVERED = _A["not_covered_text"]
+NOT_COVERED_REPLY = _A["not_covered_reply"]
+OFFLINE_NOTE = _A["offline_note"]
 
-# Resource fetching
-MIN_RESOURCE_WORDS = 200
+KNOWN_GAPS = SHARED["known_gaps"]
+MIN_RESOURCE_WORDS = SHARED["resources"]["min_words"]

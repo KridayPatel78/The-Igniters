@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-99] SAFFIRE-II ranks highest (84.8/100) and [PSI-98] SAFFIRE-I ranks second (84.3/100) because both match the ventilated airflow scenario (15/15), cover the prevention pillar, and score full points (20/20) for testing solid habitat materials. Third-ranked [PSI-68] FLEX-2 (77.0/100) also matches the ventilated airflow scenario and achieves a maximum oxygen score of 35/35 because the 30% O₂ scenario falls within its tested 17–30% O₂ range. However, [PSI-68] FLEX-2 scores lower overall because it tests liquid droplet fuels with no named habitat materials (4/20 material score) and covers suppression instead of prevention."
+}

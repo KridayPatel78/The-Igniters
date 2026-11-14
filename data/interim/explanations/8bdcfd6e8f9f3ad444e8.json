@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Ranked highest with a total score of 83.0/100, [PSI-68] FLEX-2 covers the suppression focus, matches the ventilated airflow scenario, and tests oxygen within the scenario's 30% range. Ranked second with 75.9/100, [PSI-25] BASS-II also covers the suppression focus and tests solid habitat materials, but its tested oxygen was 7.8 points away from the 30% scenario and its airflow was unreported. Ranked third with 69.0/100, [PSI-69] FLEX covers suppression and tests oxygen within the scenario's 30% range, but it lacks reported airflow data and tests liquid droplet fuels without habitat materials."
+}

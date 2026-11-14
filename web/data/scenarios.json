@@ -1,0 +1,46 @@
+{
+  "scenarios": [
+    {
+      "key": "iss_cabin",
+      "label": "ISS cabin",
+      "o2_percent": 21,
+      "pressure_psi": 14.7,
+      "ventilation": "ventilated"
+    },
+    {
+      "key": "moon_base",
+      "label": "Moon base / pressurized rover",
+      "o2_percent": 30,
+      "pressure_psi": 10.2,
+      "ventilation": "ventilated"
+    },
+    {
+      "key": "mars_habitat",
+      "label": "Mars habitat (assumed same as Moon base)",
+      "o2_percent": 30,
+      "pressure_psi": 10.2,
+      "ventilation": "ventilated"
+    },
+    {
+      "key": "spacesuit",
+      "label": "Spacesuit",
+      "o2_percent": 100,
+      "pressure_psi": 4.3,
+      "ventilation": "quiescent"
+    }
+  ],
+  "focuses": [
+    "all",
+    "prevention",
+    "detection",
+    "suppression"
+  ],
+  "ventilations": [
+    "ventilated",
+    "quiescent"
+  ],
+  "partial_gravity_scenarios": [
+    "mars_habitat",
+    "moon_base"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-99] SAFFIRE-II (84.8/100) and [PSI-98] SAFFIRE-I (84.3/100) rank highest because their ventilated airflow matches the scenario, they test solid habitat materials, and they achieve maximum richness scores of 10/10. [PSI-68] FLEX-2 ranks third with a score of 77.0/100 because its tested oxygen range of 17–30% fully covers the scenario's 30% oxygen level alongside matching ventilated airflow, though it scores lower on materials due to testing liquid droplets rather than habitat materials."
+}

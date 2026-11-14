@@ -221,3 +221,73 @@ def test_demo_files_present_and_pizza_not_covered():
     assert pizza["mode"] == "not_covered"
     explanations = json.loads((config.PROCESSED_DIR / "demo_explanations.json").read_text(encoding="utf-8"))
     assert set(explanations) == {"moon_base/all", "iss_cabin/all", "spacesuit/all", "moon_base/detection"}
+
+
+# --- Step 5: shared config/prompt, JSON index, parity, keyword fallback -----------------------
+
+def test_shared_config_and_prompt_are_used():
+    shared = json.loads((ROOT / "rag" / "config.json").read_text(encoding="utf-8"))
+    assert config.MIN_SIMILARITY == shared["retrieval"]["min_similarity"]
+    assert config.SYNONYMS == shared["retrieval"]["synonyms"]
+    assert shared["embedding"] == {**shared["embedding"], "model": "gemini-embedding-001", "output_dimensionality": 768}
+    assert shared["answer"]["max_question_chars"] == 300
+    prompt = ask.build_prompt("Why?", "[S1] (PSI · PSI-98) text")
+    assert "QUESTION: Why?" in prompt and "[S1] (PSI · PSI-98) text" in prompt and "{{" not in prompt
+    assert "planned" in prompt and "NOT_COVERED" in prompt
+
+
+def test_vectors_normalized_and_b64_roundtrip():
+    import numpy as np
+    from rag import embeddings
+    vectors = embeddings.normalize([[3.0, 4.0], [0.0, 0.0]])
+    assert vectors.dtype == np.float32 and np.allclose(vectors[0], [0.6, 0.8]) and not vectors[1].any()
+    assert np.array_equal(embeddings.decode_b64(embeddings.encode_b64(vectors), 2), vectors)
+
+
+def test_index_file_is_consistent():
+    data = json.loads(config.INDEX_FILE.read_text(encoding="utf-8"))
+    index = ask.load_index(config.INDEX_FILE)
+    assert data["model"] == "gemini-embedding-001" and data["dims"] == 768
+    assert len(index["vectors"]) == len(data["chunks"]) and len(index["vectors"][0]) == 768
+    norms = [sum(x * x for x in v) for v in index["vectors"][:20]]
+    assert all(abs(n - 1) < 1e-4 for n in norms)
+    ids = [c["id"] for c in data["chunks"]]
+    assert len(ids) == len(set(ids)) and "coverage:gravity" in ids
+    for c in data["chunks"]:
+        assert {"id", "text", "source_type", "title", "url", "field"} <= set(c)
+        assert ("doi" in c and "psi_id" in c) if c["source_type"] == "psi" else "resource_id" in c
+
+
+def test_python_retrieval_matches_parity_fixture():
+    """Same query vectors -> same chunk IDs in the same order (what the website must reproduce)."""
+    from rag.embeddings import decode_b64
+    fixture = json.loads(config.EVAL_FILE.read_text(encoding="utf-8"))
+    assert len(fixture["questions"]) == 8
+    for q in fixture["questions"]:
+        vector = decode_b64(q["query_vector_b64"], fixture["dims"])[0].tolist()
+        hits = ask.retrieve(q["question"], k=fixture["k"], query_vector=vector)
+        assert [h["id"] for h in hits] == q["retrieved_ids"], q["question"]
+    pizza = next(q for q in fixture["questions"] if "pizza" in q["question"])
+    assert pizza["mode"] == "not_covered" and max(pizza["similarities"]) < fixture["min_similarity"]
+
+
+def test_embedding_failure_gives_keyword_passages_without_llm(monkeypatch):
+    def offline(question, k):
+        raise ConnectionError("no network")
+    result = ask.answer("What gases put out flames in FLEX?", retriever=offline, generator=must_not_call)
+    assert result["mode"] == "passages" and result["citations"]
+    assert any(c.get("psi_id") == "PSI-69" for c in result["citations"])
+
+
+def test_coverage_chunk_counts_from_data():
+    text = build_index.coverage_text(RECORDS)
+    assert "23 of 24: microgravity" in text and "1 of 24: an electric field used to mimic partial gravity (PSI-22" in text
+    assert "0 of 24 were run in real Moon (lunar) or Mars (Martian) gravity" in text
+    fake = [{**r, "gravity": "microgravity"} for r in RECORDS[:3]]
+    assert "3 of 3: microgravity" in build_index.coverage_text(fake)
+
+
+def test_long_question_is_trimmed():
+    seen = {}
+    ask.answer("x" * 1000, retriever=lambda q, k: seen.setdefault("q", q) and hits(0.9), generator=lambda p: "y [S1].")
+    assert len(seen["q"]) == config.MAX_QUESTION_CHARS

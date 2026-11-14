@@ -26,9 +26,12 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env               # Windows: copy .env.example .env  — then add GEMINI_API_KEY
-pytest -q                          # data-contract check should pass
-streamlit run app/main.py          # shows the sample data
+pytest -q                          # all checks should pass
 ```
+
+Python is the offline **data factory** (download → organize → score → index → export JSON).
+The **website** is a Next.js app in `web/` deployed on Vercel. It reads only `web/data/`, and
+setup lives in [web/README.md](web/README.md).
 
 ## Workflow
 
@@ -37,7 +40,7 @@ streamlit run app/main.py          # shows the sample data
 | 1 · Data | `data` | `ingest/` |
 | 2 · Extraction + scoring | `extract` | `extract/`, `rank/` |
 | 3 · AI | `rag` | `rag/` |
-| 4 · Frontend + pitch | `app` | `app/` |
+| 4 · Frontend + pitch | `web` | `web/` |
 
 - `git pull` before every new agent task; merge to `main` every ~2 hours (lunch, dinner).
 - Stay in your own folder. The **Data contract** in AGENTS.md is the only shared interface —
@@ -53,19 +56,31 @@ streamlit run app/main.py          # shows the sample data
 python -m ingest.fetch_psi             # already done: PSI JSON + experimental-table CSVs -> data/raw/
 python -m extract.normalize            # data/raw/ -> data/processed/investigations.json
 python -m extract.normalize --no-llm   # same, without Gemini (LLM fields -> "not reported")
+python -m rank.score --scenario moon_base --focus all   # transparent 0-100 ranking (rank/README.md)
+python -m rag.fetch_resources          # already done: 8 NASA text resources -> data/raw/resources/
+python -m rag.build_index              # chunks + Gemini embeddings -> data/processed/rag_index.json
+python -m rag.ask "How was smoke detection tested on the ISS?"   # cited answer (rag/README.md)
+python -m rag.ask --demo               # demo answers + rag_eval.json parity fixture
+python -m scripts.export_web           # everything the website reads -> web/data/
 ```
+
+Gemini calls are cached and committed under `data/interim/` (llm, embeddings, explanations,
+summaries), so re-running the pipeline costs nothing unless the inputs change.
 
 | Path | What it is |
 |---|---|
 | `data/raw/<PSI-ID>.json` | Investigation metadata exactly as PSI returned it (24 files) |
 | `data/raw/<PSI-ID>/*.csv` | Experimental tables (22 CSVs for 20 IDs; PSI-60, 62, 115, 117 have none) |
 | `data/raw/_manifest.json` | Per ID: acronym, title, DOI, which tables were saved, any errors |
-| `data/processed/investigations.json` | The 24 records in the Data contract shape — what `rank/`, `rag/` and `app/` read |
+| `data/processed/investigations.json` | The 24 records in the Data contract shape — what `rank/`, `rag/` and the website read |
 | `data/processed/provenance.json` | Where every value came from (CSV column, JSON field, rule, override, or LLM + verbatim quote) |
 | `data/interim/llm/<PSI-ID>.json` | Cached Gemini output (reused; refresh with `--refresh-llm`) |
 | `extract/REVIEW.md` | Human checklist: every field + its source, unclear columns, rejected LLM values |
 | `extract/overrides/<PSI-ID>.json` | Human corrections; beat everything else (see `extract/overrides/README.md`) |
 | `extract/checked_ids.txt` | IDs a person verified against the PSI page → `extraction_confidence: "checked"` |
+| `data/processed/rag_index.json` | Librarian search index: 378 chunks + Gemini vectors (768 dims, base64 float32) |
+| `data/processed/rag_eval.json` | Parity fixture: query vectors + expected chunk IDs for the 8 demo questions |
+| `web/data/` | Website input written by `scripts/export_web.py` (32 rankings, explanations, index, sources, meta) |
 
 Numbers (O2 %, pressure in psi, airflow in cm/s) come only from experimental-table CSV columns;
 if a column or unit is unclear the value is `null` and listed in `extract/REVIEW.md`.
@@ -80,6 +95,10 @@ are dropped.
 4. Check **… → Customizations → Rules**: `AGENTS.md` should be listed.
 
 ## First agent prompts
+
+*History: these were the kick-off prompts. Steps 1–5 are done, and the stack has since changed:
+no Streamlit and no Chroma/sentence-transformers. The current stack is described above and in
+AGENTS.md → Decisions.*
 
 **Person 1 · Data** (branch `data`)
 > Read AGENTS.md. Write ingest/fetch_psi.py that reads ingest/psi_ids.txt (skip blank and #

@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "On Jan. 27, 1967, a flash fire swept through the Apollo 1 spacecraft during a preflight test, killing astronauts Virgil Grissom, Edward White, and Roger Chaffee. Following the accident, NASA enhanced safety by introducing a unified quick-release hatch, restricting combustible materials, and creating fire-resistant spacesuits.",
+    "quote": "NASA also replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds."
+  }
+}

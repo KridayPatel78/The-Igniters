@@ -1,0 +1,133 @@
+[
+  {
+    "id": "psi-combustion",
+    "title": "PSI Data Repository: Combustion Science",
+    "url": "https://psi.nasa.gov/physci/repo/search?q=combustion",
+    "type": "experiment_data",
+    "used_in": [
+      "scoring",
+      "ranked_cards",
+      "compare",
+      "ai_librarian"
+    ],
+    "note": "Core dataset. Fetched per investigation by ingest/fetch_psi.py, not as a page."
+  },
+  {
+    "id": "nasa-combustion-science",
+    "title": "NASA Combustion Science",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+    "type": "text",
+    "used_in": [
+      "ai_librarian"
+    ],
+    "summary": "Fire poses a catastrophic hazard for manned spaceflight, leading NASA to strictly evaluate and select materials to prevent flammability risks. To better address these hazards, researchers use the International Space Station to study combustion fundamentals, material flammability, and fire suppression methods in microgravity.",
+    "summary_quote": "Fire can be a catastrophic hazard for manned spacecraft.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "researchers-guide-iss-combustion",
+    "title": "A Researcher's Guide to International Space Station Combustion Science (2015)",
+    "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
+    "type": "text",
+    "used_in": [
+      "ai_librarian"
+    ],
+    "note": "The landing page is short (~365 words); index the PDF text (50+ pages, ~1.5 MB).",
+    "pdf_url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "summary": "International Space Station combustion research examines how microgravity alters fire behavior, ignition, and flame suppression. This research helps scientists evaluate material flammability and improve spacecraft fire safety systems.",
+    "summary_quote": "Fire safety is an important operational element of human space exploration missions to minimize the likelihood and impact of accidental fires in spacecraft and human habitats.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "sciencecasts-combustion-iss",
+    "title": "NASA ScienceCasts: The Power of Studying Combustion on the ISS",
+    "url": "https://www.youtube.com/watch?v=W1oXykoz9zg",
+    "type": "video",
+    "used_in": [
+      "about_section"
+    ]
+  },
+  {
+    "id": "apollo-1",
+    "title": "Apollo 1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "type": "text",
+    "used_in": [
+      "why_this_matters",
+      "ai_librarian"
+    ],
+    "note": "sma.nasa.gov can briefly show a \"System is initializing\" page; retry once after ~5 s.",
+    "summary": "On Jan. 27, 1967, a flash fire swept through the Apollo 1 spacecraft during a preflight test, killing astronauts Virgil Grissom, Edward White, and Roger Chaffee. Following the accident, NASA enhanced safety by introducing a unified quick-release hatch, restricting combustible materials, and creating fire-resistant spacesuits.",
+    "summary_quote": "NASA also replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "apollo-13",
+    "title": "Apollo 13",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+    "type": "text",
+    "used_in": [
+      "why_this_matters",
+      "ai_librarian"
+    ],
+    "note": "sma.nasa.gov can briefly show a \"System is initializing\" page; retry once after ~5 s.",
+    "summary": "An oxygen tank on Apollo 13 exploded after pre-launch overheating damaged its insulation. However, electrical arcing was prevented during spacecraft power-up because lessons from the Apollo 1 fire had led to increased wiring insulation.",
+    "summary_quote": "Thankfully, a lesson learned from the Apollo I fire prevented arcing from happening, as a major redesign added increased insulation to better protect the wiring.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "mir-fire-1997",
+    "title": "25 Years Ago: Fire Aboard Space Station Mir",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "type": "text",
+    "used_in": [
+      "why_this_matters",
+      "ai_librarian"
+    ],
+    "summary": "On Feb. 24, 1997, a solid-fuel oxygen generator ignited aboard the Russian space station Mir, filling the station with smoke and blocking an evacuation route. The crew successfully extinguished the fire, and lessons learned from the incident led to improved safety designs and emergency procedures for the International Space Station.",
+    "summary_quote": "Although the narrow confines where the fire occurred made fighting it difficult, through teamwork and composure the crew prevailed and extinguished the flames, with no damage to the station’s structure.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "spinoff-air-tanks",
+    "title": "Fireman's Air Tanks",
+    "url": "https://spinoff.nasa.gov/node/9582",
+    "type": "text",
+    "used_in": [
+      "earth_spinoffs"
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article.",
+    "summary": "NASA's Johnson Space Center and Scott Aviation developed a lightweight firefighter air tank system that weighs 13 pounds less than conventional tanks. The updated design features an aluminum liner wrapped in glass fibers, a redesigned face mask, and a personalized low-air warning device.",
+    "summary_quote": "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "spinoff-fire-detector",
+    "title": "Fire Detector",
+    "url": "https://spinoff.nasa.gov/node/9407",
+    "type": "text",
+    "used_in": [
+      "earth_spinoffs"
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article.",
+    "summary": "The Incipient Fire Detector distinguishes combustion particles from dust, making it less susceptible to false alarms. It senses fire conditions before flame and smoke appear and can be linked across large areas to pinpoint fire locations.",
+    "summary_quote": "Fire detector represents an advancement over commercially available smoke detectors in that it senses and signals the presence of a fire condition before appearance of flame and smoke.",
+    "summary_mode": "llm"
+  },
+  {
+    "id": "spinoff-fire-attire",
+    "title": "New Technology for the Fire Attire",
+    "url": "https://spinoff.nasa.gov/node/9918",
+    "type": "text",
+    "used_in": [
+      "earth_spinoffs"
+    ],
+    "min_words": 100,
+    "note": "Short legacy Spinoff article (~120-160 words on spinoff.nasa.gov); the saved text is the whole article.",
+    "summary": "Project FIRES uses lightweight, heat-protective materials originally developed for astronauts to update firefighter protective gear. Jointly sponsored by NASA and the U.S. Fire Administration, this initiative tests new gear across fourteen municipal fire departments to help reduce injuries and fatalities.",
+    "summary_quote": "A major focus of the effort involves application to the FIRES ensemble of lightweight, fire-resistant, heat-protective materials originally developed for use in astronauts' space suits or in spacecraft components which require thermal protection.",
+    "summary_mode": "llm"
+  }
+]

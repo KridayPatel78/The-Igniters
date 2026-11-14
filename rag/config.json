@@ -1,0 +1,57 @@
+{
+  "embedding": {
+    "model": "gemini-embedding-001",
+    "output_dimensionality": 768,
+    "document_task_type": "RETRIEVAL_DOCUMENT",
+    "query_task_type": "RETRIEVAL_QUERY",
+    "normalize": "l2"
+  },
+  "answer_model_default": "gemini-3.6-flash",
+  "retrieval": {
+    "k": 8,
+    "min_similarity": 0.64,
+    "fusion": "reciprocal_rank",
+    "fusion_depth": 50,
+    "rrf_k": 60,
+    "max_per_source": 3,
+    "bm25": {"k1": 1.5, "b": 0.75},
+    "token_pattern": "[a-z0-9]+",
+    "min_token_length": 2,
+    "stopwords": ["a", "an", "and", "are", "as", "at", "be", "by", "did", "do", "does", "for", "from", "how", "in",
+                  "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "them", "they", "this", "to",
+                  "was", "were", "what", "when", "where", "which", "who", "why", "with", "any", "there", "about", "our"],
+    "synonyms": {
+      "put out": "extinguish extinguishment suppress suppressant suppressants suppression",
+      "extinguish": "extinguishment suppress suppressant suppression",
+      "suppress": "suppressant suppressants suppression extinguish extinguishment",
+      "gas": "gases gaseous",
+      "gases": "gas gaseous",
+      "fabric": "fabrics textile cotton sibal nomex",
+      "spread": "spreading propagation",
+      "smoke": "aerosol aerosols particulate",
+      "detection": "detector detectors detect",
+      "detect": "detector detectors detection",
+      "moon": "lunar",
+      "mars": "martian",
+      "gravity": "microgravity reduced-gravity partial",
+      "oxygen": "o2",
+      "risk": "hazard hazards danger safety"
+    }
+  },
+  "chunking": {"chars": 1000, "overlap": 150},
+  "answer": {
+    "max_words": 150,
+    "max_question_chars": 300,
+    "fallback_passages": 3,
+    "fallback_passage_chars": 500,
+    "not_covered_text": "Not covered by our NASA sources.",
+    "not_covered_reply": "NOT_COVERED",
+    "offline_note": "AI summary unavailable — here are the most relevant NASA passages."
+  },
+  "known_gaps": {
+    "trigger_keywords": ["moon", "mars", "lunar", "martian", "partial gravity", "partial-gravity",
+                         "reduced gravity", "reduced-gravity"],
+    "note": "PSI has no real partial-gravity (Moon or Mars) combustion data yet. E-FIELD Flames (PSI-22) only mimics partial gravity with an electric field; FM2 and LUCI are planned. Microgravity and normal-gravity results can bound intermediate gravity."
+  },
+  "resources": {"min_words": 200}
+}

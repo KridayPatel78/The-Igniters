@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-102] ranks highest with a score of 54/100 because it covers the detection focus, earns full points for solid habitat materials like silicone and Kapton, and receives extra credit for ventilated airflow and high data richness. Second-ranked [PSI-101] (50/100) also covers detection and achieves full material points with maximum data richness, but loses points because its airflow is not reported. Finally, [PSI-60] ranks third with 28/100 because, despite covering the detection focus, it scores much lower due to using gaseous fuels without habitat materials and lacking an experimental table."
+}

@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-25] BASS-II ranks first with a total score of 75.9/100 because it covers the suppression focus while testing solid habitat materials like Nomex and PMMA, earning full points for material and richness. [PSI-68] FLEX-2 ranks second at 73.0/100 because it covers suppression and perfectly matches the 30% oxygen scenario, though its score is limited by using liquid droplet fuels and ventilated airflow. [PSI-69] FLEX ranks third at 69.0/100 by also matching the 30% oxygen target and suppression focus with maximum data richness, but it receives low material points for liquid droplet fuels and zero points for unreported airflow."
+}
