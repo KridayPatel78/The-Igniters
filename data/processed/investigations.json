@@ -19246,8 +19246,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "prevention",
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "black-and-white camera",
@@ -29531,10 +29530,7 @@
     "pressure_psi_range": null,
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
-    "pillars": [
-      "prevention",
-      "suppression"
-    ],
+    "pillars": [],
     "measurements": [
       "flow rate sensors",
       "temperature sensors",
@@ -31100,8 +31096,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "detection",
-      "suppression"
+      "detection"
     ],
     "measurements": [
       "raw DSLR images",
@@ -31164,8 +31159,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "detection",
-      "prevention"
+      "detection"
     ],
     "measurements": [],
     "objective_summary": "The investigation used numerical simulation to explore how gravity affects pyrolysis smoke growth. It aimed to quantify differences between microgravity and Earth gravity smoke and identify the fluid dynamic mechanisms involved.",
@@ -31193,8 +31187,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "prevention",
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "ignition delay",
@@ -31228,8 +31221,7 @@
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
     "pillars": [
-      "prevention",
-      "suppression"
+      "prevention"
     ],
     "measurements": [
       "CH2O PLIF",

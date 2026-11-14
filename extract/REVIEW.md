@@ -33,22 +33,22 @@ Check each value against the PSI page, tick the box, and when an ID is fully ver
 | PSI-159 | ACME CFI-G | gas | prevention | 12-85 | 7.1849-48.0061 | - | 333 | 2 | 0 |
 | PSI-69 | FLEX | liquid_droplet | suppression | 12-34 | 10.177-44.8594 | - | 274 | 2 | 0 |
 | PSI-68 | FLEX-2 | liquid_droplet | suppression | 17-30 | 7.3479-44.0877 | 0.1-5 | 8 | 1 | 0 |
-| PSI-39 | CFI | liquid_droplet | prevention, suppression | 17-21 | 7.3479-73.4795 | - | 87 | 2 | 0 |
+| PSI-39 | CFI | liquid_droplet | prevention | 17-21 | 7.3479-73.4795 | - | 87 | 2 | 0 |
 | PSI-26 | BASS | solid | prevention, suppression | - | - | - | 122 | 4 | 0 |
 | PSI-25 | BASS-II | solid | prevention, suppression | 13.6-22.2 | - | - | 129 | 2 | 0 |
 | PSI-98 | SAFFIRE-I | solid | prevention | 21.5-21.7 | - | 20 | 4 | 2 | 0 |
 | PSI-99 | SAFFIRE-II | solid | prevention | 21.5-22.1 | - | 20 | 15 | 1 | 0 |
 | PSI-100 | SAFFIRE-III | solid | prevention | - | - | 30 | 2 | 2 | 0 |
 | PSI-107 | SPICE | gas | - | - | - | 0.66-85.28 | 469 | 5 | 0 |
-| PSI-106 | SLICE | gas | prevention, suppression | - | - | - | 12 | 5 | 0 |
+| PSI-106 | SLICE | gas | - | - | - | - | 12 | 6 | 0 |
 | PSI-102 | SAME | solid | detection | - | - | 5-10 | 8 | 3 | 0 |
 | PSI-101 | SAME-R | solid | detection | - | - | - | 109 | 4 | 0 |
 | PSI-47 | DAFT / DAFT-2 | mixed | detection | - | - | - | 2 | 5 | 0 |
-| PSI-60 | not reported | gas | detection, suppression | - | - | - | 0 | 8 | 1 |
+| PSI-60 | not reported | gas | detection | - | - | - | 0 | 8 | 1 |
 | PSI-62 | not reported | solid | prevention | - | - | - | 0 | 7 | 0 |
-| PSI-115 | not reported | mixed | detection, prevention | - | - | - | 0 | 9 | 0 |
-| PSI-117 | not reported | liquid_droplet | prevention, suppression | - | - | - | 0 | 7 | 0 |
-| PSI-142 | not reported | mixed | prevention, suppression | - | - | - | 8 | 4 | 0 |
+| PSI-115 | not reported | mixed | detection | - | - | - | 0 | 9 | 0 |
+| PSI-117 | not reported | liquid_droplet | prevention | - | - | - | 0 | 7 | 0 |
+| PSI-142 | not reported | mixed | prevention | - | - | - | 8 | 4 | 0 |
 
 ## PSI-98 - SAFFIRE-I
 
@@ -365,7 +365,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-39 · DOI: 10
 | [ ] | pressure_psi_range | [7.3479, 73.4795] | `csv:PSI-39_Experimental table_CFI.csv:Pressure` |
 | [ ] | airflow_cm_s_range | null | `csv:none` |
 | [ ] | gravity | microgravity | `rule:gravity_seed` |
-| [ ] | pillars | ["prevention", "suppression"] | llm<br>> "A basic understanding of cool flames is important for understanding ignition phenomena of practical fuels and fuel additives."<br>> "Fuels diluted with molecular oxygen, atomic nitrogen, and helium to study the influence on flame extinction and dynamics." |
+| [ ] | pillars | ["prevention"] | override<br>> "json:researchImpacts - "A basic understanding of cool flames is important for understanding ignition phenomena of practical fuels and fuel additives.". Suppression dropped: helium/nitrogen dilution was used to study extinction, not as a suppression method." |
 | [ ] | measurements | ["black-and-white camera", "UV camera", "high resolution cameras", "narrow-band and wide-band radiometers"] | llm<br>> "Flames were observed with a black-and-white camera for droplet size measurements."<br>> "A UV camera was used for capturing the OH* radical emissions and flame size."<br>> "Other high resolution cameras were used for monitoring and documentation."<br>> "Narrow-band and wide-band radiometers for analyzed flame radiation." |
 | [ ] | objective_summary | This investigation seeks to analyze the combustion and cool flame behavior of liquid fuel droplets and mixtures under varied pressures and dilution conditions. It also aims to investigate flame extinction, droplet size effects, and soot formation during low-temperature combustion. | llm<br>> "2) Analyze the effects of helium dilution on cool flame behavior." |
 | [ ] | key_findings | not reported | llm:not_reported |
@@ -500,7 +500,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-106 · DOI: 1
 | [ ] | pressure_psi_range | null | `csv:none` |
 | [ ] | airflow_cm_s_range | null | `csv:none` |
 | [ ] | gravity | microgravity | `rule:gravity_seed` |
-| [ ] | pillars | ["prevention", "suppression"] | llm<br>> "Flames were then manually ignited and observed under controlled coflow air conditions."<br>> "3. Evaluate the impact of fuel dilution with nitrogen on soot formation and flame stability." |
+| [ ] | pillars | [] | override<br>> "No PSI text sentence states prevention, detection or suppression as an aim: "Flames were then manually ignited" is not ignition control, nitrogen fuel dilution was for soot/stability, and "Insights into flame stability and behavior to enhance fire safety." is too general for a pillar." |
 | [ ] | measurements | ["flow rate sensors", "temperature sensors", "high resolution camera", "pyrometry", "soot measurement"] | llm<br>> "The SLICE apparatus consisted of a fan-driven flow duct, exchangeable burner tubes, and integrated sensors to measure flow rates and temperature."<br>> "The SLICE apparatus consisted of a fan-driven flow duct, exchangeable burner tubes, and integrated sensors to measure flow rates and temperature."<br>> "A high resolution camera captured still images while sensor data was overlaid on these images."<br>> "Fuel Type: 70% CH4 (balance N2) including 1 pyrometry calibration test"<br>> "Calibration tests for airflow velocity, soot measurement, and the fans were conducted to ensure the accuracy of the results." |
 | [ ] | objective_summary | The investigation aims to better understand the structure and stability of laminar diffusion flames in microgravity. Specific goals include determining liftoff velocity limits, evaluating fuel dilution effects, quantifying microgravity effects on flame length and radiative heat loss, and validating numerical models. | llm<br>> "Objective: The objective of this investigation is to better understand the structure and stability of laminar diffusion flames in microgravity." |
 | [ ] | key_findings | not reported | llm:not_reported |
@@ -581,7 +581,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-60 · DOI: 10
 | [ ] | pressure_psi_range | null | `no_csv` |
 | [ ] | airflow_cm_s_range | null | `no_csv` |
 | [ ] | gravity | microgravity | `rule:gravity_seed (ground/modeling study of flight data)` |
-| [ ] | pillars | ["detection", "suppression"] | llm<br>> "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions."<br>> "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions." |
+| [ ] | pillars | ["detection"] | override<br>> "json:researchImpacts - "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions.". Suppression dropped: suppression is only mentioned as a downstream benefit, not studied." |
 | [ ] | measurements | ["raw DSLR images", "color-ratio pyrometry"] | llm<br>> "By analyzing over 1600 raw DSLR images and incorporating advanced soot models, the study sought to improve understanding of soot formation, oxidation, radiative re-absorption, and aggregate growth in heavily sooting flames."<br>> "Raw Nikon NEF images were decoded into three color channels and analyzed using color-ratio pyrometry to extract soot temperature fields." |
 | [ ] | objective_summary | This investigation aimed to integrate computational modeling and experimental data processing to derive soot temperature distributions and volume fractions from SPICE datasets. It sought to improve understanding of soot processes and reconcile flame behavior discrepancies between microgravity and normal gravity conditions. | llm<br>> "The objective of this investigation was to integrate computational and experimental methods to derive temperature distributions and soot volume fractions from the Smoke Point in Coflow Experiment (SPICE) data available in PSI." |
 | [ ] | key_findings | not reported | llm:not_reported |
@@ -635,7 +635,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-115 · DOI: 1
 | [ ] | pressure_psi_range | null | `no_csv` |
 | [ ] | airflow_cm_s_range | null | `no_csv` |
 | [ ] | gravity | microgravity | `rule:gravity_seed (ground/modeling study of flight data)` |
-| [ ] | pillars | ["detection", "prevention"] | llm<br>> "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life."<br>> "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life." |
+| [ ] | pillars | ["detection"] | override<br>> "json:researchImpacts - "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life.". Prevention dropped: "prevent fires" is a generic benefit of better smoke detection, not ignition control or flammability limits." |
 | [ ] | measurements | [] | llm:none_supported |
 | [ ] | objective_summary | The investigation used numerical simulation to explore how gravity affects pyrolysis smoke growth. It aimed to quantify differences between microgravity and Earth gravity smoke and identify the fluid dynamic mechanisms involved. | llm<br>> "The objective of this investigation was to use numerical simulation to explore the influence of gravity on pyrolysis smoke growth from a fundamental perspective." |
 | [ ] | key_findings | not reported | llm:not_reported |
@@ -662,7 +662,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-117 · DOI: 1
 | [ ] | pressure_psi_range | null | `no_csv` |
 | [ ] | airflow_cm_s_range | null | `no_csv` |
 | [ ] | gravity | microgravity | `rule:gravity_seed (ground/modeling study of flight data)` |
-| [ ] | pillars | ["prevention", "suppression"] | llm<br>> "Focusing on both small and large droplets, the work mapped stability windows for ignition, sustained oscillation, transitions to hot ignition and warm-flame behavior, and extinction under microgravity."<br>> "The objective of this ground investigation was to use flight data obtained from PSI through NASA’s Flame Extinguishment Experiment (FLEX) to quantify how externally imposed thermal and convective perturbations regulated the dynamics and ultimate fate of already established droplet cool flames, and to explain run-to-run variability by isolating the roles of deliberate heating and unintentional drift-induced convection." |
+| [ ] | pillars | ["prevention"] | override<br>> "json:objective - "Focusing on both small and large droplets, the work mapped stability windows for ignition, sustained oscillation, transitions to hot ignition and warm-flame behavior, and extinction under microgravity.". Suppression dropped: the study models cool-flame dynamics from FLEX data; extinction behaviour is not a suppression method." |
 | [ ] | measurements | ["ignition delay", "oscillation frequency and amplitude", "stand-off and extinction diameters"] | llm<br>> "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching."<br>> "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching."<br>> "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching." |
 | [ ] | objective_summary | The objective of this ground investigation was to use flight data obtained from PSI through NASA’s Flame Extinguishment Experiment (FLEX) to quantify how externally imposed thermal and convective perturbations regulated the dynamics and ultimate fate of already established droplet cool flames, and to explain run-to-run variability by isolating the roles of deliberate heating and unintentional drift-induced convection. Focusing on both small and large droplets, the work mapped stability windows for ignition, sustained oscillation, transitions to hot ignition and warm-flame behavior, and extinction under microgravity. | llm<br>> "The objective of this ground investigation was to use flight data obtained from PSI through NASA’s Flame Extinguishment Experiment (FLEX) to quantify how externally imposed thermal and convective perturbations regulated the dynamics and ultimate fate of already established droplet cool flames, and to explain run-to-run variability by isolating the roles of deliberate heating and unintentional drift-induced convection." |
 | [ ] | key_findings | not reported | llm:not_reported |
@@ -689,7 +689,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-142 · DOI: 1
 | [ ] | pressure_psi_range | null | `csv:none` |
 | [ ] | airflow_cm_s_range | null | `csv:none` |
 | [ ] | gravity | microgravity | `rule:gravity_seed (ground/modeling study of flight data)` |
-| [ ] | pillars | ["prevention", "suppression"] | llm<br>> "1) Develop a new diagram of the flammability limits of diffusional cool flames affected by radiation, diffusion, and convection."<br>> "By using the Flame Extinguishment (FLEX) experimental data from the Physical Sciences Informatics (PSI) system of combustion science, the purpose of this grant was to conduct new simulations and ground-based experiments using ozone-sensitized counterflow flames to:" |
+| [ ] | pillars | ["prevention"] | override<br>> "json:objective - "1) Develop a new diagram of the flammability limits of diffusional cool flames affected by radiation, diffusion, and convection." Suppression dropped: FLEX data reused to map flammability/extinction limits of cool flames, not to study putting fires out." |
 | [ ] | measurements | ["CH2O PLIF", "thermometry"] | llm<br>> "5, CH2O PLIF and thermometry, https://doi.org/10.1016/j.combustflame.2018.03.013, 8"<br>> "5, CH2O PLIF and thermometry, https://doi.org/10.1016/j.combustflame.2018.03.013, 8" |
 | [ ] | objective_summary | The purpose of this investigation was to use FLEX microgravity experimental data, numerical modeling, and ground-based ozone-sensitized counterflow flame experiments to study cool flame flammability and extinction limits. It aimed to bridge the understanding between hot and cool flame limits while validating kinetic and radiation models. | llm<br>> "By using the Flame Extinguishment (FLEX) experimental data from the Physical Sciences Informatics (PSI) system of combustion science, the purpose of this grant was to conduct new simulations and ground-based experiments using ozone-sensitized counterflow flames to:" |
 | [ ] | key_findings | Warm flames feature a double reaction zone structure essential for transitioning between cool and hot flames. Additionally, elevated pressures expand the flammable region of warm and cool flames by increasing low- and intermediate-temperature reactivity. | llm<br>> "The results showed that the warm flame has a double reaction zone structure and plays a critical role in the transition between cool flames and hot flames." |
