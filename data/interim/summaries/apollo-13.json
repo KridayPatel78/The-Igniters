@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "An oxygen tank on Apollo 13 exploded after pre-launch overheating damaged its insulation. However, electrical arcing was prevented during spacecraft power-up because lessons from the Apollo 1 fire had led to increased wiring insulation.",
+    "quote": "Thankfully, a lesson learned from the Apollo I fire prevented arcing from happening, as a major redesign added increased insulation to better protect the wiring."
+  }
+}

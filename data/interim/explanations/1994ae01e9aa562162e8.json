@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-I [PSI-98] ranks highest with a total score of 55.0/100 because it achieved full points for covering the prevention focus (20/20), testing solid habitat materials (20/20), and data richness (10/10), alongside 5/15 points for airflow. SAFFIRE-II [PSI-99] ranks second with an identical total score of 55.0/100, matching those same pillar, material, richness, and airflow sub-scores while evaluating materials like cotton, Nomex, PMMA, silicone, and SIBAL. SAFFIRE-III [PSI-100] ranks third with a 55/100 total score by also earning maximum points in the prevention, material, and richness categories, despite having an unreported oxygen level and an airflow of 30 cm/s."
+}

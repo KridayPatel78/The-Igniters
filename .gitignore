@@ -7,9 +7,6 @@ __pycache__/
 # Secrets — never commit
 .env
 
-# Cached / generated data (re-create with the ingest + index scripts)
-data/chroma/
-
 # Editors / OS
 .vscode/
 .idea/

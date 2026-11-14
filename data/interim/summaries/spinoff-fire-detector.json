@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "The Incipient Fire Detector distinguishes combustion particles from dust, making it less susceptible to false alarms. It senses fire conditions before flame and smoke appear and can be linked across large areas to pinpoint fire locations.",
+    "quote": "Fire detector represents an advancement over commercially available smoke detectors in that it senses and signals the presence of a fire condition before appearance of flame and smoke."
+  }
+}

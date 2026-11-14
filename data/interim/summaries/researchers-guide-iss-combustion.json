@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "International Space Station combustion research examines how microgravity alters fire behavior, ignition, and flame suppression. This research helps scientists evaluate material flammability and improve spacecraft fire safety systems.",
+    "quote": "Fire safety is an important operational element of human space exploration missions to minimize the likelihood and impact of accidental fires in spacecraft and human habitats."
+  }
+}

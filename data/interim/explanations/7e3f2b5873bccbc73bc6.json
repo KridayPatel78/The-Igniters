@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Top-ranked [PSI-102] scores 64/100 because it covers the detection focus, matches the ventilated scenario with 5–10 cm/s airflow, uses solid habitat materials (silicone, Kapton), and includes an experimental table with 8 test rows and 4 measurement types. Second-ranked [PSI-101] scores 50/100 by also covering the detection focus and testing solid habitat materials (foam, Kapton) with high richness (109 test rows and 5 measurement types), though its airflow is not reported. Third-ranked [PSI-60] scores 28/100 because while it covers the detection focus, its airflow is not reported, it uses gaseous fuels with no named habitat materials, and it lacks an experimental table."
+}

@@ -1,4 +1,4 @@
-"""Build the AI librarian's search index -> Chroma at data/chroma/ (rebuilt from scratch each run).
+"""Build the AI librarian's search index -> data/processed/rag_index.json (Gemini embeddings).
 
 Usage:
     python -m rag.build_index
@@ -6,7 +6,7 @@ Usage:
 Three kinds of chunks:
   1. PSI text     - objective/approach/hypothesis/researchImpacts/description of data/raw/<ID>.json
   2. fact cards   - one per investigation from data/processed/investigations.json (the numbers),
-                    plus 3 comparison tables (O2 / pressure / airflow across all investigations)
+                    plus 3 comparison tables (O2 / pressure / airflow) and a gravity-coverage chunk
   3. resources    - data/raw/resources/*.txt (the other NASA pages; cited by title + URL)
 """
 from __future__ import annotations
@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import re
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 
 from rag import config
@@ -187,55 +188,50 @@ def all_documents() -> list[tuple[str, str, dict]]:
     return psi_documents(records) + resource_documents()
 
 
-# --- embeddings + store ----------------------------------------------------------------------
+# --- embeddings + JSON index -------------------------------------------------------------------
 
-_MODEL = None
-
-
-def embed(texts: list[str]) -> list[list[float]]:
-    """Normalized sentence embeddings (cosine similarity = dot product)."""
-    global _MODEL
-    if _MODEL is None:
-        from sentence_transformers import SentenceTransformer
-        _MODEL = SentenceTransformer(config.EMBEDDING_MODEL)
-    return _MODEL.encode(texts, normalize_embeddings=True, show_progress_bar=False).tolist()
-
-
-def get_collection(create: bool = False):
-    import chromadb
-
-    client = chromadb.PersistentClient(path=str(config.CHROMA_DIR))
-    if create:
-        try:
-            client.delete_collection(config.COLLECTION)
-        except Exception:  # not there yet
-            pass
-        return client.create_collection(config.COLLECTION, metadata={"hnsw:space": "cosine"})
-    return client.get_collection(config.COLLECTION)
+def chunk_record(doc_id: str, text: str, meta: dict) -> dict:
+    """Flat chunk entry for rag_index.json (same shape Python and the website read)."""
+    record = {"id": doc_id, "text": text, "source_type": meta["source_type"]}
+    if meta["source_type"] == "psi":
+        record.update(psi_id=meta["psi_id"], acronym=meta["acronym"], doi=meta["doi"])
+    else:
+        record["resource_id"] = meta["id"]
+    record.update(title=meta["title"], url=meta["url"], field=meta.get("field", "resource"))
+    return record
 
 
-def build(docs: list[tuple[str, str, dict]] | None = None) -> Counter:
+def kind(chunk: dict) -> str:
+    field = chunk["field"]
+    if field.startswith("comparison"):
+        return "comparison"
+    return field if field in ("fact_card", "coverage") else chunk["source_type"]
+
+
+def build(docs: list[tuple[str, str, dict]] | None = None, path: Path = config.INDEX_FILE) -> dict:
+    from rag.embeddings import embed_documents, encode_b64
+
     docs = all_documents() if docs is None else docs
-    collection = get_collection(create=True)
-    batch = 256
-    for start in range(0, len(docs), batch):
-        part = docs[start:start + batch]
-        collection.add(ids=[d[0] for d in part], documents=[d[1] for d in part],
-                       metadatas=[d[2] for d in part], embeddings=embed([d[1] for d in part]))
-    def kind(meta: dict) -> str:
-        field = meta.get("field", "")
-        if field == "fact_card" or field.startswith("comparison"):
-            return field.split("_")[0] if field.startswith("comparison") else field
-        return meta["source_type"]
-    return Counter(kind(d[2]) for d in docs)
+    chunks = [chunk_record(*d) for d in docs]
+    vectors_b64 = encode_b64(embed_documents([c["text"] for c in chunks]))
+    previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    unchanged = previous.get("chunks") == chunks and previous.get("vectors_b64") == vectors_b64
+    index = {"model": config.EMBEDDING_MODEL, "dims": config.EMBEDDING_DIMS,
+             "created_at": previous["created_at"] if unchanged else
+             datetime.now(timezone.utc).isoformat(timespec="seconds"),
+             "chunks": chunks, "vectors_b64": vectors_b64}
+    path.write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    return index
 
 
 def main() -> None:
-    counts = build()
+    index = build()
+    counts = Counter(kind(c) for c in index["chunks"])
     print("Chunks indexed:")
-    for kind in ("psi", "fact_card", "comparison", "resource"):
-        print(f"  {kind:10} {counts.get(kind, 0)}")
-    print(f"  {'total':10} {sum(counts.values())}  -> {config.CHROMA_DIR}")
+    for name in ("psi", "fact_card", "comparison", "coverage", "resource"):
+        print(f"  {name:10} {counts.get(name, 0)}")
+    size = config.INDEX_FILE.stat().st_size / 1e6
+    print(f"  {'total':10} {len(index['chunks'])}  -> {config.INDEX_FILE.relative_to(config.ROOT)} ({size:.2f} MB)")
 
 
 if __name__ == "__main__":

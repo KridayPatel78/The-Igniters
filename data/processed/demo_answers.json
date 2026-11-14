@@ -1,7 +1,7 @@
 [
   {
     "question": "How does fire spread on fabric in microgravity?",
-    "answer": "In microgravity, ventilation airflow strongly enhances flames, and fires in low-speed airflows may preferentially spread into the oncoming airflow, which is opposite to normal gravity [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Materials are also easier to ignite in low gravity due to reduced natural convective cooling from the fuel surface [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Theory suggests flame spread over thin fuels in quiescent microgravity is influenced by how the flow field affects the overlap of thermal and species fields [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. \n\nIn microgravity glovebox experiments, fabric fuels—including Nomex and a 75% cotton and 25% fiberglass blend measuring 1 to 2 cm—were tested under forced airflows reaching up to 40 cm/s in opposed or concurrent directions across 122 test rows [PSI-26 · doi:10.60555/58h4-dy80]. These experiments measured flame spread rate, size, shape, color, and flame quenching [PSI-26 · doi:10.60555/58h4-dy80]. \n\nThe provided sources do not cover specific numerical flame spread rates for fabrics in microgravity.",
+    "answer": "When a thin fuel is ignited in the middle at low forced-flow velocities in microgravity, the flame spreads upstream into the oncoming airflow [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Materials can also burn at lower oxygen levels in microgravity than on Earth [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Flammability is influenced by how the flow field affects the overlap of thermal and species fields in the flame zone [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science].\n\nIn microgravity experiments using Nomex fabric, Ultem, and a 75% cotton and 25% fiberglass blend, airflow was directed along the surface in opposed or concurrent directions at speeds reaching up to 40 cm/s [PSI-26 · doi:10.60555/58h4-dy80]. Tested fabric sample sizes included 1 to 2 cm [PSI-26 · doi:10.60555/58h4-dy80].\n\nOur sources do not cover specific numerical flame spread rates for fabrics in microgravity [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science][PSI-26 · doi:10.60555/58h4-dy80].",
     "citations": [
       {
         "label": "A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science",
@@ -21,7 +21,7 @@
     "covered": true,
     "mode": "llm",
     "id": 1,
-    "best_similarity": 0.6716,
+    "best_similarity": 0.8043,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -29,7 +29,7 @@
   },
   {
     "question": "Which experiments tested oxygen levels above 30%?",
-    "answer": "Based on NASA PSI data, four experiments tested oxygen levels above 30% [PSI comparison table: oxygen · DOIs per row]. \n\nPSI-159 ACME CFI-G tested oxygen levels ranging from 12% to 85% O2 [PSI comparison table: oxygen · DOIs per row]. PSI-10 ACME/Flame Design tested oxygen levels from 19.8048% to 84.9978% O2 [PSI comparison table: oxygen · DOIs per row][PSI-10 · doi:10.60555/w4zy-bt45]. PSI-20 ACME BRE tested oxygen levels from 21% to 40% O2 [PSI comparison table: oxygen · DOIs per row][PSI-20 · doi:10.60555/vb93-3y72]. PSI-69 FLEX tested oxygen levels between 12% and 34% O2 [PSI comparison table: oxygen · DOIs per row].",
+    "answer": "Based on NASA PSI records, four experiments tested oxygen levels above 30% [PSI comparison table: oxygen · DOIs per row].\n\n- PSI-159 ACME CFI-G tested oxygen concentrations from 12% to 85% O2 [PSI comparison table: oxygen · DOIs per row][PSI-159 · doi:10.60555/cyt1-kh64].\n- PSI-10 ACME/Flame Design tested oxygen concentrations from 19.8048% to 84.9978% O2 [PSI comparison table: oxygen · DOIs per row][PSI-10 · doi:10.60555/w4zy-bt45].\n- PSI-20 ACME BRE tested oxygen concentrations from 21% to 40% O2 [PSI comparison table: oxygen · DOIs per row][PSI-20 · doi:10.60555/vb93-3y72].\n- PSI-69 FLEX tested oxygen concentrations from 12% to 34% O2 [PSI comparison table: oxygen · DOIs per row].",
     "citations": [
       {
         "label": "PSI comparison table: oxygen · DOIs per row",
@@ -38,6 +38,14 @@
         "psi_id": "PSI (all)",
         "doi": "per row",
         "acronym": "oxygen comparison"
+      },
+      {
+        "label": "PSI-159 · doi:10.60555/cyt1-kh64",
+        "source_type": "psi",
+        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+        "psi_id": "PSI-159",
+        "doi": "10.60555/cyt1-kh64",
+        "acronym": "ACME CFI-G"
       },
       {
         "label": "PSI-10 · doi:10.60555/w4zy-bt45",
@@ -59,7 +67,7 @@
     "covered": true,
     "mode": "llm",
     "id": 2,
-    "best_similarity": 0.4481,
+    "best_similarity": 0.7501,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -67,13 +75,21 @@
   },
   {
     "question": "How was smoke detection tested on the ISS, and why does it matter?",
-    "answer": "Smoke detection on the ISS was tested using the Dust Aerosol Measurement Feasibility Test, the Smoke Aerosol Measurement Experiment (SAME), and SAME-Reflight (SAME-R) [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science][PSI-101 · doi:10.60555/2np7-jv14][PSI-102 · doi:10.60555/gd4k-8h62]. SAME examined solid fuels such as Teflon, Kapton, silicone rubber, lampwick, and dibutyl phthalate across 8 experimental test rows at airflows of 5–10 cm/s [PSI-102 · doi:10.60555/gd4k-8h62]. SAME-R tested fuels including Pyrell foam, DBP, and Kapton across 109 experimental test rows [PSI-101 · doi:10.60555/2np7-jv14]. Measurements used smoke detectors, ionization detectors, DustTrak, thermal precipitators, TEM grids, video cameras, and thermophoretic soot samplers [PSI-101 · doi:10.60555/2np7-jv14][PSI-102 · doi:10.60555/gd4k-8h62].\n\nThis testing matters because buoyancy affects microgravity smoke properties, causing space fires to produce different particle sizes than Earth fires [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Data from SAME provides reduced-gravity baselines to build rapid fire detectors with fewer false alarms for future long-duration spaceflight [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science][PSI-102 · doi:10.60555/gd4k-8h62][PSI-101 · doi:10.60555/2np7-jv14]. These advanced detectors can also save lives in extreme Earth environments like submarines [PSI-102 · doi:10.60555/gd4k-8h62][PSI-101 · doi:10.60555/2np7-jv14].",
+    "answer": "On the ISS, smoke detection was examined through experiments including the Dust Aerosol Measurement Feasibility Test (DAFT) for background particulate levels and the Smoke Aerosol Measurement Experiment (SAME) for smoke particle-size distributions [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. SAME was conducted on the ISS using Comparative Soot Diagnostic Hardware, solid fuels like Teflon and Kapton, 8 experimental test rows, an airflow of 5–10 cm/s, and tools such as smoke detectors, thermophoretic soot samplers, TEM, and video cameras [PSI-102 · doi:10.60555/gd4k-8h62]. \n\nThis testing matters because microgravity lacks strong buoyancy-induced flows, leading to larger smoke particles that can alter detector responses compared to terrestrial conditions [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science][PSI-102 · doi:10.60555/gd4k-8h62]. The quantitative data provides a reduced-gravity baseline to evaluate existing sensors and design advanced fire detectors for long-duration space missions [PSI-101 · doi:10.60555/2np7-jv14][PSI-102 · doi:10.60555/gd4k-8h62][PSI-47 · doi:10.60555/ztgj-d202]. Additionally, these developments help improve fire detection technology for extreme Earth environments like submarines and underwater laboratories [PSI-101 · doi:10.60555/2np7-jv14][PSI-102 · doi:10.60555/gd4k-8h62][PSI-47 · doi:10.60555/ztgj-d202].",
     "citations": [
       {
         "label": "A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science",
         "source_type": "resource",
         "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
         "title": "A Researcher's Guide to International Space Station Combustion Science (2015)"
+      },
+      {
+        "label": "PSI-102 · doi:10.60555/gd4k-8h62",
+        "source_type": "psi",
+        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-102",
+        "psi_id": "PSI-102",
+        "doi": "10.60555/gd4k-8h62",
+        "acronym": "SAME"
       },
       {
         "label": "PSI-101 · doi:10.60555/2np7-jv14",
@@ -84,18 +100,18 @@
         "acronym": "SAME-R"
       },
       {
-        "label": "PSI-102 · doi:10.60555/gd4k-8h62",
+        "label": "PSI-47 · doi:10.60555/ztgj-d202",
         "source_type": "psi",
-        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-102",
-        "psi_id": "PSI-102",
-        "doi": "10.60555/gd4k-8h62",
-        "acronym": "SAME"
+        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-47",
+        "psi_id": "PSI-47",
+        "doi": "10.60555/ztgj-d202",
+        "acronym": "DAFT / DAFT-2"
       }
     ],
     "covered": true,
     "mode": "llm",
     "id": 3,
-    "best_similarity": 0.7159,
+    "best_similarity": 0.7738,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -103,8 +119,14 @@
   },
   {
     "question": "What gases were used to put out flames, and in which experiment?",
-    "answer": "In the Flame Extinguishment Experiment (FLEX), researchers planned to measure the effectiveness of gaseous fire suppressants including carbon dioxide (CO2), helium (He), and sulfur hexafluoride (SF6) [PSI-69 · doi:10.60555/mbq8-0451]. Additionally, in the CFI experiment, fuels were diluted with helium, atomic nitrogen, and molecular oxygen to study their influence on flame extinction [PSI-39 · doi:10.60555/m6pj-a914]. \n\nOur sources do not cover experimental result data showing which specific gases successfully put out flames in completed tests [PSI-39 · doi:10.60555/m6pj-a914][PSI-69 · doi:10.60555/mbq8-0451].",
+    "answer": "Nitrogen gas was applied to put out flames in a drop tower test burning a PMMA sphere [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Nitrogen, carbon dioxide, helium, and xenon were used as inert gas suppressants in flammability limit research, with carbon dioxide used in a flame test during the FLEX experiment [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. The FLEX investigation also plans to measure the effectiveness of carbon dioxide, helium, and sulfur hexafluoride as gaseous suppressants [PSI-69 · doi:10.60555/mbq8-0451]. \n\nThe sources do not specify which exact gas was used in the BASS experiment, mentioning only a planned objective to test an inert gaseous agent [PSI-26 · doi:10.60555/58h4-dy80].",
     "citations": [
+      {
+        "label": "A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science",
+        "source_type": "resource",
+        "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
+        "title": "A Researcher's Guide to International Space Station Combustion Science (2015)"
+      },
       {
         "label": "PSI-69 · doi:10.60555/mbq8-0451",
         "source_type": "psi",
@@ -114,18 +136,18 @@
         "acronym": "FLEX"
       },
       {
-        "label": "PSI-39 · doi:10.60555/m6pj-a914",
+        "label": "PSI-26 · doi:10.60555/58h4-dy80",
         "source_type": "psi",
-        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
-        "psi_id": "PSI-39",
-        "doi": "10.60555/m6pj-a914",
-        "acronym": "CFI"
+        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26",
+        "psi_id": "PSI-26",
+        "doi": "10.60555/58h4-dy80",
+        "acronym": "BASS"
       }
     ],
     "covered": true,
     "mode": "llm",
     "id": 4,
-    "best_similarity": 0.6624,
+    "best_similarity": 0.7248,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -133,7 +155,7 @@
   },
   {
     "question": "What happened in the Mir fire in 1997, and what was learned?",
-    "answer": "On February 24, 1997, a fire ignited in a solid fuel oxygen generator in the Kvant-1 module aboard the space station Mir [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. The searing flame lasted several minutes, blocked access to one of two Soyuz escape vehicles, and filled station modules with toxic smoke [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. The six crew members extinguished the flames despite narrow confines, causing no structural damage to Mir [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. The station's life support system cleared the toxic smoke over several hours, and the crew suffered no lasting harm [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. Lessons learned from the incident were passed on to the design and operations of the International Space Station [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. \n\nOur sources do not cover specific technical root causes or detailed engineering modifications that resulted from the fire [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir].",
+    "answer": "On February 24, 1997, a fire ignited in a solid fuel oxygen generator inside the Kvant-1 module of the Russian space station Mir [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. The searing flame lasted several minutes, blocked access to one of two Soyuz escape vehicles, and filled the station's modules with toxic smoke [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. The six crew members successfully extinguished the fire with no damage to the station's structure [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. Mir's life support systems cleared the atmosphere over several hours, causing no lasting harm to the crew [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir].\n\nLessons learned were passed on to the design and operations of the International Space Station [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. Russian space officials updated emergency crew training, ground controller responses, and ground preparation for oxygen generator canisters [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir]. Consequently, space agencies implemented a robust oxygen generation system with dissimilar redundancies on the International Space Station, alongside additional safety measures for backup oxygen canisters [25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir].",
     "citations": [
       {
         "label": "25 Years Ago: Fire Aboard Space Station Mir · nasa.gov/history/25-years-ago-fire-aboard-space-station-mir",
@@ -145,7 +167,7 @@
     "covered": true,
     "mode": "llm",
     "id": 5,
-    "best_similarity": 0.6331,
+    "best_similarity": 0.8064,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": [
@@ -157,7 +179,7 @@
   },
   {
     "question": "Is there any fire data for Moon or Mars gravity?",
-    "answer": "The NASA Physical Science Informatics repository contains no real partial-gravity combustion data from investigations in actual Moon or Mars gravity [PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion]. However, cotton-fiberglass fabric flame behavior in lunar gravity has been simulated on Earth using a drop tower centrifuge [NASA Combustion Science · nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science]. The Flammability of Materials on the Moon (FM2) experiment is planned to test burning materials at 1/6 lunar gravity, but it is designated as an experiment to be performed in the future rather than completed data [NASA Combustion Science · nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science]. \n\nOur sources do not cover any real fire data collected directly on the surface of Mars or the Moon [PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion].",
+    "answer": "The NASA PSI Data Repository contains no real partial-gravity combustion data from actual Moon or Mars gravity [PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion]. Within the PSI investigations, one experiment used an electric field to mimic partial gravity [PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion]. \n\nFor lunar gravity, burning cotton-fiberglass blend fabric in air has been observed in simulated lunar gravity using a terrestrial drop tower centrifuge [NASA Combustion Science · nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science]. Additionally, the Flammability of Materials on the Moon (FM2) investigation is planned as a future experiment to burn materials on the lunar surface [NASA Combustion Science · nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science]. \n\nOur sources do not cover any fire data for Mars gravity [PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion].",
     "citations": [
       {
         "label": "PSI Combustion Science coverage (24 investigations) · psi.nasa.gov/physci/repo/search?q=combustion",
@@ -177,7 +199,7 @@
     "covered": true,
     "mode": "llm",
     "id": 6,
-    "best_similarity": 0.621,
+    "best_similarity": 0.7615,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -185,7 +207,7 @@
   },
   {
     "question": "What are cool flames and why are they a risk?",
-    "answer": "Cool flames are lower-temperature flames that form as an intermediate step between unreacted fuel and oxidizer [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. They can form after a visible hot flame extinguishes and continue to burn a fraction of vaporized fuel for a prolonged period of time [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Researching cool flames helps refine knowledge of low-temperature combustion, ignition phenomena, and engine design [PSI-39 · doi:10.60555/m6pj-a914][A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Additional tests aboard the International Space Station are planned to demonstrate cool flame behavior across various pressures and fuels [PSI-159 · doi:10.60555/cyt1-kh64]. \n\nOur sources do not explicitly detail why cool flames are a specific risk, beyond noting their persistent burning after visible flame extinguishment and their relevance to microgravity spacecraft fire safety [PSI-39 · doi:10.60555/m6pj-a914][A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science].",
+    "answer": "Cool flames are a low-temperature combustion regime marked by very weak flames that form as an intermediate step between unreacted fuel and oxidizer [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Cool diffusion flames have peak temperatures between 500 and 1000 K [PSI-159 · doi:10.60555/cyt1-kh64]. They can persist after a visible hot flame extinguishes and burn for a prolonged period while consuming only a fraction of the vaporized fuel [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. \n\nCool flames impact spacecraft fire safety concerns because reduced-gravity environments are particularly conducive to low-temperature combustion [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science]. Understanding cool flames in microgravity helps refine combustion knowledge to support the design of safer spacecraft systems [PSI-39 · doi:10.60555/m6pj-a914]. \n\nOur sources do not cover specific direct hazards, toxic risks, or detailed damage mechanisms of cool flames beyond general spacecraft fire safety concerns [A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science][PSI-39 · doi:10.60555/m6pj-a914].",
     "citations": [
       {
         "label": "A Researcher's Guide to International Space Station Combustion Science (2015) · nasa.gov/missions/station/a-researchers-guide-to-combustion-science",
@@ -194,26 +216,26 @@
         "title": "A Researcher's Guide to International Space Station Combustion Science (2015)"
       },
       {
-        "label": "PSI-39 · doi:10.60555/m6pj-a914",
-        "source_type": "psi",
-        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
-        "psi_id": "PSI-39",
-        "doi": "10.60555/m6pj-a914",
-        "acronym": "CFI"
-      },
-      {
         "label": "PSI-159 · doi:10.60555/cyt1-kh64",
         "source_type": "psi",
         "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
         "psi_id": "PSI-159",
         "doi": "10.60555/cyt1-kh64",
         "acronym": "ACME CFI-G"
+      },
+      {
+        "label": "PSI-39 · doi:10.60555/m6pj-a914",
+        "source_type": "psi",
+        "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+        "psi_id": "PSI-39",
+        "doi": "10.60555/m6pj-a914",
+        "acronym": "CFI"
       }
     ],
     "covered": true,
     "mode": "llm",
     "id": 7,
-    "best_similarity": 0.6247,
+    "best_similarity": 0.7323,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []
@@ -226,7 +248,7 @@
     "covered": false,
     "mode": "not_covered",
     "id": 8,
-    "best_similarity": 0.1622,
+    "best_similarity": 0.5424,
     "checks": {
       "uncited_sentences": [],
       "numbers_not_in_psi": []

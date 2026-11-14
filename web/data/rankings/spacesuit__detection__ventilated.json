@@ -1,0 +1,1724 @@
+{
+  "scenario": "spacesuit",
+  "focus": "detection",
+  "ventilation": "ventilated",
+  "results": [
+    {
+      "psi_id": "PSI-102",
+      "acronym": "SAME",
+      "title": "Smoke and Aerosol Measurement Experiment",
+      "total": 64,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 5–10 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              5.0,
+              10.0
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. silicone, Kapton (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "silicone",
+              "Kapton"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the detection focus (detection) → 20/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 8 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 8,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "acronym": "SAME-R",
+      "title": "Smoke Aerosol Measurement Experiment-Reflight",
+      "total": 50,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. foam, Kapton (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "foam",
+              "Kapton"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the detection focus (detection) → 20/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 109 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 109,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-60",
+      "acronym": "not reported",
+      "title": "Computational and Experimental Analysis of SPICE Data Sets",
+      "total": 28,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the detection focus (detection) → 20/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 2,
+          "max": 10,
+          "reason": "No experimental table (+0); 2 measurement types (+2) → 2/10",
+          "inputs": {
+            "test_rows": 0,
+            "measurements": 2
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "acronym": "DAFT / DAFT-2",
+      "title": "Dust and Aerosol Measurement Feasibility Test / Dust and Aerosol Measurement Feasibility Test-2",
+      "total": 27,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 0,
+          "max": 20,
+          "reason": "Fuel phase unknown (0 base), no habitat material named in PSI fuels → 0/20",
+          "inputs": {
+            "fuel_phase": "mixed",
+            "phase_is_placeholder": true,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the detection focus (detection) → 20/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 7,
+          "max": 10,
+          "reason": "Experimental table with 2 test rows (+5); 2 measurement types (+2) → 7/10",
+          "inputs": {
+            "test_rows": 2,
+            "measurements": 2
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "acronym": "not reported",
+      "title": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+      "total": 20,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 0,
+          "max": 20,
+          "reason": "Fuel phase unknown (0 base), no habitat material named in PSI fuels → 0/20",
+          "inputs": {
+            "fuel_phase": "mixed",
+            "phase_is_placeholder": true,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the detection focus (detection) → 20/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 0,
+          "max": 10,
+          "reason": "No experimental table (+0); 0 measurement types (+0) → 0/10",
+          "inputs": {
+            "test_rows": 0,
+            "measurements": 0
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-98",
+      "acronym": "SAFFIRE-I",
+      "title": "Spacecraft Fire Safety Experiment-I",
+      "total": 51.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 21.5–21.7% O₂; scenario is 100% → 78.3 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              21.5,
+              21.7
+            ],
+            "target": 100,
+            "distance": 78.3
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 20 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              20.0,
+              20.0
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. fabric, SIBAL (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "fabric",
+              "SIBAL"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 4 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 4,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "acronym": "SAFFIRE-II",
+      "title": "Spacecraft Fire Experiment-II",
+      "total": 51.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 21.5–22.1% O₂; scenario is 100% → 77.9 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              21.5,
+              22.1
+            ],
+            "target": 100,
+            "distance": 77.9
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 20 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              20.0,
+              20.0
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. cotton, Nomex, PMMA, silicone, SIBAL (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "cotton",
+              "Nomex",
+              "PMMA",
+              "silicone",
+              "SIBAL"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 15 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 15,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-100",
+      "acronym": "SAFFIRE-III",
+      "title": "Spacecraft Fire Experiment-III",
+      "total": 51,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 30 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              30.0,
+              30.0
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. fabric, SIBAL (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "fabric",
+              "SIBAL"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 2 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 2,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "acronym": "ACME/Flame Design",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "total": 38.5,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 17.5,
+          "max": 35,
+          "reason": "Tested at 19.8–85% O₂; scenario is 100% → 15 points away → 17.5/35",
+          "inputs": {
+            "o2_percent_range": [
+              19.8048,
+              84.9978
+            ],
+            "target": 100,
+            "distance": 15.002200000000002
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 327 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 327,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Tested at 6.2–44.4 psi; scenario is 4.3 psi",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "acronym": "ACME CFI-G",
+      "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+      "total": 38.5,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 17.5,
+          "max": 35,
+          "reason": "Tested at 12–85% O₂; scenario is 100% → 15 points away → 17.5/35",
+          "inputs": {
+            "o2_percent_range": [
+              12.0,
+              85.0
+            ],
+            "target": 100,
+            "distance": 15.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 333 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 333,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Tested at 7.2–48 psi; scenario is 4.3 psi",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-25",
+      "acronym": "BASS-II",
+      "title": "Burning and Suppression of Solids - II",
+      "total": 36.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 13.6–22.2% O₂; scenario is 100% → 77.8 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              13.6,
+              22.2
+            ],
+            "target": 100,
+            "distance": 77.8
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. fabric, Nomex, PMMA, SIBAL (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "fabric",
+              "Nomex",
+              "PMMA",
+              "SIBAL"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention, suppression → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention",
+              "suppression"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 129 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 129,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "acronym": "BASS",
+      "title": "Burning and Suppression of Solids",
+      "total": 36,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. fabric, cotton, Nomex, PMMA, Ultem, SIBAL (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "fabric",
+              "cotton",
+              "Nomex",
+              "PMMA",
+              "Ultem",
+              "SIBAL"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention, suppression → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention",
+              "suppression"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 122 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 122,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "acronym": "FLEX-2",
+      "title": "Flame Extinguishment Experiment - 2",
+      "total": 34.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 17–30% O₂; scenario is 100% → 70 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              17.0,
+              30.0
+            ],
+            "target": 100,
+            "distance": 70.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 0.1–5 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              0.1,
+              5.0
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 4,
+          "max": 20,
+          "reason": "Liquid droplet fuels (4 base), no habitat material named in PSI fuels → 4/20",
+          "inputs": {
+            "fuel_phase": "liquid_droplet",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers suppression → 6/20",
+          "inputs": {
+            "pillars": [
+              "suppression"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 8 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 8,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Tested at 7.3–44.1 psi; scenario is 4.3 psi",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "acronym": "SPICE",
+      "title": "Smoke Point In Co-flow Experiment",
+      "total": 30,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 0.7–85.3 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              0.66,
+              85.28
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 0,
+          "max": 20,
+          "reason": "No fire-safety pillar identified → 0/20",
+          "inputs": {
+            "pillars": [],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 469 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 469,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-62",
+      "acronym": "not reported",
+      "title": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+      "total": 28,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. PMMA (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "PMMA"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 2,
+          "max": 10,
+          "reason": "No experimental table (+0); 2 measurement types (+2) → 2/10",
+          "inputs": {
+            "test_rows": 0,
+            "measurements": 2
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "acronym": "not reported",
+      "title": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+      "total": 23,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 10,
+          "max": 20,
+          "reason": "Mixed solid + gas fuels (10 base), no habitat material named in PSI fuels → 10/20",
+          "inputs": {
+            "fuel_phase": "mixed",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 7,
+          "max": 10,
+          "reason": "Experimental table with 8 test rows (+5); 2 measurement types (+2) → 7/10",
+          "inputs": {
+            "test_rows": 8,
+            "measurements": 2
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "acronym": "ACME E-FIELD Flames",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "total": 22,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 32 test rows (+5); 6 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 32,
+            "measurements": 6
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Electric field used to mimic partial gravity — closest PSI data to Moon/Mars gravity",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "acronym": "ACME s-Flame",
+      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+      "total": 22,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 18 test rows (+5); 8 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 18,
+            "measurements": 8
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "acronym": "ACME CLD Flame",
+      "title": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
+      "total": 21,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 32 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 32,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "acronym": "FLEX",
+      "title": "Flame Extinguishment Experiment",
+      "total": 20.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 12–34% O₂; scenario is 100% → 66 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              12.0,
+              34.0
+            ],
+            "target": 100,
+            "distance": 66.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 4,
+          "max": 20,
+          "reason": "Liquid droplet fuels (4 base), no habitat material named in PSI fuels → 4/20",
+          "inputs": {
+            "fuel_phase": "liquid_droplet",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers suppression → 6/20",
+          "inputs": {
+            "pillars": [
+              "suppression"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 274 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 274,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Tested at 10.2–44.9 psi; scenario is 4.3 psi",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "acronym": "CFI",
+      "title": "Cool Flames Investigation",
+      "total": 19.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 17–21% O₂; scenario is 100% → 79 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              17.0,
+              21.0
+            ],
+            "target": 100,
+            "distance": 79.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 4,
+          "max": 20,
+          "reason": "Liquid droplet fuels (4 base), no habitat material named in PSI fuels → 4/20",
+          "inputs": {
+            "fuel_phase": "liquid_droplet",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 9,
+          "max": 10,
+          "reason": "Experimental table with 87 test rows (+5); 4 measurement types (+4) → 9/10",
+          "inputs": {
+            "test_rows": 87,
+            "measurements": 4
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Tested at 7.3–73.5 psi; scenario is 4.3 psi",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "acronym": "ACME BRE",
+      "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+      "total": 19.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0.0,
+          "max": 35,
+          "reason": "Tested at 21–40% O₂; scenario is 100% → 60 points away → 0/35",
+          "inputs": {
+            "o2_percent_range": [
+              21.0,
+              40.0
+            ],
+            "target": 100,
+            "distance": 60.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 7,
+          "max": 10,
+          "reason": "Experimental table with 18 test rows (+5); 2 measurement types (+2) → 7/10",
+          "inputs": {
+            "test_rows": 18,
+            "measurements": 2
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "acronym": "SLICE",
+      "title": "Structure and Liftoff In Combustion Experiment",
+      "total": 16,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 0,
+          "max": 20,
+          "reason": "No fire-safety pillar identified → 0/20",
+          "inputs": {
+            "pillars": [],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 12 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 12,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "acronym": "not reported",
+      "title": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+      "total": 13,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 4,
+          "max": 20,
+          "reason": "Liquid droplet fuels (4 base), no habitat material named in PSI fuels → 4/20",
+          "inputs": {
+            "fuel_phase": "liquid_droplet",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover detection; covers prevention → 6/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "detection"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 3,
+          "max": 10,
+          "reason": "No experimental table (+0); 3 measurement types (+3) → 3/10",
+          "inputs": {
+            "test_rows": 0,
+            "measurements": 3
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "exported_at": "2026-11-14T22:43:08+00:00",
+  "git_commit": "4f1f31318277be77eba9dda7f5fa142af7f0d284",
+  "counts": {
+    "investigations": 24,
+    "experimental_table_csvs": 22,
+    "investigations_with_tables": 20,
+    "chunks": 378,
+    "ranking_files": 32
+  },
+  "models": {
+    "embedding": "gemini-embedding-001 (768 dims)",
+    "answer": "gemini-3.6-flash",
+    "extraction": [
+      "gemini-3.6-flash"
+    ]
+  },
+  "explanations": {
+    "llm": 32,
+    "offline": 0
+  },
+  "source_summaries": {
+    "llm": 8,
+    "first_sentences": 0
+  }
+}

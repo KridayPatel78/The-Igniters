@@ -1,0 +1,7 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": {
+    "summary": "On Feb. 24, 1997, a solid-fuel oxygen generator ignited aboard the Russian space station Mir, filling the station with smoke and blocking an evacuation route. The crew successfully extinguished the fire, and lessons learned from the incident led to improved safety designs and emergency procedures for the International Space Station.",
+    "quote": "Although the narrow confines where the fire occurred made fighting it difficult, through teamwork and composure the crew prevailed and extinguished the flames, with no damage to the station’s structure."
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-II [PSI-99] ranks highest with a total score of 90.8/100 because it covers the prevention focus, matches the ventilated scenario airflow, tests habitat solid materials, and achieves maximum richness points. SAFFIRE-I [PSI-98] ranks second at 90.3/100 by similarly matching the ventilated airflow, covering the prevention focus, testing habitat solid fuels, and earning full points for flow, material, pillars, and richness. BASS-II [PSI-25] ranks third at 75.9/100 because it covers prevention and suppression while testing habitat solid fuels with maximum richness, despite receiving 0/15 points for unreported airflow."
+}

@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Rank #1 [PSI-25] BASS-II ranks highest with a score of 85.0/100 because its tested oxygen range (13.6–22.2% O₂) covers the 21% ISS cabin scenario, it covers the suppression focus, tests habitat solid fuels (fabric, Nomex, PMMA, SIBAL), and features high data richness with 129 test rows and 5 measurement types. Rank #2 [PSI-68] FLEX-2 scores 73.0/100 by also covering the suppression focus and the 21% O₂ scenario (tested at 17–30% O₂), but it earns lower material points for using liquid droplet fuels with no named habitat materials. Rank #3 [PSI-69] FLEX ranks third with a score of 69.0/100 because while it covers the suppression focus and 21% O₂ scenario (tested at 12–34% O₂ with 274 test rows), it similarly relies on liquid droplet fuels without named habitat materials and has no reported airflow data."
+}
