@@ -12,3 +12,9 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Website (web/) build output and local env
+node_modules/
+.next/
+.env*.local
+.vercel/

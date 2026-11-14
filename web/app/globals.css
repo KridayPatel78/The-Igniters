@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* "Space lab" dark theme. All text colours meet WCAG AA (>= 4.5:1) on --color-bg and --color-panel. */
+@theme {
+  --color-bg: #070b14;
+  --color-panel: #0f1626;
+  --color-panel-2: #152038;
+  --color-line: #26334f;
+  --color-ink: #e8eef9;
+  --color-muted: #a3b1c9;
+  --color-faint: #8492ad;
+  --color-flame: #ffad4d;
+  --color-flame-strong: #ff8a1f;
+  --color-ion: #6cc9ff;
+  --color-good: #4ade9a;
+  --color-warn: #fbbf4d;
+
+  /* score criteria A-E */
+  --color-crit-oxygen: #ff8a4c;
+  --color-crit-flow: #5ec2ff;
+  --color-crit-material: #b49cff;
+  --color-crit-pillars: #44d39b;
+  --color-crit-richness: #f4d35e;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at 15% -10%, rgb(255 138 31 / 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgb(108 201 255 / 0.08), transparent 60%),
+    var(--color-bg);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ion);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: rgb(255 173 77 / 0.35);
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
