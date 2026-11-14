@@ -88,3 +88,6 @@ cited NASA passages.
 - **Every push to `main` redeploys production automatically, so don't push during judging.**
 - **Preview deployments** are created for other branches (e.g. `web`), so changes can be reviewed
   before merging.
+- **Vercel project:** `the-igniters-web` (team Igniters), Root Directory `web`.
+  "Skip deployments when there are no changes to the root directory" is on, so a push that
+  changes nothing under `web/` (e.g. an empty commit) will not create a deployment.
