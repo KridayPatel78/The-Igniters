@@ -1,15 +1,41 @@
-# PSI combustion investigation IDs to fetch, one per line. Lines starting with # are ignored.
-# Person 1: complete this list from https://psi.nasa.gov/physci/repo/search?q=combustion
-# with the Research Area filter set to "Combustion Science". Drop non-combustion results.
-PSI-10
-PSI-26
-PSI-60
-PSI-62
-PSI-98
-PSI-99
-PSI-100
-PSI-101
-PSI-115
-PSI-117
-PSI-142
-PSI-159
+# All 24 PSI investigations under Research Area = "Combustion Science"
+# (verified on psi.nasa.gov, Sat 14 Nov 2026). One ID per line; text after the ID is a comment.
+# Parse: skip blank lines and lines starting with #; the ID is the first token on the line.
+# Experimental-table flags were checked for the original 12 IDs only:
+# T = has a table (CSV) ; - = no table ; blank = not checked yet (the fetch script will tell)
+
+# --- ACME (gaseous flames, Combustion Integrated Rack) ---
+PSI-10    # ACME Flame Design                                  T
+PSI-20    # ACME Burning Rate Emulator (BRE)
+PSI-21    # ACME Coflow Laminar Diffusion Flame (CLD Flame)
+PSI-22    # ACME Electric-Field Effects (E-FIELD Flames) - mimics partial gravity
+PSI-23    # ACME Structure & Response of Spherical Diffusion Flames
+PSI-159   # ACME Cool Flames Investigation with Gases (CFI-G) - up to 85% O2   T
+
+# --- Droplets (MDCA, Combustion Integrated Rack) ---
+PSI-69    # FLEX  - Flame Extinguishment Experiment (suppression)
+PSI-68    # FLEX-2
+PSI-39    # CFI   - Cool Flames Investigation
+
+# --- Solids / spacecraft fire (prevention) ---
+PSI-26    # BASS    - Burning and Suppression of Solids               T
+PSI-25    # BASS-II
+PSI-98    # SAFFIRE-I                                              T
+PSI-99    # SAFFIRE-II                                             T
+PSI-100   # SAFFIRE-III                                            T
+
+# --- Co-flow flames (Microgravity Science Glovebox, SPICE duct) ---
+PSI-107   # SPICE - Smoke Point In Co-flow Experiment
+PSI-106   # SLICE - Structure and Liftoff In Combustion Experiment
+
+# --- Smoke & dust detection ---
+PSI-102   # SAME   - Smoke and Aerosol Measurement Experiment
+PSI-101   # SAME-R - SAME Reflight                                 T
+PSI-47    # DAFT / DAFT-2 - Dust and Aerosol Measurement Feasibility Test
+
+# --- Ground / modeling studies that reuse flight data ---
+PSI-60    # Computational and Experimental Analysis of SPICE Data Sets      -
+PSI-62    # Concurrent Flame Spread Modeling (flamelet manifolds)            -
+PSI-115   # Utilization of SAME data                                        -
+PSI-117   # Thermo-convective perturbation on cool flames (CFD, FLEX data)  -
+PSI-142   # Quantitative studies of cool flame transitions                  T

@@ -56,14 +56,15 @@ streamlit run app/main.py          # shows the sample data
 ## First agent prompts
 
 **Person 1 · Data** (branch `data`)
-> Read AGENTS.md. Write ingest/fetch_psi.py that takes the PSI IDs in ingest/psi_ids.txt
-> (ignore # lines), fetches each investigation's JSON from the endpoint in AGENTS.md
-> sequentially with a 1-second delay, saves to data/raw/<id>.json, then downloads any
-> experimental-table CSV referenced in the JSON to data/raw/<id>/. Skip anything already
-> cached. Never download Raw Data files. Log what was fetched and what had no table.
+> Read AGENTS.md. Write ingest/fetch_psi.py that reads ingest/psi_ids.txt (skip blank and #
+> lines; the ID is the first token), fetches each investigation's JSON from the endpoint in
+> AGENTS.md sequentially with a 1-second delay, and saves it to data/raw/<id>.json. Then, for
+> each entry in the JSON's experimentalTable, download the CSV using the two-step PSI download
+> endpoint described in AGENTS.md (NOT the direct S3 link, which returns 403) and save it to
+> data/raw/<id>/<file_name>. Skip anything already cached. Never download Raw Data files.
+> Never log the signed URLs. Print a summary: IDs fetched, IDs with tables, IDs without.
 
-Before running it, complete `ingest/psi_ids.txt` from the PSI search page with the
-**Combustion Science** filter on.
+`ingest/psi_ids.txt` already lists all 24 Combustion Science investigations (verified).
 
 **Person 2 · Extraction + scoring** (branch `extract`)
 > Read AGENTS.md. Write rank/score.py implementing the Scoring rubric as pure functions over
