@@ -1,0 +1,74 @@
+[
+  {
+    "id": "psi-combustion",
+    "title": "PSI Data Repository: Combustion Science",
+    "url": "https://psi.nasa.gov/physci/repo/search?q=combustion",
+    "type": "experiment_data",
+    "used_in": ["scoring", "ranked_cards", "compare", "ai_librarian"],
+    "note": "Core dataset. Fetched per investigation by ingest/fetch_psi.py, not as a page."
+  },
+  {
+    "id": "nasa-combustion-science",
+    "title": "NASA Combustion Science",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+    "type": "text",
+    "used_in": ["ai_librarian"]
+  },
+  {
+    "id": "researchers-guide-iss-combustion",
+    "title": "A Researcher's Guide to International Space Station Combustion Science (2015)",
+    "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
+    "type": "text",
+    "used_in": ["ai_librarian"],
+    "note": "50+ page review. If the page links a PDF, index the PDF text."
+  },
+  {
+    "id": "sciencecasts-combustion-iss",
+    "title": "NASA ScienceCasts: The Power of Studying Combustion on the ISS",
+    "url": "https://www.youtube.com/watch?v=W1oXykoz9zg",
+    "type": "video",
+    "used_in": ["about_section"]
+  },
+  {
+    "id": "apollo-1",
+    "title": "Apollo 1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "type": "text",
+    "used_in": ["why_this_matters", "ai_librarian"]
+  },
+  {
+    "id": "apollo-13",
+    "title": "Apollo 13",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+    "type": "text",
+    "used_in": ["why_this_matters", "ai_librarian"]
+  },
+  {
+    "id": "mir-fire-1997",
+    "title": "25 Years Ago: Fire Aboard Space Station Mir",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "type": "text",
+    "used_in": ["why_this_matters", "ai_librarian"]
+  },
+  {
+    "id": "spinoff-air-tanks",
+    "title": "Fireman's Air Tanks",
+    "url": "https://spinoff.nasa.gov/node/9582",
+    "type": "text",
+    "used_in": ["earth_spinoffs"]
+  },
+  {
+    "id": "spinoff-fire-detector",
+    "title": "Fire Detector",
+    "url": "https://spinoff.nasa.gov/node/9407",
+    "type": "text",
+    "used_in": ["earth_spinoffs"]
+  },
+  {
+    "id": "spinoff-fire-attire",
+    "title": "New Technology for the Fire Attire",
+    "url": "https://spinoff.nasa.gov/node/9918",
+    "type": "text",
+    "used_in": ["earth_spinoffs"]
+  }
+]

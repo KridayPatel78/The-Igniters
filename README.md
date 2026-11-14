@@ -6,8 +6,13 @@ An AI-powered dashboard that summarizes, ranks and interprets NASA's microgravit
 investigations to deliver fire-safety insights for crewed habitats (spacecraft, stations,
 Moon/Mars bases, pressurized rovers).
 
-**NASA data used:** [PSI Data Repository — Combustion Science](https://psi.nasa.gov/physci/repo/search?q=combustion)
-(Physical Sciences Informatics). Every investigation is cited by its DOI.
+**NASA data used:** all 10 resources from the challenge page. The core dataset is the
+[PSI Data Repository — Combustion Science](https://psi.nasa.gov/physci/repo/search?q=combustion)
+(Physical Sciences Informatics), with every investigation cited by its DOI. The other nine
+(NASA Combustion Science, the ISS Combustion Researcher's Guide, ScienceCasts video, Apollo 1,
+Apollo 13, Mir fire, and three NASA spinoffs) feed the AI librarian and the "Why this matters"
+and "Earth spin-offs" panels. Full table: [AGENTS.md](AGENTS.md#all-10-challenge-resources-and-where-each-one-is-used)
+· machine-readable list: [`rag/sources.json`](rag/sources.json).
 
 Project brief, data contract and scoring rubric: **[AGENTS.md](AGENTS.md)** (read this first —
 it is also what our coding agents read).
@@ -70,24 +75,34 @@ Before running it, complete `ingest/psi_ids.txt` from the PSI search page with t
 > extraction_confidence to "llm_unchecked" for those records.
 
 **Person 3 · AI** (branch `rag`)
-> Read AGENTS.md. Write rag/build_index.py that chunks objective, approach, hypothesis,
-> researchImpacts and description from data/raw/*.json (fall back to the sample file),
-> embeds with sentence-transformers, and stores in Chroma with psi_id, title and doi as
-> metadata. Write rag/ask.py with answer(question) that retrieves top chunks and asks
-> Gemini to answer ONLY from them, citing [PSI-ID, DOI] for every claim and saying
-> "not covered by PSI data" when the chunks don't support an answer.
+> Read AGENTS.md, especially "All 10 challenge resources". Write rag/fetch_resources.py that
+> reads rag/sources.json and, for every entry of type "text", fetches the page once and saves
+> cleaned main-body text to data/raw/resources/<id>.txt (skip if cached; 1-second delay; if a
+> fetch fails, print the URL so we can save it by hand). Write rag/build_index.py that chunks
+> (a) objective, approach, hypothesis, researchImpacts and description from data/raw/*.json
+> (fall back to the sample file) and (b) every data/raw/resources/*.txt, embeds with
+> sentence-transformers, and stores in Chroma with metadata: source_type ("psi" or
+> "resource"), psi_id + doi for PSI chunks, title + url for resource chunks. Write
+> rag/ask.py with answer(question) that retrieves top chunks and asks Gemini to answer ONLY
+> from them, citing [PSI-ID, DOI] or [title, URL] for every claim, never taking experiment
+> numbers from non-PSI sources, and saying "not covered by our NASA sources" when the chunks
+> don't support an answer.
 
 **Person 4 · Frontend + pitch** (branch `app`)
 > Read AGENTS.md. Build the Streamlit app in app/ against
 > data/processed/investigations.sample.json: sidebar scenario picker (presets from the
 > rubric) and pillar focus; main view of ranked cards showing score breakdown, O2, pressure,
 > airflow, fuel phase, DOI link; a Compare tab with a side-by-side table for 2–4 selected
-> investigations; a Known gaps tab; an Ask tab with a placeholder that will call rag.ask.
-> Import scoring from rank/score.py once it exists; until then use a stub.
+> investigations; a Known gaps tab; an Ask tab with a placeholder that will call rag.ask;
+> a "Why this matters" tab (Apollo 1, Apollo 13, Mir fire) and an "Earth spin-offs" tab
+> (air tanks, fire detector, fire attire), each a short card linking its URL from
+> rag/sources.json; and a "Data sources" section listing all 10 resources with links,
+> including the ScienceCasts video. Import scoring from rank/score.py once it exists;
+> until then use a stub.
 
 ## Before submission (Sunday)
 
 - [ ] Make this repo **public** (required for global judging)
 - [ ] Local pitch + submission by 16:00 · global submission by 23:59
 - [ ] Demo: video ≤ 30 s with English subtitles, or ≤ 7 slides incl. title
-- [ ] Project page lists every NASA dataset and resource used
+- [ ] Project page lists all 10 NASA resources used (see AGENTS.md table)
