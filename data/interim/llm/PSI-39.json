@@ -1,0 +1,64 @@
+{
+  "psi_id": "PSI-39",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "liquid_droplet",
+      "quote": "The Combustion Integrated Rack (CIR) contains the Multi-User Droplet Combustion Apparatus (MDCA) which facilitates the controlled combustion of fuel droplets."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "A basic understanding of cool flames is important for understanding ignition phenomena of practical fuels and fuel additives."
+      },
+      {
+        "value": "suppression",
+        "quote": "Fuels diluted with molecular oxygen, atomic nitrogen, and helium to study the influence on flame extinction and dynamics."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "n-dodecane (C12H26)",
+        "quote": "Fuel: C12H26"
+      },
+      {
+        "value": "n-dodecane/iso-dodecane mixtures",
+        "quote": "Fuel: [.75]/[.25] C12H26/iso-dodecane"
+      },
+      {
+        "value": "farnesane",
+        "quote": "Fuels observed include n-dodecane, farnesane, and mixtures of n-dodecane/iso-dodecane."
+      }
+    ],
+    "measurements": [
+      {
+        "value": "black-and-white camera",
+        "quote": "Flames were observed with a black-and-white camera for droplet size measurements."
+      },
+      {
+        "value": "UV camera",
+        "quote": "A UV camera was used for capturing the OH* radical emissions and flame size."
+      },
+      {
+        "value": "high resolution cameras",
+        "quote": "Other high resolution cameras were used for monitoring and documentation."
+      },
+      {
+        "value": "narrow-band and wide-band radiometers",
+        "quote": "Narrow-band and wide-band radiometers for analyzed flame radiation."
+      }
+    ],
+    "objective_summary": {
+      "value": "This investigation seeks to analyze the combustion and cool flame behavior of liquid fuel droplets and mixtures under varied pressures and dilution conditions. It also aims to investigate flame extinction, droplet size effects, and soot formation during low-temperature combustion.",
+      "quote": "2) Analyze the effects of helium dilution on cool flame behavior."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "The findings support the development of new fuels and high-efficiency engines such as HCCI engines. They also help develop computational combustion models for practical applications on Earth, including predicting fuel octane and cetane performance.",
+      "quote": "The research will also help combustion chemists to develop new computational models to compute combustion performance in for many practical applications on earth, including an understanding of how cool flame reactivity determines octane and cetane number for fuels in spark ignition and diesel engines."
+    }
+  }
+}

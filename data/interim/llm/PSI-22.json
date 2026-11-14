@@ -1,0 +1,67 @@
+{
+  "psi_id": "PSI-22",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "gas",
+      "quote": "The experiment is conducted with gas-fueled flames, both with and without a coflow of air."
+    },
+    "pillars": [],
+    "fuels": [
+      {
+        "value": "100% CH4",
+        "quote": "Fuel Bottle: 100% CH4"
+      },
+      {
+        "value": "40% CH4",
+        "quote": "Fuel Bottle: 40% CH4"
+      },
+      {
+        "value": "100% C2H4",
+        "quote": "Fuel Bottle: 100% C2H4"
+      },
+      {
+        "value": "30% C2H4",
+        "quote": "Fuel Bottle: 30% C2H4"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "ion current",
+        "quote": "Measurements, as a function of the field strength and fuel, are taken of the ion current through the flame and the flame’s response time to electric forcing."
+      },
+      {
+        "value": "flame response time",
+        "quote": "Measurements, as a function of the field strength and fuel, are taken of the ion current through the flame and the flame’s response time to electric forcing."
+      },
+      {
+        "value": "voltage-current curves",
+        "quote": "Voltage-current curves were recorded to assess the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects."
+      },
+      {
+        "value": "high-resolution cameras",
+        "quote": "High-resolution cameras captured flame shape, luminosity, and soot distribution."
+      },
+      {
+        "value": "spectral imaging with filters",
+        "quote": "Spectral imaging with filters measures chemiluminescent emissions and soot volume fraction."
+      },
+      {
+        "value": "thermopile detectors",
+        "quote": "There were thermopile detectors to measure flame radiant emissions."
+      }
+    ],
+    "objective_summary": {
+      "value": "The investigation aims to better understand the relationship between electric field voltage and chemi-ion current, analyze flame dynamic responses to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames.",
+      "quote": "The objective of this investigation is to better understand the relationship between electric field voltage and chemi-ion current, analyze the dynamic response of flames to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames."
+    },
+    "key_findings": {
+      "value": "Recording voltage-current curves assessed the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects.",
+      "quote": "Voltage-current curves were recorded to assess the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects."
+    },
+    "earth_applications": {
+      "value": "Using electric fields to control flames can reduce harmful pollutant production and fuel consumption, enabling more efficient terrestrial combustion.",
+      "quote": "The use of electric fields to control flames can reduce the production of harmful pollutants in practical terrestrial combustion."
+    }
+  }
+}

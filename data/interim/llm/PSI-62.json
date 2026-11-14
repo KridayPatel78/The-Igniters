@@ -1,0 +1,48 @@
+{
+  "psi_id": "PSI-62",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "Ultimately, the long-term goal was to enable accurate prediction of flammability limits for spacecraft materials and to provide a tool that could also serve as a subgrid-scale model in large-eddy simulations of fires, supporting spacecraft safety and hazard mitigation."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "polymethyl methacrylate (PMMA) samples (flat sheets, spheres, and rod-shaped)",
+        "quote": "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders."
+      },
+      {
+        "value": "wax cylinders",
+        "quote": "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders."
+      }
+    ],
+    "measurements": [
+      {
+        "value": "DSLR cameras",
+        "quote": "Experimental imagery found in PSI from the BASS and BASS-II investigations was post-processed using newly developed two-color tomography methods with DSLR cameras, enabling 3D reconstructions of soot and temperature fields for direct comparison to model predictions."
+      },
+      {
+        "value": "two-color tomography",
+        "quote": "Experimental imagery found in PSI from the BASS and BASS-II investigations was post-processed using newly developed two-color tomography methods with DSLR cameras, enabling 3D reconstructions of soot and temperature fields for direct comparison to model predictions."
+      }
+    ],
+    "objective_summary": {
+      "value": "The research aimed to develop and validate unsteady flamelet generated manifold (UFGM) modeling techniques for concurrent flame spread in microgravity using BASS experiments. Its goal was to enable accurate prediction of flammability limits for spacecraft materials to support spacecraft fire safety.",
+      "quote": "The objective of this research was to develop and validate new flamelet generated manifold (FGM) modeling techniques for concurrent flame spread in microgravity."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "These advancements could improve combustion modeling on Earth by deepening the understanding of coupled thermal, chemical, and flow processes, thereby improving fire safety standards.",
+      "quote": "On Earth, these advancements could improve combustion modeling by deepening our understanding of coupled thermal, chemical, and flow processes, which betters fire safety standards."
+    }
+  }
+}

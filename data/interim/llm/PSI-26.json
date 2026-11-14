@@ -1,0 +1,84 @@
+{
+  "psi_id": "PSI-26",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "Burning and Suppression of Solids"
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "actual material flammability in microgravity."
+      },
+      {
+        "value": "suppression",
+        "quote": "Assess the effectiveness of an inert, gaseous extinguishing agent (similar to that used on ISS) in putting out flames over different materials, geometries, preheating, and flow."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "75% cotton and 25% fiberglass fabric",
+        "quote": "Custom-made fabric samples consisting of 75% cotton and 25% fiberglass (by mass) measuring were used as a fuel source as well as Nomex fabric and Ultem."
+      },
+      {
+        "value": "SIBAL fabric, 1-2 cm",
+        "quote": "Fuel Sample Material: SIBAL 2 cm"
+      },
+      {
+        "value": "PMMA spheres, 1-2 cm",
+        "quote": "Fuel Sample Material: PMMA sphere 2 cm"
+      },
+      {
+        "value": "PMMA slabs, 1-2 cm",
+        "quote": "Fuel Sample Material: PMMA 2 cm"
+      },
+      {
+        "value": "Nomex fabric / blend / Nomex III Natural, 2 cm",
+        "quote": "Fuel Sample Material: Nomex blend 2 cm"
+      },
+      {
+        "value": "Ultem sheet",
+        "quote": "Fuel Sample Material: ultem sheet"
+      },
+      {
+        "value": "Paraffin wax and Japan wax candles and slabs",
+        "quote": "Fuel Sample Material: Japan Wax Candle   wake"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "flame size",
+        "quote": "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      },
+      {
+        "value": "flame shape",
+        "quote": "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      },
+      {
+        "value": "flame color",
+        "quote": "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      },
+      {
+        "value": "flame spread rate",
+        "quote": "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      },
+      {
+        "value": "potential flame quenching",
+        "quote": "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      }
+    ],
+    "objective_summary": {
+      "value": "The BASS investigation aims to bridge the gap between ground-based material flammability testing and actual material flammability in microgravity using realistic fuel geometries. It also assesses the effectiveness of an inert gaseous extinguishing agent in putting out flames across various conditions.",
+      "quote": "The two main objectives for BASS are to:"
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "Validated microgravity combustion models can be applied to enhance the general understanding of terrestrial combustion problems.",
+      "quote": "These models have wide applicability to the general understanding of many terrestrial combustion problems and will guide novel spacecraft design and ensure the safety of future crewed missions."
+    }
+  }
+}

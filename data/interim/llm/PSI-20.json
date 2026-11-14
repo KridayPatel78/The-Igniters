@@ -1,0 +1,52 @@
+{
+  "psi_id": "PSI-20",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "gas",
+      "quote": "Flames of Gaseous Fuels"
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "Again, in this process, new data is being produced for the flammability map."
+      },
+      {
+        "value": "suppression",
+        "quote": "where the cessation of ventilation is an established step in putting out spacecraft fires."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "C2H4 fuel bottles (50%, 100%)",
+        "quote": "Fuel Bottle: 100% C2H4"
+      },
+      {
+        "value": "100% CH4 fuel bottle",
+        "quote": "Fuel Bottle: 100% CH4"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "burner surface temperature",
+        "quote": "Because burner surface temperature and heat flux will vary, this will allow a broad range of conditions to be observed during a single test."
+      },
+      {
+        "value": "heat flux sensor",
+        "quote": "Eventually either the flame will extinguish, the surface temperature of the burner will equilibrate, or the temperature limit of the heat flux sensor will be reached."
+      }
+    ],
+    "objective_summary": {
+      "value": "The BRE flight program aims to establish microgravity burning conditions and flammability limits for gaseous fuel mixtures acting as emulators for condensed-phase materials. It evaluates burning behavior across various oxygen concentrations, diluents, and ambient pressures.",
+      "quote": "The BRE flight program seeks to establish the burning conditions in a quiescent microgravity ambient in terms of material properties."
+    },
+    "key_findings": {
+      "value": "Quasi-steady burning corresponding to condensed-phase materials was observed in microgravity without airflow, particularly in elevated-oxygen atmospheres. In contrast, flames in a normal 21% oxygen atmosphere self-extinguished in a short time.",
+      "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires."
+    },
+    "earth_applications": {
+      "value": "Ground-based testing and analysis establish the validation of the BRE technique for 1-g applications and demonstrate its usefulness in determining Earth-based ignition and extinction limits.",
+      "quote": "These experiments will further establish the validation of the BRE for 1-g applications and show its usefulness to establish 1-g ignition and extinction limits."
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "psi_id": "PSI-100",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "Material: SIBAL Fabric"
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "SIBAL Fabric, 0.33 cm thick, 94 cm x 40.6 cm",
+        "quote": "S1, SIBAL Fabric, .33 cm, 94 cm, 40.6 cm, 30 cm/s, Concurrent , S1C1, S1C2"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "cameras",
+        "quote": "Once the sample was ignited flame images were captured using two cameras."
+      },
+      {
+        "value": "thermocouples",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "radiometers",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "solid state sensors",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      },
+      {
+        "value": "anemometer",
+        "quote": "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      }
+    ],
+    "objective_summary": {
+      "value": "The investigation aims to determine how rapidly a large-scale fire grows in low gravity. It also investigates low-gravity flammability limits compared to normal-gravity material flammability screening tests.",
+      "quote": "(1) determine how rapidly a large scale fire grows in low-gravity and (2) investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test."
+    },
+    "key_findings": {
+      "value": "Results determine microgravity flammability limits for several spacecraft materials, help validate NASA's material selection criteria, and show how microgravity and limited oxygen affect flame size.",
+      "quote": "Results determine microgravity flammability limits for several spacecraft materials, help to validate NASA’s material selection criteria, and how microgravity and limited oxygen affect flame size."
+    },
+    "earth_applications": {
+      "value": "Studying fire in small, sealed environments like Cygnus benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines.",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    }
+  }
+}

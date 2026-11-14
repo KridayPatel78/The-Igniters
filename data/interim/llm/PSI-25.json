@@ -1,0 +1,88 @@
+{
+  "psi_id": "PSI-25",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "solid",
+      "quote": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity."
+    },
+    "pillars": [
+      {
+        "value": "prevention",
+        "quote": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity."
+      },
+      {
+        "value": "detection",
+        "quote": "BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth."
+      },
+      {
+        "value": "suppression",
+        "quote": "BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "PMMA films, 100-400 microns thick, 1-2 cm wide",
+        "quote": "Fuel Sample Material: 100 micron PMMA film   2 cm wide"
+      },
+      {
+        "value": "PMMA slabs, 1-5 mm thick, 1-2 cm wide",
+        "quote": "Fuel Sample Material: 1 mm thick PMMA   1 sided   2 cm"
+      },
+      {
+        "value": "PMMA rods, 1/4 to 1/2 inch diameter, clear and black",
+        "quote": "Fuel Sample Material: 1/4\" clear rod"
+      },
+      {
+        "value": "Nomex natural (nomex III)",
+        "quote": "Fuel Sample Material: Nomex natural (nomex III)"
+      },
+      {
+        "value": "Japan Wax candle",
+        "quote": "Fuel Sample Material: Japan Wax candle"
+      },
+      {
+        "value": "SIBAL fabric, 1-2 cm wide",
+        "quote": "Fuel Sample Material: 2 cm SIBAL"
+      },
+      {
+        "value": "4 cm spherical section sample",
+        "quote": "Fuel Sample Material: 4 cm spherical section"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "imaging",
+        "quote": "The wind tunnel was installed in the Microgravity Science Glovebox which supplied power, imaging, and a level of containment."
+      },
+      {
+        "value": "radiometers",
+        "quote": "Radiometer gain   (1000   250   50   10)"
+      },
+      {
+        "value": "oxygen concentration",
+        "quote": "Calibrated  initial O2 % by vol, Calibrated final O2 % by vol"
+      },
+      {
+        "value": "carbon dioxide concentration",
+        "quote": "Initial CO2 % by vol, Final CO2 % by vol"
+      },
+      {
+        "value": "carbon monoxide concentration",
+        "quote": "Initial CO (ppm), Final CO (ppm)"
+      }
+    ],
+    "objective_summary": {
+      "value": "BASS-II aims to study the ignition, flame growth, flame spread, and extinction limits for solid fuels in low-velocity forced flows in microgravity. It bridges ground-based flammability tests with actual material flammability behavior in space.",
+      "quote": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity."
+    },
+    "key_findings": {
+      "value": "In outer space, fuels burn as oval balls rather than with an upward pointed cone flame as they do on Earth.",
+      "quote": "In outer space, fuels burn as oval balls rather than with an upward pointed cone flame as they do on Earth."
+    },
+    "earth_applications": {
+      "value": "Combustion models refined from space tests can be used to more accurately study flames on Earth, such as in wildfires, building fires, and energy recapture from waste recycling.",
+      "quote": "These models can then be used to more accurately study flames on Earth, such as in wildfires, building fires, energy recapture from waste recycling, and other combustion problems."
+    }
+  }
+}

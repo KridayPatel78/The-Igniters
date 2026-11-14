@@ -1,0 +1,63 @@
+{
+  "psi_id": "PSI-107",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "gas",
+      "quote": "Fuels tested included methane, ethylene, propane, propylene, and propylene mixtures."
+    },
+    "pillars": [],
+    "fuels": [
+      {
+        "value": "Methane",
+        "quote": "Fuel: Methane"
+      },
+      {
+        "value": "Ethylene",
+        "quote": "Fuel: Ethylene"
+      },
+      {
+        "value": "Propane",
+        "quote": "Fuel: Propane"
+      },
+      {
+        "value": "Propylene",
+        "quote": "Fuel: Propylene"
+      },
+      {
+        "value": "Propylene mixtures (50%-75%)",
+        "quote": "Fuel: 75% Propylene"
+      }
+    ],
+    "measurements": [
+      {
+        "value": "still and video cameras",
+        "quote": "Data such as flame lengths were recorded using still and video cameras."
+      },
+      {
+        "value": "flame height",
+        "quote": "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions."
+      },
+      {
+        "value": "radiative heat losses",
+        "quote": "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions."
+      },
+      {
+        "value": "co-flow air velocity distributions",
+        "quote": "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions."
+      }
+    ],
+    "objective_summary": {
+      "value": " The objective of SPICE is to better understand combustion processes by observing flames in microgravity aboard the ISS and in ground experiments. It aims to determine laminar smoke-point properties, flame lengths, and sooting propensity under various burner diameters and co-flow conditions.",
+      "quote": "The objective of SPICE is to better understand the complex process of combustion by observing flames in a microgravity environment aboard the International Space Station (ISS) and analogous ground experiments."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "not reported",
+      "quote": ""
+    }
+  }
+}

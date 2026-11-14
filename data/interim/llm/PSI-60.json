@@ -1,0 +1,43 @@
+{
+  "psi_id": "PSI-60",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "gas",
+      "quote": "Gaseous"
+    },
+    "pillars": [
+      {
+        "value": "detection",
+        "quote": "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions."
+      },
+      {
+        "value": "suppression",
+        "quote": "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions."
+      }
+    ],
+    "fuels": [],
+    "measurements": [
+      {
+        "value": "raw DSLR images",
+        "quote": "By analyzing over 1600 raw DSLR images and incorporating advanced soot models, the study sought to improve understanding of soot formation, oxidation, radiative re-absorption, and aggregate growth in heavily sooting flames."
+      },
+      {
+        "value": "color-ratio pyrometry",
+        "quote": "Raw Nikon NEF images were decoded into three color channels and analyzed using color-ratio pyrometry to extract soot temperature fields."
+      }
+    ],
+    "objective_summary": {
+      "value": "This investigation aimed to integrate computational modeling and experimental data processing to derive soot temperature distributions and volume fractions from SPICE datasets. It sought to improve understanding of soot processes and reconcile flame behavior discrepancies between microgravity and normal gravity conditions.",
+      "quote": "The objective of this investigation was to integrate computational and experimental methods to derive temperature distributions and soot volume fractions from the Smoke Point in Coflow Experiment (SPICE) data available in PSI."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "On Earth, the research insights aid in lowering pollutant emissions, improving combustion efficiency, and guiding the design of cleaner energy and industrial systems.",
+      "quote": "On Earth, the insights help reduce pollutant emissions, optimize combustion efficiency, and inform the design of cleaner energy and industrial systems."
+    }
+  }
+}

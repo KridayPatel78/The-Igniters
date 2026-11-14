@@ -44,7 +44,33 @@ streamlit run app/main.py          # shows the sample data
   change it only if the whole team agrees, and update AGENTS.md first.
 - Build against `data/processed/investigations.sample.json` until the real
   `investigations.json` lands. `pytest` checks both files against the contract.
-- Never commit `.env`. Never commit `data/raw/` (it is gitignored).
+- Never commit `.env`. `data/raw/` **is** committed (a fixed PSI snapshot everyone shares) —
+  don't re-fetch it or edit it by hand.
+
+## Data pipeline
+
+```bash
+python -m ingest.fetch_psi             # already done: PSI JSON + experimental-table CSVs -> data/raw/
+python -m extract.normalize            # data/raw/ -> data/processed/investigations.json
+python -m extract.normalize --no-llm   # same, without Gemini (LLM fields -> "not reported")
+```
+
+| Path | What it is |
+|---|---|
+| `data/raw/<PSI-ID>.json` | Investigation metadata exactly as PSI returned it (24 files) |
+| `data/raw/<PSI-ID>/*.csv` | Experimental tables (22 CSVs for 20 IDs; PSI-60, 62, 115, 117 have none) |
+| `data/raw/_manifest.json` | Per ID: acronym, title, DOI, which tables were saved, any errors |
+| `data/processed/investigations.json` | The 24 records in the Data contract shape — what `rank/`, `rag/` and `app/` read |
+| `data/processed/provenance.json` | Where every value came from (CSV column, JSON field, rule, override, or LLM + verbatim quote) |
+| `data/interim/llm/<PSI-ID>.json` | Cached Gemini output (reused; refresh with `--refresh-llm`) |
+| `extract/REVIEW.md` | Human checklist: every field + its source, unclear columns, rejected LLM values |
+| `extract/overrides/<PSI-ID>.json` | Human corrections; beat everything else (see `extract/overrides/README.md`) |
+| `extract/checked_ids.txt` | IDs a person verified against the PSI page → `extraction_confidence: "checked"` |
+
+Numbers (O2 %, pressure in psi, airflow in cm/s) come only from experimental-table CSV columns;
+if a column or unit is unclear the value is `null` and listed in `extract/REVIEW.md`.
+The LLM fills only text-derived fields and must quote the PSI text it used; unverified values
+are dropped.
 
 ## Antigravity setup
 

@@ -1,0 +1,39 @@
+{
+  "psi_id": "PSI-115",
+  "model": "gemini-3.6-flash",
+  "output": {
+    "fuel_phase": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "pillars": [
+      {
+        "value": "detection",
+        "quote": "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life."
+      },
+      {
+        "value": "prevention",
+        "quote": "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life."
+      }
+    ],
+    "fuels": [
+      {
+        "value": "dibutyl-phthalate (DBP)",
+        "quote": "The formation and growth of dibutyl-phthalate (DBP) particles in Earth gravity and microgravity environments was simulated."
+      }
+    ],
+    "measurements": [],
+    "objective_summary": {
+      "value": "The investigation used numerical simulation to explore how gravity affects pyrolysis smoke growth. It aimed to quantify differences between microgravity and Earth gravity smoke and identify the fluid dynamic mechanisms involved.",
+      "quote": "The objective of this investigation was to use numerical simulation to explore the influence of gravity on pyrolysis smoke growth from a fundamental perspective."
+    },
+    "key_findings": {
+      "value": "not reported",
+      "quote": ""
+    },
+    "earth_applications": {
+      "value": "not reported",
+      "quote": ""
+    }
+  }
+}

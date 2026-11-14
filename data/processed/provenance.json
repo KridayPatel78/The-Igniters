@@ -1,0 +1,1342 @@
+{
+  "PSI-10": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-10_Experimental table_Flame Design_Inverse Flame.csv:XO2",
+      "csv:PSI-10_Experimental table_Flame Design_Normal Flame.csv:XO2 (init)"
+    ],
+    "pressure_psi_range": [
+      "csv:PSI-10_Experimental table_Flame Design_Inverse Flame.csv:pinit (atm)",
+      "csv:PSI-10_Experimental table_Flame Design_Inverse Flame.csv:pmean (atm)",
+      "csv:PSI-10_Experimental table_Flame Design_Normal Flame.csv:pinit (atm)",
+      "csv:PSI-10_Experimental table_Flame Design_Normal Flame.csv:pmean (atm)"
+    ],
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-10_Experimental table_Flame Design_Inverse Flame.csv",
+      "csv:PSI-10_Experimental table_Flame Design_Normal Flame.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Evaluate whether pseudo-flammability limits can be obtained for these flames.",
+        "Obtain extinction limits as functions of Zst, amount of N2, and pressure for normal and inverse spherical C2H4 and CH4 flames."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel: C2H4",
+        "Fuel: C3H8",
+        "Obtain soot-inception limits of quasi-steady normal and inverse spherical diffusion flames as functions of flow rate, Zst, amount of inert (N2 or CO2), and pressure for C2H4 and CH4 flames."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The primary objectives of this flight experiment are:"
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "This project has the potential for improving efficiency and reducing pollutant emissions in terrestrial combustors."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-20": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-20_Experimental table_ACME BRE.csv:Oxygen Conc (percent)"
+    ],
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-20_Experimental table_ACME BRE.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Bottle: 100% C2H4",
+        "Fuel Bottle: 100% CH4"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Because burner surface temperature and heat flux will vary, this will allow a broad range of conditions to be observed during a single test.",
+        "Eventually either the flame will extinguish, the surface temperature of the burner will equilibrate, or the temperature limit of the heat flux sensor will be reached."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The BRE flight program seeks to establish the burning conditions in a quiescent microgravity ambient in terms of material properties."
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires."
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "These experiments will further establish the validation of the BRE for 1-g applications and show its usefulness to establish 1-g ignition and extinction limits."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "o2_percent_range: PSI-20_Experimental table_ACME BRE.csv: dropped impossible o2 values [2100.0, 3400.0] in 'Oxygen Conc (percent)'"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-21": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-21_Experimental table_CLD Flame.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "In addition, an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Bottle: 40% CH4",
+        "Fuel Bottle: 100% C2H4"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "For the more dilute flames, measurements will be made of flame chemiluminesence of OH* and CH* to observe variations in lift-off height and flame shape as extinction limits are approached.",
+        "The sooting tendencies of the more fuel-rich flames will be investigated using soot luminosity and laser extinction measurements to determine soot temperatures and soot volume fractions.",
+        "The sooting tendencies of the more fuel-rich flames will be investigated using soot luminosity and laser extinction measurements to determine soot temperatures and soot volume fractions.",
+        "Flame temperatures in non-sooting regions will be measured using thin-filament pyrometry."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "In order to provide the experimental data needed to allow rigorous testing of computational models at the extremes of the fuel dilution spectrum, we have the following objectives:"
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "In addition, an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-22": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed (mimics partial gravity)",
+    "tests": [
+      "csv:PSI-22_Experimental table_ACME E-FIELD Flames.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm:none_supported"
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Bottle: 100% CH4",
+        "Fuel Bottle: 40% CH4",
+        "Fuel Bottle: 100% C2H4",
+        "Fuel Bottle: 30% C2H4"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Measurements, as a function of the field strength and fuel, are taken of the ion current through the flame and the flame’s response time to electric forcing.",
+        "Measurements, as a function of the field strength and fuel, are taken of the ion current through the flame and the flame’s response time to electric forcing.",
+        "Voltage-current curves were recorded to assess the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects.",
+        "High-resolution cameras captured flame shape, luminosity, and soot distribution.",
+        "Spectral imaging with filters measures chemiluminescent emissions and soot volume fraction.",
+        "There were thermopile detectors to measure flame radiant emissions."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of this investigation is to better understand the relationship between electric field voltage and chemi-ion current, analyze the dynamic response of flames to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames."
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "Voltage-current curves were recorded to assess the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects."
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "The use of electric fields to control flames can reduce the production of harmful pollutants in practical terrestrial combustion."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-23": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-23_Experimental table_ACME s-Flame.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Determine the quasi-steady convective/chemical-kinetic extinction limits (low system Damköhler numbers) and radiative/chemical-kinetic extinction limits (high system Damköhler numbers) for mixtures of different H2/CH4/diluent ratios (soot-free) and different C2H4/diluent ratios (sooty)."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Bottle: 50% C2H4 with N2",
+        "Fuel Bottle: 50% C2H4 with N3",
+        "Fuel Bottle: 45% CH4 with N2",
+        "Fuel Bottle: 45% CH4 with N3",
+        "Fuel Bottle: 100% H2",
+        "Fuel Bottle: 44.4% H2 with CH4",
+        "Fuel Bottle: 66.7% H2 with CH4",
+        "Fuel Bottle: 25% H2, 20% CH4, with He",
+        "Fuel Bottle: 20% H2, 25% CH4, with He",
+        "Fuel Bottle: 30% H2, 15% CH4, with He",
+        "Fuel Bottle: 45% H2 with He",
+        "Fuel Bottle: 45% CH4 with He",
+        "Fuel Bottle: 20% C2H4 with He",
+        "Fuel Bottle: 25% C2H4 with He",
+        "Fuel Bottle: 30% C2H4 with He",
+        "Fuel Bottle: 35% H2 with He"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Synchronized measurements are to be made including spectrally resolved images, flame and burner temperatures, radiative flux measurements, and system operating conditions (including reactant flow rates, ambient temperatures, pressures and acceleration levels, etc.).",
+        "Measure and characterize the transient structure (such as temperature and species distribution) of diffusion flames established at initially non-steady, spherical flame structures for mixtures of different H2/CH4/diluent ratios   (soot-free) and different C2H4/diluent ratios (sooty), for different flow rates."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "A series of experiments is proposed with the following specific objectives, in both soot-free and sooty flames, to compare with detailed computational simulation to assess transport properties and detailed chemical kinetics (including chemiluminescence):"
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Practically, with diffusion flame burning as the basis in many combustion engines and devices, understanding the underlying dynamics and chemistry of diffusion flames is important in improving performance in terms of power, efficiency, pollutant emissions, and reliability."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-159": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-159_Experimental table_CFI-G_Inverse Flames.csv:XO2",
+      "csv:PSI-159_Experimental table_CFI-G_Normal Flames.csv:XO2 before test"
+    ],
+    "pressure_psi_range": [
+      "csv:PSI-159_Experimental table_CFI-G_Inverse Flames.csv:approx p (bar)",
+      "csv:PSI-159_Experimental table_CFI-G_Normal Flames.csv:approx p (bar)"
+    ],
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
+      "csv:PSI-159_Experimental table_CFI-G_Normal Flames.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Lowest flow rate for ignition",
+        "Cool diffusion flames for which a decrease in fluent flow rate will cause extinction, whereas an increase will cause a transition to a hot diffusion flame, with oscillation possible between hot and cool flames."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel: ethane",
+        "Fuel: propane",
+        "Fuel: butane",
+        "Fuel: 50% butane",
+        "Fuel: 30% butane",
+        "Fuel: 30% propane",
+        "Fuel: 30% ethane",
+        "2. Determine the conditions for which cool diffusion flames occur for propane, n-butane, and n-pentane; normal and inverse flames; and a broad range of Zst, Tad, and fluent flow rate."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+        "Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "1. Plan and support flight testing on the International Space Station (ISS)."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "This should facilitate the development of more efficient internal combustion engines."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-69": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-69_Experimental table_FLEX.csv:O initial ambient composition; mole fraction"
+    ],
+    "pressure_psi_range": [
+      "csv:PSI-69_Experimental table_FLEX.csv:Ambient pressure; mmHg"
+    ],
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-69_Experimental table_FLEX.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel: Methanol",
+        "Fuel: Heptane"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations.",
+        "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations.",
+        "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations.",
+        "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations.",
+        "Key flight experiment goals include obtaining high-resolution measurements of droplet burning rates, flame extinction behavior, heat radiation, soot levels, and temperature profiles, while systematically analyzing the effects of different ambient conditions and suppressant concentrations."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The FLEX (Flame Extinguishment Experiment) investigation aims to map the flammability limits of liquid fuels in microgravity environments, measure the effectiveness of various gaseous fire suppressants such as CO2, He, and SF6, and develop reliable predictive models for combustion limits under reduced gravity conditions."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "On Earth, the insights gained from these experiments have the potential to advance fire safety in confined and reduced-gravity environments, such as submarines or high-altitude aircraft."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "o2_percent_range: PSI-69_Experimental table_FLEX.csv: 'O initial ambient composition; mole fraction' read as O2 mole fraction (subscript lost in PSI file)",
+      "pressure_psi_range: PSI-69_Experimental table_FLEX.csv: dropped impossible pressure values [0.0] in 'Ambient pressure; mmHg'"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-68": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-68_Experimental table_Flex2.csv:Oxygen Mole Fraction"
+    ],
+    "pressure_psi_range": [
+      "csv:PSI-68_Experimental table_Flex2.csv:Ambient Pressure (atm)"
+    ],
+    "airflow_cm_s_range": [
+      "csv:PSI-68_Experimental table_Flex2.csv:Flow Velocity (cm/s)"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-68_Experimental table_Flex2.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Sample (Fuel Type): IsoOctane (pure)",
+        "Sample (Fuel Type): n-Octane (pure)",
+        "Sample (Fuel Type): Heptane (pure)",
+        "Sample (Fuel Type): Decane (pure)",
+        "Sample (Fuel Type): Ethanol (pure)",
+        "Sample (Fuel Type): Propanol (95%) Glycerol (5%) (mixture)",
+        "Sample (Fuel Type): Heptane (50%) IsoOctane (50%) (mixture)",
+        "Sample (Fuel Type): Propanol (80%) Glycerol (20%) (mixture)"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "A near real-time download of the color camera video was employed in order to verify successful droplet deployment, ignition, and overall progress of the experiment.",
+        "Pressure and temperature data of the chamber environment was also recorded in near real time.",
+        "Pressure and temperature data of the chamber environment was also recorded in near real time.",
+        "6. Monitor combustions and track flame evolution using high speed photography."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The primary goal of the FLEX-2 flight experiments is to extend the results of FLEX-1 to fuels and environmental conditions that mimic real combustor conditions, as well as, provide benchmark experimental data on bi-component droplet combustion over a wide range of initial conditions in order to validate numerical simulations and to develop new theoretical models."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Insights gained from these studies can lead to more efficient and cleaner combustion technologies which are crucial for reducing pollution and greenhouse gas emissions."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-39": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-39_Experimental table_CFI.csv:Oxygen"
+    ],
+    "pressure_psi_range": [
+      "csv:PSI-39_Experimental table_CFI.csv:Pressure"
+    ],
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-39_Experimental table_CFI.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "A basic understanding of cool flames is important for understanding ignition phenomena of practical fuels and fuel additives.",
+        "Fuels diluted with molecular oxygen, atomic nitrogen, and helium to study the influence on flame extinction and dynamics."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel: C12H26",
+        "Fuel: [.75]/[.25] C12H26/iso-dodecane",
+        "Fuels observed include n-dodecane, farnesane, and mixtures of n-dodecane/iso-dodecane."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Flames were observed with a black-and-white camera for droplet size measurements.",
+        "A UV camera was used for capturing the OH* radical emissions and flame size.",
+        "Other high resolution cameras were used for monitoring and documentation.",
+        "Narrow-band and wide-band radiometers for analyzed flame radiation."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "2) Analyze the effects of helium dilution on cool flame behavior."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "The research will also help combustion chemists to develop new computational models to compute combustion performance in for many practical applications on earth, including an understanding of how cool flame reactivity determines octane and cetane number for fuels in spark ignition and diesel engines."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-26": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-26_Experimental table_BASS.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Custom-made fabric samples consisting of 75% cotton and 25% fiberglass (by mass) measuring were used as a fuel source as well as Nomex fabric and Ultem.",
+        "Fuel Sample Material: SIBAL 2 cm",
+        "Fuel Sample Material: PMMA sphere 2 cm",
+        "Fuel Sample Material: PMMA 2 cm",
+        "Fuel Sample Material: Nomex blend 2 cm",
+        "Fuel Sample Material: ultem sheet",
+        "Fuel Sample Material: Japan Wax Candle   wake"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching.",
+        "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching.",
+        "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching.",
+        "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching.",
+        "Flames were observed in the top and edge profiles and data was collected on flame size, shape, color, spread rate, and potential flame quenching."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The two main objectives for BASS are to:"
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "These models have wide applicability to the general understanding of many terrestrial combustion problems and will guide novel spacecraft design and ensure the safety of future crewed missions."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-25": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-25_Experimental table_BASS-II.csv:Calibrated  initial O2 % by vol"
+    ],
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-25_Experimental table_BASS-II.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Sample Material: 100 micron PMMA film   2 cm wide",
+        "Fuel Sample Material: 1 mm thick PMMA   1 sided   2 cm",
+        "Fuel Sample Material: 1/4\" clear rod",
+        "Fuel Sample Material: Nomex natural (nomex III)",
+        "Fuel Sample Material: Japan Wax candle",
+        "Fuel Sample Material: 2 cm SIBAL",
+        "Fuel Sample Material: 4 cm spherical section"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "The wind tunnel was installed in the Microgravity Science Glovebox which supplied power, imaging, and a level of containment.",
+        "Radiometer gain   (1000   250   50   10)",
+        "Calibrated  initial O2 % by vol, Calibrated final O2 % by vol",
+        "Initial CO2 % by vol, Final CO2 % by vol",
+        "Initial CO (ppm), Final CO (ppm)"
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity."
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "In outer space, fuels burn as oval balls rather than with an upward pointed cone flame as they do on Earth."
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "These models can then be used to more accurately study flames on Earth, such as in wildfires, building fires, energy recapture from waste recycling, and other combustion problems."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "airflow_cm_s_range: PSI-25_Experimental table_BASS-II.csv: unit unclear in column 'Flow restrictor' (e.g. '2')",
+      "airflow_cm_s_range: PSI-25_Experimental table_BASS-II.csv: unit unclear in column 'Air display' (e.g. '5')"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-98": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": {
+      "source": "override",
+      "quote": "json:approach - \"The Saffire-1 experiments was performed on the Orbital Science’s Cygnus resupply vehicle after it deberthed from the ISS.\""
+    },
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-98_Experimental table_SAFFIRE-1.csv:Percent O2"
+    ],
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-98_Experimental table_SAFFIRE-1.csv:Air Flow (cm/s)"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-98_Experimental table_SAFFIRE-1.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Material: SIBAL Fabric"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Once the sample was ignited flame images were captured using two cameras.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures",
+        "two radiometers recorded flame radiation",
+        "solid state sensors were used to measure pressure, CO2 and O2 mole faction",
+        "two anemometer tracked flow velocity."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "(1) determine how rapidly a large scale fire grows in low-gravity"
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-99": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": [
+      "csv:PSI-99_Experimental table_SAFFIRE-2.csv:Percent O2 (Note 1)"
+    ],
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-99_Experimental table_SAFFIRE-2.csv:Air Flow (cm/s)"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-99_Experimental table_SAFFIRE-2.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Material: Silicone",
+        "Material: Cotton-Fiberglass (SIBAL)",
+        "Material: PMMA & Nomex",
+        "Material: PMMA"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Once the sample was ignited flame images were captured using two cameras.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objectives of SAFFIRE-II are to determine how rapidly a large scale fire grows in low-gravity and to investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test."
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "2-5, Cotton-Fiberglass (SIBAL), 037 mm, 29 cm, 5 cm, 20 cm/s, ~ 22.1, 80 W, 9.2 s, 145 s, Concurrent, 29 cm, 2.1 mm/s, Complete, Acceleratory, S5C1, S5C2"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-100": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": {
+      "source": "override",
+      "quote": "json:approach - \"The Saffire-III experiments were performed on the Orbital Science’s Cygnus resupply vehicle after it deberthed from the ISS.\""
+    },
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-100_Experimental table_SAFFIRE-3.csv:Air Flow"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-100_Experimental table_SAFFIRE-3.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "S1, SIBAL Fabric, .33 cm, 94 cm, 40.6 cm, 30 cm/s, Concurrent , S1C1, S1C2"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Once the sample was ignited flame images were captured using two cameras.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity.",
+        "In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "(1) determine how rapidly a large scale fire grows in low-gravity and (2) investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test."
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "Results determine microgravity flammability limits for several spacecraft materials, help to validate NASA’s material selection criteria, and how microgravity and limited oxygen affect flame size."
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-107": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-107_Experimental table_Spice.csv:Air Rate (cm/s)"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-107_Experimental table_Spice.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm:none_supported"
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel: Methane",
+        "Fuel: Ethylene",
+        "Fuel: Propane",
+        "Fuel: Propylene",
+        "Fuel: 75% Propylene"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Data such as flame lengths were recorded using still and video cameras.",
+        "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions.",
+        "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions.",
+        "Measurements included flame height, radiative heat losses, and co-flow air velocity distributions."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of SPICE is to better understand the complex process of combustion by observing flames in a microgravity environment aboard the International Space Station (ISS) and analogous ground experiments."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm:not_reported"
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "airflow_cm_s_range: PSI-107_Experimental table_Spice.csv: dropped impossible airflow values [-5.92, -0.28] in 'Air Rate (cm/s)'"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-106": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "missing",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-106_Experimental table_Slice.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "rule:fuel_phase_seed",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Flames were then manually ignited and observed under controlled coflow air conditions.",
+        "3. Evaluate the impact of fuel dilution with nitrogen on soot formation and flame stability."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Fuel Type: 100% CH4",
+        "Fuel Type: 40% CH4 (balance N2)",
+        "Fuel Type: 70% CH4 (balance N2) including 1 pyrometry calibration test",
+        "Fuel Type: 20% C2H4 (balance N2)",
+        "Fuel Type: 100% C2H6",
+        "Fuel Type: 100% C2H4"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "The SLICE apparatus consisted of a fan-driven flow duct, exchangeable burner tubes, and integrated sensors to measure flow rates and temperature.",
+        "The SLICE apparatus consisted of a fan-driven flow duct, exchangeable burner tubes, and integrated sensors to measure flow rates and temperature.",
+        "A high resolution camera captured still images while sensor data was overlaid on these images.",
+        "Fuel Type: 70% CH4 (balance N2) including 1 pyrometry calibration test",
+        "Calibration tests for airflow velocity, soot measurement, and the fans were conducted to ensure the accuracy of the results."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "Objective: The objective of this investigation is to better understand the structure and stability of laminar diffusion flames in microgravity."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "1. Improved numerical models for flame behavior lead to more efficient combustion technologies on Earth."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-102": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-102_Experimental table_SAME.csv:Air Flow (cm/s)"
+    ],
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-102_Experimental table_SAME.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "fallback:not_reported (contract needs an enum value)",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Sample Material: Teflon",
+        "Sample Material: Kapton: same conditions as 1-4",
+        "Sample Material: Silicone Rubber: same conditions as 1-4",
+        "Sample Material: Lampwick: same conditions as 1-4",
+        "Sample Material: Dibutyl Phthalate: same conditions as 1-4"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke.",
+        "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke.",
+        "The operator then ran the self diagnostic procedures on the two smoke detectors and activated the video cameras, turned on the igniter for a predefined period of time (15 to 60 seconds), and initiated the thermophoretic soot samplers to sample the smoke.",
+        "After flight, the particulate collected on the thermophoretic probes were analyzed using a Transmission Electron microscope (TEM) to determine primary and aggregate particle dimensions."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "One of the major goals of this investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "fuel_phase: not supported by PSI text - placeholder 'mixed', needs a human override"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-101": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-101_Experimental table_SAME-R.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": {
+      "source": "llm",
+      "quote": "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"
+    },
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,",
+        "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,",
+        "Kapton, 51, B.L. new formula, 21-Jul, 8.1, 1.38, 60, 11, 8, 38"
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles.",
+        "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles.",
+        "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME.",
+        "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME.",
+        "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "Similar to the original SAME investigation, the primary objective of the SAME-R investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-47": {
+    "psi_id": "json:accession",
+    "acronym": "json:investigationAcronym",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:flightProgram",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed",
+    "tests": [
+      "csv:PSI-47_Experimental table_DAFT.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "fallback:not_reported (contract needs an enum value)",
+    "pillars": "rule:pillar_seed",
+    "fuels": {
+      "source": "llm:none_supported"
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "DAFT / DAFT-2 tests that a modified P-Trak particulate counter would be accurate in microgravity.",
+        "The modified P-Trak gathered data from counting aerosol particles and these data were compared to the DustTrak CNC specifically designed to work in microgravity."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "DAFT / DAFT-2 tests that a modified P-Trak particulate counter would be accurate in microgravity."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Additionally, the successful adaptation of the TSI P-Trak for microgravity can inform the design of instruments for use in other challenging Earth environments, such as submarines or underwater laboratories where accurate detection of smoke can save lives."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "fuel_phase: not supported by PSI text - placeholder 'mixed', needs a human override"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-60": {
+    "psi_id": "json:accession",
+    "acronym": "missing",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:projectType",
+    "hardware": "missing",
+    "o2_percent_range": "no_csv",
+    "pressure_psi_range": "no_csv",
+    "airflow_cm_s_range": "no_csv",
+    "gravity": "rule:gravity_seed (ground/modeling study of flight data)",
+    "tests": "no_csv",
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "fallback:not_reported (contract needs an enum value)",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions.",
+        "For space applications, the results support safer fire detection, suppression, and cleaner combustion technologies critical for long-duration missions."
+      ]
+    },
+    "fuels": {
+      "source": "llm:none_supported"
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "By analyzing over 1600 raw DSLR images and incorporating advanced soot models, the study sought to improve understanding of soot formation, oxidation, radiative re-absorption, and aggregate growth in heavily sooting flames.",
+        "Raw Nikon NEF images were decoded into three color channels and analyzed using color-ratio pyrometry to extract soot temperature fields."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of this investigation was to integrate computational and experimental methods to derive temperature distributions and soot volume fractions from the Smoke Point in Coflow Experiment (SPICE) data available in PSI."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "On Earth, the insights help reduce pollutant emissions, optimize combustion efficiency, and inform the design of cleaner energy and industrial systems."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "fuel_phase: not supported by PSI text - placeholder 'mixed', needs a human override"
+    ],
+    "_rejected_quotes": [
+      "fuel_phase: 'gas' (quote not found in PSI text)"
+    ]
+  },
+  "PSI-62": {
+    "psi_id": "json:accession",
+    "acronym": "missing",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:projectType",
+    "hardware": "missing",
+    "o2_percent_range": "no_csv",
+    "pressure_psi_range": "no_csv",
+    "airflow_cm_s_range": "no_csv",
+    "gravity": "rule:gravity_seed (ground/modeling study of flight data)",
+    "tests": "no_csv",
+    "source_urls": "rule:psi_page",
+    "fuel_phase": {
+      "source": "llm",
+      "quote": "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders."
+    },
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Ultimately, the long-term goal was to enable accurate prediction of flammability limits for spacecraft materials and to provide a tool that could also serve as a subgrid-scale model in large-eddy simulations of fires, supporting spacecraft safety and hazard mitigation."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders.",
+        "Within this framework, the unsteady FGM method was implemented and tested on various BASS geometries, including flat sheets, spheres, and rod-shaped polymethyl methacrylate (PMMA) samples, as well as wax cylinders."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "Experimental imagery found in PSI from the BASS and BASS-II investigations was post-processed using newly developed two-color tomography methods with DSLR cameras, enabling 3D reconstructions of soot and temperature fields for direct comparison to model predictions.",
+        "Experimental imagery found in PSI from the BASS and BASS-II investigations was post-processed using newly developed two-color tomography methods with DSLR cameras, enabling 3D reconstructions of soot and temperature fields for direct comparison to model predictions."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of this research was to develop and validate new flamelet generated manifold (FGM) modeling techniques for concurrent flame spread in microgravity."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "On Earth, these advancements could improve combustion modeling by deepening our understanding of coupled thermal, chemical, and flow processes, which betters fire safety standards."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-115": {
+    "psi_id": "json:accession",
+    "acronym": "missing",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:projectType",
+    "hardware": "missing",
+    "o2_percent_range": "no_csv",
+    "pressure_psi_range": "no_csv",
+    "airflow_cm_s_range": "no_csv",
+    "gravity": "rule:gravity_seed (ground/modeling study of flight data)",
+    "tests": "no_csv",
+    "source_urls": "rule:psi_page",
+    "fuel_phase": "fallback:not_reported (contract needs an enum value)",
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life.",
+        "This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "The formation and growth of dibutyl-phthalate (DBP) particles in Earth gravity and microgravity environments was simulated."
+      ]
+    },
+    "measurements": {
+      "source": "llm:none_supported"
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of this investigation was to use numerical simulation to explore the influence of gravity on pyrolysis smoke growth from a fundamental perspective."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm:not_reported"
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [
+      "fuel_phase: not supported by PSI text - placeholder 'mixed', needs a human override"
+    ],
+    "_rejected_quotes": []
+  },
+  "PSI-117": {
+    "psi_id": "json:accession",
+    "acronym": "missing",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:projectType",
+    "hardware": "missing",
+    "o2_percent_range": "no_csv",
+    "pressure_psi_range": "no_csv",
+    "airflow_cm_s_range": "no_csv",
+    "gravity": "rule:gravity_seed (ground/modeling study of flight data)",
+    "tests": "no_csv",
+    "source_urls": "rule:psi_page",
+    "fuel_phase": {
+      "source": "llm",
+      "quote": "OpenFOAM was used to develop a 3-D CFD model of n-alkane droplet cool flames in microgravity, coupling variable-density Navier–Stokes flow with low-temperature combustion chemistry, coupled heat and mass transfer, and radiation."
+    },
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "Focusing on both small and large droplets, the work mapped stability windows for ignition, sustained oscillation, transitions to hot ignition and warm-flame behavior, and extinction under microgravity.",
+        "The objective of this ground investigation was to use flight data obtained from PSI through NASA’s Flame Extinguishment Experiment (FLEX) to quantify how externally imposed thermal and convective perturbations regulated the dynamics and ultimate fate of already established droplet cool flames, and to explain run-to-run variability by isolating the roles of deliberate heating and unintentional drift-induced convection."
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "OpenFOAM was used to develop a 3-D CFD model of n-alkane droplet cool flames in microgravity, coupling variable-density Navier–Stokes flow with low-temperature combustion chemistry, coupled heat and mass transfer, and radiation."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching.",
+        "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching.",
+        "From each case, predictive observables were extracted (ignition delay, oscillation frequency and amplitude, stand-off and extinction diameters), and were used to construct stability maps that delineated conditions for cool-flame onset, persistence, and quenching."
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "The objective of this ground investigation was to use flight data obtained from PSI through NASA’s Flame Extinguishment Experiment (FLEX) to quantify how externally imposed thermal and convective perturbations regulated the dynamics and ultimate fate of already established droplet cool flames, and to explain run-to-run variability by isolating the roles of deliberate heating and unintentional drift-induced convection."
+    },
+    "key_findings": {
+      "source": "llm:not_reported"
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Earth Benefits: Advances low-temperature combustion understanding relevant to engine knock, efficiency, and emissions; delivers validated CFD tools transferrable to practical combustors."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  },
+  "PSI-142": {
+    "psi_id": "json:accession",
+    "acronym": "missing",
+    "title": "json:title",
+    "doi": "json:doi",
+    "platform": "json:projectType",
+    "hardware": "json:experimentHardware",
+    "o2_percent_range": "csv:none",
+    "pressure_psi_range": "csv:none",
+    "airflow_cm_s_range": "csv:none",
+    "gravity": "rule:gravity_seed (ground/modeling study of flight data)",
+    "tests": [
+      "csv:PSI-142_Experimental table_Data Summary Table.csv"
+    ],
+    "source_urls": "rule:psi_page",
+    "fuel_phase": {
+      "source": "llm",
+      "quote": "Extend the cool flame experiments from the original ISS droplet experiments to a more general ground-based combustion system involving radiation, diffusion, convection, and low-temperature chemistry while maintaining a one-dimensional geometry."
+    },
+    "pillars": {
+      "source": "llm",
+      "quotes": [
+        "1) Develop a new diagram of the flammability limits of diffusional cool flames affected by radiation, diffusion, and convection.",
+        "By using the Flame Extinguishment (FLEX) experimental data from the Physical Sciences Informatics (PSI) system of combustion science, the purpose of this grant was to conduct new simulations and ground-based experiments using ozone-sensitized counterflow flames to:"
+      ]
+    },
+    "fuels": {
+      "source": "llm",
+      "quotes": [
+        "Using the experimental conditions of FLEX flight, a comparative studies of the oxygen concentration effects on the extinction limits of cool flames was conducted using three different numerical modeling schemes, (a) spark-assisted flame propagation of a n-heptane/air mixture, (b) one dimensional freely-propagating dimethyl ether (DME) flames using an arc-length continuation method and (c) simulated cool flame regimes and burning limits at elevated pressure (up to 20 atm) using DME/air mixtures.",
+        "Using the experimental conditions of FLEX flight, a comparative studies of the oxygen concentration effects on the extinction limits of cool flames was conducted using three different numerical modeling schemes, (a) spark-assisted flame propagation of a n-heptane/air mixture, (b) one dimensional freely-propagating dimethyl ether (DME) flames using an arc-length continuation method and (c) simulated cool flame regimes and burning limits at elevated pressure (up to 20 atm) using DME/air mixtures.",
+        "Specific research details are outlined in the publication, ''Dynamics of cool flames'' [https://doi.org/10.1016/j.pecs.2019.100787]; '' Understanding Cool Flames and Warm Flames'', [https://doi.org/10.1016/j.proci.2020.09.019] and ''Study of the low-temperature reactivity of large n-alkanes through cool diffusion flame extinction'', [https://doi.org/10.1016/j.combustflame.2017.01.028]."
+      ]
+    },
+    "measurements": {
+      "source": "llm",
+      "quotes": [
+        "5, CH2O PLIF and thermometry, https://doi.org/10.1016/j.combustflame.2018.03.013, 8",
+        "5, CH2O PLIF and thermometry, https://doi.org/10.1016/j.combustflame.2018.03.013, 8"
+      ]
+    },
+    "objective_summary": {
+      "source": "llm",
+      "quote": "By using the Flame Extinguishment (FLEX) experimental data from the Physical Sciences Informatics (PSI) system of combustion science, the purpose of this grant was to conduct new simulations and ground-based experiments using ozone-sensitized counterflow flames to:"
+    },
+    "key_findings": {
+      "source": "llm",
+      "quote": "The results showed that the warm flame has a double reaction zone structure and plays a critical role in the transition between cool flames and hot flames."
+    },
+    "earth_applications": {
+      "source": "llm",
+      "quote": "Since many real engines operate in the 20-40 atm pressure range, therefore, cool flames and warm flames are relevant and important flame regimes for high-pressure near-limit combustion applications."
+    },
+    "extraction_confidence": "extract/checked_ids.txt",
+    "_notes": [],
+    "_rejected_quotes": []
+  }
+}
