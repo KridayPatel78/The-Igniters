@@ -283,6 +283,7 @@ def test_coverage_chunk_counts_from_data():
     text = build_index.coverage_text(RECORDS)
     assert "23 of 24: microgravity" in text and "1 of 24: an electric field used to mimic partial gravity (PSI-22" in text
     assert "0 of 24 were run in real Moon (lunar) or Mars (Martian) gravity" in text
+    assert "The only one is PSI-22 (ACME E-FIELD Flames), which used an electric field" in text
     fake = [{**r, "gravity": "microgravity"} for r in RECORDS[:3]]
     assert "3 of 3: microgravity" in build_index.coverage_text(fake)
 

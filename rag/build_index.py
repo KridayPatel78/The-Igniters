@@ -131,6 +131,12 @@ def coverage_text(records: list[dict]) -> str:
         names = ", ".join(r["psi_id"] if r["acronym"] == NOT_REPORTED else f"{r['psi_id']} {r['acronym']}"
                           for r in group) or "none"
         lines.append(f"- {len(group)} of {n}: {GRAVITY_TEXT[gravity]} ({names})")
+    mimics = by_gravity.get("partial_mimic", [])
+    if mimics:
+        named = "; ".join(f"{r['psi_id']} ({r['acronym']})" for r in mimics)
+        lead = "The only one is" if len(mimics) == 1 else "They are"
+        lines.append(f"Closest PSI data to Moon or Mars gravity: {lead} {named}, which used an electric field "
+                     f"to mimic partial gravity.")
     real = [r for r in records if r["gravity"] not in GRAVITY_TEXT]
     lines.append(f"- {len(real)} of {n} were run in real Moon (lunar) or Mars (Martian) gravity. "
                  f"PSI contains no real partial-gravity combustion data from these investigations."

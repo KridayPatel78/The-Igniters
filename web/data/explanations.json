@@ -219,7 +219,7 @@
     "scenario": "moon_base",
     "focus": "all",
     "ventilation": "quiescent",
-    "explanation": "Ranked first, [PSI-99] SAFFIRE-II achieves a total score of 74.8/100 by earning full points for solid habitat materials (20/20) and data richness (10/10), alongside strong oxygen relevance and ventilated airflow scores. Second-ranked [PSI-98] SAFFIRE-I (74.3/100) follows closely with identical maximum material and richness scores, tested at 21.5–21.7% O₂ with 20 cm/s airflow. Third-ranked [PSI-25] BASS-II (72.9/100) also attains full material and richness scores while covering two safety pillars (prevention and suppression), despite receiving zero points for unreported airflow.",
+    "explanation": "SAFFIRE-II [PSI-99] ranks highest with a total score of 74.8/100 because it achieved 20/20 in material for solid fuels including cotton, Nomex, PMMA, silicone, and SIBAL (habitat materials, +6), 10/10 in richness (experimental table with 15 test rows and 5 measurement types), 25.8/35 for oxygen (tested at 21.5–22.1% O₂), 14/20 for covering 1 pillar (prevention), and 5/15 for airflow (20 cm/s ventilated). \n\nSAFFIRE-I [PSI-98] ranks second at 74.3/100 with matching 20/20 material, 10/10 richness, 14/20 pillars, and 5/15 airflow scores, but receives 25.3/35 for oxygen as it was tested at 21.5–21.7% O₂ (8.3 points away from the 30% scenario). \n\nBASS-II [PSI-25] ranks third with 72.9/100, earning 25.9/35 for oxygen (tested at 13.6–22.2% O₂), 20/20 for material, 10/10 for richness (129 test rows), and 17/20 for covering 2 pillars (prevention, suppression), but receiving 0/15 for airflow because airflow was not reported in PSI tables.",
     "mode": "llm",
     "top3": [
       {

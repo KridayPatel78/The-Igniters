@@ -19,6 +19,9 @@ brackets, e.g. [PSI-98], in rank order.
 
 {facts}
 """
+# Opt-in for combos whose free wording drifted (e.g. calling a mismatch "ventilated airflow scores").
+STRICT_RULE = ("\nStrict wording: use only the wording and numbers in the reasons above. Do not describe "
+               "a criterion in your own words; quote or closely paraphrase its reason.\n")
 
 
 def _top3_facts(results: list[dict]) -> str:
@@ -58,7 +61,8 @@ def offline_explanation(results: list[dict], scenario_key: str, focus: str) -> s
 
 
 def explain_ranking_detailed(results: list[dict], scenario_key: str, focus: str,
-                             generator: Callable[[str], str] | None = None) -> tuple[str, str]:
+                             generator: Callable[[str], str] | None = None,
+                             strict: bool = False) -> tuple[str, str]:
     """(explanation, mode) with mode "llm" or "offline"."""
     if not results:
         return "No investigations to rank.", "offline"
@@ -66,7 +70,8 @@ def explain_ranking_detailed(results: list[dict], scenario_key: str, focus: str,
     try:
         if generator is None:
             from rag.ask import gemini_generate as generator
-        text = generator(PROMPT.format(scenario=scenario, focus=focus, facts=_top3_facts(results))).strip()
+        prompt = PROMPT.format(scenario=scenario, focus=focus, facts=_top3_facts(results))
+        text = generator(prompt + (STRICT_RULE if strict else "")).strip()
         if text and is_faithful(text, results):
             return text, "llm"
         print(f"  explanation for {scenario_key}/{focus} not faithful to the rubric - using offline text")

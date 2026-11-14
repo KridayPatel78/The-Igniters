@@ -119,6 +119,12 @@ def export_scenarios(out: Path) -> None:
     })
 
 
+# Combos whose LLM wording was loose: tightened prompt; listed again in OFFLINE_EXPLANATIONS if the
+# tightened text still reads loosely (then the deterministic reason-based text is used).
+STRICT_EXPLANATIONS = {"moon_base__all__quiescent"}
+OFFLINE_EXPLANATIONS: set[str] = set()
+
+
 def export_explanations(out: Path, rankings: dict[str, list[dict]], use_llm: bool) -> dict[str, int]:
     from rag.explain import explain_ranking_detailed
 
@@ -129,7 +135,11 @@ def export_explanations(out: Path, rankings: dict[str, list[dict]], use_llm: boo
     explanations, modes = {}, {"llm": 0, "offline": 0}
     for key, results in rankings.items():
         scenario, focus, ventilation = key.split("__")
-        text, mode = explain_ranking_detailed(results, scenario, focus, generator)
+        if key in OFFLINE_EXPLANATIONS:
+            text, mode = explain_ranking_detailed(results, scenario, focus, _no_llm)
+        else:
+            text, mode = explain_ranking_detailed(results, scenario, focus, generator,
+                                                  strict=key in STRICT_EXPLANATIONS)
         modes[mode] += 1
         explanations[key] = {"scenario": scenario, "focus": focus, "ventilation": ventilation,
                              "explanation": text, "mode": mode,
@@ -137,6 +147,10 @@ def export_explanations(out: Path, rankings: dict[str, list[dict]], use_llm: boo
                                       for r in results[:3]]}
     write_json(out / "explanations.json", explanations)
     return modes
+
+
+def _no_llm(prompt: str) -> str:
+    raise RuntimeError("deterministic explanation requested")
 
 
 # --- sources with summaries ------------------------------------------------------------------
@@ -213,7 +227,8 @@ def export_sources(out: Path, use_llm: bool) -> dict[str, int]:
 
 # --- meta + main -----------------------------------------------------------------------------
 
-def git_commit() -> str:
+def data_commit() -> str:
+    """The commit the exported data was built from (HEAD at export time)."""
     try:
         return subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True,
                               check=True).stdout.strip()
@@ -228,7 +243,7 @@ def export_meta(out: Path, records: list[dict], index: dict, counts: dict) -> No
                                 for p in (INTERIM / "llm").glob("*.json")})
     write_json(out / "meta.json", {
         "exported_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "git_commit": git_commit(),
+        "data_commit": data_commit(),
         "counts": {"investigations": len(records),
                    "experimental_table_csvs": len(list((ROOT / "data" / "raw").glob("PSI-*/*.csv"))),
                    "investigations_with_tables": sum(1 for r in records if r["tests"]),

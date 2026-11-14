@@ -1,6 +1,6 @@
 {
-  "exported_at": "2026-11-14T22:43:08+00:00",
-  "git_commit": "4f1f31318277be77eba9dda7f5fa142af7f0d284",
+  "exported_at": "2026-11-14T22:50:23+00:00",
+  "data_commit": "b8c91d624e8508f4030c4c1550478542abe98498",
   "counts": {
     "investigations": 24,
     "experimental_table_csvs": 22,
