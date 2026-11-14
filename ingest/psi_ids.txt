@@ -1,0 +1,15 @@
+# PSI combustion investigation IDs to fetch, one per line. Lines starting with # are ignored.
+# Person 1: complete this list from https://psi.nasa.gov/physci/repo/search?q=combustion
+# with the Research Area filter set to "Combustion Science". Drop non-combustion results.
+PSI-10
+PSI-26
+PSI-60
+PSI-62
+PSI-98
+PSI-99
+PSI-100
+PSI-101
+PSI-115
+PSI-117
+PSI-142
+PSI-159

@@ -1,0 +1,93 @@
+# The Igniters — Flame in Freefall
+
+NASA Space Apps Challenge 2026 · Kamloops (TRU)
+
+An AI-powered dashboard that summarizes, ranks and interprets NASA's microgravity combustion
+investigations to deliver fire-safety insights for crewed habitats (spacecraft, stations,
+Moon/Mars bases, pressurized rovers).
+
+**NASA data used:** [PSI Data Repository — Combustion Science](https://psi.nasa.gov/physci/repo/search?q=combustion)
+(Physical Sciences Informatics). Every investigation is cited by its DOI.
+
+Project brief, data contract and scoring rubric: **[AGENTS.md](AGENTS.md)** (read this first —
+it is also what our coding agents read).
+
+## Setup (each teammate)
+
+```bash
+git clone https://github.com/KridayPatel78/The-Igniters.git
+cd The-Igniters
+python -m venv .venv
+# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env               # Windows: copy .env.example .env  — then add GEMINI_API_KEY
+pytest -q                          # data-contract check should pass
+streamlit run app/main.py          # shows the sample data
+```
+
+## Workflow
+
+| Person | Branch | Folder(s) |
+|---|---|---|
+| 1 · Data | `data` | `ingest/` |
+| 2 · Extraction + scoring | `extract` | `extract/`, `rank/` |
+| 3 · AI | `rag` | `rag/` |
+| 4 · Frontend + pitch | `app` | `app/` |
+
+- `git pull` before every new agent task; merge to `main` every ~2 hours (lunch, dinner).
+- Stay in your own folder. The **Data contract** in AGENTS.md is the only shared interface —
+  change it only if the whole team agrees, and update AGENTS.md first.
+- Build against `data/processed/investigations.sample.json` until the real
+  `investigations.json` lands. `pytest` checks both files against the contract.
+- Never commit `.env`. Never commit `data/raw/` (it is gitignored).
+
+## Antigravity setup
+
+1. Welcome screen → **Clone Repository** → this repo.
+2. Agent policy: **Review-driven development** (approve plans, diffs and commands).
+3. Use **Planning** mode for anything bigger than a small fix; **Fast** for small edits.
+4. Check **… → Customizations → Rules**: `AGENTS.md` should be listed.
+
+## First agent prompts
+
+**Person 1 · Data** (branch `data`)
+> Read AGENTS.md. Write ingest/fetch_psi.py that takes the PSI IDs in ingest/psi_ids.txt
+> (ignore # lines), fetches each investigation's JSON from the endpoint in AGENTS.md
+> sequentially with a 1-second delay, saves to data/raw/<id>.json, then downloads any
+> experimental-table CSV referenced in the JSON to data/raw/<id>/. Skip anything already
+> cached. Never download Raw Data files. Log what was fetched and what had no table.
+
+Before running it, complete `ingest/psi_ids.txt` from the PSI search page with the
+**Combustion Science** filter on.
+
+**Person 2 · Extraction + scoring** (branch `extract`)
+> Read AGENTS.md. Write rank/score.py implementing the Scoring rubric as pure functions over
+> records matching the Data contract, returning total score plus a per-criterion breakdown,
+> for each scenario preset. Write tests/test_score.py covering every criterion and null
+> values. Then write extract/normalize.py that turns data/raw/*.json into
+> data/processed/investigations.json: copy fields directly where they exist, and use the
+> Gemini API only for fields that must be inferred from text, setting
+> extraction_confidence to "llm_unchecked" for those records.
+
+**Person 3 · AI** (branch `rag`)
+> Read AGENTS.md. Write rag/build_index.py that chunks objective, approach, hypothesis,
+> researchImpacts and description from data/raw/*.json (fall back to the sample file),
+> embeds with sentence-transformers, and stores in Chroma with psi_id, title and doi as
+> metadata. Write rag/ask.py with answer(question) that retrieves top chunks and asks
+> Gemini to answer ONLY from them, citing [PSI-ID, DOI] for every claim and saying
+> "not covered by PSI data" when the chunks don't support an answer.
+
+**Person 4 · Frontend + pitch** (branch `app`)
+> Read AGENTS.md. Build the Streamlit app in app/ against
+> data/processed/investigations.sample.json: sidebar scenario picker (presets from the
+> rubric) and pillar focus; main view of ranked cards showing score breakdown, O2, pressure,
+> airflow, fuel phase, DOI link; a Compare tab with a side-by-side table for 2–4 selected
+> investigations; a Known gaps tab; an Ask tab with a placeholder that will call rag.ask.
+> Import scoring from rank/score.py once it exists; until then use a stub.
+
+## Before submission (Sunday)
+
+- [ ] Make this repo **public** (required for global judging)
+- [ ] Local pitch + submission by 16:00 · global submission by 23:59
+- [ ] Demo: video ≤ 30 s with English subtitles, or ≤ 7 slides incl. title
+- [ ] Project page lists every NASA dataset and resource used
