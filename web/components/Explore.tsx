@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { CardFacts } from "@/lib/data";
+import type { Evidence } from "@/lib/evidence";
 import type { Focus, RankedResult, RankingFile, Scenario, Ventilation } from "@/lib/types";
 import { ExploreView, type ExploreState } from "./ExploreView";
 
@@ -14,10 +15,12 @@ interface Props {
   defaultResults: RankedResult[];
   explanations: Record<string, string>;
   facts: CardFacts;
+  testRows: number;
+  evidence: Evidence;
 }
 
 /** Reads ?scenario=&focus=&vent= and loads that precomputed ranking (static JSON). */
-export function Explore({ scenarios, focuses, partialGravity, defaultState, defaultResults, explanations, facts }: Props) {
+export function Explore({ scenarios, focuses, partialGravity, defaultState, defaultResults, explanations, facts, testRows, evidence }: Props) {
   const params = useSearchParams();
   const scenario = scenarios.find((s) => s.key === params.get("scenario")) ?? scenarios.find((s) => s.key === defaultState.scenario)!;
   const focusParam = params.get("focus") as Focus | null;
@@ -58,6 +61,8 @@ export function Explore({ scenarios, focuses, partialGravity, defaultState, defa
       results={results}
       explanation={explanations[key]}
       facts={facts}
+      testRows={testRows}
+      evidence={evidence}
     />
   );
 }

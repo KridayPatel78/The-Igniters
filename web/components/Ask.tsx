@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { BookOpen, CircleSlash, LoaderCircle, MessageSquareText, Send } from "lucide-react";
 import { mentionsKnownGap } from "@/lib/rag/config";
 import type { AskResponse } from "@/lib/types";
@@ -21,9 +22,14 @@ const MODE = {
 } as const;
 
 export function Ask({ demo, maxChars, gapTriggers }: Props) {
-  const [question, setQuestion] = useState("");
-  const [result, setResult] = useState<AskResponse | null>(null);
-  const [cached, setCached] = useState(false);
+  // ?q= (from "Ask the AI librarian" chips elsewhere): demo questions answer instantly, others are asked once.
+  const params = useSearchParams();
+  const initialQ = (params.get("q") ?? "").trim().slice(0, maxChars);
+  const initialDemo = initialQ ? demo.find((d) => d.question.toLowerCase() === initialQ.toLowerCase()) ?? null : null;
+  const [question, setQuestion] = useState(initialDemo?.question ?? initialQ);
+  const [result, setResult] = useState<AskResponse | null>(initialDemo);
+  const [cached, setCached] = useState(Boolean(initialDemo));
+  const asked = useRef(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const idPrefix = useId().replace(/:/g, "");
@@ -38,7 +44,10 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    const q = question.trim();
+    await ask(question.trim());
+  }
+
+  async function ask(q: string) {
     if (!q) return setError("Please type a question.");
     const demoHit = demo.find((d) => d.question.toLowerCase() === q.toLowerCase());
     if (demoHit) return showDemo(demoHit);
@@ -62,6 +71,13 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
     }
   }
 
+  useEffect(() => {
+    if (asked.current || !initialQ || initialDemo) return;
+    asked.current = true;
+    void ask(initialQ);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once for the ?q= question
+  }, []);
+
   const mode = result ? MODE[result.mode] : null;
   return (
     <div className="space-y-6">
@@ -75,14 +91,14 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             maxLength={maxChars}
-            placeholder="e.g. Which experiments tested oxygen levels above 30%?"
-            className="min-w-0 flex-1 rounded-lg border border-line bg-panel px-4 py-3 text-ink placeholder:text-faint"
+            placeholder="e.g. Which experiments tested oxygen levels above 30%?…"
+            className="min-w-0 flex-1 rounded-lg border border-line bg-panel px-4 py-3 text-base text-ink placeholder:text-faint"
             aria-describedby="question-help"
           />
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-flame px-5 py-3 font-semibold text-bg hover:bg-flame-strong disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-flame px-5 py-3 font-semibold text-bg hover:bg-flame/90 disabled:opacity-60"
           >
             {loading ? <LoaderCircle aria-hidden className="h-4 w-4 animate-spin" /> : <Send aria-hidden className="h-4 w-4" />}
             Ask
@@ -101,7 +117,7 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
               <button
                 type="button"
                 onClick={() => showDemo(d)}
-                className="rounded-full border border-line bg-panel px-3 py-1.5 text-left text-sm text-muted hover:border-ion/50 hover:text-ink"
+                className="border border-rule bg-panel px-3 py-1.5 text-left text-sm text-ink hover:bg-panel-2"
               >
                 {d.question}
               </button>
@@ -112,7 +128,7 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
 
       <div aria-live="polite" className="space-y-4">
         {loading ? (
-          <p role="status" className="flex items-center gap-2 rounded-xl border border-line bg-panel p-5 text-muted">
+          <p role="status" className="flex items-center gap-2 border border-rule bg-panel p-5 text-muted">
             <LoaderCircle aria-hidden className="h-4 w-4 animate-spin" /> Searching 378 NASA passages and writing a cited answer…
           </p>
         ) : null}
@@ -122,9 +138,9 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
           </p>
         ) : null}
         {result && mode ? (
-          <article className="space-y-4 rounded-xl border border-line bg-panel p-5">
+          <article className="space-y-4 border border-rule bg-panel p-5">
             <div className="flex flex-wrap items-center gap-2">
-              <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${mode.cls}`}>
+              <span className={`inline-flex items-center gap-1.5 border px-2 py-1 text-xs font-semibold ${mode.cls}`}>
                 <mode.Icon aria-hidden className="h-3.5 w-3.5" /> {mode.label}
               </span>
               {cached ? <span className="text-xs text-faint">Precomputed demo answer</span> : null}
@@ -133,7 +149,7 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
             <AnswerText text={result.answer} idPrefix={idPrefix} />
             {result.citations.length ? (
               <div>
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">Sources</h3>
+                <h3 className="mb-2 text-sm font-semibold text-ink">Sources</h3>
                 <ol className="space-y-1 text-sm">
                   {result.citations.map((c) => (
                     <li key={c.n} id={`${idPrefix}-${c.n}`} className="flex gap-2">

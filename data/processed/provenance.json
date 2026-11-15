@@ -216,7 +216,10 @@
     "doi": "json:doi",
     "platform": "json:flightProgram",
     "hardware": "json:experimentHardware",
-    "o2_percent_range": "csv:none",
+    "o2_percent_range": {
+      "source": "override",
+      "quote": "csv:PSI-23_Experimental table_ACME s-Flame.csv:Atmosphere* - cells \"~21% O2 with N2\", \"~30% O2 with He\", \"~30% and ~21% O2 with He\" (PSI writes these as approximate, '~'). The header 'Atmosphere*' is not an O2 column name, so the CSV rule cannot read it."
+    },
     "pressure_psi_range": "csv:none",
     "airflow_cm_s_range": "csv:none",
     "gravity": "rule:gravity_seed",
@@ -964,7 +967,9 @@
     "hardware": "json:experimentHardware",
     "o2_percent_range": "csv:none",
     "pressure_psi_range": "csv:none",
-    "airflow_cm_s_range": "csv:none",
+    "airflow_cm_s_range": [
+      "csv:PSI-101_Experimental table_SAME-R.csv:Inlet velocity (cm/s)"
+    ],
     "gravity": "rule:gravity_seed",
     "tests": [
       "csv:PSI-101_Experimental table_SAME-R.csv"

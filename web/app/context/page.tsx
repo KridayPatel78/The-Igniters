@@ -31,8 +31,8 @@ export default function ContextPage() {
   const sources = new Map(getSources().map((s) => [s.id, s]));
   return (
     <div className="space-y-12">
-      <header className="max-w-3xl space-y-2 pt-4">
-        <h1 className="text-3xl font-semibold tracking-tight">Why this matters</h1>
+      <header className="max-w-3xl space-y-3">
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Why this matters</h1>
         <p className="text-muted">
           Three real spacecraft fires shaped how NASA designs for fire safety, and the research behind them has
           reached firefighters on Earth. Summaries are generated from each NASA page and checked against a verbatim

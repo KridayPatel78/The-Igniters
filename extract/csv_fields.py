@@ -85,7 +85,8 @@ def is_airflow_column(header: str) -> bool:
     h = header.lower()
     if "fuel" in h or MASS_OR_VOLUME_FLOW.search(h):
         return False
-    return "flow" in h or "air" in h
+    # "velocity": SAME-R (PSI-101) reports airflow as "Inlet velocity (cm/s)".
+    return "flow" in h or "air" in h or "velocity" in h
 
 
 def pressure_unit(text: str) -> str | None:

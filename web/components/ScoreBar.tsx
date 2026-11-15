@@ -11,7 +11,7 @@ export function ScoreBar({ breakdown }: { breakdown: BreakdownItem[] }) {
         const b = byKey[key];
         if (!b) return null;
         return (
-          <div key={key} className="h-full overflow-hidden rounded-sm bg-panel-2" style={{ flex: b.max }}>
+          <div key={key} className="h-full overflow-hidden rounded-sm bg-panel-3" style={{ flex: b.max }}>
             <div className="h-full rounded-sm" style={{ width: `${(b.points / b.max) * 100}%`, background: color }} />
           </div>
         );

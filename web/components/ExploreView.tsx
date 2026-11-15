@@ -1,13 +1,29 @@
+/*
+ * DIRECTION CONTRACT (impeccable new-work; DESIGN.md "Chart of the Evidence")
+ * THESIS: the dashboard is a chart of where NASA's fire evidence exists and where it runs out; it refuses the
+ *   KPI-cards-plus-charts admin template and the editorial essay.
+ * OWN-WORLD: nuclide-chart paper: white ground, black cell rules, flat fuel-coded fills (red solid, blue droplet,
+ *   yellow gas, grey unknown), hatched untested cells, a red habitat frame, condensed symbols in element tiles.
+ * STORY: a researcher picks their habitat, sees which oxygen-pressure cells were tested and by what fuel, reads the
+ *   gap in one sentence, then opens the ranked experiments and their data.
+ * FIRST VIEWPORT: title + habitat cells on top; the evidence chart owns the width with the reading panel on its right;
+ *   the habitat frame is the focal point.
+ * FORM: candidate 7 of 7 (Chart of the Nuclides), roll a3b11acc; own staging (chart first, element table second);
+ *   dealt stagings declined: none clarifies a ranking-and-gaps task.
+ */
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { Orbit, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { CardFacts } from "@/lib/data";
-import { displayName } from "@/lib/format";
+import type { Evidence } from "@/lib/evidence";
+import { SCENARIO_NOTE, SYMBOL } from "@/lib/format";
 import type { Focus, RankedResult, Scenario, Ventilation } from "@/lib/types";
 import { CompareTray } from "./CompareToggle";
-import { KnownGaps } from "./KnownGaps";
-import { RankedCard } from "./RankedCard";
+import { AskChips } from "./dashboard/parts";
+import { RankingTable } from "./dashboard/RankingTable";
+import { ElementTable, TileKey } from "./evidence/ElementTable";
+import { EvidenceChart } from "./evidence/EvidenceChart";
 import { CriteriaLegend } from "./ScoreBar";
-import { Panel } from "./ui";
 
 export interface ExploreState {
   scenario: string;
@@ -28,6 +44,8 @@ export function exploreHref(s: ExploreState, defaults: Record<string, Ventilatio
   return `/?${params.toString()}`;
 }
 
+export const shortLabel = (s: Scenario) => s.label.split(" (")[0];
+
 interface Props {
   scenarios: Scenario[];
   focuses: Focus[];
@@ -36,160 +54,159 @@ interface Props {
   results: RankedResult[] | null;
   explanation: string | undefined;
   facts: CardFacts;
+  testRows: number;
+  evidence: Evidence;
 }
 
-export function ExploreView({ scenarios, focuses, partialGravity, state, results, explanation, facts }: Props) {
-  const defaults = Object.fromEntries(scenarios.map((s) => [s.key, s.ventilation]));
-  const current = scenarios.find((s) => s.key === state.scenario) ?? scenarios[0];
-  const isPartial = partialGravity.includes(state.scenario);
-  const pinned = results?.filter((r) => r.callouts.includes("closest_to_partial_gravity")) ?? [];
-  const singlePillar = state.focus !== "all";
-  const matching = results?.filter((r) => r.matches_focus) ?? [];
-  const others = results?.filter((r) => !r.matches_focus) ?? [];
-
+/** Choice row made of links, so every choice is in the URL (shareable, Back/Forward work). */
+function Choice<T extends string>({ label, options, current, href }: { label: string; options: { value: T; label: ReactNode }[]; current: T; href: (v: T) => string }) {
   return (
-    <div className="space-y-8">
-      <section aria-labelledby="controls-title" className="space-y-5">
-        <h2 id="controls-title" className="sr-only">
-          Choose a scenario
-        </h2>
-        <div>
-          <p className="mb-2 text-sm font-medium text-muted">Where does the crew live?</p>
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {scenarios.map((s) => {
-              const active = s.key === state.scenario;
-              return (
-                <li key={s.key}>
-                  <Link
-                    href={exploreHref({ scenario: s.key, focus: state.focus, vent: s.ventilation }, defaults)}
-                    scroll={false}
-                    aria-current={active ? "true" : undefined}
-                    className={`block h-full rounded-xl border p-4 transition-colors ${
-                      active ? "border-flame bg-flame/10" : "border-line bg-panel hover:border-flame/50"
-                    }`}
-                  >
-                    <span className="block font-semibold">{s.label}</span>
-                    <span className="mt-1 block font-mono text-sm text-muted">
-                      {s.o2_percent}% O₂ · {s.pressure_psi} psi
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="mb-2 text-sm font-medium text-muted">Safety focus</p>
-            <div className="flex flex-wrap gap-2" role="group" aria-label="Safety focus">
-              {focuses.map((f) => (
-                <Link
-                  key={f}
-                  href={exploreHref({ ...state, focus: f }, defaults)}
-                  scroll={false}
-                  aria-current={f === state.focus ? "true" : undefined}
-                  className={`rounded-full border px-3 py-1.5 text-sm ${
-                    f === state.focus ? "border-crit-pillars bg-crit-pillars/15 text-ink" : "border-line text-muted hover:text-ink"
-                  }`}
-                >
-                  {FOCUS_LABEL[f]}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-sm font-medium text-muted">Cabin ventilation</p>
-            <div className="inline-flex rounded-lg border border-line p-1" role="group" aria-label="Cabin ventilation">
-              {(["ventilated", "quiescent"] as Ventilation[]).map((v) => (
-                <Link
-                  key={v}
-                  href={exploreHref({ ...state, vent: v }, defaults)}
-                  scroll={false}
-                  aria-current={v === state.vent ? "true" : undefined}
-                  className={`rounded-md px-3 py-1.5 text-sm ${v === state.vent ? "bg-ion text-bg font-semibold" : "text-muted hover:text-ink"}`}
-                >
-                  {v === "ventilated" ? "Working (airflow)" : "Failed (still air)"}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {explanation ? (
-        <Panel className="p-5">
-          <h2 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-flame">
-            <Sparkles aria-hidden className="h-4 w-4" /> Why these rank highest
-          </h2>
-          <p className="leading-relaxed">{explanation}</p>
-          <p className="mt-2 text-xs text-faint">AI-written from the rubric&apos;s own reasons only. The rules decide the ranking; the AI only explains it.</p>
-        </Panel>
-      ) : null}
-
-      {isPartial ? (
-        <div className="space-y-4">
-          <KnownGaps compact />
-          {pinned.map((r) => (
-            <Panel key={r.psi_id} className="border-ion/50 p-5">
-              <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-ion">
-                <Orbit aria-hidden className="h-4 w-4" /> Closest to partial gravity
-              </p>
-              <p className="mt-2">
-                <Link href={`/investigations/${r.psi_id}`} className="font-semibold hover:text-flame">
-                  {displayName(r.acronym, r.psi_id)} ({r.psi_id})
-                </Link>{" "}
-                — {r.title}. It used an electric field to mimic partial gravity. Score here: {r.total}/100.
-              </p>
-            </Panel>
-          ))}
-        </div>
-      ) : null}
-
-      <section aria-labelledby="ranking-title" className="space-y-4">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="ranking-title" className="text-xl font-semibold tracking-tight">
-            Ranked for {current.label}
-            <span className="block text-sm font-normal text-muted">
-              {FOCUS_LABEL[state.focus]} · ventilation {state.vent === "ventilated" ? "working" : "failed"} · 24 NASA investigations
-            </span>
-          </h2>
-          <CriteriaLegend />
-        </div>
-        {results === null ? (
-          <p role="status" className="rounded-xl border border-line bg-panel p-6 text-muted">
-            Loading ranking…
-          </p>
-        ) : singlePillar ? (
-          <>
-            <Group title={`${FOCUS_LABEL[state.focus]} experiments`} items={matching} start={1} facts={facts} />
-            <Group title="Other experiments" items={others} start={matching.length + 1} facts={facts} />
-          </>
-        ) : (
-          <ol className="space-y-3">
-            {results.map((r, i) => (
-              <RankedCard key={r.psi_id} result={r} rank={i + 1} facts={facts[r.psi_id]} />
-            ))}
-          </ol>
-        )}
-        <CompareTray />
-      </section>
+    <div role="group" aria-label={label} className="min-w-0">
+      <p className="mb-1.5 text-xs font-semibold text-muted">{label}</p>
+      <div className="flex flex-wrap">
+        {options.map((o) => {
+          const active = o.value === current;
+          return (
+            <Link
+              key={o.value}
+              href={href(o.value)}
+              scroll={false}
+              aria-current={active ? "true" : undefined}
+              className={`-ml-px min-h-11 border border-rule px-3 py-1.5 text-sm transition-colors first:ml-0 sm:min-h-10 ${
+                active ? "relative z-10 bg-rule font-semibold text-white" : "bg-bg text-ink hover:bg-panel-2"
+              }`}
+            >
+              {o.label}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
 
-function Group({ title, items, start, facts }: { title: string; items: RankedResult[]; start: number; facts: CardFacts }) {
-  if (!items.length) return null;
+function SectionHead({ id, title, sub, action }: { id: string; title: string; sub?: ReactNode; action?: ReactNode }) {
   return (
-    <div className="space-y-3">
-      <h3 className="flex items-center gap-3 pt-2 text-sm font-semibold uppercase tracking-wide text-muted">
-        {title} <span className="font-mono text-faint">({items.length})</span>
-        <span aria-hidden className="h-px flex-1 bg-line" />
-      </h3>
-      <ol start={start} className="space-y-3">
-        {items.map((r, i) => (
-          <RankedCard key={r.psi_id} result={r} rank={start + i} facts={facts[r.psi_id]} />
-        ))}
-      </ol>
+    <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b-2 border-rule pb-2">
+      <div>
+        <h2 id={id} className="font-cond scroll-mt-24 text-2xl font-semibold tracking-tight text-ink">
+          {title}
+        </h2>
+        {sub ? <p className="mt-0.5 max-w-prose text-sm text-muted">{sub}</p> : null}
+      </div>
+      {action}
+    </div>
+  );
+}
+
+export function ExploreView({ scenarios, focuses, state, results, explanation, facts, testRows, evidence }: Props) {
+  const defaults = Object.fromEntries(scenarios.map((s) => [s.key, s.ventilation]));
+  const current = scenarios.find((s) => s.key === state.scenario) ?? scenarios[0];
+  const n = Object.keys(facts).length;
+  const names = Object.fromEntries(Object.entries(facts).map(([id, f]) => [id, { name: f.name, symbol: SYMBOL[id] ?? "" }]));
+  const top = results?.[0];
+
+  return (
+    <div className="space-y-10">
+      <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2">
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Where NASA&apos;s fire evidence runs out</h1>
+        <p className="tabular max-w-xl text-sm leading-relaxed text-muted">
+          {n} NASA PSI combustion investigations · {testRows.toLocaleString("en-US")} test rows, each placed where it was burned. Hatched = never tested.
+        </p>
+      </header>
+
+      <section aria-label="Choose a habitat" className="-mt-4">
+        <div className="flex flex-wrap items-end gap-x-6 gap-y-3">
+          <Choice
+            label="Habitat"
+            current={state.scenario}
+            href={(v) => exploreHref({ scenario: v, focus: state.focus, vent: defaults[v] }, defaults)}
+            options={scenarios.map((s) => ({
+              value: s.key,
+              label: (
+                <span className="flex flex-col text-left leading-tight">
+                  <span>{shortLabel(s).replace(" / pressurized rover", " / rover")}</span>
+                  <span className="tabular text-xs opacity-80">
+                    {s.o2_percent}%&nbsp;O₂ · {s.pressure_psi}&nbsp;psi
+                  </span>
+                </span>
+              ),
+            }))}
+          />
+          <Choice label="Safety focus" current={state.focus} href={(v) => exploreHref({ ...state, focus: v }, defaults)} options={focuses.map((f) => ({ value: f, label: FOCUS_LABEL[f] }))} />
+          <Choice
+            label="Cabin ventilation"
+            current={state.vent}
+            href={(v) => exploreHref({ ...state, vent: v }, defaults)}
+            options={[
+              { value: "ventilated" as Ventilation, label: "Working" },
+              { value: "quiescent" as Ventilation, label: "Failed (still air)" },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="chart-title" className="-mt-4">
+        <h2 id="chart-title" className="sr-only">
+          Chart of the evidence: tested oxygen against pressure
+        </h2>
+        <EvidenceChart evidence={evidence} scenarioKey={state.scenario} names={names} note={SCENARIO_NOTE[current.key]} showGravity />
+      </section>
+
+      <section aria-labelledby="table-title">
+        <SectionHead
+          id="table-title"
+          title="Table of investigations"
+          sub={`All ${n}, grouped by the hardware they ran on; same row, directly comparable. Scored 0–100 for ${shortLabel(current).toLowerCase()}, ${FOCUS_LABEL[state.focus].toLowerCase()}.`}
+          action={<TileKey />}
+        />
+        {results ? <ElementTable results={results} facts={facts} habitat={shortLabel(current)} /> : <p role="status" className="py-10 text-muted">Loading scores…</p>}
+      </section>
+
+      <section aria-labelledby="ranking-title">
+        <SectionHead
+          id="ranking-title"
+          title={`Ranked for ${shortLabel(current).toLowerCase()}`}
+          sub="Sort any column; open a row for every point's reason. Rules rank; the AI only explains."
+          action={<CriteriaLegend />}
+        />
+        <div className="mb-6 grid gap-6 border border-rule bg-panel-2 p-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
+          <div>
+            <p className="text-sm font-semibold text-ink">Why {top ? facts[top.psi_id].name : "these"} and the next ones rank highest</p>
+            <p className="mt-1 max-w-prose text-[15px] leading-relaxed text-body">{explanation ?? "No explanation for this combination."}</p>
+            <p className="mt-2 text-xs text-muted">Written by AI from the rubric&apos;s own reasons, checked against them. Citations: [PSI ID].</p>
+          </div>
+          <AskChips
+            questions={[
+              top ? `Why is ${facts[top.psi_id].name} relevant to fire safety in a ${shortLabel(current).toLowerCase()}?` : "How does fire spread on fabric in microgravity?",
+              "Which experiments tested oxygen levels above 30%?",
+              "Is there any fire data for Moon or Mars gravity?",
+            ]}
+          />
+        </div>
+        {results ? <RankingTable results={results} facts={facts} singlePillar={state.focus !== "all"} /> : <p role="status" className="py-10 text-muted">Loading ranking…</p>}
+      </section>
+
+      <nav aria-label="Go further" className="border-t-2 border-rule">
+        <ul className="divide-y divide-line">
+          {[
+            ["/controls", "Fire-safety controls", "What prevention, detection and suppression research found, what equipment it shapes, what is still missing, and the Earth spin-offs (water mist, smoke detectors, air tanks, fire attire)."],
+            ["/explorer", "Data Explorer", "All 2,009 test rows with oxygen, pressure and airflow in common units; filter, plot, download with DOIs."],
+            ["/compare", "Compare investigations", "2 to 4 side by side: score profile, tested ranges, and every field marked same or different."],
+            ["/context", "Why it matters", "Apollo 1, Apollo 13 and the 1997 Mir fire: the incidents that made spacecraft fire safety a design requirement."],
+          ].map(([href, title, text]) => (
+            <li key={href}>
+              <Link href={href} className="group grid gap-1 py-4 sm:grid-cols-[16rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-6">
+                <span className="text-base font-semibold text-ink group-hover:underline">{title}</span>
+                <span className="text-sm text-body">{text}</span>
+                <ArrowRight aria-hidden className="hidden h-4 w-4 text-ink sm:block" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <CompareTray />
     </div>
   );
 }

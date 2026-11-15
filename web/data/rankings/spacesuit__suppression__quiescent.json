@@ -538,6 +538,80 @@
       "callouts": []
     },
     {
+      "psi_id": "PSI-101",
+      "acronym": "SAME-R",
+      "title": "Smoke Aerosol Measurement Experiment-Reflight",
+      "total": 41,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 100
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 5,
+          "max": 15,
+          "reason": "Airflow 0–8.1 cm/s (ventilated) differs from the quiescent scenario → 5/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              0.0,
+              8.1
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "quiescent"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. foam, Kapton (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "foam",
+              "Kapton"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover suppression; covers detection → 6/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "suppression"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 109 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 109,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
       "psi_id": "PSI-102",
       "acronym": "SAME",
       "title": "Smoke and Aerosol Measurement Experiment",
@@ -756,77 +830,6 @@
       "callouts": []
     },
     {
-      "psi_id": "PSI-101",
-      "acronym": "SAME-R",
-      "title": "Smoke Aerosol Measurement Experiment-Reflight",
-      "total": 36,
-      "breakdown": [
-        {
-          "criterion": "oxygen",
-          "points": 0,
-          "max": 35,
-          "reason": "Oxygen level not reported in PSI tables → 0/35",
-          "inputs": {
-            "o2_percent_range": null,
-            "target": 100
-          }
-        },
-        {
-          "criterion": "flow",
-          "points": 0,
-          "max": 15,
-          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
-          "inputs": {
-            "airflow_cm_s_range": null,
-            "regime": "unknown",
-            "scenario_ventilation": "quiescent"
-          }
-        },
-        {
-          "criterion": "material",
-          "points": 20,
-          "max": 20,
-          "reason": "Solid fuels (14 base) incl. foam, Kapton (habitat materials, +6) → 20/20",
-          "inputs": {
-            "fuel_phase": "solid",
-            "phase_is_placeholder": false,
-            "matched": [
-              "foam",
-              "Kapton"
-            ]
-          }
-        },
-        {
-          "criterion": "pillars",
-          "points": 6,
-          "max": 20,
-          "reason": "Does not cover suppression; covers detection → 6/20",
-          "inputs": {
-            "pillars": [
-              "detection"
-            ],
-            "focus": "suppression"
-          }
-        },
-        {
-          "criterion": "richness",
-          "points": 10,
-          "max": 10,
-          "reason": "Experimental table with 109 test rows (+5); 5 measurement types (+5) → 10/10",
-          "inputs": {
-            "test_rows": 109,
-            "measurements": 5
-          }
-        }
-      ],
-      "matches_focus": false,
-      "notes": [
-        "Pressure not reported",
-        "Some fields AI-extracted, not yet hand-checked"
-      ],
-      "callouts": []
-    },
-    {
       "psi_id": "PSI-62",
       "acronym": "not reported",
       "title": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
@@ -1037,16 +1040,20 @@
       "psi_id": "PSI-23",
       "acronym": "ACME s-Flame",
       "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
-      "total": 22,
+      "total": 22.0,
       "breakdown": [
         {
           "criterion": "oxygen",
-          "points": 0,
+          "points": 0.0,
           "max": 35,
-          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "reason": "Tested at 21–30% O₂; scenario is 100% → 70 points away → 0/35",
           "inputs": {
-            "o2_percent_range": null,
-            "target": 100
+            "o2_percent_range": [
+              21.0,
+              30.0
+            ],
+            "target": 100,
+            "distance": 70.0
           }
         },
         {

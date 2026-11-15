@@ -1,52 +1,113 @@
 @import "tailwindcss";
 
-/* "Space lab" dark theme. All text colours meet WCAG AA (>= 4.5:1) on --color-bg and --color-panel. */
+/*
+ * Chart of the Evidence (DESIGN.md): the nuclide-chart world. White chart paper, black cell rules, flat coded
+ * fills, condensed type in cells. Token names are shared by every component.
+ * Contrast on white: ink 18.9:1, muted 7.5:1, faint 5.3:1, signal red 6.6:1, link blue 6.1:1.
+ */
 @theme {
-  --color-bg: #070b14;
-  --color-panel: #0f1626;
-  --color-panel-2: #152038;
-  --color-line: #26334f;
-  --color-ink: #e8eef9;
-  --color-muted: #a3b1c9;
-  --color-faint: #8492ad;
-  --color-flame: #ffad4d;
-  --color-flame-strong: #ff8a1f;
-  --color-ion: #6cc9ff;
-  --color-good: #4ade9a;
-  --color-warn: #fbbf4d;
+  /* paper */
+  --color-bg: #ffffff;
+  --color-panel: #ffffff;
+  --color-panel-2: #f3f3f1;
+  --color-panel-3: #e7e7e4;
+  --color-line: #d4d4cf; /* hairline */
+  --color-rule: #111111; /* chart rules, frames, selected */
+  --color-dark: #111111;
+  --color-dark-2: #2a2a2a;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #c4c4bf;
 
-  /* score criteria A-E */
-  --color-crit-oxygen: #ff8a4c;
-  --color-crit-flow: #5ec2ff;
-  --color-crit-material: #b49cff;
-  --color-crit-pillars: #44d39b;
-  --color-crit-richness: #f4d35e;
+  /* ink */
+  --color-ink: #111111;
+  --color-body: #2b2b2b;
+  --color-muted: #555555;
+  --color-faint: #6b6b6b;
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  /* signals */
+  --color-flame: #b4231f; /* signal red, text-safe */
+  --color-flame-fill: #d7262c; /* signal red mark: target frames, brand tile */
+  --color-ion: #1d5fbf; /* links */
+  --color-teal: #1d5fbf;
+  --color-good: #1f7a3f;
+  --color-warn: #8a6100;
+  --color-danger: #b4231f;
+  --color-pillar: #1f7a3f;
+
+  /* fuel-family cell code (always drawn with a black rule + in-cell label; CVD-validated all-pairs) */
+  --color-fuel-solid: #e0453a;
+  --color-fuel-liquid: #3f86d4;
+  --color-fuel-gas: #ecb81f;
+  --color-fuel-unknown: #c9c9c4;
+  --color-series-1: #e0453a;
+  --color-series-2: #3f86d4;
+  --color-series-3: #ecb81f;
+  --color-series-other: #9a9a95;
+
+  /* score criteria A-E (dataviz reference palette, fixed order, adjacent pairs validated on white) */
+  --color-crit-oxygen: #2a78d6;
+  --color-crit-flow: #eb6834;
+  --color-crit-material: #1baf7a;
+  --color-crit-pillars: #eda100;
+  --color-crit-richness: #e87ba4;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* square world: controls 2px, plates 0 */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+
+  --shadow-card: 0 0 #0000;
+  --shadow-pop: 0 2px 8px rgb(0 0 0 / 0.14);
 }
 
 html {
   background: var(--color-bg);
-  color-scheme: dark;
+  color-scheme: light;
+  -webkit-tap-highlight-color: rgb(17 17 17 / 0.08);
+}
+
+@media (pointer: fine) {
+  html {
+    overscroll-behavior: none;
+  }
 }
 
 body {
-  background:
-    radial-gradient(1200px 500px at 15% -10%, rgb(255 138 31 / 0.10), transparent 60%),
-    radial-gradient(900px 500px at 100% 0%, rgb(108 201 255 / 0.08), transparent 60%),
-    var(--color-bg);
+  background: var(--color-bg);
   color: var(--color-ink);
+}
+
+/* Condensed chart lettering: cell symbols, chart titles, table heads. */
+.font-cond {
+  font-stretch: 75%;
+}
+
+/* Lining tabular numerals, applied per number (tnum would also widen hyphens in names). */
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+button,
+a,
+input,
+select,
+summary,
+label {
+  touch-action: manipulation;
 }
 
 :focus-visible {
   outline: 2px solid var(--color-ion);
   outline-offset: 2px;
-  border-radius: 6px;
 }
 
 ::selection {
-  background: rgb(255 173 77 / 0.35);
+  background: rgb(236 184 31 / 0.45);
 }
 
 details > summary {
@@ -57,9 +118,27 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+select {
+  background-color: var(--color-panel);
+  color: var(--color-ink);
+}
+
+/* Untested cells: paper with a faint diagonal hatch, the chart's own "no data" mark. */
+.cell-empty {
+  background-image: repeating-linear-gradient(135deg, transparent 0 5px, rgb(17 17 17 / 0.07) 5px 6px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
   }
+}
+
+[role="region"] {
+  position: relative;
+}
+
+.recharts-surface:focus {
+  outline: none;
 }

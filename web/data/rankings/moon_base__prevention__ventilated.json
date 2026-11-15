@@ -244,6 +244,79 @@
       "callouts": []
     },
     {
+      "psi_id": "PSI-23",
+      "acronym": "ACME s-Flame",
+      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+      "total": 71.0,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 35.0,
+          "max": 35,
+          "reason": "Tested at 21–30% O₂; scenario is 30% → within the tested range → 35/35",
+          "inputs": {
+            "o2_percent_range": [
+              21.0,
+              30.0
+            ],
+            "target": 30,
+            "distance": 0.0
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 0,
+          "max": 15,
+          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
+          "inputs": {
+            "airflow_cm_s_range": null,
+            "regime": "unknown",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 6,
+          "max": 20,
+          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
+          "inputs": {
+            "fuel_phase": "gas",
+            "phase_is_placeholder": false,
+            "matched": []
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 20,
+          "max": 20,
+          "reason": "Covers the prevention focus (prevention) → 20/20",
+          "inputs": {
+            "pillars": [
+              "prevention"
+            ],
+            "focus": "prevention"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 18 test rows (+5); 8 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 18,
+            "measurements": 8
+          }
+        }
+      ],
+      "matches_focus": true,
+      "notes": [
+        "Pressure not reported",
+        "No real partial-gravity combustion data exists yet (LUCI, FM2 planned)",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
       "psi_id": "PSI-10",
       "acronym": "ACME/Flame Design",
       "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
@@ -900,75 +973,6 @@
       ]
     },
     {
-      "psi_id": "PSI-23",
-      "acronym": "ACME s-Flame",
-      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
-      "total": 36,
-      "breakdown": [
-        {
-          "criterion": "oxygen",
-          "points": 0,
-          "max": 35,
-          "reason": "Oxygen level not reported in PSI tables → 0/35",
-          "inputs": {
-            "o2_percent_range": null,
-            "target": 30
-          }
-        },
-        {
-          "criterion": "flow",
-          "points": 0,
-          "max": 15,
-          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
-          "inputs": {
-            "airflow_cm_s_range": null,
-            "regime": "unknown",
-            "scenario_ventilation": "ventilated"
-          }
-        },
-        {
-          "criterion": "material",
-          "points": 6,
-          "max": 20,
-          "reason": "Gaseous fuels (6 base), no habitat material named in PSI fuels → 6/20",
-          "inputs": {
-            "fuel_phase": "gas",
-            "phase_is_placeholder": false,
-            "matched": []
-          }
-        },
-        {
-          "criterion": "pillars",
-          "points": 20,
-          "max": 20,
-          "reason": "Covers the prevention focus (prevention) → 20/20",
-          "inputs": {
-            "pillars": [
-              "prevention"
-            ],
-            "focus": "prevention"
-          }
-        },
-        {
-          "criterion": "richness",
-          "points": 10,
-          "max": 10,
-          "reason": "Experimental table with 18 test rows (+5); 8 measurement types (+5) → 10/10",
-          "inputs": {
-            "test_rows": 18,
-            "measurements": 8
-          }
-        }
-      ],
-      "matches_focus": true,
-      "notes": [
-        "Pressure not reported",
-        "No real partial-gravity combustion data exists yet (LUCI, FM2 planned)",
-        "Some fields AI-extracted, not yet hand-checked"
-      ],
-      "callouts": []
-    },
-    {
       "psi_id": "PSI-21",
       "acronym": "ACME CLD Flame",
       "title": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
@@ -1256,6 +1260,81 @@
       "callouts": []
     },
     {
+      "psi_id": "PSI-101",
+      "acronym": "SAME-R",
+      "title": "Smoke Aerosol Measurement Experiment-Reflight",
+      "total": 51,
+      "breakdown": [
+        {
+          "criterion": "oxygen",
+          "points": 0,
+          "max": 35,
+          "reason": "Oxygen level not reported in PSI tables → 0/35",
+          "inputs": {
+            "o2_percent_range": null,
+            "target": 30
+          }
+        },
+        {
+          "criterion": "flow",
+          "points": 15,
+          "max": 15,
+          "reason": "Airflow 0–8.1 cm/s (ventilated) matches the ventilated scenario → 15/15",
+          "inputs": {
+            "airflow_cm_s_range": [
+              0.0,
+              8.1
+            ],
+            "regime": "ventilated",
+            "scenario_ventilation": "ventilated"
+          }
+        },
+        {
+          "criterion": "material",
+          "points": 20,
+          "max": 20,
+          "reason": "Solid fuels (14 base) incl. foam, Kapton (habitat materials, +6) → 20/20",
+          "inputs": {
+            "fuel_phase": "solid",
+            "phase_is_placeholder": false,
+            "matched": [
+              "foam",
+              "Kapton"
+            ]
+          }
+        },
+        {
+          "criterion": "pillars",
+          "points": 6,
+          "max": 20,
+          "reason": "Does not cover prevention; covers detection → 6/20",
+          "inputs": {
+            "pillars": [
+              "detection"
+            ],
+            "focus": "prevention"
+          }
+        },
+        {
+          "criterion": "richness",
+          "points": 10,
+          "max": 10,
+          "reason": "Experimental table with 109 test rows (+5); 5 measurement types (+5) → 10/10",
+          "inputs": {
+            "test_rows": 109,
+            "measurements": 5
+          }
+        }
+      ],
+      "matches_focus": false,
+      "notes": [
+        "Pressure not reported",
+        "No real partial-gravity combustion data exists yet (LUCI, FM2 planned)",
+        "Some fields AI-extracted, not yet hand-checked"
+      ],
+      "callouts": []
+    },
+    {
       "psi_id": "PSI-102",
       "acronym": "SAME",
       "title": "Smoke and Aerosol Measurement Experiment",
@@ -1319,78 +1398,6 @@
           "inputs": {
             "test_rows": 8,
             "measurements": 4
-          }
-        }
-      ],
-      "matches_focus": false,
-      "notes": [
-        "Pressure not reported",
-        "No real partial-gravity combustion data exists yet (LUCI, FM2 planned)",
-        "Some fields AI-extracted, not yet hand-checked"
-      ],
-      "callouts": []
-    },
-    {
-      "psi_id": "PSI-101",
-      "acronym": "SAME-R",
-      "title": "Smoke Aerosol Measurement Experiment-Reflight",
-      "total": 36,
-      "breakdown": [
-        {
-          "criterion": "oxygen",
-          "points": 0,
-          "max": 35,
-          "reason": "Oxygen level not reported in PSI tables → 0/35",
-          "inputs": {
-            "o2_percent_range": null,
-            "target": 30
-          }
-        },
-        {
-          "criterion": "flow",
-          "points": 0,
-          "max": 15,
-          "reason": "Airflow not reported in PSI tables — no points without evidence → 0/15",
-          "inputs": {
-            "airflow_cm_s_range": null,
-            "regime": "unknown",
-            "scenario_ventilation": "ventilated"
-          }
-        },
-        {
-          "criterion": "material",
-          "points": 20,
-          "max": 20,
-          "reason": "Solid fuels (14 base) incl. foam, Kapton (habitat materials, +6) → 20/20",
-          "inputs": {
-            "fuel_phase": "solid",
-            "phase_is_placeholder": false,
-            "matched": [
-              "foam",
-              "Kapton"
-            ]
-          }
-        },
-        {
-          "criterion": "pillars",
-          "points": 6,
-          "max": 20,
-          "reason": "Does not cover prevention; covers detection → 6/20",
-          "inputs": {
-            "pillars": [
-              "detection"
-            ],
-            "focus": "prevention"
-          }
-        },
-        {
-          "criterion": "richness",
-          "points": 10,
-          "max": 10,
-          "reason": "Experimental table with 109 test rows (+5); 5 measurement types (+5) → 10/10",
-          "inputs": {
-            "test_rows": 109,
-            "measurements": 5
           }
         }
       ],

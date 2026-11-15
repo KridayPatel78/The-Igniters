@@ -1,33 +1,39 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
+import { TopBar } from "@/components/TopBar";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// DESIGN.md (Chart of the Evidence): Archivo with its width axis (condensed for chart lettering),
+// JetBrains Mono only for identifiers.
+const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"] });
+const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Flame in Freefall · NASA fire-safety explorer", template: "%s · Flame in Freefall" },
+  title: { default: "Flame in Freefall · NASA fire-safety dashboard", template: "%s · Flame in Freefall" },
   description:
     "Rank, compare and question NASA's 24 microgravity combustion investigations (PSI) for fire safety in spacecraft, Moon and Mars habitats. Every number traces to NASA data.",
 };
 
+export const viewport: Viewport = { themeColor: "#ffffff", colorScheme: "light" };
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${archivo.variable} ${mono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-panel focus:px-4 focus:py-2"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-panel focus:px-4 focus:py-2 focus:shadow-pop"
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-16 pt-6 sm:px-6">
-          {children}
-        </main>
-        <SiteFooter />
+        <TopBar />
+        <div className="flex min-h-full flex-1 flex-col">
+          <main id="main" className="mx-auto w-full max-w-[90rem] flex-1 px-4 pb-16 pt-6 sm:px-6 lg:px-10 lg:pt-8">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );
