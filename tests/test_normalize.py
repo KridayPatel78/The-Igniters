@@ -105,7 +105,9 @@ def test_psi98_no_llm_matches_sample():
     assert rec["o2_percent_range"] == [21.5, 21.7]
     assert rec["airflow_cm_s_range"] == [20, 20]
     assert rec["pressure_psi_range"] is None
-    assert len(rec["tests"]) == 4 and rec["tests"][0]["Percent O2"] == "21.5 - 21.7"
+    # 4 CSV rows: tests S1, S2 + two flow-visualization references with no data (row_clean removes them)
+    assert len(rec["tests"]) == 2 and rec["tests"][0]["Percent O2"] == "21.5 - 21.7"
+    assert any("flow-visualization" in n for n in prov["_notes"])
     assert rec["fuel_phase"] == "solid" and rec["pillars"] == ["prevention"]
     assert rec["gravity"] == "microgravity"
     assert rec["doi"] == "10.60555/0t15-1z43"

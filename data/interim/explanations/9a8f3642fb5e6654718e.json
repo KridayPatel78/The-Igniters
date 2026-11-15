@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-99] SAFFIRE-II ranks first with a total score of 74.8/100 by achieving full marks in materials (20/20) and richness (10/10 with 9 test rows) while testing 21.5–22.1% O₂ and 20 cm/s airflow. [PSI-98] SAFFIRE-I ranks second at 74.3/100, matching SAFFIRE-II's flow, material, pillar, and richness scores, but receiving a slightly lower oxygen score of 25.3/35 across its 2 test rows. [PSI-25] BASS-II ranks third with 72.9/100, gaining high marks for materials (20/20), richness (10/10 with 129 test rows), and covering 2 pillars (17/20), but receiving 0/15 points for airflow because it was not reported."
+}

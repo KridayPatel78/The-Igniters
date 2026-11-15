@@ -62,7 +62,14 @@ export default async function InvestigationPage({ params }: PageProps<"/investig
   const cardFacts = getCardFacts();
   const own = cardFacts[r.psi_id];
   const famOf = (): Family => (own.phase_unknown || own.fuel_phase === "mixed" ? "unknown" : own.fuel_phase);
-  const evidence = buildEvidence(getExplorer().rows.filter((x) => x.psi_id === r.psi_id), famOf);
+  const explorer = getExplorer();
+  const ownRows = explorer.rows.filter((x) => x.psi_id === r.psi_id);
+  const evidence = buildEvidence(ownRows, famOf);
+  const cleaning = Object.entries(explorer.tables)
+    .filter(([, t]) => t.psi_id === r.psi_id)
+    .map(([name, t]) => ({ name, table: t, flagged: ownRows.filter((x) => x.table === name && x.flags?.length) }))
+    .filter((c) => c.table.excluded.length || c.table.notes.length || c.flagged.length);
+  const removed = cleaning.reduce((n, c) => n + c.table.excluded.length, 0);
   const chartNames = { [r.psi_id]: { name: displayName(r.acronym, r.psi_id), symbol: "" } };
 
   const facts: [string, ReactNode][] = [
@@ -285,7 +292,8 @@ export default async function InvestigationPage({ params }: PageProps<"/investig
           id="tests"
           sub={
             <>
-              Every row exactly as in NASA&apos;s experimental-table CSV.{" "}
+              Test rows from NASA&apos;s experimental-table CSV, every cell exactly as published
+              {removed ? <> ({removed} non-test row{removed > 1 ? "s" : ""} set aside, <a href="#cleaning" className="text-ion underline decoration-ion/40 underline-offset-4">see Data cleaning</a>)</> : null}.{" "}
               {r.tests.length ? (
                 <a href={`/data/tables/${r.psi_id}.csv`} download className="text-ion underline decoration-ion/40 underline-offset-4">
                   Download as CSV
@@ -312,6 +320,62 @@ export default async function InvestigationPage({ params }: PageProps<"/investig
           </div>
         )}
       </section>
+
+      {cleaning.length ? (
+        <section aria-labelledby="cleaning">
+          <SectionTitle
+            id="cleaning"
+            sub="What the row-by-row check of NASA's CSV found. Rows that are not tests are set aside (not deleted from the source); problems in kept rows are flagged, never silently fixed."
+          >
+            Data cleaning
+          </SectionTitle>
+          <div className="space-y-4">
+            {cleaning.map(({ name, table, flagged }) => (
+              <Panel key={name} className="space-y-4 p-5 text-sm">
+                <p className="font-mono text-xs text-muted">
+                  {name} · {table.csv_rows} CSV rows → {table.rows} test rows
+                </p>
+                {table.excluded.length ? (
+                  <div>
+                    <h3 className="mb-1.5 font-semibold text-ink">Set aside ({table.excluded.length})</h3>
+                    <ul className="space-y-1">
+                      {table.excluded.map((e) => (
+                        <li key={e.row}>
+                          <span className="font-mono text-xs text-faint">row {e.row}</span> <span className="text-ink">{e.reason}</span>
+                          {e.text && !e.reason.startsWith("footnote") ? <span className="block truncate text-xs text-muted" title={e.text}>{e.text}</span> : null}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                {flagged.length ? (
+                  <div>
+                    <h3 className="mb-1.5 font-semibold text-ink">Flagged in kept rows ({flagged.length})</h3>
+                    <ul className="space-y-1">
+                      {flagged.map((x) => (
+                        <li key={x.row}>
+                          <span className="font-mono text-xs text-faint">row {x.row}</span>{" "}
+                          <span className="text-body">{x.flags!.join("; ")}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                {table.notes.length ? (
+                  <div>
+                    <h3 className="mb-1.5 font-semibold text-ink">NASA&apos;s notes in this table</h3>
+                    <ul className="list-disc space-y-1 pl-5 text-muted">
+                      {table.notes.map((n) => (
+                        <li key={n}>{n}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </Panel>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section aria-labelledby="provenance">
         <details className="border border-rule bg-panel">

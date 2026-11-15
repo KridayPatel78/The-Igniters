@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Rank #1 [PSI-98] SAFFIRE-I and rank #2 [PSI-99] SAFFIRE-II lead with scores of 83.4/100 by achieving maximum material (20/20) and richness (10/10) scores while closely matching the 21% oxygen scenario. Rank #3 [PSI-25] BASS-II follows at 82.0/100, securing a perfect 35/35 oxygen score because 21% O₂ is within its tested range, alongside maximum material and richness scores and coverage of two pillars (prevention and suppression)."
+}

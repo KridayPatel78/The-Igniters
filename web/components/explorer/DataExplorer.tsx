@@ -167,6 +167,7 @@ export function DataExplorer({ investigations, scenarios }: { investigations: Ex
         airflow_cm_s_min: r.airflow?.[0] ?? null,
         airflow_cm_s_max: r.airflow?.[1] ?? null,
         outcomes: r.outcomes,
+        cleaning_notes: r.flags?.join(" | ") ?? null,
         source: `https://psi.nasa.gov/physci/repo/data/investigations/${r.psi_id}`,
       };
     });
@@ -395,7 +396,15 @@ export function DataExplorer({ investigations, scenarios }: { investigations: Ex
                       <Link href={`/investigations/${r.psi_id}`} className="font-medium hover:text-flame">{i.name}</Link>
                       <span className="block font-mono text-[11px] text-faint">{r.psi_id} · row {r.row}</span>
                     </td>
-                    <td className="max-w-48 px-3 py-2 text-xs">{r.material ?? <span className="text-faint">–</span>}</td>
+                    <td className="max-w-48 px-3 py-2 text-xs">
+                      {r.material ?? <span className="text-faint">–</span>}
+                      {r.flags?.length ? (
+                        <span className="mt-1 block text-[11px] leading-snug text-flame" title={r.flags.join("\n")}>
+                          Cleaning note: {r.flags[0]}
+                          {r.flags.length > 1 ? ` (+${r.flags.length - 1} more)` : ""}
+                        </span>
+                      ) : null}
+                    </td>
                     <td className="max-w-56 px-3 py-2 text-xs text-muted">{r.size ?? <span className="text-faint">–</span>}</td>
                     <td className="px-3 py-2 font-mono text-xs">{cellRange(r.o2, "") || <span className="text-faint">–</span>}</td>
                     <td className="px-3 py-2 font-mono text-xs">{cellRange(r.pressure, "") || <span className="text-faint">–</span>}</td>

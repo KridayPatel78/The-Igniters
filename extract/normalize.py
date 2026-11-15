@@ -16,7 +16,7 @@ import json
 import re
 from pathlib import Path
 
-from extract import csv_fields, llm
+from extract import csv_fields, llm, row_clean
 from ingest.fetch_psi import read_ids
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -104,6 +104,22 @@ def load_tables(psi_id: str) -> list[tuple[str, list[str], list[dict[str, str]]]
     return [(p.name, *csv_fields.read_csv(p)) for p in sorted(folder.glob("*.csv"))] if folder.is_dir() else []
 
 
+def clean_tables(psi_id: str, tables) -> tuple[list, list[str]]:
+    """Tables with only real test rows (extract/row_clean.py), plus one note per table that lost rows."""
+    out, notes = [], []
+    for file_name, headers, rows in tables:
+        ct = row_clean.clean_table(psi_id, headers, rows)
+        out.append((file_name, headers, [r.cells for r in ct.rows]))
+        if ct.excluded:
+            reasons: dict[str, int] = {}
+            for e in ct.excluded:
+                key = "exact duplicate rows" if e["reason"].startswith("exact duplicate") else e["reason"]
+                reasons[key] = reasons.get(key, 0) + 1
+            notes.append(f"tests: {file_name}: {len(rows)} CSV rows -> {len(ct.rows)} test rows; removed "
+                         + "; ".join(f"{n} {k}" for k, n in reasons.items()))
+    return out, notes
+
+
 def tests_of(tables) -> list[dict[str, str]]:
     rows = []
     for file_name, _, table_rows in tables:
@@ -134,9 +150,9 @@ def build_record(psi_id: str, use_llm: bool = True, refresh_llm: bool = False,
                  overrides_dir: Path = OVERRIDES_DIR, checked: set[str] | None = None) -> tuple[dict, dict]:
     """One contract record + its provenance for one PSI ID."""
     inv = json.loads((RAW_DIR / f"{psi_id}.json").read_text(encoding="utf-8"))
-    tables = load_tables(psi_id)
+    raw_tables = load_tables(psi_id)
+    tables, notes = clean_tables(psi_id, raw_tables)
     rec, prov = {}, {}
-    notes: list[str] = []
 
     rec["psi_id"], prov["psi_id"] = inv.get("accession") or psi_id, "json:accession"
     rec["acronym"], prov["acronym"] = acronym_of(inv)
@@ -166,7 +182,7 @@ def build_record(psi_id: str, use_llm: bool = True, refresh_llm: bool = False,
     # LLM fields (seeds win for fuel_phase / pillars).
     rejected: list[str] = []
     if use_llm:
-        text = llm.build_input(inv, tables)
+        text = llm.build_input(inv, raw_tables)  # raw: keeps the cached, quote-verified LLM output valid
         values, llm_prov, rejected = llm.verify(llm.extract(psi_id, text, refresh_llm), text)
     else:
         values = {f: ([] if k in ("list", "pillars") else NOT_REPORTED) for f, k in llm.LLM_FIELDS.items()}

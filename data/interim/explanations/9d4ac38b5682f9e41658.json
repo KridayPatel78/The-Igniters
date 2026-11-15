@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Top-ranked [PSI-101] (total 55/100) and second-ranked [PSI-102] (total 54/100) lead the scenario because both earn 20/20 for covering the detection focus and 20/20 for testing solid habitat materials, with [PSI-101] edging ahead due to a higher richness score of 10/10 with 109 test rows compared to [PSI-102]'s 9/10 with 4 test rows. Third-ranked [PSI-60] scores much lower at 28/100 because, despite also covering the detection focus (20/20), it uses gaseous fuels with no habitat materials named (6/20), leaves airflow unreported (0/15), and lacks an experimental table, resulting in a richness score of only 2/10."
+}

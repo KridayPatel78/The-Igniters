@@ -6436,18 +6436,6 @@
         "Notes": "Mesh polarity refers to the polarity of the high-voltage power supply and the copper electrode relative to the burner. "
       },
       {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
-        "Notes": "Fuel Conc. (diluted with nitrogen on a volume basis) was varied between tests, but typically matched the bottle. The list only accounts for flames ignited. "
-      },
-      {
         "Test Type": "First round of tests with coflow burner",
         "Test Day": "18080",
         "Year": "2018",
@@ -6469,18 +6457,6 @@
         "Fuel Bottle": "100% C2H4",
         "Fuel Conc": "80%",
         "Flames Ignited": "10",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
         "Notes": ""
       },
       {
@@ -6568,18 +6544,6 @@
         "Notes": ""
       },
       {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
         "Test Type": "Second round of tests with gas-jet burner",
         "Test Day": "18269",
         "Year": "2018",
@@ -6613,18 +6577,6 @@
         "Fuel Bottle": "100% CH4",
         "Fuel Conc": "70%",
         "Flames Ignited": "13",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
         "Notes": ""
       },
       {
@@ -6688,18 +6640,6 @@
         "Notes": ""
       },
       {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
         "Test Type": "Second round of tests with gas-jet burner",
         "Test Day": "18319",
         "Year": "2018",
@@ -6709,90 +6649,6 @@
         "Fuel Bottle": "100% C2H4",
         "Fuel Conc": "25%",
         "Flames Ignited": "11",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "50%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "80%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
-        "Test Type": "Second round of tests with gas-jet burner",
-        "Test Day": "18319",
-        "Year": "2018",
-        "Month": "11",
-        "Date": "15",
-        "Mesh Polarity": "positive",
-        "Fuel Bottle": "100% C2H4",
-        "Fuel Conc": "25%",
-        "Flames Ignited": "11",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "50%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "80%",
-        "Flames Ignited": "",
-        "Notes": ""
-      },
-      {
-        "Test Type": "",
-        "Test Day": "",
-        "Year": "",
-        "Month": "",
-        "Date": "",
-        "Mesh Polarity": "",
-        "Fuel Bottle": "",
-        "Fuel Conc": "100%",
-        "Flames Ignited": "",
         "Notes": ""
       }
     ],
@@ -20208,102 +20064,6 @@
         "Helium": "0.59",
         "Fiber": "",
         "Fuel": "[.60]/[.40] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1285",
-        "Test Date": "22-Jun-17",
-        "Local Time": "11:05:52 am est",
-        "CIR": "f173e01",
-        "Pressure": "1 atm ",
-        "Oxygen": "0.17",
-        "Nitrogen": "0.83",
-        "Helium": "0",
-        "Fiber": "Yes",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1286",
-        "Test Date": "22-Jun-17",
-        "Local Time": "11:23:26 am est",
-        "CIR": "f173e02",
-        "Pressure": "1 atm",
-        "Oxygen": "0.17",
-        "Nitrogen": "0.83",
-        "Helium": "0",
-        "Fiber": "Yes",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1287",
-        "Test Date": "22-Jun-17",
-        "Local Time": "11:42:32 am est",
-        "CIR": "f173e03",
-        "Pressure": "1 atm",
-        "Oxygen": "0.17",
-        "Nitrogen": "0.83",
-        "Helium": "0",
-        "Fiber": "No",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1288",
-        "Test Date": "22-Jun-17",
-        "Local Time": "12:36:48 pm est",
-        "CIR": "f173e05",
-        "Pressure": "1 atm",
-        "Oxygen": "0.17",
-        "Nitrogen": "0.83",
-        "Helium": "0",
-        "Fiber": "No",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1289",
-        "Test Date": "22-Jun-17",
-        "Local Time": "12:47:53 pm est",
-        "CIR": "f173e06",
-        "Pressure": "1 atm ",
-        "Oxygen": "0.17",
-        "Nitrogen": "0.83",
-        "Helium": "0",
-        "Fiber": "Yes",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1295",
-        "Test Date": "28-Jun-17",
-        "Local Time": "09:24:35 am est",
-        "CIR": "f179e01",
-        "Pressure": "1 atm",
-        "Oxygen": "0.21",
-        "Nitrogen": "0.79",
-        "Helium": "0",
-        "Fiber": "Yes",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1296",
-        "Test Date": "28-Jun-17",
-        "Local Time": "9:43:08 am est",
-        "CIR": "f179e02",
-        "Pressure": "1 atm",
-        "Oxygen": "0.21",
-        "Nitrogen": "0.79",
-        "Helium": "0",
-        "Fiber": "Yes",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
-      },
-      {
-        "Flex Number": "1297",
-        "Test Date": "28-Jun-17",
-        "Local Time": "11:51:50 am est",
-        "CIR": "f179e05",
-        "Pressure": "1 atm",
-        "Oxygen": "0.21",
-        "Nitrogen": "0.79",
-        "Helium": "0",
-        "Fiber": "No",
-        "Fuel": "[.75]/[.25] C12H26/iso-dodecane "
       }
     ],
     "source_urls": [
@@ -23889,36 +23649,6 @@
         "Flow Direction": "Opposed",
         "Camera 1": "S2C1",
         "Camera 2": "S2C2"
-      },
-      {
-        "Sample Number": "F1C1/F1C2",
-        "Material": "Pre-test flow visulation data for sample 1",
-        "Sample Thickness (cm)": "",
-        "Sample Length (cm)": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "F2C1/F2C2",
-        "Material": "Pre-test flow visulation data for sample 2",
-        "Sample Thickness (cm)": "",
-        "Sample Length (cm)": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "Camera 1": "",
-        "Camera 2": ""
       }
     ],
     "source_urls": [
@@ -24134,120 +23864,6 @@
         "1-g Spread Rate": "Acceleratory",
         "Camera 1": "S9C1",
         "Camera 2": "n/a"
-      },
-      {
-        "Sample Number": "F1C1/F1C2",
-        "Material": "Pre-test flow visulation data for sample 2-1",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "F2C1/F2C2",
-        "Material": "Pre-test flow visulation data for sample 2-2",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "Note 1 Derived from measured CO2 production and referenced to initial O2 concentration reported by ISS.",
-        "Material": "",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "Note 2 The PMMA portion was completely consumed but the Nomex was not ignited.",
-        "Material": "",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "Note 3 This is the length of fuel with significant visible damage.",
-        "Material": "",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
-      },
-      {
-        "Sample Number": "Note 4 The flames remain anchored at the base of the sample which has a very slow regression rate (0.01 to 0.04 mm/s)",
-        "Material": "",
-        "Samle Thickness": "",
-        "Sample Length": "",
-        "Sample Width (cm)": "",
-        "Air Flow (cm/s)": "",
-        "Percent O2 (Note 1)": "",
-        "Ignition Power (W)": "",
-        "Ignition Time (s)": "",
-        "Burn Time (s)": "",
-        "Flow Direction": "",
-        "?-g Burn Length": "",
-        "?-g Spread Length": "",
-        "1-g Burn Length": "",
-        "1-g Spread Rate": "",
-        "Camera 1": "",
-        "Camera 2": ""
       }
     ],
     "source_urls": [
@@ -24361,17 +23977,6 @@
       },
       {
         "GMT date": "45",
-        "GMT ignition": "14:37:08",
-        "GMT  Flame Off": "14:48:03",
-        "Fuel": "Ethylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "103.8",
-        "Fuel Rate (mg/s)": "1.971",
-        "HC Fuel Rate (mg/s)": "1.971",
-        "Air Rate (cm/s)": "36.39"
-      },
-      {
-        "GMT date": "45",
         "GMT ignition": "14:50:07",
         "GMT  Flame Off": "14:52:11",
         "Fuel": "Ethylene",
@@ -24409,17 +24014,6 @@
         "GMT  Flame Off": "15:37:00",
         "Fuel": "Ethylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "138",
-        "Fuel Rate (mg/s)": "2.62",
-        "HC Fuel Rate (mg/s)": "2.62",
-        "Air Rate (cm/s)": "57.08"
-      },
-      {
-        "GMT date": "45",
-        "GMT ignition": "15:35:44",
-        "GMT  Flame Off": "15:37:00",
-        "Fuel": "Ethylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "137.4",
         "Fuel Rate (mg/s)": "2.608",
         "HC Fuel Rate (mg/s)": "2.608",
@@ -24438,17 +24032,6 @@
       },
       {
         "GMT date": "45",
-        "GMT ignition": "15:42:22",
-        "GMT  Flame Off": "15:43:03",
-        "Fuel": "Ethylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "69",
-        "Fuel Rate (mg/s)": "1.31",
-        "HC Fuel Rate (mg/s)": "1.31",
-        "Air Rate (cm/s)": "58.02"
-      },
-      {
-        "GMT date": "45",
         "GMT ignition": "15:48:39",
         "GMT  Flame Off": "15:49:19",
         "Fuel": "Ethylene",
@@ -24457,28 +24040,6 @@
         "Fuel Rate (mg/s)": "1.207",
         "HC Fuel Rate (mg/s)": "1.207",
         "Air Rate (cm/s)": "17.59"
-      },
-      {
-        "GMT date": "45",
-        "GMT ignition": "15:48:39",
-        "GMT  Flame Off": "15:49:19",
-        "Fuel": "Ethylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "63.6",
-        "Fuel Rate (mg/s)": "1.207",
-        "HC Fuel Rate (mg/s)": "1.207",
-        "Air Rate (cm/s)": "17.59"
-      },
-      {
-        "GMT date": "45",
-        "GMT ignition": "15:50:59",
-        "GMT  Flame Off": "15:51:43",
-        "Fuel": "Ethylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "34.8",
-        "Fuel Rate (mg/s)": "0.661",
-        "HC Fuel Rate (mg/s)": "0.661",
-        "Air Rate (cm/s)": "16.65"
       },
       {
         "GMT date": "45",
@@ -25465,17 +25026,6 @@
         "GMT  Flame Off": "16.27.16",
         "Fuel": "75 % Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "",
-        "Fuel Rate (mg/s)": "",
-        "HC Fuel Rate (mg/s)": "0",
-        "Air Rate (cm/s)": ""
-      },
-      {
-        "GMT date": "52",
-        "GMT ignition": "Ku              LOS",
-        "GMT  Flame Off": "16.27.16",
-        "Fuel": "75 % Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "63.00293255",
         "Fuel Rate (mg/s)": "1.644",
         "HC Fuel Rate (mg/s)": "1.345",
@@ -25703,17 +25253,6 @@
       },
       {
         "GMT date": "52",
-        "GMT ignition": "17.47.12",
-        "GMT  Flame Off": "17.48.49",
-        "Fuel": "75 % Propylene",
-        "Nozzle (mm)": "0.4064",
-        "Fuel Rate (sccm)": "44.24633431",
-        "Fuel Rate (mg/s)": "1.155",
-        "HC Fuel Rate (mg/s)": "0.945",
-        "Air Rate (cm/s)": "13.83"
-      },
-      {
-        "GMT date": "52",
         "GMT ignition": "17:50:49",
         "GMT  Flame Off": "17:52:54",
         "Fuel": "75% Propylene",
@@ -25765,28 +25304,6 @@
         "Fuel Rate (sccm)": "12.98533724",
         "Fuel Rate (mg/s)": "0.339",
         "HC Fuel Rate (mg/s)": "0.277",
-        "Air Rate (cm/s)": "41.09"
-      },
-      {
-        "GMT date": "52",
-        "GMT ignition": "17.50.49",
-        "GMT  Flame Off": "17.52.55",
-        "Fuel": "75 % Propylene",
-        "Nozzle (mm)": "0.4064",
-        "Fuel Rate (sccm)": "27.41348974",
-        "Fuel Rate (mg/s)": "0.715",
-        "HC Fuel Rate (mg/s)": "0.585",
-        "Air Rate (cm/s)": "41.09"
-      },
-      {
-        "GMT date": "52",
-        "GMT ignition": "17.50.49",
-        "GMT  Flame Off": "17.52.55",
-        "Fuel": "75 % Propylene",
-        "Nozzle (mm)": "0.4064",
-        "Fuel Rate (sccm)": "27.41348974",
-        "Fuel Rate (mg/s)": "0.715",
-        "HC Fuel Rate (mg/s)": "0.585",
         "Air Rate (cm/s)": "41.09"
       },
       {
@@ -25938,31 +25455,9 @@
         "GMT  Flame Off": "8:58:32",
         "Fuel": "50 % Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "55.24822695",
-        "Fuel Rate (mg/s)": "1.31",
-        "HC Fuel Rate (mg/s)": "0.786",
-        "Air Rate (cm/s)": "10.07"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "8:56:16",
-        "GMT  Flame Off": "8:58:32",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "27.91489362",
         "Fuel Rate (mg/s)": "0.662",
         "HC Fuel Rate (mg/s)": "0.397",
-        "Air Rate (cm/s)": "10.07"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "8:56:16",
-        "GMT  Flame Off": "8:58:32",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "69.20567376",
-        "Fuel Rate (mg/s)": "1.641",
-        "HC Fuel Rate (mg/s)": "0.985",
         "Air Rate (cm/s)": "10.07"
       },
       {
@@ -26015,31 +25510,9 @@
         "GMT  Flame Off": "9:02:11",
         "Fuel": "50 % Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "43.61702128",
-        "Fuel Rate (mg/s)": "1.034",
-        "HC Fuel Rate (mg/s)": "0.621",
-        "Air Rate (cm/s)": "57.08"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:00:26",
-        "GMT  Flame Off": "9:02:11",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "100.6099291",
         "Fuel Rate (mg/s)": "2.386",
         "HC Fuel Rate (mg/s)": "1.432",
-        "Air Rate (cm/s)": "57.08"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:00:26",
-        "GMT  Flame Off": "9:02:11",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "107.0070922",
-        "Fuel Rate (mg/s)": "2.537",
-        "HC Fuel Rate (mg/s)": "1.523",
         "Air Rate (cm/s)": "57.08"
       },
       {
@@ -26081,28 +25554,6 @@
         "GMT  Flame Off": "9:37:54",
         "Fuel": "50 % Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "81.41843972",
-        "Fuel Rate (mg/s)": "1.931",
-        "HC Fuel Rate (mg/s)": "1.159",
-        "Air Rate (cm/s)": "26.05"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:36:14",
-        "GMT  Flame Off": "9:37:54",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "40.70921986",
-        "Fuel Rate (mg/s)": "0.965",
-        "HC Fuel Rate (mg/s)": "0.579",
-        "Air Rate (cm/s)": "26.05"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:36:14",
-        "GMT  Flame Off": "9:37:54",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "92.46808511",
         "Fuel Rate (mg/s)": "2.193",
         "HC Fuel Rate (mg/s)": "1.316",
@@ -26147,31 +25598,9 @@
         "GMT  Flame Off": "9:40:53",
         "Fuel": "50 % Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "91.88652482",
-        "Fuel Rate (mg/s)": "2.179",
-        "HC Fuel Rate (mg/s)": "1.308",
-        "Air Rate (cm/s)": "40.15"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:39:14",
-        "GMT  Flame Off": "9:40:53",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "46.5248227",
         "Fuel Rate (mg/s)": "1.103",
         "HC Fuel Rate (mg/s)": "0.662",
-        "Air Rate (cm/s)": "39.21"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:39:14",
-        "GMT  Flame Off": "9:40:53",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "105.2624113",
-        "Fuel Rate (mg/s)": "2.496",
-        "HC Fuel Rate (mg/s)": "1.498",
         "Air Rate (cm/s)": "39.21"
       },
       {
@@ -26184,39 +25613,6 @@
         "Fuel Rate (mg/s)": "2.786",
         "HC Fuel Rate (mg/s)": "1.672",
         "Air Rate (cm/s)": "39.21"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:49:56",
-        "GMT  Flame Off": "9:51:28",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "106.4255319",
-        "Fuel Rate (mg/s)": "2.524",
-        "HC Fuel Rate (mg/s)": "1.515",
-        "Air Rate (cm/s)": "11.95"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:49:56",
-        "GMT  Flame Off": "9:51:28",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "52.92198582",
-        "Fuel Rate (mg/s)": "1.255",
-        "HC Fuel Rate (mg/s)": "0.753",
-        "Air Rate (cm/s)": "11.01"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "9:49:56",
-        "GMT  Flame Off": "9:51:28",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "97.12056738",
-        "Fuel Rate (mg/s)": "2.303",
-        "HC Fuel Rate (mg/s)": "1.382",
-        "Air Rate (cm/s)": "11.01"
       },
       {
         "GMT date": "55",
@@ -26352,28 +25748,6 @@
       },
       {
         "GMT date": "55",
-        "GMT ignition": "10:01:00",
-        "GMT  Flame Off": "10:02:35",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "45.36170213",
-        "Fuel Rate (mg/s)": "1.076",
-        "HC Fuel Rate (mg/s)": "0.646",
-        "Air Rate (cm/s)": "42.03"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "10:01:00",
-        "GMT  Flame Off": "10:02:35",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "23.26241135",
-        "Fuel Rate (mg/s)": "0.552",
-        "HC Fuel Rate (mg/s)": "0.331",
-        "Air Rate (cm/s)": "42.03"
-      },
-      {
-        "GMT date": "55",
         "GMT ignition": "10:15:39",
         "GMT  Flame Off": "10:17:14",
         "Fuel": "50 % Propylene",
@@ -26425,17 +25799,6 @@
         "Fuel Rate (sccm)": "63.97163121",
         "Fuel Rate (mg/s)": "1.517",
         "HC Fuel Rate (mg/s)": "0.911",
-        "Air Rate (cm/s)": "26.99"
-      },
-      {
-        "GMT date": "55",
-        "GMT ignition": "10:25:40",
-        "GMT  Flame Off": "10:26:41",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "64.55319149",
-        "Fuel Rate (mg/s)": "1.531",
-        "HC Fuel Rate (mg/s)": "0.919",
         "Air Rate (cm/s)": "26.99"
       },
       {
@@ -26708,17 +26071,6 @@
         "GMT  Flame Off": "9:38:55",
         "Fuel": "Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "14.35",
-        "Fuel Rate (mg/s)": "0.409",
-        "HC Fuel Rate (mg/s)": "0.409",
-        "Air Rate (cm/s)": "9.13"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "9:37:52",
-        "GMT  Flame Off": "9:38:55",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "10.25",
         "Fuel Rate (mg/s)": "0.292",
         "HC Fuel Rate (mg/s)": "0.292",
@@ -26766,17 +26118,6 @@
         "Fuel Rate (sccm)": "18.86",
         "Fuel Rate (mg/s)": "0.537",
         "HC Fuel Rate (mg/s)": "0.537",
-        "Air Rate (cm/s)": "22.29"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "9:44:17",
-        "GMT  Flame Off": "9:45:31",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "11.48",
-        "Fuel Rate (mg/s)": "0.327",
-        "HC Fuel Rate (mg/s)": "0.327",
         "Air Rate (cm/s)": "22.29"
       },
       {
@@ -26873,54 +26214,10 @@
         "GMT  Flame Off": "9:56:30",
         "Fuel": "Propylene",
         "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "33.21",
-        "Fuel Rate (mg/s)": "0.946",
-        "HC Fuel Rate (mg/s)": "0.946",
-        "Air Rate (cm/s)": "50.49"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "9:55:18",
-        "GMT  Flame Off": "9:56:30",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "16.81",
-        "Fuel Rate (mg/s)": "0.479",
-        "HC Fuel Rate (mg/s)": "0.479",
-        "Air Rate (cm/s)": "50.49"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "9:55:18",
-        "GMT  Flame Off": "9:56:30",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
         "Fuel Rate (sccm)": "38.54",
         "Fuel Rate (mg/s)": "1.097",
         "HC Fuel Rate (mg/s)": "1.097",
         "Air Rate (cm/s)": "50.49"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "Ku LOS",
-        "GMT  Flame Off": "Ku LOS",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "",
-        "Fuel Rate (mg/s)": "",
-        "HC Fuel Rate (mg/s)": "0",
-        "Air Rate (cm/s)": ""
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "Ku LOS",
-        "GMT  Flame Off": "Ku LOS",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "1.6002",
-        "Fuel Rate (sccm)": "",
-        "Fuel Rate (mg/s)": "",
-        "HC Fuel Rate (mg/s)": "0",
-        "Air Rate (cm/s)": ""
       },
       {
         "GMT date": "58",
@@ -26965,28 +26262,6 @@
         "Fuel Rate (mg/s)": "0.455",
         "HC Fuel Rate (mg/s)": "0.455",
         "Air Rate (cm/s)": "6.3"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "10:18:27",
-        "GMT  Flame Off": "Ku LOS",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "",
-        "Fuel Rate (mg/s)": "",
-        "HC Fuel Rate (mg/s)": "0",
-        "Air Rate (cm/s)": ""
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "10:18:27",
-        "GMT  Flame Off": "Ku LOS",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "",
-        "Fuel Rate (mg/s)": "",
-        "HC Fuel Rate (mg/s)": "0",
-        "Air Rate (cm/s)": ""
       },
       {
         "GMT date": "58",
@@ -27107,17 +26382,6 @@
         "Fuel Rate (sccm)": "22.96",
         "Fuel Rate (mg/s)": "0.654",
         "HC Fuel Rate (mg/s)": "0.654",
-        "Air Rate (cm/s)": "14.77"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "11:25:49",
-        "GMT  Flame Off": "11:26:58",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "0.4064",
-        "Fuel Rate (sccm)": "46.33",
-        "Fuel Rate (mg/s)": "1.319",
-        "HC Fuel Rate (mg/s)": "1.319",
         "Air Rate (cm/s)": "14.77"
       },
       {
@@ -27251,17 +26515,6 @@
         "Fuel Rate (mg/s)": "1.354",
         "HC Fuel Rate (mg/s)": "1.354",
         "Air Rate (cm/s)": "41.09"
-      },
-      {
-        "GMT date": "58",
-        "GMT ignition": "12:42:59",
-        "GMT  Flame Off": "12:43:30",
-        "Fuel": "Propylene",
-        "Nozzle (mm)": "0.762",
-        "Fuel Rate (sccm)": "12.71",
-        "Fuel Rate (mg/s)": "0.362",
-        "HC Fuel Rate (mg/s)": "0.362",
-        "Air Rate (cm/s)": "26.99"
       },
       {
         "GMT date": "58",
@@ -28021,17 +27274,6 @@
         "Fuel Rate (mg/s)": "0.538",
         "HC Fuel Rate (mg/s)": "0.323",
         "Air Rate (cm/s)": "16.65"
-      },
-      {
-        "GMT date": "167",
-        "GMT ignition": "11:04:59",
-        "GMT  Flame Off": "11:09:58",
-        "Fuel": "50 % Propylene",
-        "Nozzle (mm)": "0.4064",
-        "Fuel Rate (sccm)": "22.68085106",
-        "Fuel Rate (mg/s)": "0.538",
-        "HC Fuel Rate (mg/s)": "0.323",
-        "Air Rate (cm/s)": "11.95"
       },
       {
         "GMT date": "167",
@@ -29661,34 +28903,6 @@
         "Air Flow (cm/s)": "10",
         "Weight loss rate (mg/min)": "2",
         "Aging Duration (minutes)": "1"
-      },
-      {
-        "Sample #": "5",
-        "Sample Material": "Kapton: same conditions as 1-4",
-        "Air Flow (cm/s)": "",
-        "Weight loss rate (mg/min)": "",
-        "Aging Duration (minutes)": ""
-      },
-      {
-        "Sample #": "6",
-        "Sample Material": "Silicone Rubber: same conditions as 1-4",
-        "Air Flow (cm/s)": "",
-        "Weight loss rate (mg/min)": "",
-        "Aging Duration (minutes)": ""
-      },
-      {
-        "Sample #": "7",
-        "Sample Material": "Lampwick: same conditions as 1-4",
-        "Air Flow (cm/s)": "",
-        "Weight loss rate (mg/min)": "",
-        "Aging Duration (minutes)": ""
-      },
-      {
-        "Sample #": "8",
-        "Sample Material": "Dibutyl Phthalate: same conditions as 1-4",
-        "Air Flow (cm/s)": "",
-        "Weight loss rate (mg/min)": "",
-        "Aging Duration (minutes)": ""
       }
     ],
     "source_urls": [

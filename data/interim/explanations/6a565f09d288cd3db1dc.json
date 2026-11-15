@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-99] SAFFIRE-II ranks highest with a total score of 84.8/100 and [PSI-98] SAFFIRE-I ranks second at 84.3/100 because both match the ventilated scenario airflow, test solid habitat materials for full 20/20 material scores, and achieve 10/10 richness scores. [PSI-68] FLEX-2 ranks third with a total score of 77.0/100 because it also matches the ventilated scenario airflow and earns a maximum 35/35 oxygen score since the 30% scenario requirement falls directly within its tested 17–30% O₂ range."
+}

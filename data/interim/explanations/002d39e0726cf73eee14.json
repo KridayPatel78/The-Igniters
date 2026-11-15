@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "The top investigations—#1 [PSI-98] SAFFIRE-I (59.0/100), #2 [PSI-99] SAFFIRE-II (59.0/100), and #3 [PSI-100] SAFFIRE-III (59/100)—rank highest because they each earned maximum points for matching the ventilated scenario's airflow (15/15), testing solid habitat materials (20/20), and providing high data richness with experimental tables and five measurement types (10/10). Airflow matched the scenario at 20 cm/s for [PSI-98] and [PSI-99] and at 30 cm/s for [PSI-100], while all three also scored 14/20 for covering the prevention pillar. All three scored 0/35 on oxygen because [PSI-98] and [PSI-99] tested at O₂ levels well below the 100% scenario requirement, and [PSI-100] did not report its oxygen level."
+}

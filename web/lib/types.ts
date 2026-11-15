@@ -111,14 +111,28 @@ export interface ExplorerRow {
   o2: Range;
   pressure: Range;
   airflow: Range;
+  /** Data-cleaning notes for this row (typos, blank cells, label artifacts); cells are never changed. */
+  flags?: string[];
+}
+/** A CSV row that is not a test (footnote, flow-visualization reference, note-only row, duplicate). */
+export interface ExcludedRow {
+  row: number;
+  reason: string;
+  text: string;
 }
 export interface ExplorerTable {
   psi_id: string;
+  /** Test rows after cleaning. */
   rows: number;
+  /** Non-blank rows in NASA's CSV. */
+  csv_rows: number;
   columns: { o2: string | null; pressure: string | null; airflow: string | null };
   material_column: string | null;
   size_columns: string[];
   outcome_columns: string[];
+  excluded: ExcludedRow[];
+  /** Footnotes and table-wide notes, verbatim from the CSV. */
+  notes: string[];
 }
 export interface ExplorerData {
   tables: Record<string, ExplorerTable>;
