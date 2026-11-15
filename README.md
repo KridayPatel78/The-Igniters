@@ -34,56 +34,6 @@ source of experiment numbers; the other nine are text and video used by the AI (
 Machine-readable list: [`rag/sources.json`](rag/sources.json). Scoring rubric and exact
 formulas: [`rank/README.md`](rank/README.md).
 
-## Setup
-
-```bash
-git clone https://github.com/KridayPatel78/The-Igniters.git
-cd The-Igniters
-python -m venv .venv
-# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-pytest -q                          # all checks should pass
-```
-
-Only re-running the AI steps needs a Gemini key: create a file named `.env` in the repo root
-containing `GEMINI_API_KEY=your-key`. Never commit it.
-
-Python is the offline **data factory** (download → organize → score → index → export JSON).
-The **website** is a Next.js app in `web/` deployed on Vercel. It reads only `web/data/`, and
-setup lives in [web/README.md](web/README.md).
-
-## Data pipeline
-
-```bash
-python -m ingest.fetch_psi             # already done: PSI JSON + experimental-table CSVs -> data/raw/
-python -m extract.normalize            # data/raw/ -> data/processed/investigations.json
-python -m extract.normalize --no-llm   # same, without Gemini (LLM fields -> "not reported")
-python -m rank.score --scenario moon_base --focus all   # transparent 0-100 ranking (rank/README.md)
-python -m rag.fetch_resources          # already done: 8 NASA text resources -> data/raw/resources/
-python -m rag.build_index              # chunks + Gemini embeddings -> data/processed/rag_index.json
-python -m rag.ask "How was smoke detection tested on the ISS?"   # cited answer (rag/README.md)
-python -m rag.ask --demo               # demo answers + rag_eval.json parity fixture
-python -m scripts.export_web           # everything the website reads -> web/data/
-```
-
-Gemini calls are cached and committed under `data/interim/` (llm, embeddings, explanations,
-summaries), so re-running the pipeline costs nothing unless the inputs change.
-
-| Path | What it is |
-|---|---|
-| `data/raw/<PSI-ID>.json` | Investigation metadata exactly as PSI returned it (24 files) |
-| `data/raw/<PSI-ID>/*.csv` | Experimental tables (22 CSVs for 20 IDs; PSI-60, 62, 115, 117 have none) |
-| `data/raw/_manifest.json` | Per ID: acronym, title, DOI, which tables were saved, any errors |
-| `data/processed/investigations.json` | The 24 cleaned records that `rank/`, `rag/` and the website read |
-| `data/processed/provenance.json` | Where every value came from (CSV column, JSON field, rule, override, or LLM + verbatim quote) |
-| `data/interim/llm/<PSI-ID>.json` | Cached Gemini output (reused; refresh with `--refresh-llm`) |
-| `extract/REVIEW.md` | Human checklist: every field + its source, unclear columns, rejected LLM values |
-| `extract/overrides/<PSI-ID>.json` | Human corrections; beat everything else (see `extract/overrides/README.md`) |
-| `extract/checked_ids.txt` | IDs a person verified against the PSI page → `extraction_confidence: "checked"` |
-| `data/processed/rag_index.json` | IgniterX search index: 378 chunks + Gemini vectors (768 dims, base64 float32) |
-| `data/processed/rag_eval.json` | Parity fixture: query vectors + expected chunk IDs for the 8 demo questions |
-| `web/data/` | Website input written by `scripts/export_web.py` (24 rankings, explanations, index, sources, meta) |
-
 ## Data rules
 
 - Numbers (O₂ %, pressure in psi, airflow in cm/s) come only from experimental-table CSV columns.
