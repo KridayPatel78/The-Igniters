@@ -4,7 +4,7 @@ Put corrections here as `extract/overrides/<PSI-ID>.json`. Overrides beat everyt
 (CSV, rules and the LLM) the next time `python -m extract.normalize` runs, and the field's
 provenance becomes `"override"`.
 
-- Only **Data contract** keys are allowed (see AGENTS.md); anything else is an error.
+- Only **Data contract** keys are allowed (the field names in `data/processed/investigations.json`, checked by `tests/test_contract.py`); anything else is an error.
 - Include only the fields you are correcting.
 - Every value must still trace to PSI: put where it came from in `"_source"` (the JSON field
   and the exact sentence, or the CSV file + column). Keys starting with `_` are notes, not data;
