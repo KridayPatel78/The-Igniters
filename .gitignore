@@ -18,3 +18,9 @@ node_modules/
 .next/
 .env*.local
 .vercel/
+
+# Local files
+.env.example
+AGENTS.md
+DESIGN.md
+PRODUCT.md
