@@ -16,13 +16,13 @@ interface Props {
 }
 
 const MODE = {
-  llm: { label: "AI answer from NASA sources", Icon: MessageSquareText, cls: "border-good/40 bg-good/10 text-good" },
+  llm: { label: "IgniterX answer from NASA sources", Icon: MessageSquareText, cls: "border-good/40 bg-good/10 text-good" },
   passages: { label: "Most relevant NASA passages", Icon: BookOpen, cls: "border-ion/40 bg-ion/10 text-ion" },
   not_covered: { label: "Not covered by our NASA sources", Icon: CircleSlash, cls: "border-line bg-panel-2 text-muted" },
 } as const;
 
 export function Ask({ demo, maxChars, gapTriggers }: Props) {
-  // ?q= (from "Ask the AI librarian" chips elsewhere): demo questions answer instantly, others are asked once.
+  // ?q= (from "Ask IgniterX" chips elsewhere): demo questions answer instantly, others are asked once.
   const params = useSearchParams();
   const initialQ = (params.get("q") ?? "").trim().slice(0, maxChars);
   const initialDemo = initialQ ? demo.find((d) => d.question.toLowerCase() === initialQ.toLowerCase()) ?? null : null;
@@ -65,7 +65,7 @@ export function Ask({ demo, maxChars, gapTriggers }: Props) {
       setResult(data as AskResponse);
       setCached(false);
     } catch (err) {
-      setError(err instanceof Error && err.message ? err.message : "Could not reach the librarian. Try a demo question below.");
+      setError(err instanceof Error && err.message ? err.message : "Could not reach IgniterX. Try a demo question below.");
     } finally {
       setLoading(false);
     }

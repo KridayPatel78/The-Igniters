@@ -67,7 +67,7 @@ export function rangeMax(r: Range): number | null {
   return r ? r[1] : null;
 }
 
-/** Prefilled question link for the AI librarian. */
+/** Prefilled question link for IgniterX. */
 export function askHref(q: string): string {
   return `/ask?q=${encodeURIComponent(q)}`;
 }

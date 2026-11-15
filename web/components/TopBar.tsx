@@ -10,7 +10,7 @@ const LINKS: { href: string; label: string; match?: string[] }[] = [
   { href: "/explorer", label: "Data Explorer" },
   { href: "/controls", label: "Fire-safety controls" },
   { href: "/compare", label: "Compare" },
-  { href: "/ask", label: "Ask the librarian" },
+  { href: "/ask", label: "Ask IgniterX" },
   { href: "/context", label: "Why it matters" },
   { href: "/method", label: "Method & sources" },
 ];

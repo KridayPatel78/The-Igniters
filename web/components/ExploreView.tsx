@@ -109,7 +109,7 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
   return (
     <div className="space-y-10">
       <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2">
-        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Where NASA&apos;s fire evidence runs out</h1>
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">NASA&apos;s space fire evidence, mapped to your habitat</h1>
         <p className="tabular max-w-xl text-sm leading-relaxed text-muted">
           {n} NASA PSI combustion investigations · {testRows.toLocaleString("en-US")} test rows, each placed where it was burned. Hatched = never tested.
         </p>
@@ -133,6 +133,24 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
               ),
             }))}
           />
+        </div>
+      </section>
+
+      <section aria-labelledby="chart-title" className="-mt-4">
+        <h2 id="chart-title" className="sr-only">
+          Chart of the evidence: tested oxygen against pressure
+        </h2>
+        <EvidenceChart evidence={evidence} scenarioKey={state.scenario} names={names} note={SCENARIO_NOTE[current.key]} showGravity />
+      </section>
+
+      <section aria-labelledby="score-for" className="border-y-2 border-rule py-4">
+        <h2 id="score-for" className="mb-3 text-sm font-semibold text-ink">
+          Score the investigations for:{" "}
+          <span className="font-normal text-muted">
+            {shortLabel(current)} ({current.o2_percent}% O₂ · {current.pressure_psi} psi). These two choices change the tables below, not the chart.
+          </span>
+        </h2>
+        <div className="flex flex-wrap items-end gap-x-6 gap-y-3">
           <Choice label="Safety focus" current={state.focus} href={(v) => exploreHref({ ...state, focus: v }, defaults)} options={focuses.map((f) => ({ value: f, label: FOCUS_LABEL[f] }))} />
           <Choice
             label="Cabin ventilation"
@@ -146,18 +164,11 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
         </div>
       </section>
 
-      <section aria-labelledby="chart-title" className="-mt-4">
-        <h2 id="chart-title" className="sr-only">
-          Chart of the evidence: tested oxygen against pressure
-        </h2>
-        <EvidenceChart evidence={evidence} scenarioKey={state.scenario} names={names} note={SCENARIO_NOTE[current.key]} showGravity />
-      </section>
-
       <section aria-labelledby="table-title">
         <SectionHead
           id="table-title"
           title="Table of investigations"
-          sub={`All ${n}, grouped by the hardware they ran on; same row, directly comparable. Scored 0–100 for ${shortLabel(current).toLowerCase()}, ${FOCUS_LABEL[state.focus].toLowerCase()}.`}
+          sub={`All ${n}, grouped by the hardware they ran on; same row, directly comparable. Click a tile for an analysis of its cleaned data. Scored 0–100 for ${shortLabel(current).toLowerCase()}, ${FOCUS_LABEL[state.focus].toLowerCase()}.`}
           action={<TileKey />}
         />
         {results ? <ElementTable results={results} facts={facts} habitat={shortLabel(current)} /> : <p role="status" className="py-10 text-muted">Loading scores…</p>}
@@ -167,14 +178,14 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
         <SectionHead
           id="ranking-title"
           title={`Ranked for ${shortLabel(current).toLowerCase()}`}
-          sub="Sort any column; open a row for every point's reason. Rules rank; the AI only explains."
+          sub="Sort any column; open a row for every point's reason. IgniterX only explains the ranking rules."
           action={<CriteriaLegend />}
         />
         <div className="mb-6 grid gap-6 border border-rule bg-panel-2 p-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
           <div>
             <p className="text-sm font-semibold text-ink">Why {top ? facts[top.psi_id].name : "these"} and the next ones rank highest</p>
             <p className="mt-1 max-w-prose text-[15px] leading-relaxed text-body">{explanation ?? "No explanation for this combination."}</p>
-            <p className="mt-2 text-xs text-muted">Written by AI from the rubric&apos;s own reasons, checked against them. Citations: [PSI ID].</p>
+            <p className="mt-2 text-xs text-muted">Written by IgniterX from the rubric&apos;s own reasons, checked against them. Cited from the respective PSI investigations.</p>
           </div>
           <AskChips
             questions={[

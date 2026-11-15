@@ -80,8 +80,8 @@ export function CountBars({ items, total }: { items: { label: string; count: num
   );
 }
 
-/** Suggested questions that open the AI librarian with the question filled in. */
-export function AskChips({ questions, title = "Ask the AI librarian" }: { questions: string[]; title?: string; dark?: boolean }) {
+/** Suggested questions that open IgniterX with the question filled in. */
+export function AskChips({ questions, title = "Ask IgniterX" }: { questions: string[]; title?: string; dark?: boolean }) {
   return (
     <div>
       <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-ink">

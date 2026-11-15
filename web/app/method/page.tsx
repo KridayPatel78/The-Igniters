@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { ExternalLink, Panel, SectionTitle } from "@/components/ui";
-import { getMeta, getRubric, getSources, readText } from "@/lib/data";
+import { getRubric, getSources, readText } from "@/lib/data";
 import { Markdown } from "@/lib/markdown";
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const PIPELINE = [
   ["Download", "24 PSI investigations + 22 experimental-table CSVs, fetched once and committed."],
   ["Clean", "Each CSV row is checked: footnotes, flow-visualization references, note-only rows, unmeasured 'same conditions' rows and exact duplicates are set aside, and typos are flagged. Cells are never edited."],
-  ["Organize", "Contract fields from PSI JSON, numbers only from cleaned CSV rows, AI only for text fields - each with a verbatim quote."],
+  ["Organize", "Contract fields from PSI JSON, numbers only from cleaned CSV rows, IgniterX only for text fields - each with a verbatim quote."],
   ["Score", "A transparent 0–100 rubric in Python, precomputed for all 32 scenario × focus × ventilation combinations."],
   ["Index", "378 passages from PSI and 8 NASA pages, embedded with Gemini for the question box."],
   ["Export", "Everything the website shows is written to static files; the site never re-scores."],
@@ -25,14 +25,13 @@ function coverageText(): string {
 
 export default function MethodPage() {
   const sources = getSources();
-  const meta = getMeta();
   const coverage = coverageText().split("\n");
   return (
     <div className="space-y-12">
       <header className="max-w-3xl space-y-3">
         <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Method &amp; sources</h1>
         <p className="text-muted">
-          AI explains, rules decide. Every score is plain arithmetic on values that trace to NASA&apos;s data, and every
+          IgniterX explains, rules decide. Every score is plain arithmetic on values that trace to NASA&apos;s data, and every
           point comes with its reason.
         </p>
       </header>
@@ -41,7 +40,7 @@ export default function MethodPage() {
         <h2 id="principles" className="sr-only">Principles</h2>
         {[
           ["Evidence only", "We only award points for evidence in NASA's data. \"Not reported\" scores 0, and the reason says so."],
-          ["AI explains, rules decide", "Rankings come from the rubric below. The AI writes explanations from the rubric's own reasons and answers questions only from cited NASA passages."],
+          ["IgniterX explains, rules decide", "Rankings come from the rubric below. IgniterX writes explanations from the rubric's own reasons and answers questions only from cited NASA passages."],
           ["Cited by DOI", "Every investigation is cited by its PSI DOI (PSI policy, CC0 data). Other facts link to the NASA page they came from."],
         ].map(([title, text]) => (
           <Panel key={title} className="p-5">
@@ -72,7 +71,7 @@ export default function MethodPage() {
       </section>
 
       <section aria-labelledby="coverage">
-        <SectionTitle id="coverage" sub="Computed from investigations.json; this is the passage the AI librarian cites for gravity questions.">
+        <SectionTitle id="coverage" sub="Computed from investigations.json; this is the passage IgniterX cites for gravity questions.">
           PSI Combustion Science coverage
         </SectionTitle>
         <Panel className="space-y-1 p-5 text-sm">
@@ -112,27 +111,6 @@ export default function MethodPage() {
             </li>
           ))}
         </ol>
-      </section>
-
-      <section aria-labelledby="build">
-        <SectionTitle id="build">About this build</SectionTitle>
-        <Panel className="p-5">
-          <dl className="grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[auto_1fr]">
-            <dt className="text-muted">Data exported</dt>
-            <dd className="font-mono">{meta.exported_at}</dd>
-            <dt className="text-muted">Data commit</dt>
-            <dd className="break-all font-mono">{meta.data_commit}</dd>
-            <dt className="text-muted">Counts</dt>
-            <dd>
-              {meta.counts.investigations} investigations · {meta.counts.experimental_table_csvs} experimental-table CSVs ·{" "}
-              {meta.counts.chunks} indexed passages · {meta.counts.ranking_files} precomputed rankings
-            </dd>
-            <dt className="text-muted">Models</dt>
-            <dd>
-              Embeddings {meta.models.embedding}; answers {meta.models.answer}; extraction {meta.models.extraction.join(", ")}
-            </dd>
-          </dl>
-        </Panel>
       </section>
     </div>
   );

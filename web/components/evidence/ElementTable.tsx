@@ -1,14 +1,19 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import type { CardFacts } from "@/lib/data";
 import { FAMILIES, familyBackground, SYMBOL } from "@/lib/format";
 import type { RankedResult } from "@/lib/types";
+import { TileAnalysis } from "./TileAnalysis";
 
 /**
  * The 24 investigations as an element table, one row ("period") per hardware family from the challenge brief.
  * Tile: PSI number (atomic-number corner), pillars, symbol, name, score for the selected habitat. Fill = fuel family.
+ * Clicking a tile opens the analysis of its cleaned test rows directly under its row.
  */
 export function ElementTable({ results, facts, habitat }: { results: RankedResult[]; facts: CardFacts; habitat: string }) {
   const rank = new Map(results.map((r, i) => [r.psi_id, { rank: i + 1, total: r.total }]));
+  const [open, setOpen] = useState<string | null>(null);
   return (
     <div className="space-y-3">
       {FAMILIES.map((fam) => (
@@ -18,7 +23,7 @@ export function ElementTable({ results, facts, habitat }: { results: RankedResul
         >
           <div className="pt-1">
             <p className="text-sm font-semibold text-ink">{fam.label}</p>
-            <p className="text-xs leading-snug text-muted">{fam.key === "ground" ? "No flight hardware: analysis and modeling of the flights above" : fam.hardware}</p>
+            <p className="text-xs leading-snug text-muted">{fam.key === "ground" ? "No flight hardware: reanalysis of above investigations" : fam.hardware}</p>
           </div>
           <ul className="flex flex-wrap gap-2">
             {fam.members.map((id) => {
@@ -29,12 +34,15 @@ export function ElementTable({ results, facts, habitat }: { results: RankedResul
               const fill = familyBackground([f.phase_unknown || f.fuel_phase === "mixed" ? "unknown" : f.fuel_phase]);
               return (
                 <li key={id}>
-                  <Link
-                    href={`/investigations/${id}`}
-                    aria-label={`${f.name} (${id}): score ${r?.total ?? "n/a"} of 100 for ${habitat}, rank ${r?.rank ?? "n/a"} of 24${f.o2 ? "" : ", oxygen not reported"}`}
-                    className={`group relative flex h-[7rem] w-[7.25rem] flex-col justify-between border border-rule p-1.5 text-ink transition-transform hover:-translate-y-0.5 ${
-                      top ? "outline-[3px] outline-offset-0 outline-rule" : ""
-                    }`}
+                  <button
+                    type="button"
+                    onClick={() => setOpen(open === id ? null : id)}
+                    aria-expanded={open === id}
+                    aria-controls={`analysis-${id}`}
+                    aria-label={`${f.name} (${id}): score ${r?.total ?? "n/a"} of 100 for ${habitat}, rank ${r?.rank ?? "n/a"} of 24${f.o2 ? "" : ", oxygen not reported"}. Show its data analysis`}
+                    className={`group relative flex h-[7rem] w-[7.25rem] flex-col justify-between border border-rule p-1.5 text-left text-ink transition-transform hover:-translate-y-0.5 ${
+                      top || open === id ? "outline-[3px] outline-offset-0 outline-rule" : ""
+                    } ${open === id ? "-translate-y-0.5 shadow-[0_3px_0_var(--color-rule)]" : ""}`}
                     style={{ background: fill }}
                   >
                     <span className="flex items-start justify-between text-[11px] font-semibold leading-none">
@@ -52,11 +60,24 @@ export function ElementTable({ results, facts, habitat }: { results: RankedResul
                     {top ? (
                       <span className="tabular absolute -right-1.5 -top-2 bg-rule px-1 text-[11px] font-bold leading-4 text-white">#{r!.rank}</span>
                     ) : null}
-                  </Link>
+                  </button>
                 </li>
               );
             })}
           </ul>
+          {open && fam.members.includes(open) && facts[open] ? (
+            <div id={`analysis-${open}`} className="lg:col-span-2">
+              <TileAnalysis
+                key={open}
+                psiId={open}
+                name={facts[open].name}
+                doi={facts[open].doi}
+                score={`${rank.get(open)?.total ?? "n/a"}/100 (rank ${rank.get(open)?.rank ?? "n/a"} of 24)`}
+                habitat={habitat}
+                onClose={() => setOpen(null)}
+              />
+            </div>
+          ) : null}
         </div>
       ))}
     </div>

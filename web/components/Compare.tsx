@@ -36,7 +36,7 @@ const ROWS: Row[] = [
   { label: "Earth applications", render: (r) => r.earth_applications },
   { label: "Test rows", render: (r) => (r.test_count ? `${r.test_count}` : "no experimental table") },
   { label: "Source", render: (r) => r.source_urls.join(" ") },
-  { label: "Extraction", render: (r) => (r.extraction_confidence === "checked" ? "hand-checked" : "AI-extracted, not hand-checked") },
+  { label: "Extraction", render: (r) => (r.extraction_confidence === "checked" ? "hand-checked" : "IgniterX-extracted, not hand-checked") },
 ];
 
 export function Compare({

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { X } from "lucide-react";
-import type { Cell, Evidence, Family } from "@/lib/evidence";
+import type { Cell, Evidence, Family, Strip } from "@/lib/evidence";
 import { FAMILY_LABEL, familyBackground, fmtNumber } from "@/lib/format";
 
 interface Names {
@@ -71,10 +71,59 @@ export function EvidenceChart({
   const { o2Edges, pEdges, cells, strip, regions, totals, noO2 } = evidence;
   const cols = o2Edges.length - 1;
   const rows = pEdges.length - 1;
-  const [selected, setSelected] = useState<string | null>(null);
+  // Several cells can be selected: click toggles a cell, Shift+click selects the rectangle from the last cell.
+  // Keys: "o2:p" for chart cells, "s:o2" for the no-pressure strip.
+  const [selected, setSelected] = useState<Set<string>>(() => new Set());
+  const [anchor, setAnchor] = useState<string | null>(null);
   const byKey = new Map(cells.map((c) => [`${c.o2}:${c.p}`, c]));
+  const stripByKey = new Map(strip.map((x) => [`s:${x.o2}`, x]));
   const region = regions[scenarioKey] ?? regions.moon_base;
-  const sel: Cell | undefined = selected ? byKey.get(selected) : undefined;
+
+  function pick(key: string, shift: boolean) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (shift && anchor && !anchor.startsWith("s:") && !key.startsWith("s:")) {
+        const [a0, a1] = anchor.split(":").map(Number);
+        const [b0, b1] = key.split(":").map(Number);
+        for (let o = Math.min(a0, b0); o <= Math.max(a0, b0); o++)
+          for (let p = Math.min(a1, b1); p <= Math.max(a1, b1); p++) if (byKey.has(`${o}:${p}`)) next.add(`${o}:${p}`);
+      } else if (shift && anchor?.startsWith("s:") && key.startsWith("s:")) {
+        const a = Number(anchor.slice(2));
+        const b = Number(key.slice(2));
+        for (let o = Math.min(a, b); o <= Math.max(a, b); o++) if (stripByKey.has(`s:${o}`)) next.add(`s:${o}`);
+      } else if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+    setAnchor(key);
+  }
+  function selectHabitat() {
+    const next = new Set<string>();
+    for (let o = region.o2[0]; o <= region.o2[1]; o++)
+      for (let p = region.p[0]; p <= region.p[1]; p++) if (byKey.has(`${o}:${p}`)) next.add(`${o}:${p}`);
+    setSelected(next);
+    setAnchor(null);
+  }
+  const clear = () => {
+    setSelected(new Set());
+    setAnchor(null);
+  };
+  const picked = [...selected]
+    .map((k) => (k.startsWith("s:") ? stripByKey.get(k) : byKey.get(k)))
+    .filter((c): c is Cell | Strip => Boolean(c));
+  const selCount = picked.reduce((n, c) => n + c.count, 0);
+  const selInv = [
+    ...picked.flatMap((c) => c.investigations).reduce((m, i) => m.set(i.psi_id, (m.get(i.psi_id) ?? 0) + i.count), new Map<string, number>()),
+  ]
+    .map(([psi_id, count]) => ({ psi_id, count }))
+    .sort((a, b) => b.count - a.count);
+  const selHasStrip = [...selected].some((k) => k.startsWith("s:"));
+  const cellName = (k: string) => {
+    if (k.startsWith("s:")) return `${range(o2Edges, Number(k.slice(2)))}% O₂, no psi`;
+    const [o, p] = k.split(":").map(Number);
+    return `${range(o2Edges, o)}% O₂ × ${range(pEdges, p)} psi`;
+  };
+  const habitatCells = cells.filter((c) => c.o2 >= region.o2[0] && c.o2 <= region.o2[1] && c.p >= region.p[0] && c.p <= region.p[1]).length;
 
   const frame = {
     left: `${(region.o2[0] / cols) * 100}%`,
@@ -116,12 +165,12 @@ export function EvidenceChart({
                       const label = `${range(o2Edges, o2)}% oxygen, ${range(pEdges, p)} psi: ${c.count} test rows from ${c.investigations
                         .map((i) => names[i.psi_id]?.name ?? i.psi_id)
                         .join(", ")}`;
-                      const active = selected === key;
+                      const active = selected.has(key);
                       return (
                         <button
                           key={key}
                           type="button"
-                          onClick={() => setSelected(active ? null : key)}
+                          onClick={(e) => pick(key, e.shiftKey)}
                           aria-pressed={active}
                           aria-label={label}
                           title={label}
@@ -166,10 +215,21 @@ export function EvidenceChart({
                   const s = strip.find((x) => x.o2 === o2);
                   if (!s) return <div key={o2} className="cell-empty h-8 bg-bg" />;
                   const label = `${range(o2Edges, o2)}% oxygen, pressure not reported: ${s.count} rows from ${s.investigations.map((i) => names[i.psi_id]?.name ?? i.psi_id).join(", ")}`;
+                  const key = `s:${o2}`;
+                  const active = selected.has(key);
                   return (
-                    <div key={o2} title={label} aria-label={label} role="img" className="tabular grid h-8 place-items-center text-[11px] font-semibold text-ink" style={{ background: familyBackground(s.families) }}>
+                    <button
+                      key={o2}
+                      type="button"
+                      onClick={(e) => pick(key, e.shiftKey)}
+                      aria-pressed={active}
+                      title={label}
+                      aria-label={label}
+                      className={`tabular relative grid h-8 place-items-center text-[11px] font-semibold text-ink transition-[filter] hover:brightness-95 ${active ? "z-10 outline-3 -outline-offset-3 outline-rule" : ""}`}
+                      style={{ background: familyBackground(s.families) }}
+                    >
                       {s.count}
-                    </div>
+                    </button>
                   );
                 })}
               </div>
@@ -214,20 +274,23 @@ export function EvidenceChart({
       </figure>
 
       <aside aria-label="Reading" className="space-y-5" aria-live="polite">
-        {sel ? (
+        {picked.length ? (
           <section className="border-2 border-rule p-4">
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-base font-semibold text-ink">
-                Cell {range(o2Edges, sel.o2)}% O₂ × {range(pEdges, sel.p)} psi
+                {picked.length === 1 ? `Cell ${cellName([...selected][0])}` : `${picked.length} cells selected`}
               </h3>
-              <button type="button" onClick={() => setSelected(null)} className="-mr-1 -mt-1 grid h-10 w-10 place-items-center hover:bg-panel-2" aria-label="Clear cell selection">
+              <button type="button" onClick={clear} className="-mr-1 -mt-1 grid h-10 w-10 place-items-center hover:bg-panel-2" aria-label="Clear cell selection">
                 <X aria-hidden className="h-4 w-4" />
               </button>
             </div>
-            <p className="tabular mt-1 text-sm text-body">{sel.count.toLocaleString("en-US")} test rows</p>
-            <InvestigationList items={sel.investigations} names={names} />
+            {picked.length > 1 ? <p className="mt-1 text-xs leading-relaxed text-muted">{[...selected].map(cellName).join(" · ")}</p> : null}
+            <p className="tabular mt-1 text-sm text-body">
+              {selCount.toLocaleString("en-US")} test rows from {selInv.length} investigation{selInv.length === 1 ? "" : "s"}
+            </p>
+            <InvestigationList items={selInv} names={names} />
             <Link
-              href={`/explorer?need=o2,pressure${sel.investigations.length === 1 ? `&inv=${sel.investigations[0].psi_id}` : ""}`}
+              href={`/explorer?need=${selHasStrip ? "o2" : "o2,pressure"}${selInv.length === 1 ? `&inv=${selInv[0].psi_id}` : ""}`}
               className="mt-3 inline-flex min-h-8 items-center text-sm text-ion underline underline-offset-2"
             >
               Open these rows in the Data Explorer
@@ -299,8 +362,15 @@ export function EvidenceChart({
             <li className="flex items-center gap-2">
               <span aria-hidden className="h-0 w-3.5 shrink-0 border-t-2 border-dashed border-flame" /> Moon-base limits: 30% O₂, 10.2 psi
             </li>
-            <li className="text-muted">Number in a cell = test rows. Click a cell for its experiments.</li>
+            <li className="text-muted">
+              Number in a cell = test rows. Click cells to select several; Shift+click selects a range. The bottom strip is clickable too.
+            </li>
           </ul>
+          {habitatCells ? (
+            <button type="button" onClick={selectHabitat} className="mt-3 min-h-10 border border-rule bg-bg px-3 text-left text-sm text-ink hover:bg-panel-2">
+              Select the {habitatCells} tested cell{habitatCells === 1 ? "" : "s"} in the habitat frame
+            </button>
+          ) : null}
         </section>
       </aside>
     </div>

@@ -15,9 +15,9 @@ export default function AskPage() {
   return (
     <div className="space-y-6">
       <header className="max-w-3xl space-y-3">
-        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Ask the NASA fire-safety librarian</h1>
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Ask IgniterX</h1>
         <p className="text-muted">
-          Answers come only from NASA&apos;s PSI investigations and the challenge&apos;s NASA resources. Every claim is cited:
+          IgniterX is our NASA fire-safety librarian. Its answers come only from NASA&apos;s PSI investigations and the challenge&apos;s NASA resources. Every claim is cited:
           PSI numbers link to the investigation, other facts to the NASA page. If our sources don&apos;t cover a
           question, it says so instead of guessing.
         </p>

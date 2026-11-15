@@ -38,8 +38,8 @@ export function PhaseChip({ phase, unknown }: { phase: FuelPhase; unknown?: bool
 
 export function UncheckedBadge() {
   return (
-    <Chip tone="warn" title="Some fields were extracted by AI from NASA text and are not yet hand-checked">
-      AI-extracted, not hand-checked
+    <Chip tone="warn" title="Some fields were extracted by IgniterX from NASA text and are not yet hand-checked">
+      IgniterX-extracted, not hand-checked
     </Chip>
   );
 }
