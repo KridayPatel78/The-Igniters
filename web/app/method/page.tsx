@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 
 const PIPELINE = [
   ["Download", "24 PSI investigations + 22 experimental-table CSVs, fetched once and committed."],
-  ["Organize", "Contract fields from PSI JSON, numbers only from CSV columns, AI only for text fields - each with a verbatim quote."],
+  ["Clean", "Each CSV row is checked: footnotes, flow-visualization references, note-only rows, unmeasured 'same conditions' rows and exact duplicates are set aside, and typos are flagged. Cells are never edited."],
+  ["Organize", "Contract fields from PSI JSON, numbers only from cleaned CSV rows, AI only for text fields - each with a verbatim quote."],
   ["Score", "A transparent 0–100 rubric in Python, precomputed for all 32 scenario × focus × ventilation combinations."],
   ["Index", "378 passages from PSI and 8 NASA pages, embedded with Gemini for the question box."],
   ["Export", "Everything the website shows is written to static files; the site never re-scores."],
@@ -52,13 +53,13 @@ export default function MethodPage() {
 
       <section aria-labelledby="pipeline">
         <SectionTitle id="pipeline">How the data flows</SectionTitle>
-        <ol className="grid gap-3 md:grid-cols-5">
+        <ol className="grid gap-3 md:grid-cols-3 xl:grid-cols-6">
           {PIPELINE.map(([step, text], i) => (
             <li key={step} className="relative border border-rule bg-panel p-4">
               <p className="font-mono text-xs text-faint">{i + 1}</p>
               <p className="font-semibold">{step}</p>
               <p className="mt-1 text-sm text-muted">{text}</p>
-              {i < PIPELINE.length - 1 ? <ArrowRight aria-hidden className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-faint md:block" /> : null}
+              {i < PIPELINE.length - 1 ? <ArrowRight aria-hidden className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-faint xl:block" /> : null}
             </li>
           ))}
         </ol>

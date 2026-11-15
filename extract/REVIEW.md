@@ -8,12 +8,18 @@ Check each value against the PSI page, tick the box, and when an ID is fully ver
 
 ## Columns / values needing a human look
 
+- **PSI-98** - tests: PSI-98_Experimental table_SAFFIRE-1.csv: 4 CSV rows -> 2 test rows; removed 2 flow-visualization reference with no test data
 - **PSI-69** - o2_percent_range: PSI-69_Experimental table_FLEX.csv: 'O initial ambient composition; mole fraction' read as O2 mole fraction (subscript lost in PSI file)
 - **PSI-69** - pressure_psi_range: PSI-69_Experimental table_FLEX.csv: dropped impossible pressure values [0.0] in 'Ambient pressure; mmHg'
+- **PSI-22** - tests: PSI-22_Experimental table_ACME E-FIELD Flames.csv: 32 CSV rows -> 20 test rows; removed 11 note / continuation row with no test identity; 1 exact duplicate rows
 - **PSI-20** - o2_percent_range: PSI-20_Experimental table_ACME BRE.csv: dropped impossible o2 values [2100.0, 3400.0] in 'Oxygen Conc (percent)'
+- **PSI-39** - tests: PSI-39_Experimental table_CFI.csv: 87 CSV rows -> 79 test rows; removed 8 exact duplicate rows
 - **PSI-25** - airflow_cm_s_range: PSI-25_Experimental table_BASS-II.csv: unit unclear in column 'Flow restrictor' (e.g. '2')
 - **PSI-25** - airflow_cm_s_range: PSI-25_Experimental table_BASS-II.csv: unit unclear in column 'Air display' (e.g. '5')
+- **PSI-99** - tests: PSI-99_Experimental table_SAFFIRE-2.csv: 15 CSV rows -> 9 test rows; removed 2 flow-visualization reference with no test data; 4 footnote line, not a test
+- **PSI-107** - tests: PSI-107_Experimental table_Spice.csv: 469 CSV rows -> 435 test rows; removed 34 exact duplicate rows
 - **PSI-107** - airflow_cm_s_range: PSI-107_Experimental table_Spice.csv: dropped impossible airflow values [-5.92, -0.28] in 'Air Rate (cm/s)'
+- **PSI-102** - tests: PSI-102_Experimental table_SAME.csv: 8 CSV rows -> 4 test rows; removed 4 listed as 'same conditions' but no measurements reported
 - **PSI-47** - fuel_phase: PLACEHOLDER 'mixed' (unknown) - scoring treats it as unknown; needs a human override
 - **PSI-115** - fuel_phase: PLACEHOLDER 'mixed' (unknown) - scoring treats it as unknown; needs a human override
 
@@ -28,20 +34,20 @@ Check each value against the PSI page, tick the box, and when an ID is fully ver
 | PSI-10 | ACME/Flame Design | gas | prevention | 19.8048-84.9978 | 6.24-44.3549 | - | 327 | 2 | 0 |
 | PSI-20 | ACME BRE | gas | prevention | 21-40 | - | - | 18 | 2 | 0 |
 | PSI-21 | ACME CLD Flame | gas | prevention | - | - | - | 32 | 4 | 0 |
-| PSI-22 | ACME E-FIELD Flames | gas | prevention | - | - | - | 32 | 3 | 0 |
+| PSI-22 | ACME E-FIELD Flames | gas | prevention | - | - | - | 20 | 3 | 0 |
 | PSI-23 | ACME s-Flame | gas | prevention | 21-30 | - | - | 18 | 3 | 0 |
 | PSI-159 | ACME CFI-G | gas | prevention | 12-85 | 7.1849-48.0061 | - | 333 | 2 | 0 |
 | PSI-69 | FLEX | liquid_droplet | suppression | 12-34 | 10.177-44.8594 | - | 274 | 2 | 0 |
 | PSI-68 | FLEX-2 | liquid_droplet | suppression | 17-30 | 7.3479-44.0877 | 0.1-5 | 8 | 1 | 0 |
-| PSI-39 | CFI | liquid_droplet | prevention | 17-21 | 7.3479-73.4795 | - | 87 | 2 | 0 |
+| PSI-39 | CFI | liquid_droplet | prevention | 17-21 | 7.3479-73.4795 | - | 79 | 2 | 0 |
 | PSI-26 | BASS | solid | prevention, suppression | - | - | - | 122 | 4 | 0 |
 | PSI-25 | BASS-II | solid | prevention, suppression | 13.6-22.2 | - | - | 129 | 2 | 0 |
-| PSI-98 | SAFFIRE-I | solid | prevention | 21.5-21.7 | - | 20 | 4 | 2 | 0 |
-| PSI-99 | SAFFIRE-II | solid | prevention | 21.5-22.1 | - | 20 | 15 | 1 | 0 |
+| PSI-98 | SAFFIRE-I | solid | prevention | 21.5-21.7 | - | 20 | 2 | 2 | 0 |
+| PSI-99 | SAFFIRE-II | solid | prevention | 21.5-22.1 | - | 20 | 9 | 1 | 0 |
 | PSI-100 | SAFFIRE-III | solid | prevention | - | - | 30 | 2 | 2 | 0 |
-| PSI-107 | SPICE | gas | - | - | - | 0.66-85.28 | 469 | 5 | 0 |
+| PSI-107 | SPICE | gas | - | - | - | 0.66-85.28 | 435 | 5 | 0 |
 | PSI-106 | SLICE | gas | - | - | - | - | 12 | 6 | 0 |
-| PSI-102 | SAME | solid | detection | - | - | 5-10 | 8 | 3 | 0 |
+| PSI-102 | SAME | solid | detection | - | - | 5-10 | 4 | 3 | 0 |
 | PSI-101 | SAME-R | solid | detection | - | - | 0-8.1 | 109 | 3 | 0 |
 | PSI-47 | DAFT / DAFT-2 | mixed | detection | - | - | - | 2 | 5 | 0 |
 | PSI-60 | not reported | gas | detection | - | - | - | 0 | 8 | 1 |
@@ -73,7 +79,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-98 · DOI: 10
 | [ ] | objective_summary | The SAFFIRE-I experiment aims to evaluate how quickly large-scale fires spread in low gravity. It also investigates microgravity flammability limits compared to normal-gravity material screening standards. | llm<br>> "(1) determine how rapidly a large scale fire grows in low-gravity" |
 | [ ] | key_findings | not reported | llm:not_reported |
 | [ ] | earth_applications | Understanding fire behavior in small, enclosed spacecraft environments aids fire safety and prevention strategies on Earth, particularly within confined spaces like mines, airplanes, and submarines. | llm<br>> "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines." |
-| [ ] | tests | 4 rows | `csv:PSI-98_Experimental table_SAFFIRE-1.csv` |
+| [ ] | tests | 2 rows | `csv:PSI-98_Experimental table_SAFFIRE-1.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-98"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 
@@ -208,7 +214,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-22 · DOI: 10
 | [ ] | objective_summary | The investigation aims to better understand the relationship between electric field voltage and chemi-ion current, analyze flame dynamic responses to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames. | llm<br>> "The objective of this investigation is to better understand the relationship between electric field voltage and chemi-ion current, analyze the dynamic response of flames to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames." |
 | [ ] | key_findings | Recording voltage-current curves assessed the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects. | llm<br>> "Voltage-current curves were recorded to assess the relationship between electric field strength and chemi-ion current, revealing ion-driven convection effects." |
 | [ ] | earth_applications | Using electric fields to control flames can reduce harmful pollutant production and fuel consumption, enabling more efficient terrestrial combustion. | llm<br>> "The use of electric fields to control flames can reduce the production of harmful pollutants in practical terrestrial combustion." |
-| [ ] | tests | 32 rows | `csv:PSI-22_Experimental table_ACME E-FIELD Flames.csv` |
+| [ ] | tests | 20 rows | `csv:PSI-22_Experimental table_ACME E-FIELD Flames.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-22"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 
@@ -370,7 +376,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-39 · DOI: 10
 | [ ] | objective_summary | This investigation seeks to analyze the combustion and cool flame behavior of liquid fuel droplets and mixtures under varied pressures and dilution conditions. It also aims to investigate flame extinction, droplet size effects, and soot formation during low-temperature combustion. | llm<br>> "2) Analyze the effects of helium dilution on cool flame behavior." |
 | [ ] | key_findings | not reported | llm:not_reported |
 | [ ] | earth_applications | The findings support the development of new fuels and high-efficiency engines such as HCCI engines. They also help develop computational combustion models for practical applications on Earth, including predicting fuel octane and cetane performance. | llm<br>> "The research will also help combustion chemists to develop new computational models to compute combustion performance in for many practical applications on earth, including an understanding of how cool flame reactivity determines octane and cetane number for fuels in spark ignition and diesel engines." |
-| [ ] | tests | 87 rows | `csv:PSI-39_Experimental table_CFI.csv` |
+| [ ] | tests | 79 rows | `csv:PSI-39_Experimental table_CFI.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-39"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 
@@ -424,7 +430,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-99 · DOI: 10
 | [ ] | objective_summary |  The SAFFIRE-II investigation aims to determine how rapidly a large-scale fire grows in low gravity and to evaluate low-g flammability limits relative to NASA's terrestrial screening tests. | llm<br>> "The objectives of SAFFIRE-II are to determine how rapidly a large scale fire grows in low-gravity and to investigate the low-g flammability limits compared to those obtained in NASA’s normal gravity material flammability screening test." |
 | [ ] | key_findings | Cotton-Fiberglass (SIBAL) burned for 145 seconds in low gravity with a 29 cm burn length and 2.1 mm/s spread rate, whereas silicone samples had insignificant burn times and near-zero microgravity burn lengths. | llm<br>> "2-5, Cotton-Fiberglass (SIBAL), 037 mm, 29 cm, 5 cm, 20 cm/s, ~ 22.1, 80 W, 9.2 s, 145 s, Concurrent, 29 cm, 2.1 mm/s, Complete, Acceleratory, S5C1, S5C2" |
 | [ ] | earth_applications | Fire studies in small, sealed environments like Cygnus benefit terrestrial fire safety and prevention efforts in confined spaces such as mines, airplanes, or submarines. | llm<br>> "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines." |
-| [ ] | tests | 15 rows | `csv:PSI-99_Experimental table_SAFFIRE-2.csv` |
+| [ ] | tests | 9 rows | `csv:PSI-99_Experimental table_SAFFIRE-2.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-99"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 
@@ -478,7 +484,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-107 · DOI: 1
 | [ ] | objective_summary |  The objective of SPICE is to better understand combustion processes by observing flames in microgravity aboard the ISS and in ground experiments. It aims to determine laminar smoke-point properties, flame lengths, and sooting propensity under various burner diameters and co-flow conditions. | llm<br>> "The objective of SPICE is to better understand the complex process of combustion by observing flames in a microgravity environment aboard the International Space Station (ISS) and analogous ground experiments." |
 | [ ] | key_findings | not reported | llm:not_reported |
 | [ ] | earth_applications | not reported | llm:not_reported |
-| [ ] | tests | 469 rows | `csv:PSI-107_Experimental table_Spice.csv` |
+| [ ] | tests | 435 rows | `csv:PSI-107_Experimental table_Spice.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-107"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 
@@ -532,7 +538,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-102 · DOI: 1
 | [ ] | objective_summary | The investigation aimed to quantify liquid smoke droplet sizes in microgravity and relate droplet size distribution to smoke generation and transport conditions. It also sought to develop a numerical model predicting smoke droplet growth based on pyrolysis rate, vapor properties, and flow environment. | llm<br>> "One of the major goals of this investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment." |
 | [ ] | key_findings | not reported | llm:not_reported |
 | [ ] | earth_applications | Smoke detectors developed from the results can be used in extreme environments on Earth, such as submarines or underwater laboratories, saving lives through accurate smoke detection. | llm<br>> "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories." |
-| [ ] | tests | 8 rows | `csv:PSI-102_Experimental table_SAME.csv` |
+| [ ] | tests | 4 rows | `csv:PSI-102_Experimental table_SAME.csv` |
 | [ ] | source_urls | ["https://psi.nasa.gov/physci/repo/data/investigations/PSI-102"] | `rule:psi_page` |
 | [ ] | extraction_confidence | llm_unchecked | `extract/checked_ids.txt` |
 

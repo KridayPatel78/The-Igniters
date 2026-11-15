@@ -76,7 +76,7 @@
         0.7619,
         0.7614,
         0.7377,
-        0.7433,
+        0.7427,
         0.7738,
         0.7537
       ],
@@ -94,7 +94,7 @@
         "psi:PSI-69:hypothesis:0",
         "fact:PSI-159",
         "psi:PSI-26:objective:0",
-        "psi:PSI-22:approach:0"
+        "psi:PSI-69:researchImpacts:0"
       ],
       "similarities": [
         0.7248,
@@ -104,7 +104,7 @@
         0.6915,
         0.6948,
         0.6829,
-        0.6821
+        0.6883
       ],
       "mode": "llm"
     },

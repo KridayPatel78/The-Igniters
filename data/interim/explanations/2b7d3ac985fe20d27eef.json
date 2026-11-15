@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-101] ranks highest with a total score of 55/100, followed by [PSI-102] with 54/100, because both cover the detection focus, test solid habitat materials, and earn high richness scores from multiple measurement types and test rows. [PSI-60] ranks third with a total score of 28/100 because it tests gaseous fuels with no habitat materials named, lacks an experimental table, and only includes 2 measurement types. Although all three investigations receive full points for covering the detection focus, their scores are affected because oxygen levels and pressure are not reported in their PSI tables."
+}

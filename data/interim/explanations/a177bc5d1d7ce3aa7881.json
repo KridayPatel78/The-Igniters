@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-II [PSI-99] ranks first with a total score of 84.8/100 because it matches the ventilated airflow scenario, tests solid habitat materials (20/20), and achieves maximum data richness (10/10), despite its tested oxygen range being 7.9 points away from the 30% target. SAFFIRE-I [PSI-98] ranks second at 84.3/100 by sharing identical airflow, solid habitat material, and richness scores, but placing slightly lower because its tested oxygen range is 8.3 points away from the target. FLEX-2 [PSI-68] ranks third with 77.0/100 because while its 17–30% oxygen range fully matches the 30% scenario (35/35) alongside ventilated airflow, it tests liquid droplet fuels with no habitat materials (4/20) and covers suppression instead of prevention."
+}

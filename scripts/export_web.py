@@ -283,20 +283,25 @@ def explorer_rows(records: list[dict]) -> dict:
     ranges; anything not stated stays null. `tables` names the CSV column behind each value."""
     from extract import csv_fields as cf
     from extract.normalize import load_tables
+    from extract.row_clean import clean_table
 
     tables, rows = {}, []
     for rec in records:
-        for file_name, headers, table_rows in load_tables(rec["psi_id"]):
+        for file_name, headers, raw_rows in load_tables(rec["psi_id"]):
             cols = {kind: _first(headers, m) for kind, m in
                     (("o2", cf.is_o2_column), ("pressure", cf.is_pressure_column), ("airflow", cf.is_airflow_column))}
             text_col = TEXT_O2_COLUMNS.get(rec["psi_id"])
             material = next((h for h in headers if MATERIAL_HEADERS.search(h.strip())), None) or                 next((h for h in headers if MATERIAL_FALLBACK.search(h.strip())), None)
             sizes = [h for h in headers if SIZE_HEADERS.search(h)]
             outcomes = [h for h in headers if OUTCOME_HEADERS.search(h)]
+            cleaned = clean_table(rec["psi_id"], headers, raw_rows, material)
+            table_rows = [cr.cells for cr in cleaned.rows]
             used = {k: False for k in cols}
-            for i, row in enumerate(table_rows):
-                entry = {"psi_id": rec["psi_id"], "table": file_name, "row": i + 1,
-                         "material": ((row.get(material) or "").strip() or None) if material else None,
+            for cr in cleaned.rows:
+                row = cr.cells
+                raw_material = ((row.get(material) or "").strip() or None) if material else None
+                entry = {"psi_id": rec["psi_id"], "table": file_name, "row": cr.row,
+                         "material": cr.material_label or raw_material,
                          "size": "; ".join(f"{h.strip()}: {row[h].strip()}" for h in sizes if (row.get(h) or "").strip()) or None,
                          "outcomes": "; ".join(f"{h.strip()}: {row[h].strip()}" for h in outcomes if (row.get(h) or "").strip()) or None}
                 for kind, header in cols.items():
@@ -306,12 +311,16 @@ def explorer_rows(records: list[dict]) -> dict:
                     cols["o2"] = text_col
                 for kind in cols:
                     used[kind] |= entry[kind] is not None
+                if cr.flags:
+                    entry["flags"] = cr.flags
                 rows.append(entry)
-            tables[file_name] = {"psi_id": rec["psi_id"], "rows": len(table_rows),
+            tables[file_name] = {"psi_id": rec["psi_id"], "rows": len(table_rows), "csv_rows": len(raw_rows),
                                  "columns": {k: (h.strip() if h and used[k] else None) for k, h in cols.items()},
                                  "material_column": material.strip() if material else None,
                                  "size_columns": [h.strip() for h in sizes],
-                                 "outcome_columns": [h.strip() for h in outcomes]}
+                                 "outcome_columns": [h.strip() for h in outcomes],
+                                 "excluded": cleaned.excluded,
+                                 "notes": cleaned.notes}
     return {"tables": tables, "rows": rows}
 
 

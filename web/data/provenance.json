@@ -206,7 +206,9 @@
       "quote": "The use of electric fields to control flames can reduce the production of harmful pollutants in practical terrestrial combustion."
     },
     "extraction_confidence": "extract/checked_ids.txt",
-    "_notes": [],
+    "_notes": [
+      "tests: PSI-22_Experimental table_ACME E-FIELD Flames.csv: 32 CSV rows -> 20 test rows; removed 11 note / continuation row with no test identity; 1 exact duplicate rows"
+    ],
     "_rejected_quotes": []
   },
   "PSI-23": {
@@ -508,7 +510,9 @@
       "quote": "The research will also help combustion chemists to develop new computational models to compute combustion performance in for many practical applications on earth, including an understanding of how cool flame reactivity determines octane and cetane number for fuels in spark ignition and diesel engines."
     },
     "extraction_confidence": "extract/checked_ids.txt",
-    "_notes": [],
+    "_notes": [
+      "tests: PSI-39_Experimental table_CFI.csv: 87 CSV rows -> 79 test rows; removed 8 exact duplicate rows"
+    ],
     "_rejected_quotes": []
   },
   "PSI-26": {
@@ -677,7 +681,9 @@
       "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
     },
     "extraction_confidence": "extract/checked_ids.txt",
-    "_notes": [],
+    "_notes": [
+      "tests: PSI-98_Experimental table_SAFFIRE-1.csv: 4 CSV rows -> 2 test rows; removed 2 flow-visualization reference with no test data"
+    ],
     "_rejected_quotes": []
   },
   "PSI-99": {
@@ -733,7 +739,9 @@
       "quote": "Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
     },
     "extraction_confidence": "extract/checked_ids.txt",
-    "_notes": [],
+    "_notes": [
+      "tests: PSI-99_Experimental table_SAFFIRE-2.csv: 15 CSV rows -> 9 test rows; removed 2 flow-visualization reference with no test data; 4 footnote line, not a test"
+    ],
     "_rejected_quotes": []
   },
   "PSI-100": {
@@ -842,6 +850,7 @@
     },
     "extraction_confidence": "extract/checked_ids.txt",
     "_notes": [
+      "tests: PSI-107_Experimental table_Spice.csv: 469 CSV rows -> 435 test rows; removed 34 exact duplicate rows",
       "airflow_cm_s_range: PSI-107_Experimental table_Spice.csv: dropped impossible airflow values [-5.92, -0.28] in 'Air Rate (cm/s)'"
     ],
     "_rejected_quotes": []
@@ -955,7 +964,9 @@
       "quote": "The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories."
     },
     "extraction_confidence": "extract/checked_ids.txt",
-    "_notes": [],
+    "_notes": [
+      "tests: PSI-102_Experimental table_SAME.csv: 8 CSV rows -> 4 test rows; removed 4 listed as 'same conditions' but no measurements reported"
+    ],
     "_rejected_quotes": []
   },
   "PSI-101": {

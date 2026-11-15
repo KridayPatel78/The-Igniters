@@ -111,8 +111,9 @@ export default function ExplorerPage() {
           </table>
         </div>
         <p className="mt-3 text-xs text-faint">
-          &ldquo;NASA table&rdquo; downloads every original column exactly as in the PSI CSV, plus the PSI ID and DOI. Data is CC0; cite each
-          investigation by its DOI.
+          &ldquo;NASA table&rdquo; downloads the test rows with every original column exactly as in the PSI CSV, plus the PSI ID and DOI.
+          Footnotes, flow-visualization references, note-only rows and exact duplicates are set aside; each investigation&apos;s page lists
+          them under Data cleaning. Data is CC0; cite each investigation by its DOI.
         </p>
       </Card>
     </div>

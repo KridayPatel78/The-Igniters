@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-I [PSI-98] and SAFFIRE-II [PSI-99] rank highest with scores of 99.4/100 because both cover the prevention focus, use habitat solid fuel materials, test oxygen levels near the 21% scenario, and match the ventilated airflow at 20 cm/s. BASS-II [PSI-25] ranks third with a score of 85.0/100; while its tested oxygen range includes 21% and it also covers prevention using habitat solid fuels, it received 0/15 points for airflow because it was not reported in the tables."
+}

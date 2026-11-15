@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-I [PSI-98] (total 65.0/100), SAFFIRE-II [PSI-99] (total 65.0/100), and SAFFIRE-III [PSI-100] (total 65/100) rank highest because all three achieved full points for covering the prevention focus (20/20), testing solid fuel habitat materials (20/20), and matching the ventilated scenario airflow (15/15). Additionally, each investigation earned full richness scores (10/10) by providing experimental tables and 5 measurement types. They all received 0/35 for oxygen because SAFFIRE-I [PSI-98] and SAFFIRE-II [PSI-99] were tested at 21.5–21.7% and 21.5–22.1% O₂ instead of the 100% scenario level, while SAFFIRE-III [PSI-100] had an unreported oxygen level."
+}

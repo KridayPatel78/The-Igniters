@@ -191,7 +191,7 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
         <ul className="divide-y divide-line">
           {[
             ["/controls", "Fire-safety controls", "What prevention, detection and suppression research found, what equipment it shapes, what is still missing, and the Earth spin-offs (water mist, smoke detectors, air tanks, fire attire)."],
-            ["/explorer", "Data Explorer", "All 2,009 test rows with oxygen, pressure and airflow in common units; filter, plot, download with DOIs."],
+            ["/explorer", "Data Explorer", "All 1,943 cleaned test rows with oxygen, pressure and airflow in common units; filter, plot, download with DOIs."],
             ["/compare", "Compare investigations", "2 to 4 side by side: score profile, tested ranges, and every field marked same or different."],
             ["/context", "Why it matters", "Apollo 1, Apollo 13 and the 1997 Mir fire: the incidents that made spacecraft fire safety a design requirement."],
           ].map(([href, title, text]) => (

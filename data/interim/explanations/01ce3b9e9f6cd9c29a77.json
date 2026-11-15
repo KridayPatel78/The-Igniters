@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-99] SAFFIRE-II ranks highest with a total score of 90.8/100 because it covers the prevention focus, matches the ventilated scenario with a 20 cm/s airflow, and tests solid habitat materials including cotton, Nomex, PMMA, silicone, and SIBAL. \n\n[PSI-98] SAFFIRE-I ranks second with a total score of 90.3/100 by similarly covering the prevention focus, matching the 20 cm/s ventilated airflow, and testing solid habitat materials such as fabric and SIBAL. \n\n[PSI-25] BASS-II ranks third with a total score of 75.9/100 because while it covers the prevention focus and tests solid habitat materials like fabric, Nomex, PMMA, and SIBAL, it received zero points for airflow due to unreported data in the tables."
+}

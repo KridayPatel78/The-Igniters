@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "The top-ranked investigation [PSI-101] (total 65/100) and second-ranked [PSI-102] (total 64/100) score highest because both cover the detection focus (20/20), match the ventilated scenario's airflow (15/15), and test solid habitat materials including Kapton (20/20). [PSI-101] slightly edges out [PSI-102] due to a higher richness score (10/10 vs. 9/10) from having 109 test rows and 5 measurement types compared to [PSI-102]'s 4 test rows and 4 measurement types. Third-ranked [PSI-60] (total 28/100) also covers the detection focus (20/20), but earns a lower total because its airflow is not reported (0/15), it tests gaseous fuels with no habitat materials named (6/20), and it lacks an experimental table (2/10 richness)."
+}

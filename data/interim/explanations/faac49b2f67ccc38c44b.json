@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-I [PSI-98] ranks first with a total score of 55.0/100 because it achieved maximum scores in material (20/20), covering the prevention focus in pillars (20/20), and data richness (10/10). SAFFIRE-II [PSI-99] ranks second with an identical total score of 55.0/100, matching SAFFIRE-I by earning 20/20 for material, 20/20 for pillars, and 10/10 for richness. SAFFIRE-III [PSI-100] ranks third with a total score of 55/100, securing those same full scores in material (20/20), pillars (20/20), and richness (10/10) while receiving 5/15 for airflow and 0/35 due to its oxygen level not being reported."
+}

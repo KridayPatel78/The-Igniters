@@ -67,9 +67,9 @@
           "criterion": "richness",
           "points": 10,
           "max": 10,
-          "reason": "Experimental table with 4 test rows (+5); 5 measurement types (+5) → 10/10",
+          "reason": "Experimental table with 2 test rows (+5); 5 measurement types (+5) → 10/10",
           "inputs": {
-            "test_rows": 4,
+            "test_rows": 2,
             "measurements": 5
           }
         }
@@ -148,9 +148,9 @@
           "criterion": "richness",
           "points": 10,
           "max": 10,
-          "reason": "Experimental table with 15 test rows (+5); 5 measurement types (+5) → 10/10",
+          "reason": "Experimental table with 9 test rows (+5); 5 measurement types (+5) → 10/10",
           "inputs": {
-            "test_rows": 15,
+            "test_rows": 9,
             "measurements": 5
           }
         }
@@ -370,9 +370,9 @@
           "criterion": "richness",
           "points": 9,
           "max": 10,
-          "reason": "Experimental table with 8 test rows (+5); 4 measurement types (+4) → 9/10",
+          "reason": "Experimental table with 4 test rows (+5); 4 measurement types (+4) → 9/10",
           "inputs": {
-            "test_rows": 8,
+            "test_rows": 4,
             "measurements": 4
           }
         }
@@ -949,9 +949,9 @@
           "criterion": "richness",
           "points": 10,
           "max": 10,
-          "reason": "Experimental table with 32 test rows (+5); 6 measurement types (+5) → 10/10",
+          "reason": "Experimental table with 20 test rows (+5); 6 measurement types (+5) → 10/10",
           "inputs": {
-            "test_rows": 32,
+            "test_rows": 20,
             "measurements": 6
           }
         }
@@ -1091,9 +1091,9 @@
           "criterion": "richness",
           "points": 9,
           "max": 10,
-          "reason": "Experimental table with 469 test rows (+5); 4 measurement types (+4) → 9/10",
+          "reason": "Experimental table with 435 test rows (+5); 4 measurement types (+4) → 9/10",
           "inputs": {
-            "test_rows": 469,
+            "test_rows": 435,
             "measurements": 4
           }
         }
@@ -1303,9 +1303,9 @@
           "criterion": "richness",
           "points": 9,
           "max": 10,
-          "reason": "Experimental table with 87 test rows (+5); 4 measurement types (+4) → 9/10",
+          "reason": "Experimental table with 79 test rows (+5); 4 measurement types (+4) → 9/10",
           "inputs": {
-            "test_rows": 87,
+            "test_rows": 79,
             "measurements": 4
           }
         }

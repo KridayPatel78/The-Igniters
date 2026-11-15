@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "SAFFIRE-II [PSI-99] ranks first with a total score of 80.8/100, followed by SAFFIRE-I [PSI-98] at 80.3/100, because both achieve perfect scores for testing solid habitat materials (20/20), covering the prevention focus (20/20), and richness (10/10), alongside 5/15 for airflow and strong oxygen scores (25.8/35 and 25.3/35). BASS-II [PSI-25] ranks third with a score of 75.9/100, matching the top two with full 20/20 scores for material and pillars (prevention and suppression) and 10/10 for richness, while earning the highest oxygen score at 25.9/35. However, BASS-II [PSI-25] scores lower overall than the SAFFIRE investigations because its airflow was not reported in the PSI tables, resulting in 0/15 points for flow."
+}
