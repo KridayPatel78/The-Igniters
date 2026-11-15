@@ -191,7 +191,7 @@ export function ExploreView({ scenarios, focuses, state, results, explanation, f
             questions={[
               top ? `Why is ${facts[top.psi_id].name} relevant to fire safety in a ${shortLabel(current).toLowerCase()}?` : "How does fire spread on fabric in microgravity?",
               "Which experiments tested oxygen levels above 30%?",
-              "Is there any fire data for Moon or Mars gravity?",
+              "Is there any fire data for Moon gravity?",
             ]}
           />
         </div>

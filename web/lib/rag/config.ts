@@ -36,7 +36,7 @@ export interface RagConfig {
   resources: { min_words: number };
 }
 
-/** True when the question is about Moon / Mars / partial or reduced gravity. */
+/** True when the question is about the Moon / partial or reduced gravity. */
 export function mentionsKnownGap(question: string, cfg: Pick<RagConfig, "known_gaps">): boolean {
   const q = question.toLowerCase();
   return cfg.known_gaps.trigger_keywords.some((k) =>

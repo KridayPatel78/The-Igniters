@@ -6,7 +6,7 @@ Usage:
     python -m scripts.export_web --no-llm     # deterministic explanations / summaries only
 
 Writes: investigations.json, provenance.json, scenarios.json, rankings/<scenario>__<focus>__<ventilation>.json
-(32 files), explanations.json, demo_answers.json, rag_index.json, rag_eval.json, rag_config.json,
+(24 files), explanations.json, demo_answers.json, rag_index.json, rag_eval.json, rag_config.json,
 rag_prompt.md, sources.json (with 2-sentence summaries), rubric.md, explorer.json (every test row with
 O2 / pressure / airflow in common units), meta.json.
 """

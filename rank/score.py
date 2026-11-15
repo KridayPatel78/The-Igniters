@@ -137,7 +137,7 @@ def notes_for(record: dict, scenario_key: str) -> list[str]:
     notes = [f"Tested at {_fmt_range(p)} psi; scenario is {_fmt(scenario['pressure_psi'])} psi" if p
              else "Pressure not reported"]
     if record.get("gravity") == "partial_mimic":
-        notes.append("Electric field used to mimic partial gravity — closest PSI data to Moon/Mars gravity")
+        notes.append("Electric field used to mimic partial gravity — closest PSI data to Moon gravity")
     if scenario_key in C.PARTIAL_GRAVITY_SCENARIOS:
         notes.append("No real partial-gravity combustion data exists yet (LUCI, FM2 planned)")
     if record.get("extraction_confidence") == "llm_unchecked":

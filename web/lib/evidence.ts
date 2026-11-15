@@ -148,7 +148,6 @@ export function buildEvidence(rows: ExplorerRow[], familyOf: (id: string) => Fam
       return [reg.key, { key: reg.key, label: reg.label, rule: reg.rule, o2: reg.o2, p: reg.p, count: inside.length, families, investigations: t.investigations }];
     }),
   );
-  regions.mars_habitat = { ...regions.moon_base, key: "mars_habitat", label: "Mars habitat (assumed same as Moon base)" };
 
   return {
     o2Edges: O2_EDGES,

@@ -150,7 +150,7 @@ describe("answer flow", () => {
 describe("known gaps trigger", () => {
   it.each([
     ["Is there fire data for Moon gravity?", true],
-    ["What about Martian habitats?", true],
+    ["What about Martian habitats?", false],
     ["Reduced gravity flame spread", true],
     ["How was smoke detection tested?", false],
   ])("%s -> %s", (q, expected) => {

@@ -80,7 +80,7 @@ summaries), so re-running the pipeline costs nothing unless the inputs change.
 | `extract/checked_ids.txt` | IDs a person verified against the PSI page → `extraction_confidence: "checked"` |
 | `data/processed/rag_index.json` | Librarian search index: 378 chunks + Gemini vectors (768 dims, base64 float32) |
 | `data/processed/rag_eval.json` | Parity fixture: query vectors + expected chunk IDs for the 8 demo questions |
-| `web/data/` | Website input written by `scripts/export_web.py` (32 rankings, explanations, index, sources, meta) |
+| `web/data/` | Website input written by `scripts/export_web.py` (24 rankings, explanations, index, sources, meta) |
 
 Numbers (O2 %, pressure in psi, airflow in cm/s) come only from experimental-table CSV columns;
 if a column or unit is unclear the value is `null` and listed in `extract/REVIEW.md`.

@@ -36,7 +36,7 @@ cited NASA passages.
 | `/ask` | Question box (≤ 300 chars), 8 instant demo answers, numbered citations, mode badge, Known-gaps note for Moon/Mars/partial-gravity questions |
 | `/context` | Apollo 1, Apollo 13, Mir; Earth spin-offs; Known gaps |
 | `/method` | Principles, data flow, the rubric (`rubric.md`), PSI coverage, all 10 data sources, build metadata |
-| `/data/rankings/[key]` | The 32 precomputed rankings as static JSON (used by the Explore page) |
+| `/data/rankings/[key]` | The 24 precomputed rankings as static JSON (used by the Explore page) |
 
 ## `/api/ask` (the only runtime Gemini call)
 - **Logic:** `lib/rag/` is a 1:1 port of `rag/ask.py`. It uses the same chunks and vectors
@@ -63,8 +63,8 @@ cited NASA passages.
 |---|---|
 | `investigations.json`, `provenance.json` | Cards, detail pages, compare table, provenance |
 | `scenarios.json` | Scenario picker |
-| `rankings/<scenario>__<focus>__<ventilation>.json` | 32 precomputed rankings with full breakdowns, `matches_focus`, `callouts` |
-| `explanations.json` | "Why these rank highest" for all 32 combinations |
+| `rankings/<scenario>__<focus>__<ventilation>.json` | 24 precomputed rankings with full breakdowns, `matches_focus`, `callouts` |
+| `explanations.json` | "Why these rank highest" for all 24 combinations |
 | `demo_answers.json` | Instant demo answers / offline fallback |
 | `rag_index.json`, `rag_config.json`, `rag_prompt.md` | Search index, shared settings, answer prompt |
 | `rag_eval.json` | Parity fixture for the retrieval tests |

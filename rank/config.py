@@ -7,11 +7,9 @@ SCENARIOS = {
     "iss_cabin": {"label": "ISS cabin", "o2_percent": 21, "pressure_psi": 14.7, "ventilation": "ventilated"},
     "moon_base": {"label": "Moon base / pressurized rover", "o2_percent": 30, "pressure_psi": 10.2,
                   "ventilation": "ventilated"},
-    "mars_habitat": {"label": "Mars habitat (assumed same as Moon base)", "o2_percent": 30, "pressure_psi": 10.2,
-                     "ventilation": "ventilated"},
     "spacesuit": {"label": "Spacesuit", "o2_percent": 100, "pressure_psi": 4.3, "ventilation": "quiescent"},
 }
-PARTIAL_GRAVITY_SCENARIOS = {"moon_base", "mars_habitat"}
+PARTIAL_GRAVITY_SCENARIOS = {"moon_base"}
 # Investigations pinned as callouts per scenario group (shown, never scored).
 PARTIAL_GRAVITY_MIMIC_CALLOUT = "closest_to_partial_gravity"
 

@@ -4,7 +4,7 @@ import { CHALLENGE_URL } from "@/lib/format";
 import { ExternalLink } from "./ui";
 
 export const KNOWN_GAPS_TEXT =
-  "No combustion experiments in NASA's PSI repository were run in real Moon or Mars gravity. The closest is PSI-22 (ACME E-FIELD Flames), which used an electric field to mimic partial gravity. NASA plans partial-gravity fire experiments such as LUCI and FM2. Until that data exists, microgravity and Earth-gravity results can bound what happens in between.";
+  "No combustion experiments in NASA's PSI repository were run in real Moon gravity. The closest is PSI-22 (ACME E-FIELD Flames), which used an electric field to mimic partial gravity. NASA plans partial-gravity fire experiments such as LUCI and FM2. Until that data exists, microgravity and Earth-gravity results can bound what happens in between.";
 
 /** The fixed Known-gaps note (Explore, Ask, Context), with its three sources. */
 export function KnownGaps({ compact = false }: { compact?: boolean }) {

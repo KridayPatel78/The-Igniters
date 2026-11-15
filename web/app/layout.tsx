@@ -12,7 +12,7 @@ const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] }
 export const metadata: Metadata = {
   title: { default: "Flame in Freefall · NASA fire-safety dashboard", template: "%s · Flame in Freefall" },
   description:
-    "Rank, compare and question NASA's 24 microgravity combustion investigations (PSI) for fire safety in spacecraft, Moon and Mars habitats. Every number traces to NASA data.",
+    "Rank, compare and question NASA's 24 microgravity combustion investigations (PSI) for fire safety in spacecraft, space stations, Moon bases and spacesuits. Every number traces to NASA data.",
 };
 
 export const viewport: Viewport = { themeColor: "#ffffff", colorScheme: "light" };

@@ -1,6 +1,6 @@
 import { getRanking, rankingKeys } from "@/lib/data";
 
-// The 32 precomputed rankings, prerendered at build time as static JSON (no scoring in TypeScript).
+// The 24 precomputed rankings, prerendered at build time as static JSON (no scoring in TypeScript).
 export const dynamic = "force-static";
 export const dynamicParams = false;
 

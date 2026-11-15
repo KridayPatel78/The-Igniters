@@ -13,7 +13,7 @@ const PIPELINE = [
   ["Download", "24 PSI investigations + 22 experimental-table CSVs, fetched once and committed."],
   ["Clean", "Each CSV row is checked: footnotes, flow-visualization references, note-only rows, unmeasured 'same conditions' rows and exact duplicates are set aside, and typos are flagged. Cells are never edited."],
   ["Organize", "Contract fields from PSI JSON, numbers only from cleaned CSV rows, IgniterX only for text fields - each with a verbatim quote."],
-  ["Score", "A transparent 0–100 rubric in Python, precomputed for all 32 scenario × focus × ventilation combinations."],
+  ["Score", "A transparent 0–100 rubric in Python, precomputed for all 24 habitat × focus × ventilation combinations."],
   ["Index", "378 passages from PSI and 8 NASA pages, embedded with Gemini for the question box."],
   ["Export", "Everything the website shows is written to static files; the site never re-scores."],
 ];

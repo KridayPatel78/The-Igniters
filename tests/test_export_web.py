@@ -11,10 +11,10 @@ RECORDS = json.loads((ROOT / "data" / "processed" / "investigations.json").read_
 IDS = {r["psi_id"] for r in RECORDS}
 
 
-def test_export_rankings_32_files_each_with_all_24(tmp_path):
+def test_export_rankings_24_files_each_with_all_24(tmp_path):
     rankings = E.export_rankings(tmp_path)
     files = sorted((tmp_path / "rankings").glob("*.json"))
-    assert len(files) == len(rankings) == 32
+    assert len(files) == len(rankings) == 24
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
         assert path.stem == f"{data['scenario']}__{data['focus']}__{data['ventilation']}"
@@ -39,9 +39,9 @@ def test_explanations_offline_and_cached(tmp_path, monkeypatch):
     monkeypatch.setattr(E, "INTERIM", tmp_path / "interim")  # empty cache, no LLM -> offline text
     rankings = E.export_rankings(tmp_path)
     modes = E.export_explanations(tmp_path, rankings, use_llm=False)
-    assert modes == {"llm": 0, "offline": 32}
+    assert modes == {"llm": 0, "offline": 24}
     data = json.loads((tmp_path / "explanations.json").read_text(encoding="utf-8"))
-    assert len(data) == 32 and all(v["top3"][0]["psi_id"] in v["explanation"] for v in data.values())
+    assert len(data) == 24 and all(v["top3"][0]["psi_id"] in v["explanation"] for v in data.values())
 
 
 def test_summary_fallback_without_llm(tmp_path, monkeypatch):
@@ -58,7 +58,7 @@ def test_exported_web_data_is_complete():
                  "demo_answers.json", "rag_index.json", "rag_eval.json", "rag_config.json", "rag_prompt.md",
                  "sources.json", "rubric.md", "meta.json"):
         assert (out / name).exists(), name
-    assert len(list((out / "rankings").glob("*.json"))) == 32
+    assert len(list((out / "rankings").glob("*.json"))) == 24
     assert (out / "rag_config.json").read_bytes() == (ROOT / "rag" / "config.json").read_bytes()
     assert (out / "rag_prompt.md").read_bytes() == (ROOT / "rag" / "prompt.md").read_bytes()
     sources = json.loads((out / "sources.json").read_text(encoding="utf-8"))

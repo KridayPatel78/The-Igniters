@@ -964,7 +964,7 @@
       "matches_focus": true,
       "notes": [
         "Pressure not reported",
-        "Electric field used to mimic partial gravity — closest PSI data to Moon/Mars gravity",
+        "Electric field used to mimic partial gravity — closest PSI data to Moon gravity",
         "No real partial-gravity combustion data exists yet (LUCI, FM2 planned)",
         "Some fields AI-extracted, not yet hand-checked"
       ],

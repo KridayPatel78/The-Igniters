@@ -26,7 +26,6 @@ the reason says so.**
 |---|---|---|---|---|
 | `iss_cabin` | ISS cabin | 21 % | 14.7 psi | ventilated |
 | `moon_base` | Moon base / pressurized rover | 30 % | 10.2 psi | ventilated |
-| `mars_habitat` | Mars habitat (assumed same as Moon base) | 30 % | 10.2 psi | ventilated |
 | `spacesuit` | Spacesuit | 100 % | 4.3 psi | quiescent |
 
 `ventilation` can be flipped by the user ("ventilation failed" = `quiescent`).
@@ -77,14 +76,14 @@ the reason says so.**
 ## Notes shown with every score (never scored)
 - Pressure: "Tested at X psi; scenario is Y psi", or "Pressure not reported".
 - E-FIELD Flames (`gravity = partial_mimic`): "Electric field used to mimic partial gravity —
-  closest PSI data to Moon/Mars gravity".
-- Moon / Mars scenarios: "No real partial-gravity combustion data exists yet (LUCI, FM2
+  closest PSI data to Moon gravity".
+- Moon base scenario: "No real partial-gravity combustion data exists yet (LUCI, FM2
   planned)".
 - `extraction_confidence = llm_unchecked`: "Some fields AI-extracted, not yet hand-checked".
 
 ## Callouts (pinned cards, never scored)
 - `callouts: ["closest_to_partial_gravity"]` on E-FIELD Flames (`gravity = partial_mimic`) in the
-  `moon_base` and `mars_habitat` scenarios.
+  `moon_base` scenario.
 
 ## What each result looks like
 ```json

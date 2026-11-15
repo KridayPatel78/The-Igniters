@@ -204,7 +204,6 @@ def test_focus_all_sorts_by_total_and_everything_matches():
 
 
 @pytest.mark.parametrize("scenario, expected", [("moon_base", ["closest_to_partial_gravity"]),
-                                                ("mars_habitat", ["closest_to_partial_gravity"]),
                                                 ("iss_cabin", []), ("spacesuit", [])])
 def test_partial_gravity_callout(scenario, expected):
     assert S.score_investigation(make(gravity="partial_mimic"), scenario)["callouts"] == expected

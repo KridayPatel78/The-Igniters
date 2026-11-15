@@ -163,7 +163,7 @@ export default function ControlsPage() {
           pressure
             ? `Pressure is reported for ${pressure.n} of ${members.length}${pressure.lo > 10.2 ? `, and none below ${fmtNumber(pressure.lo)} psi` : ""}.`
             : `None report cabin pressure, so low-pressure habitats (≤ 10.2 psi) are untested here.`,
-          `No experiment ran in real Moon or Mars gravity.`,
+          `No experiment ran in real Moon gravity.`,
         ];
         return (
           <section key={p.key} id={p.key} aria-labelledby={`${p.key}-title`} className="scroll-mt-20 border border-rule bg-panel p-5 sm:p-6">

@@ -14,11 +14,11 @@ describe("data loaders", () => {
     }
   });
 
-  it("32 rankings, each with all 24 IDs and an explanation", () => {
+  it("24 rankings, each with all 24 IDs and an explanation", () => {
     const keys = rankingKeys();
     const ids = new Set(getInvestigations().map((r) => r.psi_id));
     const explanations = getExplanations();
-    expect(keys).toHaveLength(32);
+    expect(keys).toHaveLength(24);
     for (const key of keys) {
       const ranking = getRanking(key);
       expect(new Set(ranking.results.map((r) => r.psi_id))).toEqual(ids);
@@ -28,7 +28,7 @@ describe("data loaders", () => {
   });
 
   it("scenarios, sources, demo answers", () => {
-    expect(getScenarios().scenarios.map((s) => s.key)).toEqual(["iss_cabin", "moon_base", "mars_habitat", "spacesuit"]);
+    expect(getScenarios().scenarios.map((s) => s.key)).toEqual(["iss_cabin", "moon_base", "spacesuit"]);
     expect(getSources()).toHaveLength(10);
     expect(getDemoAnswers()).toHaveLength(8);
   });

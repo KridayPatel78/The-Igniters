@@ -1163,7 +1163,7 @@
       "matches_focus": false,
       "notes": [
         "Pressure not reported",
-        "Electric field used to mimic partial gravity — closest PSI data to Moon/Mars gravity",
+        "Electric field used to mimic partial gravity — closest PSI data to Moon gravity",
         "Some fields AI-extracted, not yet hand-checked"
       ],
       "callouts": []

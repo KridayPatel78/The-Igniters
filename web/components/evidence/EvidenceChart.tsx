@@ -63,7 +63,7 @@ export function EvidenceChart({
   names: Names;
   /** one-line habitat context shown in the reading panel */
   note?: string;
-  /** add the gravity row (Moon / Mars: no tests) under the chart */
+  /** add the gravity row (Moon: no tests) under the chart */
   showGravity?: boolean;
   /** when the chart holds one investigation's rows only, name it so sentences stay scoped */
   subject?: string;
@@ -73,8 +73,18 @@ export function EvidenceChart({
   const rows = pEdges.length - 1;
   // Several cells can be selected: click toggles a cell, Shift+click selects the rectangle from the last cell.
   // Keys: "o2:p" for chart cells, "s:o2" for the no-pressure strip.
-  const [selected, setSelected] = useState<Set<string>>(() => new Set());
-  const [anchor, setAnchor] = useState<string | null>(null);
+  // The selection belongs to the habitat it was made in: switching habitat starts with nothing selected.
+  const [selection, setSelection] = useState<{ scenario: string; cells: Set<string>; anchor: string | null }>(() => ({
+    scenario: scenarioKey,
+    cells: new Set(),
+    anchor: null,
+  }));
+  const current = selection.scenario === scenarioKey;
+  const selected = current ? selection.cells : new Set<string>();
+  const anchor = current ? selection.anchor : null;
+  const setSelected = (fn: (prev: Set<string>) => Set<string>) =>
+    setSelection((s) => ({ ...s, scenario: scenarioKey, cells: fn(s.scenario === scenarioKey ? s.cells : new Set()) }));
+  const setAnchor = (a: string | null) => setSelection((s) => ({ ...s, scenario: scenarioKey, anchor: a }));
   const byKey = new Map(cells.map((c) => [`${c.o2}:${c.p}`, c]));
   const stripByKey = new Map(strip.map((x) => [`s:${x.o2}`, x]));
   const region = regions[scenarioKey] ?? regions.moon_base;
@@ -101,13 +111,9 @@ export function EvidenceChart({
     const next = new Set<string>();
     for (let o = region.o2[0]; o <= region.o2[1]; o++)
       for (let p = region.p[0]; p <= region.p[1]; p++) if (byKey.has(`${o}:${p}`)) next.add(`${o}:${p}`);
-    setSelected(next);
-    setAnchor(null);
+    setSelection({ scenario: scenarioKey, cells: next, anchor: null });
   }
-  const clear = () => {
-    setSelected(new Set());
-    setAnchor(null);
-  };
+  const clear = () => setSelection({ scenario: scenarioKey, cells: new Set(), anchor: null });
   const picked = [...selected]
     .map((k) => (k.startsWith("s:") ? stripByKey.get(k) : byKey.get(k)))
     .filter((c): c is Cell | Strip => Boolean(c));
@@ -132,10 +138,10 @@ export function EvidenceChart({
     height: `${((region.p[1] - region.p[0] + 1) / rows) * 100}%`,
   };
   const solidMissing = region.count > 0 && region.families.solid === 0;
-  const lunar = scenarioKey === "moon_base" || scenarioKey === "mars_habitat";
-  // Moon-base limits drawn as rules: the 30% O₂ column edge and the 10.2 psi row edge.
-  const o2Rule = o2Edges.indexOf(30);
-  const pRule = pEdges.indexOf(10.2);
+  const lunar = scenarioKey === "moon_base";
+  // Moon-base limits drawn as rules (Moon base only): the 30% O₂ column edge and the 10.2 psi row edge.
+  const o2Rule = lunar ? o2Edges.indexOf(30) : -1;
+  const pRule = lunar ? pEdges.indexOf(10.2) : -1;
 
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_22rem]">
@@ -237,13 +243,12 @@ export function EvidenceChart({
             {showGravity ? (
               <div className="mt-2 flex items-center">
                 <div className="w-16 shrink-0 pr-2 text-right text-[11px] leading-tight text-muted">gravity</div>
-                <div className="grid flex-1 grid-cols-[2fr_1fr_1fr] gap-px border border-rule bg-rule text-[12px]">
+                <div className="grid flex-1 grid-cols-[2fr_1fr] gap-px border border-rule bg-rule text-[12px]">
                   <div className="flex h-9 items-center bg-panel-3 px-2 font-semibold text-ink">
                     Microgravity: all {totals.rows.toLocaleString("en-US")} rows
                   </div>
                   {[
                     ["moon_base", "Moon 0.16 g"],
-                    ["mars_habitat", "Mars 0.38 g"],
                   ].map(([key, label]) => (
                     <div
                       key={key}
@@ -330,7 +335,7 @@ export function EvidenceChart({
             {lunar ? (
               <>
                 {" "}
-                And <span className="font-semibold text-flame">none ran in {scenarioKey === "moon_base" ? "Moon" : "Mars"} gravity</span>: every PSI test is microgravity.
+                And <span className="font-semibold text-flame">none ran in Moon gravity</span>: every PSI test is microgravity.
               </>
             ) : null}
           </p>
@@ -359,9 +364,11 @@ export function EvidenceChart({
             <li className="flex items-center gap-2">
               <span aria-hidden className="h-3.5 w-3.5 shrink-0 border-[3px] border-flame-fill" /> Selected habitat
             </li>
-            <li className="flex items-center gap-2">
-              <span aria-hidden className="h-0 w-3.5 shrink-0 border-t-2 border-dashed border-flame" /> Moon-base limits: 30% O₂, 10.2 psi
-            </li>
+            {lunar ? (
+              <li className="flex items-center gap-2">
+                <span aria-hidden className="h-0 w-3.5 shrink-0 border-t-2 border-dashed border-flame" /> Moon-base limits: 30% O₂, 10.2 psi
+              </li>
+            ) : null}
             <li className="text-muted">
               Number in a cell = test rows. Click cells to select several; Shift+click selects a range. The bottom strip is clickable too.
             </li>

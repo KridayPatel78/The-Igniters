@@ -32,7 +32,6 @@
       "detection": "detector detectors detect",
       "detect": "detector detectors detection",
       "moon": "lunar",
-      "mars": "martian",
       "gravity": "microgravity reduced-gravity partial",
       "oxygen": "o2",
       "risk": "hazard hazards danger safety"
@@ -49,9 +48,9 @@
     "offline_note": "AI summary unavailable — here are the most relevant NASA passages."
   },
   "known_gaps": {
-    "trigger_keywords": ["moon", "mars", "lunar", "martian", "partial gravity", "partial-gravity",
+    "trigger_keywords": ["moon", "lunar", "partial gravity", "partial-gravity",
                          "reduced gravity", "reduced-gravity"],
-    "note": "PSI has no real partial-gravity (Moon or Mars) combustion data yet. E-FIELD Flames (PSI-22) only mimics partial gravity with an electric field; FM2 and LUCI are planned. Microgravity and normal-gravity results can bound intermediate gravity."
+    "note": "PSI has no real partial-gravity (Moon) combustion data yet. E-FIELD Flames (PSI-22) only mimics partial gravity with an electric field; FM2 and LUCI are planned. Microgravity and normal-gravity results can bound intermediate gravity."
   },
   "resources": {"min_words": 200}
 }

@@ -4,7 +4,7 @@
   {"id": 3, "question": "How was smoke detection tested on the ISS, and why does it matter?"},
   {"id": 4, "question": "What gases were used to put out flames, and in which experiment?"},
   {"id": 5, "question": "What happened in the Mir fire in 1997, and what was learned?"},
-  {"id": 6, "question": "Is there any fire data for Moon or Mars gravity?"},
+  {"id": 6, "question": "Is there any fire data for Moon gravity?"},
   {"id": 7, "question": "What are cool flames and why are they a risk?"},
   {"id": 8, "question": "What is the best pizza topping?", "expect": "not_covered"}
 ]

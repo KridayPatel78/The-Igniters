@@ -144,7 +144,6 @@ export const SCENARIO_NOTE: Record<string, string> = {
   iss_cabin: "Earth-like air: 21% O₂ at 14.7 psi, the baseline most fire tests were run at.",
   moon_base:
     "Planned ≥ 30% O₂ at ≤ 10.2 psi to shorten pre-breathing before moonwalks: over 40% more O₂ than Earth air, so materials burn more readily.",
-  mars_habitat: "Assumed to match the Moon base (≥ 30% O₂, ≤ 10.2 psi) until NASA sets a Mars atmosphere.",
   spacesuit: "100% O₂ at only 4.3 psi so the suit stays flexible: the most oxygen-rich environment crews live in.",
 };
 
