@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "[PSI-101] ranks highest with a score of 55/100 and [PSI-102] ranks second with 54/100 because both cover the detection focus (20/20), score maximum points for solid habitat materials (20/20), and include ventilated airflow (5/15), with [PSI-101] gaining an edge due to higher richness (10/10 with 109 test rows and 5 measurement types compared to 9/10 with 8 test rows and 4 measurement types). [PSI-60] ranks third with a total score of 28/100 because, while it also covers the detection focus (20/20), it scores much lower on materials (6/20 for gaseous fuels without habitat materials), receives 0/15 for unreported airflow, and has a richness score of only 2/10."
+}

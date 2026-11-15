@@ -83,7 +83,7 @@ def test_o2_column_matching(header, is_o2):
 
 
 @pytest.mark.parametrize("header, is_airflow", [
-    ("Air Flow (cm/s)", True), ("Flow Velocity (cm/s)", True),
+    ("Air Flow (cm/s)", True), ("Flow Velocity (cm/s)", True), ("Inlet velocity (cm/s)", True),
     ("Fuel Rate (mg/s)", False), ("mtot (mg/s)", False), ("Fuel Rate (sccm)", False),
 ])
 def test_airflow_column_matching(header, is_airflow):

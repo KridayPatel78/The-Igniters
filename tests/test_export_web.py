@@ -63,3 +63,27 @@ def test_exported_web_data_is_complete():
     assert (out / "rag_prompt.md").read_bytes() == (ROOT / "rag" / "prompt.md").read_bytes()
     sources = json.loads((out / "sources.json").read_text(encoding="utf-8"))
     assert len(sources) == 10 and all(s.get("summary") for s in sources if s["type"] == "text")
+
+
+# --- data explorer -----------------------------------------------------------------------------
+
+def test_text_o2_reads_only_cells_that_mention_o2():
+    from scripts.export_web import text_o2
+    assert text_o2("~30% and ~21% O2 with He") == [30.0, 21.0]
+    assert text_o2("50% C2H4 with N2") == []
+
+
+def test_explorer_rows_trace_to_csv_columns():
+    from scripts.export_web import explorer_rows
+    records = json.loads((ROOT / "data" / "processed" / "investigations.json").read_text(encoding="utf-8"))
+    data = explorer_rows(records)
+    assert len(data["rows"]) == sum(len(r["tests"]) for r in records)
+    saffire = [r for r in data["rows"] if r["psi_id"] == "PSI-98" and r["o2"]]
+    assert saffire and all(21 <= r["o2"][0] <= r["o2"][1] <= 22 for r in saffire)
+    same_r = data["tables"]["PSI-101_Experimental table_SAME-R.csv"]
+    assert same_r["columns"]["airflow"] == "Inlet velocity (cm/s)"
+    for table in data["tables"].values():  # a value is only reported with the column it came from
+        rows = [r for r in data["rows"] if r["table"] in data["tables"] and data["tables"][r["table"]] is table]
+        for kind in ("o2", "pressure", "airflow"):
+            if table["columns"][kind] is None:
+                assert all(r[kind] is None for r in rows)

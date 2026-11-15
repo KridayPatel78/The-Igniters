@@ -1,0 +1,4 @@
+{
+  "model": "gemini-3.6-flash",
+  "output": "Top-ranked [PSI-101] leads with a total score of 55/100 because it covers the detection focus (20/20), uses solid fuels containing habitat materials like foam and Kapton (20/20), and achieves maximum richness (10/10) with 109 test rows and 5 measurement types. Second-ranked [PSI-102] follows closely with a total score of 54/100, also covering the detection focus (20/20) and using solid habitat materials like silicone and Kapton (20/20), but earning slightly fewer richness points (9/10) from 8 test rows and 4 measurement types. Third-ranked [PSI-60] scores 28/100 overall because while it still covers the detection focus (20/20), it uses gaseous fuels (6/20), has no reported airflow (0/15), and lacks an experimental table (2/10 richness)."
+}

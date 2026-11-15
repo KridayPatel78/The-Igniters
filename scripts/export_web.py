@@ -7,7 +7,8 @@ Usage:
 
 Writes: investigations.json, provenance.json, scenarios.json, rankings/<scenario>__<focus>__<ventilation>.json
 (32 files), explanations.json, demo_answers.json, rag_index.json, rag_eval.json, rag_config.json,
-rag_prompt.md, sources.json (with 2-sentence summaries), rubric.md, meta.json.
+rag_prompt.md, sources.json (with 2-sentence summaries), rubric.md, explorer.json (every test row with
+O2 / pressure / airflow in common units), meta.json.
 """
 from __future__ import annotations
 
@@ -225,6 +226,103 @@ def export_sources(out: Path, use_llm: bool) -> dict[str, int]:
     return modes
 
 
+# --- data explorer: one row per experimental-table row ----------------------------------------
+
+# Columns that name the fuel or sample (first match per table wins); never rates, mass-flow
+# controllers, concentrations or bottle IDs unless nothing better exists.
+MATERIAL_HEADERS = re.compile(r"material|^fuel$|^fuel type$|^sample \(fuel type\)$|^sample type$", re.I)
+MATERIAL_FALLBACK = re.compile(r"^fuel bottle$", re.I)
+SIZE_HEADERS = re.compile(r"thick|samle thick|sample length|sample width|initial diameter|nozzle|burner size", re.I)
+OUTCOME_HEADERS = re.compile(r"burn time|spread|burn length|extinction|burning rate|ignition time|hot ignition|"
+                             r"self.?-?ext|flames ignited|cool flame\?|weight loss|rt/r0", re.I)
+
+
+# O2 written as text in a non-O2 column (same source as extract/overrides/PSI-23.json).
+TEXT_O2_COLUMNS = {"PSI-23": "Atmosphere*"}
+TEXT_O2 = re.compile(r"(\d+(?:\.\d+)?)%")
+
+
+def text_o2(cell: str) -> list[float]:
+    """'~30% and ~21% O2 with He' -> [30.0, 21.0]; only when the cell mentions O2."""
+    return [float(x) for x in TEXT_O2.findall(cell)] if "o2" in cell.lower() else []
+
+
+def _row_range(kind: str, header: str, row: dict, column_rows: list[dict]) -> list[float] | None:
+    """One row's value(s) for an O2 / pressure / airflow column, converted like csv_fields.find_range."""
+    from extract import csv_fields as cf
+
+    cell = row.get(header, "")
+    nums = cf.parse_numbers(cell)
+    if not nums:
+        return None
+    if kind == "o2":
+        column = [n for r in column_rows for n in cf.parse_numbers(r.get(header, ""))]
+        values = [n * (100.0 if cf.o2_is_fraction(header, column) else 1.0) for n in nums]
+    else:
+        values, problem = cf._column_values(header, [row], kind)
+        if problem or not values:
+            return None
+    low, high = cf.VALID[kind]
+    good = [v for v in values if (v > low if kind in cf.STRICT_LOW else v >= low) and (high is None or v <= high)]
+    return [round(min(good), 4), round(max(good), 4)] if good else None
+
+
+def _first(headers: list[str], matcher) -> str | None:
+    if matcher is None:
+        return None
+    from extract import csv_fields as cf
+
+    found = [h for h in headers if matcher(h)]
+    initial = [h for h in found if not cf.FINAL.search(h)]
+    return (initial or found or [None])[0]
+
+
+def explorer_rows(records: list[dict]) -> dict:
+    """Every test row with material, sample size, outcomes (raw text) and O2 / pressure / airflow
+    in %, psi, cm/s. Values use the same column rules and unit conversions as the investigation
+    ranges; anything not stated stays null. `tables` names the CSV column behind each value."""
+    from extract import csv_fields as cf
+    from extract.normalize import load_tables
+
+    tables, rows = {}, []
+    for rec in records:
+        for file_name, headers, table_rows in load_tables(rec["psi_id"]):
+            cols = {kind: _first(headers, m) for kind, m in
+                    (("o2", cf.is_o2_column), ("pressure", cf.is_pressure_column), ("airflow", cf.is_airflow_column))}
+            text_col = TEXT_O2_COLUMNS.get(rec["psi_id"])
+            material = next((h for h in headers if MATERIAL_HEADERS.search(h.strip())), None) or                 next((h for h in headers if MATERIAL_FALLBACK.search(h.strip())), None)
+            sizes = [h for h in headers if SIZE_HEADERS.search(h)]
+            outcomes = [h for h in headers if OUTCOME_HEADERS.search(h)]
+            used = {k: False for k in cols}
+            for i, row in enumerate(table_rows):
+                entry = {"psi_id": rec["psi_id"], "table": file_name, "row": i + 1,
+                         "material": ((row.get(material) or "").strip() or None) if material else None,
+                         "size": "; ".join(f"{h.strip()}: {row[h].strip()}" for h in sizes if (row.get(h) or "").strip()) or None,
+                         "outcomes": "; ".join(f"{h.strip()}: {row[h].strip()}" for h in outcomes if (row.get(h) or "").strip()) or None}
+                for kind, header in cols.items():
+                    entry[kind] = _row_range(kind, header, row, table_rows) if header else None
+                if entry["o2"] is None and text_col and (pcts := text_o2(row.get(text_col, ""))):
+                    entry["o2"] = [min(pcts), max(pcts)]
+                    cols["o2"] = text_col
+                for kind in cols:
+                    used[kind] |= entry[kind] is not None
+                rows.append(entry)
+            tables[file_name] = {"psi_id": rec["psi_id"], "rows": len(table_rows),
+                                 "columns": {k: (h.strip() if h and used[k] else None) for k, h in cols.items()},
+                                 "material_column": material.strip() if material else None,
+                                 "size_columns": [h.strip() for h in sizes],
+                                 "outcome_columns": [h.strip() for h in outcomes]}
+    return {"tables": tables, "rows": rows}
+
+
+def export_explorer(out: Path, records: list[dict]) -> int:
+    data = explorer_rows(records)
+    path = out / "explorer.json"
+    # Compact (no indent): ~2,000 rows; the site fetches it only on the Data Explorer page.
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    return len(data["rows"])
+
+
 # --- meta + main -----------------------------------------------------------------------------
 
 def data_commit() -> str:
@@ -247,7 +345,8 @@ def export_meta(out: Path, records: list[dict], index: dict, counts: dict) -> No
         "counts": {"investigations": len(records),
                    "experimental_table_csvs": len(list((ROOT / "data" / "raw").glob("PSI-*/*.csv"))),
                    "investigations_with_tables": sum(1 for r in records if r["tests"]),
-                   "chunks": len(index["chunks"]), "ranking_files": counts["rankings"]},
+                   "chunks": len(index["chunks"]), "ranking_files": counts["rankings"],
+                   "test_rows": counts.get("explorer_rows", 0)},
         "models": {"embedding": f"{index['model']} ({index['dims']} dims)",
                    "answer": os.environ.get("GEMINI_MODEL") or rag_config.DEFAULT_MODEL,
                    "extraction": extraction_models},
@@ -279,6 +378,7 @@ def main(argv: list[str] | None = None, out: Path = WEB_DATA) -> None:
     counts = {"rankings": len(rankings),
               "explanations": export_explanations(out, rankings, not args.no_llm),
               "summaries": export_sources(out, not args.no_llm)}
+    counts["explorer_rows"] = export_explorer(out, records)
     index = json.loads((PROCESSED / "rag_index.json").read_text(encoding="utf-8"))
     export_meta(out, records, index, counts)
 

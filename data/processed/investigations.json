@@ -6827,7 +6827,10 @@
       "30% C2H4 with He",
       "35% H2 with He"
     ],
-    "o2_percent_range": null,
+    "o2_percent_range": [
+      21.0,
+      30.0
+    ],
     "pressure_psi_range": null,
     "airflow_cm_s_range": null,
     "gravity": "microgravity",
@@ -29708,7 +29711,10 @@
     ],
     "o2_percent_range": null,
     "pressure_psi_range": null,
-    "airflow_cm_s_range": null,
+    "airflow_cm_s_range": [
+      0.0,
+      8.1
+    ],
     "gravity": "microgravity",
     "pillars": [
       "detection"

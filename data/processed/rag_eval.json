@@ -40,19 +40,19 @@
         "fact:PSI-159",
         "res:researchers-guide-iss-combustion:80",
         "compare:airflow",
+        "fact:PSI-23",
         "psi:PSI-20:objective:0",
-        "fact:PSI-20",
-        "fact:PSI-25"
+        "fact:PSI-20"
       ],
       "similarities": [
-        0.7501,
+        0.7505,
         0.675,
         0.6605,
         0.6901,
-        0.6753,
+        0.6749,
+        0.6554,
         0.6722,
-        0.6563,
-        0.6622
+        0.6563
       ],
       "mode": "llm"
     },
@@ -205,9 +205,9 @@
         0.4751,
         0.5178,
         0.4756,
-        0.5102,
+        0.5128,
         0.51,
-        0.5097,
+        0.5045,
         0.5041
       ],
       "mode": "not_covered"

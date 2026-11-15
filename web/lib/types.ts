@@ -100,6 +100,31 @@ export interface Source {
   summary_mode?: "llm" | "first_sentences";
 }
 
+/** explorer.json: every experimental-table row with O2 / pressure / airflow in %, psi, cm/s. */
+export interface ExplorerRow {
+  psi_id: string;
+  table: string;
+  row: number;
+  material: string | null;
+  size: string | null;
+  outcomes: string | null;
+  o2: Range;
+  pressure: Range;
+  airflow: Range;
+}
+export interface ExplorerTable {
+  psi_id: string;
+  rows: number;
+  columns: { o2: string | null; pressure: string | null; airflow: string | null };
+  material_column: string | null;
+  size_columns: string[];
+  outcome_columns: string[];
+}
+export interface ExplorerData {
+  tables: Record<string, ExplorerTable>;
+  rows: ExplorerRow[];
+}
+
 export interface Meta {
   exported_at: string;
   data_commit: string;

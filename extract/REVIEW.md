@@ -29,7 +29,7 @@ Check each value against the PSI page, tick the box, and when an ID is fully ver
 | PSI-20 | ACME BRE | gas | prevention | 21-40 | - | - | 18 | 2 | 0 |
 | PSI-21 | ACME CLD Flame | gas | prevention | - | - | - | 32 | 4 | 0 |
 | PSI-22 | ACME E-FIELD Flames | gas | prevention | - | - | - | 32 | 3 | 0 |
-| PSI-23 | ACME s-Flame | gas | prevention | - | - | - | 18 | 4 | 0 |
+| PSI-23 | ACME s-Flame | gas | prevention | 21-30 | - | - | 18 | 3 | 0 |
 | PSI-159 | ACME CFI-G | gas | prevention | 12-85 | 7.1849-48.0061 | - | 333 | 2 | 0 |
 | PSI-69 | FLEX | liquid_droplet | suppression | 12-34 | 10.177-44.8594 | - | 274 | 2 | 0 |
 | PSI-68 | FLEX-2 | liquid_droplet | suppression | 17-30 | 7.3479-44.0877 | 0.1-5 | 8 | 1 | 0 |
@@ -42,7 +42,7 @@ Check each value against the PSI page, tick the box, and when an ID is fully ver
 | PSI-107 | SPICE | gas | - | - | - | 0.66-85.28 | 469 | 5 | 0 |
 | PSI-106 | SLICE | gas | - | - | - | - | 12 | 6 | 0 |
 | PSI-102 | SAME | solid | detection | - | - | 5-10 | 8 | 3 | 0 |
-| PSI-101 | SAME-R | solid | detection | - | - | - | 109 | 4 | 0 |
+| PSI-101 | SAME-R | solid | detection | - | - | 0-8.1 | 109 | 3 | 0 |
 | PSI-47 | DAFT / DAFT-2 | mixed | detection | - | - | - | 2 | 5 | 0 |
 | PSI-60 | not reported | gas | detection | - | - | - | 0 | 8 | 1 |
 | PSI-62 | not reported | solid | prevention | - | - | - | 0 | 7 | 0 |
@@ -147,7 +147,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-101 · DOI: 1
 | [ ] | fuels | ["Pyrell intumescent fire-retardant foam", "DBP", "Kapton"] | llm<br>> "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"<br>> "Pyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples,"<br>> "Kapton, 51, B.L. new formula, 21-Jul, 8.1, 1.38, 60, 11, 8, 38" |
 | [ ] | o2_percent_range | null | `csv:none` |
 | [ ] | pressure_psi_range | null | `csv:none` |
-| [ ] | airflow_cm_s_range | null | `csv:none` |
+| [ ] | airflow_cm_s_range | [0.0, 8.1] | `csv:PSI-101_Experimental table_SAME-R.csv:Inlet velocity (cm/s)` |
 | [ ] | gravity | microgravity | `rule:gravity_seed` |
 | [ ] | pillars | ["detection"] | `rule:pillar_seed` |
 | [ ] | measurements | ["thermal precipitators", "TEM grids", "M-pass", "DustTrak", "ionization detector"] | llm<br>> "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles."<br>> "One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles."<br>> "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."<br>> "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME."<br>> "3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME." |
@@ -307,7 +307,7 @@ PSI page: https://psi.nasa.gov/physci/repo/data/investigations/PSI-23 · DOI: 10
 | [ ] | hardware | Combustion Integrated Rack (CIR), ACME | `json:experimentHardware` |
 | [ ] | fuel_phase | gas | `rule:fuel_phase_seed` |
 | [ ] | fuels | ["50% C2H4 with N2", "50% C2H4 with N3", "45% CH4 with N2", "45% CH4 with N3", "100% H2", "44.4% H2 with CH4", "66.7% H2 with CH4", "25% H2, 20% CH4, with He", "20% H2, 25% CH4, with He", "30% H2, 15% CH4, with He", "45% H2 with He", "45% CH4 with He", "20% C2H4 with He", "25% C2H4 with He", "30% C2H4 with He", "35% H2 with He"] | llm<br>> "Fuel Bottle: 50% C2H4 with N2"<br>> "Fuel Bottle: 50% C2H4 with N3"<br>> "Fuel Bottle: 45% CH4 with N2"<br>> "Fuel Bottle: 45% CH4 with N3"<br>> "Fuel Bottle: 100% H2"<br>> "Fuel Bottle: 44.4% H2 with CH4"<br>> "Fuel Bottle: 66.7% H2 with CH4"<br>> "Fuel Bottle: 25% H2, 20% CH4, with He"<br>> "Fuel Bottle: 20% H2, 25% CH4, with He"<br>> "Fuel Bottle: 30% H2, 15% CH4, with He"<br>> "Fuel Bottle: 45% H2 with He"<br>> "Fuel Bottle: 45% CH4 with He"<br>> "Fuel Bottle: 20% C2H4 with He"<br>> "Fuel Bottle: 25% C2H4 with He"<br>> "Fuel Bottle: 30% C2H4 with He"<br>> "Fuel Bottle: 35% H2 with He" |
-| [ ] | o2_percent_range | null | `csv:none` |
+| [ ] | o2_percent_range | [21.0, 30.0] | override<br>> "csv:PSI-23_Experimental table_ACME s-Flame.csv:Atmosphere* - cells "~21% O2 with N2", "~30% O2 with He", "~30% and ~21% O2 with He" (PSI writes these as approximate, '~'). The header 'Atmosphere*' is not an O2 column name, so the CSV rule cannot read it." |
 | [ ] | pressure_psi_range | null | `csv:none` |
 | [ ] | airflow_cm_s_range | null | `csv:none` |
 | [ ] | gravity | microgravity | `rule:gravity_seed` |

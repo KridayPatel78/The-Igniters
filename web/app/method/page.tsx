@@ -28,8 +28,8 @@ export default function MethodPage() {
   const coverage = coverageText().split("\n");
   return (
     <div className="space-y-12">
-      <header className="max-w-3xl space-y-2 pt-4">
-        <h1 className="text-3xl font-semibold tracking-tight">Method &amp; sources</h1>
+      <header className="max-w-3xl space-y-3">
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">Method &amp; sources</h1>
         <p className="text-muted">
           AI explains, rules decide. Every score is plain arithmetic on values that trace to NASA&apos;s data, and every
           point comes with its reason.
@@ -54,7 +54,7 @@ export default function MethodPage() {
         <SectionTitle id="pipeline">How the data flows</SectionTitle>
         <ol className="grid gap-3 md:grid-cols-5">
           {PIPELINE.map(([step, text], i) => (
-            <li key={step} className="relative rounded-xl border border-line bg-panel p-4">
+            <li key={step} className="relative border border-rule bg-panel p-4">
               <p className="font-mono text-xs text-faint">{i + 1}</p>
               <p className="font-semibold">{step}</p>
               <p className="mt-1 text-sm text-muted">{text}</p>
@@ -87,11 +87,11 @@ export default function MethodPage() {
         </SectionTitle>
         <ol className="space-y-3">
           {sources.map((s, i) => (
-            <li key={s.id} className="rounded-xl border border-line bg-panel p-4">
+            <li key={s.id} className="border border-rule bg-panel p-4">
               <div className="flex flex-wrap items-baseline gap-x-3">
                 <span className="font-mono text-sm text-faint">{i + 1}</span>
                 <ExternalLink href={s.url} className="font-semibold">{s.title}</ExternalLink>
-                <span className="text-xs uppercase tracking-wide text-faint">{s.type.replace("_", " ")}</span>
+                <span className="text-xs font-semibold text-muted">{s.type.replace("_", " ")}</span>
               </div>
               {s.id === "psi-combustion" ? (
                 <p className="mt-1 text-sm text-muted">Core dataset: 24 investigations, cited by DOI; numbers in this site come only from here.</p>

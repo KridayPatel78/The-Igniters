@@ -1,0 +1,6 @@
+{
+  "_source": {
+    "o2_percent_range": "csv:PSI-23_Experimental table_ACME s-Flame.csv:Atmosphere* - cells \"~21% O2 with N2\", \"~30% O2 with He\", \"~30% and ~21% O2 with He\" (PSI writes these as approximate, '~'). The header 'Atmosphere*' is not an O2 column name, so the CSV rule cannot read it."
+  },
+  "o2_percent_range": [21.0, 30.0]
+}

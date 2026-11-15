@@ -4,9 +4,11 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { displayName } from "./format";
 import type { RagConfig } from "./rag/config";
 import type {
   DemoAnswer,
+  ExplorerData,
   Explanation,
   Focus,
   Investigation,
@@ -41,6 +43,7 @@ export const getSources = () => readJson<Source[]>("sources.json");
 export const getMeta = () => readJson<Meta>("meta.json");
 export const getRagConfig = () => readJson<RagConfig>("rag_config.json");
 export const getRubric = () => readText("rubric.md");
+export const getExplorer = () => readJson<ExplorerData>("explorer.json");
 
 export function getInvestigation(id: string): Investigation | undefined {
   return getInvestigations().find((r) => r.psi_id === id);
@@ -74,10 +77,19 @@ export function getCardFacts() {
     getInvestigations().map((r) => [
       r.psi_id,
       {
+        name: displayName(r.acronym, r.psi_id),
+        title: r.title,
+        doi: r.doi,
         pillars: r.pillars,
         fuel_phase: r.fuel_phase,
         phase_unknown: isPlaceholder(provenance[r.psi_id]?.fuel_phase),
         unchecked: r.extraction_confidence === "llm_unchecked",
+        gravity: r.gravity,
+        o2: r.o2_percent_range,
+        pressure: r.pressure_psi_range,
+        airflow: r.airflow_cm_s_range,
+        measurements: r.measurements.length,
+        tests: r.tests.length,
       },
     ]),
   );

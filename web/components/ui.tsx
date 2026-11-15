@@ -5,11 +5,11 @@ import type { FuelPhase, Pillar } from "@/lib/types";
 export function Chip({ children, tone = "default", title }: { children: ReactNode; tone?: "default" | "pillar" | "warn"; title?: string }) {
   const tones = {
     default: "border-line bg-panel-2 text-muted",
-    pillar: "border-crit-pillars/40 bg-crit-pillars/10 text-crit-pillars",
+    pillar: "border-pillar/40 bg-pillar/10 text-pillar",
     warn: "border-warn/40 bg-warn/10 text-warn",
   };
   return (
-    <span title={title} className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${tones[tone]}`}>
+    <span title={title} className={`inline-flex items-center border px-1.5 py-0.5 text-xs font-medium ${tones[tone]}`}>
       {children}
     </span>
   );
@@ -47,7 +47,7 @@ export function UncheckedBadge() {
 export function SectionTitle({ children, id, sub }: { children: ReactNode; id?: string; sub?: ReactNode }) {
   return (
     <div className="mb-4">
-      <h2 id={id} className="scroll-mt-24 text-xl font-semibold tracking-tight">
+      <h2 id={id} className="scroll-mt-24 text-xl font-semibold tracking-tight text-ink">
         {children}
       </h2>
       {sub ? <p className="mt-1 text-sm text-muted">{sub}</p> : null}
@@ -56,7 +56,7 @@ export function SectionTitle({ children, id, sub }: { children: ReactNode; id?: 
 }
 
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-xl border border-line bg-panel ${className}`}>{children}</div>;
+  return <div className={`border border-rule bg-panel ${className}`}>{children}</div>;
 }
 
 export function ExternalLink({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {

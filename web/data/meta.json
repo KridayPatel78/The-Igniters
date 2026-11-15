@@ -1,12 +1,13 @@
 {
-  "exported_at": "2026-11-14T22:50:23+00:00",
-  "data_commit": "b8c91d624e8508f4030c4c1550478542abe98498",
+  "exported_at": "2026-11-15T04:20:38+00:00",
+  "data_commit": "1b86b009c9ad8b5fb8c0a6fbe0eb6dfb620494c0",
   "counts": {
     "investigations": 24,
     "experimental_table_csvs": 22,
     "investigations_with_tables": 20,
     "chunks": 378,
-    "ranking_files": 32
+    "ranking_files": 32,
+    "test_rows": 2009
   },
   "models": {
     "embedding": "gemini-embedding-001 (768 dims)",

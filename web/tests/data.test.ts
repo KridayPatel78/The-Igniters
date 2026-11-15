@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { getDemoAnswers, getExplanations, getInvestigations, getRanking, getScenarios, getSources, rankingKeys, toLite } from "@/lib/data";
+import { getCardFacts, getDemoAnswers, getExplanations, getExplorer, getInvestigations, getRanking, getScenarios, getSources, rankingKeys, toLite } from "@/lib/data";
+import { displayName, NOT_REPORTED } from "@/lib/format";
 import { parseAskBody, RateLimiter } from "@/lib/rateLimit";
 
 describe("data loaders", () => {
@@ -37,6 +38,28 @@ describe("data loaders", () => {
     expect("tests" in lite).toBe(false);
     expect(lite.test_count).toBeGreaterThan(100);
     expect(lite.test_tables).toHaveLength(2);
+  });
+});
+
+describe("dashboard data", () => {
+  it("explorer has one row per NASA test row, values only where a column exists", () => {
+    const { rows, tables } = getExplorer();
+    expect(rows).toHaveLength(getInvestigations().reduce((n, r) => n + r.tests.length, 0));
+    for (const r of rows) {
+      const t = tables[r.table];
+      expect(t.psi_id).toBe(r.psi_id);
+      for (const k of ["o2", "pressure", "airflow"] as const) {
+        if (r[k]) {
+          expect(t.columns[k]).toBeTruthy();
+          expect(r[k]![0]).toBeLessThanOrEqual(r[k]![1]);
+        }
+      }
+    }
+  });
+
+  it("every investigation gets a readable name (no 'not reported' labels)", () => {
+    for (const r of getInvestigations()) expect(displayName(r.acronym, r.psi_id)).not.toBe(NOT_REPORTED);
+    expect(Object.values(getCardFacts()).every((f) => f.name && f.name !== NOT_REPORTED)).toBe(true);
   });
 });
 
