@@ -356,7 +356,7 @@ export function DataExplorer({ investigations, scenarios }: { investigations: Ex
               </ScatterChart>
             </ResponsiveContainer>
           ) : (
-            <p role="status" className="grid h-full place-items-center text-muted">Loading 2,000+ test rows…</p>
+            <p role="status" className="grid h-full place-items-center text-muted">Loading the test rows…</p>
           )}
         </div>
       </section>
