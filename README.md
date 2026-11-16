@@ -10,6 +10,9 @@ Moon bases, pressurized rovers and spacesuits).
 
 **Team:** Kriday Patel, Khushmeet Kaur Bade, Abhay Verma and Narshini Chuckowry.
 
+**Project demo (7 slides):** [PDF](demo/The_Igniters_Flame_in_Freefall.pdf) ·
+[PowerPoint](demo/The_Igniters_Flame_in_Freefall.pptx)
+
 ## NASA data used
 
 All 10 resources from the challenge page. The core dataset is the
@@ -45,3 +48,20 @@ formulas: [`rank/README.md`](rank/README.md).
   for every claim.
 - `data/raw/` is committed as a fixed PSI snapshot, so results are reproducible without
   re-fetching.
+
+## Use of AI (Super Intelligence) tools
+
+In line with the NASA Space Apps SI rules, this project used AI as follows:
+
+- **In the product:** Google Gemini (`gemini-3.6-flash`) drafts text-derived fields of the
+  investigation records (each must quote the PSI text it came from, or it is dropped), writes the
+  ranking explanations and resource summaries (checked against their sources), and powers the
+  IgniterX question box. `gemini-embedding-001` builds the search index. All AI-written text on the
+  site is labelled as IgniterX output and cites its NASA source. AI never decides a score: the
+  rubric in `rank/` does.
+- **In development:** the team used AI coding assistants in Google Antigravity to help write and test
+  code, documentation and the demo slides. The team reviewed,
+  directed and tested all of it.
+- **Images:** no AI-generated images or video are used. Slide images are screenshots of our own
+  website. No NASA logos or branding are used.
+
